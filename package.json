@@ -6,7 +6,8 @@
     "build": "next build",
     "dev": "next dev --turbo",
     "start": "next start",
-    "postinstall": "fumadocs-mdx"
+    "postinstall": "fumadocs-mdx",
+    "watch": "fumadocs-mdx watch"
   },
   "dependencies": {
     "next": "15.3.2",
