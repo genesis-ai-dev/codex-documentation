@@ -1,8 +1,8 @@
 {
   "title": "Getting Started",
   "pages": [
-    "index",
     "initial-setup",
+    "index",
     "create-account",
     "logging-in",
     "creating-project",
