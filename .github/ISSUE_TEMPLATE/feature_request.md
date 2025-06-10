@@ -1,20 +1,32 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: ''
+name: ✨ Feature Request
+about: Suggest a new feature or improvement for the documentation site
+title: '[FEATURE] '
+labels: 'enhancement'
 assignees: ''
-
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+## Feature Description
+<!-- Clear description of the feature you'd like to see -->
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+## Problem/Use Case
+<!-- What problem does this solve? What's your use case? -->
+<!-- Example: "As a developer reading the docs, I need..." -->
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+## Proposed Solution
+<!-- How should this feature work? -->
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+## Alternative Solutions
+<!-- Any alternative approaches you've considered? -->
+
+## Documentation Impact
+<!-- Which sections of the docs would this affect? -->
+- [ ] Content pages
+- [ ] Navigation/UI
+- [ ] Search functionality
+- [ ] Mobile experience
+- [ ] Accessibility
+- [ ] Other: <!-- specify -->
+
+## Additional Context
+<!-- Screenshots, mockups, examples from other sites, etc. -->
