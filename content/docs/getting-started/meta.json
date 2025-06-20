@@ -1,6 +1,7 @@
 {
   "title": "Getting Started",
   "pages": [
+    "download-codex",
     "initial-setup",
     "index",
     "create-account",

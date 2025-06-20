@@ -1,0 +1,222 @@
+---
+title: Download Codex Editor
+description: Download and install Codex Editor on macOS, Windows, and Linux
+---
+
+Download Codex Editor to start your Bible translation journey. The application is available for macOS, Windows, and Linux platforms, with specific builds optimized for different system architectures.
+
+## Download Options
+
+Visit [codexeditor.app](https://codexeditor.app/) to access the download page with platform-specific options.
+
+<Cards>
+  <Card 
+    href="#macos-installation" 
+    title="macOS"
+  >
+    Download for Apple Silicon or Intel Macs
+  </Card>
+  <Card 
+    href="#windows-installation" 
+    title="Windows"
+  >
+    Download x64 installer for Windows 10 or later
+  </Card>
+  <Card 
+    href="#linux-installation" 
+    title="Linux"
+  >
+    Download for x64, arm64, or armhf architectures
+  </Card>
+</Cards>
+
+## macOS Installation
+
+### Determining Your Mac Type
+
+Before downloading, you need to identify your Mac's processor type:
+
+**Apple Silicon Macs (M1, M2, M3, M4 series)**
+- Released 2020 or later
+- Check: Apple Menu → About This Mac → look for "Apple M1", "Apple M2", etc.
+- Or run in Terminal: `uname -m` (returns "arm64")
+
+**Intel Macs**
+- Released before 2020 (and some 2020 models)
+- Check: Apple Menu → About This Mac → look for "Intel" processor
+- Or run in Terminal: `uname -m` (returns "x86_64")
+
+### Download Steps for macOS
+
+1. Visit [codexeditor.app](https://codexeditor.app/)
+2. Click the **macOS** button at the top of the page
+3. Select your Mac type from the dropdown:
+   - **Apple Silicon** - for M1, M2, M3, M4 Macs
+   - **Intel** - for older Intel-based Macs
+4. The download will begin automatically
+
+### macOS Installation Process
+
+1. Once downloaded, open the `.dmg` file
+2. Drag Codex Editor to your Applications folder
+3. **Important**: Since this is an unsigned application, you'll see a security warning
+
+#### Handling macOS Security (Unsigned Application)
+
+When you first open Codex Editor, macOS will show a warning because the application isn't code-signed by Apple:
+
+1. **First Launch**: Right-click the app and select "Open" (don't double-click)
+2. Click "Open" in the security dialog
+3. **Alternative Method**: 
+   - Go to System Preferences → Security & Privacy → General
+   - You'll see a message about Codex Editor being blocked
+   - Click "Open Anyway"
+
+**What "Unsigned" Means**: The application hasn't been submitted to Apple for notarization, which means Apple hasn't verified it. This doesn't mean it's unsafe, but macOS requires this extra step to run it.
+
+## Windows Installation
+
+### Download Steps for Windows
+
+1. Visit [codexeditor.app](https://codexeditor.app/)
+2. Click the **Windows** button at the top of the page
+3. The download will start automatically (x64.exe file)
+
+### Windows Installation Process
+
+1. Locate the downloaded `.exe` file (usually in Downloads folder)
+2. Double-click to run the installer
+3. **Important**: You may see Windows security warnings
+
+#### Handling Windows Security (Unsigned Application)
+
+Windows may show security warnings because the application isn't code-signed:
+
+1. **SmartScreen Warning**: If you see "Windows protected your PC"
+   - Click "More info"
+   - Click "Run anyway"
+2. **User Account Control**: Allow the installer to make changes
+3. Follow the installation wizard prompts
+
+**What "Unsigned" Means**: The application doesn't have a digital signature from a recognized certificate authority. Windows flags this as potentially risky, but it's safe to proceed.
+
+## Linux Installation
+
+### Determining Your Linux Architecture
+
+Before downloading, identify your system architecture:
+
+```bash
+# Check your architecture
+uname -m
+```
+
+**Common Results:**
+- `x86_64` → Choose **x64**
+- `aarch64` → Choose **arm64**  
+- `armv7l` → Choose **armhf**
+
+### Download Steps for Linux
+
+1. Visit [codexeditor.app](https://codexeditor.app/)
+2. Click the **Linux** button at the top of the page
+3. Select your architecture from the dropdown:
+   - **x64** - Most common for desktop/laptop computers
+   - **arm64** - For 64-bit ARM processors (like Raspberry Pi 4, Apple Silicon via emulation)
+   - **armhf** - For 32-bit ARM processors (older Raspberry Pi models)
+
+### Linux Installation Process
+
+The exact installation method depends on the package format provided:
+
+#### For .deb packages (Ubuntu/Debian):
+```bash
+sudo dpkg -i codex-editor*.deb
+sudo apt-get install -f  # Fix dependencies if needed
+```
+
+#### For .AppImage files:
+```bash
+chmod +x codex-editor*.AppImage
+./codex-editor*.AppImage
+```
+
+#### For .tar.gz archives:
+```bash
+tar -xzf codex-editor*.tar.gz
+cd codex-editor
+./codex-editor
+```
+
+#### Handling Linux Security (Unsigned Application)
+
+Linux systems may require additional permissions:
+
+1. **Executable Permissions**: You may need to make the file executable
+   ```bash
+   chmod +x codex-editor
+   ```
+
+2. **Package Manager Warnings**: Some package managers may warn about unsigned packages
+   - This is normal for applications not in official repositories
+   - Proceed with installation when prompted
+
+**What "Unsigned" Means**: The package isn't signed with a recognized GPG key or distributed through official repositories. This is common for third-party applications.
+
+## System Requirements
+
+### Minimum Requirements
+- **RAM**: 4GB (8GB recommended)
+- **Storage**: 2GB free space
+- **Internet**: Required for initial setup and cloud features
+
+### Supported Operating Systems
+- **macOS**: 10.14 (Mojave) or later
+- **Windows**: Windows 10 or later
+- **Linux**: Most modern distributions
+
+## Post-Installation Steps
+
+After successfully installing Codex Editor:
+
+1. **Launch the Application**: Find and open Codex Editor
+2. **Create Your Account**: [Set up your user account](/getting-started/create-account)
+3. **Initial Setup**: [Configure your workspace](/getting-started/initial-setup)
+4. **Start Your Project**: [Create your first translation project](/getting-started/creating-project)
+
+## Troubleshooting Download Issues
+
+### Common Problems
+
+**Download Interrupted**
+- Check your internet connection
+- Try downloading again
+- Use a different browser if issues persist
+
+**Can't Determine Architecture**
+- Use system information tools in your OS
+- When in doubt, try x64 first (most common)
+
+**Installation Blocked by Security**
+- Follow the unsigned application steps above
+- Contact your system administrator if on a managed system
+
+**File Won't Run**
+- Check file permissions (Linux/macOS)
+- Verify you downloaded the correct architecture
+- Try running as administrator (Windows)
+
+## Need Help?
+
+If you encounter issues during download or installation:
+- Check our [FAQ section](/faq) for common solutions
+- Contact our support team for technical assistance
+- Join our community forum for peer support
+
+## Next Steps
+
+Once Codex Editor is installed and running:
+
+1. [Create your account](/getting-started/create-account)
+2. [Complete the initial setup](/getting-started/initial-setup)
+3. [Start your first translation project](/getting-started/creating-project) 

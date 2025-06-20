@@ -1,5 +1,6 @@
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { Cards, Card } from 'fumadocs-ui/components/card';
+import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 import { LoomVideo } from '@/components/loom-video';
 import type { MDXComponents } from 'mdx/types';
 import { ContributingNotice } from './components/contributing-notice';
@@ -10,6 +11,8 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ...defaultMdxComponents,
     Cards,
     Card,
+    Accordion,
+    Accordions,
     LoomVideo,
     ContributingNotice,
     ...components,
