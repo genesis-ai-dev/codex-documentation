@@ -7,7 +7,7 @@ export function ContributingNotice() {
         title="Help improve Codex Documentation!👋"
         description={
           <>
-            Found a bug, have a suggestion, or want to request new content? <br />
+            Found a bug in our documentation, have a suggestion, or want to request new content? <br />
             <span className="underline">Click this card to let us know on GitHub.</span>
           </>
         }
