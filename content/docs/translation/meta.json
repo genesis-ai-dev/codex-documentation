@@ -4,6 +4,7 @@
     "batch-translation",
     "ai-instructions",
     "smart-edits",
-    "back-translations"
+    "back-translations",
+    "child-cell-editing"
   ]
 } 
