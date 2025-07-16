@@ -1,6 +1,8 @@
 {
   "title": "Project Management",
   "pages": [
+    "project-settings",
+    "creating-project",
     "opening-and-closing-projects",
     "navigating-codex",
     "backup-your-project",

@@ -1,8 +1,9 @@
 {
   "title": "Translation",
   "pages": [
+    "translation-process",
+    "copilot-ai-configuration",
     "batch-translation",
-    "ai-instructions",
     "smart-edits",
     "back-translations",
     "child-cell-editing"

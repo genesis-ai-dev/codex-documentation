@@ -3,13 +3,6 @@
   "pages": [
     "download-codex",
     "initial-setup",
-    "index",
-    "create-account",
-    "logging-in",
-    "creating-project",
-    "setting-languages",
-    "importing-texts",
-    "downloading-bible",
-    "project-settings"
+    "language-and-source-configuration"
   ]
 } 
