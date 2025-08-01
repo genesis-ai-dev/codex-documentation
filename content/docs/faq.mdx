@@ -1,17 +1,52 @@
 ---
 title: Frequently Asked Questions
-description: Common questions and answers about Codex Editor - AI-powered translation platform for religious texts and collaborative Bible translation projects
+description: Common questions and answers about Codex Editor
 ---
 
-# Frequently Asked Questions
-
-Find answers to the most common questions about Codex Editor. If you can't find what you're looking for, check our documentation or contact support.
+Here you can find the answers to the most common questions about Codex Editor. If you can't find what you're looking for, check our documentation, or contact support and we'll be happy to help you.
 
 ## Getting Started
 
 <Accordions type="multiple">
-  <Accordion title="What is Codex Editor?">
-    Codex Editor is an AI-powered translation platform designed specifically for translating religious texts, with a primary focus on Bible translation. It combines advanced artificial intelligence with intuitive project management tools to help you create accurate, contextually appropriate translations.
+  <Accordion title="What is a source text and a target text?">
+    A source text is the original content you want to translate—like a Bible passage, subtitle file, or document. A target text *is the translation or transformed version of that content.<br/><br/>
+    <img src="/images/example-ui.png" alt="Example showing source text on the left and target text on the right" style={{maxWidth: '100%', borderRadius: '8px'}} />
+  </Accordion>
+
+  <Accordion title="I just created a project—what should I do next?">
+    Start by importing your source files. Codex will automatically create blank target files that you can translate into or populate by importing existing translations.
+  </Accordion>
+
+  <Accordion title="How do I import my files?">
+    Click "Import Source Files" to add original texts. If you already have translations, use "Import Target Files" instead to align them with your source content.
+  </Accordion>
+
+  <Accordion title="What happens if I import a file with the same name as one I already imported?">
+    Codex will show a warning and ask if you want to overwrite the existing file. If confirmed, the original file will be replaced.
+  </Accordion>
+
+  <Accordion title="Can I import more files later?">
+    Yes. You can add source or target files anytime as your project grows.
+  </Accordion>
+
+  <Accordion title="What if I have a partially complete translation from another tool?">
+    Import it using the Target Files option. Codex will attempt to match your existing source content with the incoming translations.
+  </Accordion>
+
+  <Accordion title="What file formats can I import?">
+    Supported formats depend on available plugins, but include DOCX, SRT (subtitles), USFM, Markdown, and others. Click "Import Source Files" to view available importers.
+  </Accordion>
+
+  <Accordion title="What if my source and target files don't align perfectly?">
+    Codex matches content based on references, not just line numbers. Even imperfectly structured files can often be aligned effectively.
+  </Accordion>
+
+  <Accordion title="Can I undo or delete an import?">
+    Not automatically—you'll need to manually delete any files you imported by mistake, or re-import a corrected version.
+  </Accordion>
+
+  <Accordion title="Where can I get help or ask questions?">
+    Join our Discord server: <a href="https://discord.gg/6kVJTEXYEp">https://discord.gg/6kVJTEXYEp</a>. You'll find active support from the Codex team and other users.
   </Accordion>
 
    <Accordion title="How do I download Codex Editor?">
@@ -44,6 +79,46 @@ Find answers to the most common questions about Codex Editor. If you can't find 
 ## Projects and Setup
 
 <Accordions type="multiple">
+  <Accordion title="How do I start importing files?">
+    Click "Import Source Files" to bring in original content (Bible texts, documents, subtitles, etc.). Codex will create matching empty translation files automatically.
+  </Accordion>
+
+  <Accordion title="Can I import more files later?">
+    Yes. You can import additional source or target files at any time. They will be added to your project and matched accordingly.
+  </Accordion>
+
+  <Accordion title="What happens if I re-import a source file with the same name?">
+    Codex will warn you and ask if you want to overwrite the existing file. If you confirm, the old file will be replaced.
+  </Accordion>
+
+  <Accordion title="I already have partial translations—can I import them?">
+    Yes. Use "Target Files" to import translated versions. Codex will try to align them with your existing source files based on file name and structure.
+  </Accordion>
+
+  <Accordion title="What formats are supported?">
+    Click "Import Source Files" to view all supported formats. These include plain text, USFM, DOCX, SRT (subtitles), Markdown, and more via plugin architecture.
+  </Accordion>
+
+  <Accordion title="What if my translation file structure doesn't match the source?">
+    Codex aligns by reference, not by line number, so even if the structure varies, it will attempt to match segments based on content anchors.
+  </Accordion>
+
+  <Accordion title="Can I use Codex with non-Bible content?">
+    Yes. Codex supports any structured or semi-structured text: documents, conversations, videos (with transcripts), etc.
+  </Accordion>
+
+  <Accordion title="How do I get help if something goes wrong?">
+    Join our Discord community for support: <a href="https://discord.gg/6kVJTEXYEp">https://discord.gg/6kVJTEXYEp</a>. Our team and other users can help troubleshoot or guide you.
+  </Accordion>
+
+  <Accordion title="Can I bulk import?">
+    Yes. You can drag and drop multiple files or use ZIP archives with a clear folder structure.
+  </Accordion>
+
+  <Accordion title="Can I undo an import?">
+    Not currently. If you need to reverse an import, manually delete the file from the project or re-import a corrected version.
+  </Accordion>
+
   <Accordion title="How do I create my first project?">
     1. Click "Create New Project" from your dashboard<br/>
     2. Choose a descriptive project name (spaces will be replaced with dashes)<br/>
@@ -61,14 +136,6 @@ Find answers to the most common questions about Codex Editor. If you can't find 
   
   <Accordion title="Can I work on multiple projects?">
     Yes, you can create and manage multiple projects. Each project is independent with its own settings, languages, and collaboration features.
-  </Accordion>
-  
-  <Accordion title="How do I import source texts?">
-    You have three options:<br/>
-    1. **Download a Bible** Access hundreds of translations from our extensive library<br/>
-    2. **Import a file** Upload your own text documents<br/>
-    3. **Import a spreadsheet** Use structured data from spreadsheet formats<br/><br/>
-    <a href="/docs/getting-started/language-and-source-configuration">See complete text import guide →</a>
   </Accordion>
 </Accordions>
 
