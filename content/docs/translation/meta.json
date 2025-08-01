@@ -5,6 +5,8 @@
     "copilot-ai-configuration",
     "batch-translation",
     "smart-edits",
+    "merging-editing-source-cells",
+    "exporting-project",
     "back-translations",
     "child-cell-editing"
   ]
