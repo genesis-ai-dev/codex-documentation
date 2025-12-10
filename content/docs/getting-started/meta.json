@@ -2,7 +2,6 @@
   "title": "Getting Started",
   "pages": [
     "download-codex",
-    "initial-setup",
-    "language-and-source-configuration"
+    "initial-setup"
   ]
-} 
+}

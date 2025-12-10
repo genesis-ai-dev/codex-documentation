@@ -3,7 +3,9 @@
   "pages": [
     "project-settings",
     "creating-project",
+    "source-and-target-languages",
     "opening-and-closing-projects",
+    "importing-files",
     "navigating-codex",
     "backup-your-project",
     "sharing-managing-projects",
@@ -12,4 +14,4 @@
     "update-extensions",
     "reporting-bugs"
   ]
-} 
+}

@@ -1,0 +1,486 @@
+---
+title: Video & Audio Translation
+description: Learn how to translate video subtitles and work with audio recordings in Codex Editor
+---
+
+Codex Editor provides powerful features for translating video subtitles and managing audio recordings. Whether you're dubbing content, translating subtitles, or creating audio Bibles, Codex handles the complex timing and synchronization automatically.
+
+## Overview
+
+### What You Can Do
+
+- **Translate Video Subtitles** - Import VTT/SRT files, translate, and export
+- **Cell-by-Cell Audio Playback** - Listen to recordings aligned with your translation
+- **Record Audio** - Create audio recordings for each cell (verse/segment)
+- **Timestamp Management** - Automatic synchronization with media files
+- **Dubbing Workflows** - Complete workflow from import to export
+
+## Subtitle Translation
+
+### Supported Subtitle Formats
+
+- **WebVTT (`.vtt`)** - Modern web standard format
+- **SubRip (`.srt`)** - Classic subtitle format
+
+Both formats preserve timing information automatically.
+
+### Step 1: Import Subtitle Files
+
+1. Open Navigation → **Add Files**
+2. Select **"Source Files"**
+3. Choose **"Subtitles (VTT/SRT)"** importer
+4. Upload your subtitle file
+
+**What Codex Creates:**
+
+```
+MyVideo.source    # Original subtitles (read-only)
+MyVideo.codex     # Your translation workspace
+```
+
+Each subtitle becomes a cell with:
+- Original text
+- Start timestamp
+- End timestamp
+- Unique cell ID
+
+### Step 2: Translate Subtitles
+
+1. Open the `.codex` file (your translation workspace)
+2. Each cell represents one subtitle segment
+3. Source text appears on the left (if available)
+4. Type your translation on the right
+5. Timing information is preserved automatically
+
+<Callout type="info">
+**Timing Tip:** The timestamp metadata is preserved in each cell. You don't need to manually manage start/end times—Codex handles this automatically during export.
+</Callout>
+
+### Step 3: Export Translated Subtitles
+
+1. Open **Project Settings** (sidebar menu)
+2. Scroll to **Export Project**
+3. Choose **"Rebuild Export"** or **"VTT/SRT"** option
+4. Select your translated `.codex` file
+5. Download the exported subtitle file
+
+Your exported file will have:
+- Same timing as the original
+- Your translated text
+- Original subtitle format (VTT or SRT)
+- Filename: `MyVideo_YYYY-MM-DD_translated.vtt`
+
+### Subtitle Import Examples
+
+**Example 1: Simple 1-to-1 Mapping**
+
+Original English subtitle:
+```
+00:00:10.000 --> 00:00:12.000
+Hello, world!
+```
+
+After import, becomes a cell:
+- **Cell ID:** `MyVideo 1:1`
+- **Start:** 10.0 seconds
+- **End:** 12.0 seconds
+- **Content:** "Hello, world!"
+
+**Example 2: Complex Mappings**
+
+The subtitle importer handles:
+- **1:1 mapping** - One source subtitle → one cell
+- **1:many mapping** - One source split across multiple target subtitles
+- **many:1 mapping** - Multiple sources combined into one target
+- **many:many mapping** - Complex overlapping subtitles
+
+The system uses **timestamp overlap detection** to automatically align translations during Target Import.
+
+### Working with Video Files
+
+While Codex doesn't play video directly in the editor, you can:
+
+1. **Keep your video player open** alongside Codex
+2. **Use timestamps** to navigate (each cell shows start/end time)
+3. **Reference source subtitles** visible on the left panel
+4. **Export and test** periodically in your video player
+
+<Callout type="info">
+**Pro Tip:** Use VLC Player or similar software to load both your video and the exported subtitle file for testing. Most players support hotkeys for frame-by-frame navigation.
+</Callout>
+
+## Audio Translation
+
+### Cell-by-Cell Audio Playback
+
+Codex supports playing audio recordings that correspond to individual cells (verses or segments). This is perfect for:
+
+- Audio Bible translation checking
+- Voice-over recording workflows
+- Dubbing projects
+- Oral translation projects
+
+### Audio File Organization
+
+Audio files are organized automatically by Codex when you import them. The system uses a specific naming convention to match audio files with cells (verses/segments).
+
+**Naming Convention:**
+```
+{BOOK}_{CCC}_{VVV}.{ext}
+```
+
+Where:
+- `{BOOK}` = Document abbreviation (e.g., `GEN`, `MAT`, `JUD`)
+- `{CCC}` = Chapter number, zero-padded or not (e.g., `001`, `1`, `010`)
+- `{VVV}` = Verse number, zero-padded or not (e.g., `001`, `25`, `150`)
+- `{ext}` = Audio format (`.wav`, `.mp3`, `.m4a`, `.ogg`)
+
+**Example Filenames:**
+- `GEN_001_001.wav` → Genesis 1:1
+- `MAT_005_003.mp3` → Matthew 5:3
+- `JUD_001_025.wav` → Jude 1:25
+
+<Callout type="info">
+**Note:** The directory structure is managed automatically by the importer. You don't need to manually create folders - just prepare your audio files with the correct naming convention and import them through Codex.
+</Callout>
+
+### Supported Audio Formats
+
+- **`.wav`** - Recommended for best quality
+- **`.mp3`** - Good compression, widely supported
+- **`.m4a`** - Apple format, good quality
+- **`.ogg`** - Open source format
+
+### Adding Audio Files
+
+Audio files are imported through Codex's navigation menu:
+
+1. Open Navigation → **Add Files**
+2. Select the appropriate importer for audio files
+3. Choose your audio files (single or multiple)
+4. Codex automatically organizes them based on the filename
+
+**Before importing, ensure your files follow the naming convention:**
+
+For cell `MAT 5:3`, the file should be named:
+- `MAT_005_003.wav` or
+- `MAT_5_3.wav` or  
+- `MAT_005_003.mp3` (etc.)
+
+**Bulk Import:**
+
+You can import multiple audio files at once. Select all files that follow the naming convention, and Codex will automatically organize them by book and match them to the appropriate cells.
+
+<Callout type="warning">
+**Important:** Audio file names must exactly match the cell ID format. The book code, chapter, and verse numbers in the filename are used to automatically link audio to the correct cells.
+</Callout>
+
+### Using Audio Playback
+
+Once audio files are imported:
+
+1. Open your translation notebook (`.codex` file)
+2. **Audio play buttons** appear automatically for cells with audio
+3. Click the play button to hear the audio for that cell
+4. Audio stops automatically when finished or when another plays
+
+**Features:**
+- Only one audio plays at a time
+- Playback controls appear inline with the cell
+- Cells without audio won't show a play button
+
+## Recording Audio
+
+### Recording Workflow
+
+While Codex doesn't have built-in recording (yet), you can use external tools:
+
+**Recommended Setup:**
+
+1. **Recording Software:** Audacity (free), Adobe Audition, or similar
+2. **Microphone:** USB microphone or headset
+3. **Naming Tools:** Use batch renaming tools to follow the convention
+
+**Basic Workflow:**
+
+1. Record audio for each verse/segment using external software
+2. Export each recording separately
+3. Name files according to the convention (e.g., `MAT_005_003.wav`)
+4. Import files through Navigation → **Add Files**
+5. Audio buttons appear automatically for cells with matching recordings
+
+**Batch Recording Tips:**
+
+- Record multiple verses in one session
+- Use markers or silence detection to split recordings
+- Export with sequential numbering
+- Use batch renaming tools or scripts to rename files consistently
+- Import all files at once through Codex's navigation menu
+
+### Audio Quality Guidelines
+
+For best results:
+
+- **Sample Rate:** 44.1 kHz or 48 kHz
+- **Bit Depth:** 16-bit minimum
+- **Format:** WAV for archival, MP3 for distribution
+- **Mono vs Stereo:** Mono is fine for voice, saves space
+- **Background Noise:** Record in a quiet environment
+
+## Advanced Workflows
+
+### Dubbing Video Content
+
+Complete workflow for video dubbing:
+
+1. **Import subtitles** (VTT/SRT) through Navigation → Add Files
+2. **Translate** the subtitle text in the `.codex` file
+3. **Record audio** matching the subtitle timings using external software
+4. **Name audio files** matching cell IDs (e.g., `DocumentaryName_001_001.wav`)
+5. **Import audio** through Navigation → Add Files
+6. **Review** translation and audio with playback in Codex
+7. **Export subtitles** for final video through Project Settings
+8. **Mix audio** with video in editing software
+
+### Multi-Take Recording
+
+For projects needing multiple takes:
+
+**Recommended Strategy:**
+
+1. Keep multiple takes organized in your recording workspace (outside Codex)
+2. Use naming suffixes to track versions:
+   ```
+   GEN_001_001_take1.wav
+   GEN_001_001_take2.wav
+   GEN_001_001_final.wav
+   ```
+3. When ready, rename the best take to match the convention exactly:
+   ```
+   GEN_001_001.wav
+   ```
+4. Import only the final versions into Codex
+
+**Alternative Approach:**
+
+- Import initial recordings into Codex for review
+- Re-import with the same filename to replace a recording
+- Keep backup copies of all takes outside your Codex project
+
+<Callout type="info">
+**Tip:** Only files matching the exact naming convention (e.g., `GEN_001_001.wav`) will be recognized by Codex. This gives you flexibility to keep alternate takes with modified names until you're ready.
+</Callout>
+
+### Oral Translation Projects
+
+For communities creating oral translations:
+
+1. **Use simple recording equipment** (smartphone apps work!)
+2. **Record verse-by-verse** or segment-by-segment
+3. **Transfer files** to computer
+4. **Batch rename** to follow the naming convention
+5. **Import into Codex** through Navigation → Add Files
+6. **Review** with playback alongside your translation
+7. **Export** your translation when complete
+
+## Subtitle Translation Examples
+
+### Example Project: Translating a Documentary
+
+**File:** `Documentary_Episode1.vtt`
+
+**Step-by-Step:**
+
+1. **Import:**
+   - Navigation → Add Files → Subtitles
+   - Upload `Documentary_Episode1.vtt`
+   - Creates `Documentary_Episode1.source` and `Documentary_Episode1.codex`
+
+2. **Translate:**
+   - Open `Documentary_Episode1.codex`
+   - See 247 subtitle cells
+   - Each cell shows timestamp range
+   - Translate cell by cell
+
+3. **Export:**
+   - Project Settings → Export
+   - Select Rebuild Export
+   - Choose `Documentary_Episode1.codex`
+   - Download `Documentary_Episode1_2025-01-15_translated.vtt`
+
+4. **Test:**
+   - Open video in VLC
+   - Load exported subtitle file
+   - Verify timing and translations
+
+### Example Project: Audio Bible Recording
+
+**Book:** Jude
+
+**Workflow:**
+
+1. Record 25 verses (Jude has 1 chapter with 25 verses) using external software
+2. Name files according to the convention:
+   ```
+   JUD_001_001.wav  (Jude 1:1)
+   JUD_001_002.wav  (Jude 1:2)
+   ...
+   JUD_001_025.wav  (Jude 1:25)
+   ```
+3. Import all files through Navigation → **Add Files**
+4. Open Jude translation (`.codex` file) in Codex
+5. Audio buttons appear automatically for each verse
+6. Review recordings while checking translation
+
+## Troubleshooting
+
+### Audio Buttons Not Appearing
+
+**Problem:** Audio files imported but no play buttons show
+
+**Solutions:**
+- Verify file naming exactly matches cell ID format
+- Ensure file extension is supported (`.wav`, `.mp3`, `.m4a`, `.ogg`)
+- Check that the cell IDs in your notebook match the audio filenames
+- Try re-importing the audio files
+- Reload the editor window
+
+### Subtitle Timing Issues
+
+**Problem:** Exported subtitles don't sync with video
+
+**Solutions:**
+- Verify original subtitle file had correct timing
+- Check you didn't accidentally modify timestamp cells
+- Re-import original if timestamps were corrupted
+- Use subtitle editing software for timing adjustments
+
+### Audio Won't Play
+
+**Problem:** Play button appears but no sound
+
+**Solutions:**
+- Check system volume and browser permissions
+- Verify audio file isn't corrupted (open in media player)
+- Try a different audio format (WAV is most reliable)
+- Check file size (very large files may fail to load)
+
+### Complex Subtitle Mappings
+
+**Problem:** Multiple subtitles need to map to one translation
+
+**Solutions:**
+- Use child cells for multiple variations
+- Merge cells if appropriate
+- Accept that some mappings may need manual adjustment
+- Review alignment preview during Target Import
+
+## Best Practices
+
+### For Subtitle Translation
+
+1. **Keep translations concise** - Match source length when possible
+2. **Respect timing constraints** - Viewers need time to read
+3. **Use natural language** - Spoken style, not written
+4. **Test frequently** - Export and watch with video
+5. **Consider reading speed** - Different languages have different speeds
+
+### For Audio Projects
+
+1. **Consistent naming** - Follow the convention exactly
+2. **Good recording environment** - Minimize background noise
+3. **Test playback** - Verify audio plays in Codex
+4. **Backup originals** - Keep master recordings safe
+5. **Document your workflow** - Note any special conventions
+
+### For Professional Projects
+
+1. **Version control** - Use Git or regular backups
+2. **Quality checks** - Multiple reviewers for audio/subtitles
+3. **Style guides** - Document translation conventions
+4. **Delivery formats** - Know client requirements before exporting
+5. **Archive everything** - Keep all source files and takes
+
+## Technical Details
+
+### Cell ID to Filename Conversion
+
+The system converts cell IDs to filenames automatically:
+
+**Cell ID:** `JUD 1:25`
+- Book: `JUD`
+- Chapter: `1` → `001` (padded)
+- Verse: `25` → `025` (padded)
+- **Result:** `JUD_001_025.wav`
+
+### Supported Timestamp Formats
+
+For subtitle files:
+
+**WebVTT:**
+```
+00:00:10.000 --> 00:00:12.500
+Subtitle text here
+```
+
+**SubRip (SRT):**
+```
+1
+00:00:10,000 --> 00:00:12,500
+Subtitle text here
+```
+
+Both formats are automatically detected and parsed.
+
+### File Size Considerations
+
+- **WAV files:** Large but high quality (10MB per minute typical)
+- **MP3 files:** Smaller, good quality (1MB per minute at 128kbps)
+- **Project size:** Plan storage for complete projects
+- **Cloud sync:** Large audio files may slow synchronization
+
+## Next Steps
+
+After setting up your video/audio project:
+
+- [Configure export options](/docs/translation/advanced-export-options)
+- [Share with team members](/docs/project-management/sharing-managing-projects)
+- [Use AI assistance](/docs/translation/copilot-ai-configuration) for subtitle translation
+- [Learn about batch translation](/docs/translation/batch-translation) for faster subtitle work
+
+## FAQ
+
+<Accordions type="multiple">
+  <Accordion title="Can Codex play video files directly?">
+    Not currently. Codex focuses on the translation of text/subtitles. Use external video players (VLC, etc.) to preview your work alongside the video.
+  </Accordion>
+
+  <Accordion title="What if my subtitle file has timing errors?">
+    You'll need to fix timing in dedicated subtitle editing software (Aegisub, Subtitle Edit) before importing. Codex preserves the timing from import but doesn't provide timing adjustment tools.
+  </Accordion>
+
+  <Accordion title="Can I record audio directly in Codex?">
+    Not yet, but this feature is planned. Currently, use external recording software and follow the naming convention to import recordings.
+  </Accordion>
+
+  <Accordion title="How do I handle subtitles for multiple speakers?">
+    Use the Cell Label Importer feature to add speaker names. See [Import Labels documentation](/docs/project-management/importing-files#cell-labels) for details.
+  </Accordion>
+
+  <Accordion title="Can I use Codex for podcast translation?">
+    Yes! Import a transcript as plain text or subtitles with timestamps, translate it, and use audio files to reference the original. Export as subtitles or plain text.
+  </Accordion>
+
+  <Accordion title="What's the maximum subtitle file size?">
+    There's no hard limit, but files with thousands of subtitles (feature-length films) may take longer to process. For very large files, consider splitting into segments.
+  </Accordion>
+
+  <Accordion title="Do I need zero-padding in audio filenames?">
+    Zero-padding (e.g., `001` instead of `1`) is recommended for proper sorting but not strictly required. The system will match both formats.
+  </Accordion>
+</Accordions>
+
+---
+
+**Need help with media translation?** Join our [Discord community](https://discord.gg/6kVJTEXYEp) where users share workflows and tips for video and audio projects.
+
