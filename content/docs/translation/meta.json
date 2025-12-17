@@ -6,7 +6,9 @@
     "batch-translation",
     "smart-edits",
     "merging-editing-source-cells",
+    "video-audio-translation",
     "exporting-project",
+    "advanced-export-options",
     "back-translations",
     "child-cell-editing"
   ]

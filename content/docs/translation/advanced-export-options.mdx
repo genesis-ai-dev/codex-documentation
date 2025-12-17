@@ -1,0 +1,580 @@
+---
+title: Advanced Export Options
+description: Learn about all available export formats in Codex Editor including round-trip workflows for Word, InDesign, and specialized formats
+---
+
+Beyond the basic export formats (Plain Text, HTML, USFM), Codex Editor offers powerful advanced export options including round-trip workflows that preserve formatting and structure. These options let you move seamlessly between Codex and other professional tools.
+
+## Understanding Export Types
+
+### Standard Exports
+
+These formats create simple, readable outputs:
+
+- **Plain Text** - Clean text without formatting
+- **HTML** - For web viewing or publishing
+- **USFM** - Standard Bible translation format
+
+### Round-Trip Exports
+
+These formats preserve complete structure for editing and re-import:
+
+- **DOCX Round-trip** - Export back to Microsoft Word with formatting
+- **IDML Round-trip** - Export to InDesign for layout work
+- **OBS Markdown** - Export Bible stories with images
+- **VTT/SRT** - Export translated subtitles
+- **Biblica Format** - Specialized publishing format
+
+### Rebuild Export (Intelligent Detection)
+
+Automatically detects the original import format and exports accordingly:
+
+- Detects DOCX round-trip files → exports to DOCX
+- Detects IDML files → exports to IDML
+- Detects OBS files → exports to Markdown
+- Detects subtitle files → exports to VTT/SRT
+- Falls back to appropriate format for others
+
+## Accessing Export Options
+
+1. Open **Project Settings** from the sidebar menu
+2. Scroll to **Export Project** section
+3. Choose your desired export format
+4. Select the file(s) to export
+5. Choose save location
+6. Wait for export to complete
+
+<Callout type="info">
+**Quick Tip:** Use "Rebuild Export" when you're not sure which format to use. It automatically detects the right format based on how the file was imported.
+</Callout>
+
+## Standard Export Formats
+
+### Plain Text Export
+
+**Use For:**
+- Reading in any text editor
+- Importing into other tools
+- Creating simple backups
+- Sharing readable versions
+
+**What You Get:**
+- Pure text content, no formatting
+- Verse/cell markers preserved
+- Line breaks between segments
+- Universal compatibility
+
+**Example Output:**
+```
+Genesis 1:1
+In the beginning God created the heavens and the earth.
+
+Genesis 1:2
+Now the earth was formless and empty...
+```
+
+<Callout type="info">
+**Opening in Microsoft Word:** To edit a .txt export in Word, go to **File > Open**, change file type to "Text Files (*.txt)", browse to your file, and click **Open**. You can then save as a .docx file.
+</Callout>
+
+### HTML Export
+
+**Use For:**
+- Publishing on websites
+- Creating shareable documentation
+- Email distribution
+- Archival with formatting
+
+**What You Get:**
+- Structured HTML markup
+- CSS styling for readability
+- Paragraph and heading structure
+- Cross-platform viewing
+
+**Features:**
+- Responsive design (mobile-friendly)
+- Print-friendly styles
+- Semantic HTML5 markup
+- Embedded navigation (for multi-chapter exports)
+
+### USFM Export
+
+**Use For:**
+- Bible translation workflows
+- Paratext integration
+- Scripture publishing
+- Standard format archival
+
+**What You Get:**
+- Full USFM markers (`\id`, `\c`, `\v`, etc.)
+- Preserved verse structure
+- Footnotes and cross-references (if present)
+- Compatible with Paratext and other tools
+
+**Example Output:**
+```
+\id GEN
+\h Genesis
+\c 1
+\v 1 In the beginning God created the heavens and the earth.
+\v 2 Now the earth was formless and empty...
+```
+
+## Round-Trip Export Formats
+
+### DOCX Round-Trip Export
+
+Export your translations back to Microsoft Word with complete formatting preservation.
+
+**Requirements:**
+- File must be imported using "Word Documents (Round-trip)" importer
+- Original DOCX structure metadata must be intact
+- Cell metadata includes `importerType: 'docx-roundtrip'`
+
+**Export Process:**
+
+1. Project Settings → Export Project
+2. Select **"DOCX Round-trip"** format
+3. Choose your `.codex` file(s)
+4. Export creates: `filename_YYYY-MM-DD_translated.docx`
+5. Open in Microsoft Word - formatting intact!
+
+**What's Preserved:**
+- Paragraph formatting (bold, italic, underline)
+- Font styles and sizes
+- Heading styles
+- Lists (bulleted and numbered)
+- Document structure
+- Page layout settings
+
+**What's Not Yet Supported:**
+- Images (coming in Phase 3)
+- Tables (coming in Phase 3)
+- Complex formatting (tracked changes, comments)
+- Headers and footers (planned)
+
+<Callout type="warning">
+**Important:** If you get an error "not imported with DOCX round-trip importer", you need to re-import your file using the "Word Documents (Round-trip)" importer. The standard DOCX importer doesn't preserve structure for export.
+</Callout>
+
+**Use Cases:**
+- Translating policy documents
+- Literary translation projects
+- Marketing content translation
+- Technical documentation
+
+**Example Workflow:**
+
+1. **Import:** `CompanyPolicy.docx` using round-trip importer
+2. **Translate:** 47 paragraphs in Codex
+3. **Export:** Get `CompanyPolicy_2025-01-15_translated.docx`
+4. **Open in Word:** All heading styles, formatting preserved
+5. **Final edits:** Make layout adjustments in Word
+6. **Publish:** Ready for distribution
+
+### IDML Round-Trip Export
+
+Export to Adobe InDesign Markup Language for professional layout and publishing.
+
+**Requirements:**
+- File imported using InDesign/IDML importer
+- Metadata includes Biblica or IDML structure
+- Original formatting data preserved
+
+**What's Preserved:**
+- Text formatting and styles
+- Paragraph styles
+- Character styles
+- Layout structure
+- Publishing metadata
+
+**Use Cases:**
+- Professional Bible publishing
+- Magazine layout
+- Newsletter production
+- Print-ready materials
+
+**Example Workflow:**
+
+1. **Import:** InDesign export (IDML) into Codex
+2. **Translate:** Content with AI assistance
+3. **Export:** Translated IDML file
+4. **Open in InDesign:** Apply final layout
+5. **Export PDF:** Ready for printing
+
+### OBS Markdown Export
+
+Export Open Bible Stories with images and formatting preserved.
+
+**Requirements:**
+- File imported using "Bible Stories (OBS)" importer
+- Cell metadata includes `importerType: 'obs'`
+- Image references preserved
+
+**What You Get:**
+- Markdown formatted text
+- Image references (CDN-hosted URLs)
+- Story structure
+- Source references
+
+**Example Output:**
+```markdown
+# The Creation
+
+![OBS Image](https://cdn.door43.org/obs/jpg/360px/obs-en-01-01.jpg)
+
+Your translated text for the first segment goes here.
+
+![OBS Image](https://cdn.door43.org/obs/jpg/360px/obs-en-01-02.jpg)
+
+Your translated text for the second segment goes here.
+
+_A Bible story from: Genesis 1-2_
+```
+
+**Features:**
+- Complete round-trip (import → translate → export)
+- Image preservation
+- Story metadata
+- Opens in any markdown viewer
+
+### VTT/SRT Subtitle Export
+
+Export translated subtitles for video content.
+
+**Requirements:**
+- File imported using Subtitles importer
+- Timestamp metadata preserved
+- Cell structure intact
+
+**What You Get:**
+- Properly formatted subtitle file
+- Original timing preserved
+- Translated text
+- Compatible with all video players
+
+**WebVTT Example:**
+```
+WEBVTT
+
+00:00:10.000 --> 00:00:12.500
+Your translated subtitle here
+
+00:00:12.500 --> 00:00:15.000
+Next translated subtitle
+```
+
+**SRT Example:**
+```
+1
+00:00:10,000 --> 00:00:12,500
+Your translated subtitle here
+
+2
+00:00:12,500 --> 00:00:15,000
+Next translated subtitle
+```
+
+**Use Cases:**
+- Video dubbing projects
+- Documentary translation
+- Educational content
+- Film/TV subtitles
+
+### Biblica Export
+
+Specialized export format for Biblica publishing workflows.
+
+**Requirements:**
+- File imported with Biblica importer
+- Publishing metadata present
+- Specific structure requirements
+
+**Features:**
+- Publishing-ready format
+- Quality assurance markers
+- Metadata for print production
+- Compatible with Biblica systems
+
+## Using Rebuild Export
+
+The **Rebuild Export** feature intelligently detects the original file type and exports to the appropriate format automatically.
+
+### How It Works
+
+1. Reads cell metadata to detect importer type
+2. Determines original file format
+3. Routes to appropriate exporter
+4. Preserves structure and formatting
+5. Returns file in original format
+
+### Supported Auto-Detection
+
+| Importer Used | Auto-Detected Export |
+|---------------|---------------------|
+| DOCX Round-trip | DOCX with formatting |
+| IDML/Biblica | IDML format |
+| OBS Markdown | OBS Markdown |
+| VTT/SRT | Subtitle format |
+| USFM | USFM format |
+| Plain text | Plain text |
+| Others | Best-fit format |
+
+### When to Use
+
+- **Mixed projects** with multiple file types
+- **Unsure** which format to choose
+- **Batch exports** of different file types
+- **Quick exports** without format selection
+
+### Example Workflow
+
+1. Project with:
+   - 3 DOCX files (round-trip)
+   - 2 OBS stories
+   - 1 subtitle file
+2. Select **"Rebuild Export"**
+3. Choose all 6 files
+4. System automatically:
+   - Exports DOCX files to Word format
+   - Exports OBS to Markdown
+   - Exports subtitle to VTT
+5. Download 6 properly-formatted files!
+
+<Callout type="info">
+**Time Saver:** Rebuild Export is perfect for projects with multiple file types. Select all your files at once and let Codex figure out the right format for each one.
+</Callout>
+
+## Batch Export
+
+Export multiple files simultaneously:
+
+### Single Format Batch
+
+1. Choose export format (e.g., "Plain Text")
+2. Select multiple `.codex` files
+3. Click export
+4. All files exported to the same format
+5. Download as individual files or ZIP
+
+### Mixed Format Batch (Rebuild Export)
+
+1. Choose "Rebuild Export"
+2. Select files of different types
+3. System detects each file's format
+4. Exports each to appropriate format
+5. Download all together
+
+**Benefits:**
+- Save time on large projects
+- Consistent export settings
+- Organized output
+- Reduced manual work
+
+## Export Options & Settings
+
+### Filename Conventions
+
+Exported files follow this pattern:
+```
+{originalName}_{YYYY-MM-DD}_translated.{ext}
+```
+
+**Examples:**
+- `Genesis_2025-01-15_translated.docx`
+- `Story01_2025-01-15_translated.md`
+- `Documentary_2025-01-15_translated.vtt`
+
+### Export Locations
+
+- **Default:** Downloads folder
+- **Custom:** Choose save location during export
+- **Projects:** Can configure default export directory
+
+### Handling Errors
+
+**"File not imported with correct importer"**
+- Solution: Re-import using the appropriate round-trip importer
+- Files must have correct metadata for round-trip export
+
+**"Export failed"**
+- Check file permissions
+- Verify disk space
+- Try exporting individual files
+- Check console for specific errors
+
+**"Structure not found"**
+- Original import metadata may be missing
+- Re-import from original file
+- Use standard export format as fallback
+
+## Comparison: Export Formats
+
+| Format | Round-trip? | Formatting | Images | Best For |
+|--------|-------------|------------|--------|----------|
+| **Plain Text** | No | None | No | Simple reading, universal access |
+| **HTML** | No | Basic | Yes | Web publishing, sharing |
+| **USFM** | No | Markers | No | Bible translation, Paratext |
+| **DOCX Round-trip** | Yes | Full | Coming | Document translation |
+| **IDML** | Yes | Full | Yes | Professional publishing |
+| **OBS Markdown** | Yes | Basic | Yes | Story translation |
+| **VTT/SRT** | Yes | None | No | Video subtitles |
+
+## Advanced Export Workflows
+
+### Workflow 1: Document Translation for Client
+
+1. **Receive:** Client sends `Brochure.docx`
+2. **Import:** Use "DOCX Round-trip" importer
+3. **Translate:** 25 paragraphs in Codex
+4. **Review:** Use back-translation for QA
+5. **Export:** DOCX Round-trip format
+6. **Polish:** Final edits in Word (optional)
+7. **Deliver:** Client receives formatted document
+
+### Workflow 2: Bible Publishing Pipeline
+
+1. **Import:** USFM files from Paratext
+2. **Translate:** With team collaboration
+3. **Export Options:**
+   - USFM for Paratext review
+   - IDML for layout designer
+   - HTML for web preview
+   - Plain text for consultants
+4. **Parallel exports:** Multiple formats simultaneously
+
+### Workflow 3: Video Localization
+
+1. **Import:** Original subtitles (VTT)
+2. **Translate:** All dialogue
+3. **Export:** Translated VTT
+4. **Test:** Load in video player
+5. **Adjust:** If timing issues
+6. **Re-export:** Final version
+7. **Deliver:** Ready for dubbing or subtitling
+
+### Workflow 4: Multi-Book Project
+
+1. **Project:** 10 Bible books translated
+2. **Export:**
+   - **Individual:** USFM for each book (consultant review)
+   - **Combined:** HTML for all books (web preview)
+   - **Backup:** Plain text for all (archival)
+3. **Distribute:** Different formats to different stakeholders
+
+## Best Practices
+
+### Before Export
+
+1. **Save your work** - Ensure all translations saved
+2. **Review completeness** - Check for empty cells
+3. **Run validation** - Use quality checks if available
+4. **Test one file first** - Before batch export
+
+### Choosing Format
+
+1. **Round-trip needs?** - Use appropriate round-trip importer from the start
+2. **Multiple audiences?** - Export to multiple formats
+3. **File size concerns?** - Plain text is smallest
+4. **Print publishing?** - Use IDML or USFM
+
+### After Export
+
+1. **Test the file** - Open in target application
+2. **Verify formatting** - Check that structure is correct
+3. **Keep originals** - Don't delete source files
+4. **Document changes** - Note any manual edits needed
+5. **Archive exports** - Keep dated versions
+
+## Troubleshooting
+
+### Export Errors
+
+**Problem:** "Cannot export - importer type mismatch"
+
+**Solution:**
+- File was imported with wrong importer
+- Re-import using correct round-trip importer
+- Or use a standard export format instead
+
+**Problem:** Export creates empty or corrupted file
+
+**Solution:**
+- Check that cells have content
+- Verify metadata is intact
+- Try exporting a single file first
+- Check available disk space
+
+**Problem:** Formatting lost in exported DOCX
+
+**Solution:**
+- Ensure you used "DOCX Round-trip" importer
+- Standard DOCX importer doesn't preserve formatting
+- Re-import original file with correct importer
+
+### Format-Specific Issues
+
+**DOCX Export**
+- Images not appearing: Phase 3 feature (coming soon)
+- Wrong formatting: Verify import used round-trip importer
+- File won't open: Check Word version compatibility
+
+**Subtitle Export**
+- Timing wrong: Verify original timestamps weren't modified
+- Missing subtitles: Check all cells have content
+- Format not recognized: Ensure VTT/SRT format was detected
+
+**USFM Export**
+- Markers incorrect: Verify source was USFM import
+- Missing verses: Check cell IDs follow verse pattern
+- Invalid file: Validate structure before export
+
+## Next Steps
+
+Now that you understand export options:
+
+- [Import diverse file types](/docs/project-management/importing-files) for round-trip workflows
+- [Learn about video translation](/docs/translation/video-audio-translation) for subtitle exports
+- [Set up collaboration](/docs/project-management/sharing-managing-projects) for team projects
+- [Configure quality checks](/docs/translation/back-translations) before exporting
+
+## FAQ
+
+<Accordions type="multiple">
+  <Accordion title="Can I export to PDF directly?">
+    Not directly from Codex. Export to DOCX or HTML first, then convert to PDF using Word or a web browser's "Print to PDF" function.
+  </Accordion>
+
+  <Accordion title="Which format is best for archival?">
+    Use **Plain Text** for long-term archival (universal compatibility) and **USFM** for Bible translations (industry standard). Keep original files as well.
+  </Accordion>
+
+  <Accordion title="Can I re-import exported files?">
+    Yes, for round-trip formats (DOCX, IDML, OBS, Subtitles). Export preserves structure, so you can import, modify, and export again. Not recommended for plain text or HTML.
+  </Accordion>
+
+  <Accordion title="How do I export just one chapter?">
+    Open the specific notebook file (e.g., `GEN.codex`), then export. To export specific verses, you'd need to create a custom notebook with only those cells.
+  </Accordion>
+
+  <Accordion title="Can I customize the export filename?">
+    The filename is auto-generated with a timestamp. After export, you can rename the file as needed. The timestamp helps prevent overwriting previous exports.
+  </Accordion>
+
+  <Accordion title="What if I need a format not listed here?">
+    Contact the development team or post in the Discord community. New exporters can be added to the plugin system. Meanwhile, export to a similar format and convert using other tools.
+  </Accordion>
+
+  <Accordion title="Is there a way to preview before export?">
+    Not currently. Best practice is to export one test file, verify the output, then batch export the rest.
+  </Accordion>
+
+  <Accordion title="How large can exported files be?">
+    There's no strict limit, but very large files (100+ pages, 1000+ verses) may take longer to process. Consider splitting large books into smaller sections if performance is an issue.
+  </Accordion>
+</Accordions>
+
+---
+
+**Questions about export formats?** Join our [Discord community](https://discord.gg/6kVJTEXYEp) for tips and workflow advice from experienced users.
+

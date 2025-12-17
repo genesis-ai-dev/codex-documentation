@@ -2,9 +2,9 @@
   "title": "Codex Editor Documentation",
   "pages": [
     "getting-started",
-    "translation",
     "project-management",
+    "translation",
     "releases",
     "faq"
   ]
-} 
+}
