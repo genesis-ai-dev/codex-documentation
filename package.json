@@ -13,7 +13,7 @@
     "fumadocs-core": "15.8.5",
     "fumadocs-mdx": "11.10.1",
     "fumadocs-ui": "15.8.5",
-    "next": "15.5.6",
+    "next": "15.5.9",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
@@ -24,7 +24,7 @@
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
     "eslint": "^8.57.1",
-    "eslint-config-next": "15.5.6",
+    "eslint-config-next": "15.5.9",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.7",
     "typescript": "^5.8.3"
@@ -32,7 +32,9 @@
   "pnpm": {
     "overrides": {
       "brace-expansion@1.1.11": "1.1.12",
-      "brace-expansion@2.0.1": "2.0.2"
+      "brace-expansion@2.0.1": "2.0.2",
+      "js-yaml": "^4.1.1",
+      "mdast-util-to-hast": "^13.2.1"
     }
   }
 }
