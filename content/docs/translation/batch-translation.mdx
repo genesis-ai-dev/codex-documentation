@@ -1,36 +1,69 @@
 ---
 title: Batch Translations
-description: Learn the step-by-step process for batch translating, including project setup, co-pilot configuration, and quality validation
+description: Learn how to use AI-powered batch translation to queue multiple cells at once, streamlining your translation workflow in Codex
 ---
 
-<LoomVideo videoId="55d0393d4843496298f7a3b973ac5ce1" timestamp={0} title="Batch Translation Process" />
+<LoomVideo videoId="1beb958833e2487a8ef93a90c9d9af34" timestamp={0} title="Batch Translation in Codex" />
 
-### 1. Set Up the Project
+## Overview
 
-- Begin by setting up the project for batch translation.
-- Ensure the translation is set to English.
+While you can translate cell by cell in Codex, batch translation allows you to leverage AI to queue up multiple cells at once for autocompletion, significantly speeding up your translation workflow.
 
-### 2. Access Co-Pilot Settings
+## Selecting Cells to Translate
 
-- Navigate to the co-pilot settings.
-- Adjust settings as necessary to enhance translation quality.
+When setting up a batch translation, you can choose from different cell types:
 
-### 3. Add Perspectives
+- **Empty cells with no content** - Cells that are completely empty
+- **Not validated by any user** - Cells that haven't been reviewed by anyone yet
+- **Not validated by you** - Cells you haven't personally validated
+- **Fully validated by others** - Cells that have been validated by other team members
 
-- Include additional perspectives that are relevant to the translation.
-- Ensure these perspectives align with the intended message.
+You can select the specific number of cells you want to translate at once, or use the "All" button to translate all cells matching your criteria.
 
-### 4. Review and Revise Translations
+## Running a Batch Translation
 
-- Check if the translation needs revision.
-- Use the regenerate option to see if the output improves.
+1. Select your desired cell type criteria
+2. Choose the number of cells to translate
+3. Click to start the batch translation
+4. The system will queue up the selected cells and process them with AI
 
-### 5. Validate Translations
+Note that the system will skip cells without content, so the cell count may appear to jump (e.g., from 9 to 11 if cell 10 was empty).
 
-- If the translation meets quality standards, approve it.
-- Document who approved the translation for accountability.
+## Reviewing AI Translations
 
-### 6. Manage Volume of Translations
+After the AI generates translations, it's important to review them as a human to verify accuracy:
 
-- Be aware of the total number of pages needing translation (e.g. 43 pages).
-- Plan accordingly to manage the workload. 
+- Check each translation for errors or issues
+- Edit the text manually if needed
+- Click the validation button if the translation looks good
+
+## Validation Settings
+
+Configure your validation settings in the top left corner:
+
+- Set the number of validators required (e.g., 2 or 3)
+- Track who has validated which cells
+- Monitor which translations have passed review
+
+Audio recording validations are also available, though they work separately from text validations.
+
+## How AI Improves Over Time
+
+The AI adapts to your translation tendencies as you make progress:
+
+- The more you translate and validate, the better the AI becomes
+- Your editing patterns help train the AI for more accurate suggestions
+- Later translations will be more aligned with your style
+
+## Automatic Validation
+
+When you edit a cell in the dialog box, it's automatically validated by you. The system assumes that if you've entered and edited a cell, you've reviewed it.
+
+If you're uncertain about a translation even after editing, you can remove your validation by clicking the delete button next to the validation indicator.
+
+## Best Practices
+
+- Start with smaller batches to review AI quality
+- Consistently validate translations to improve AI learning
+- Use the validation system to track team progress
+- Remove validations when uncertain rather than leaving potentially incorrect validations in place 
