@@ -2,9 +2,8 @@
   "title": "Translation",
   "pages": [
     "translation-tools",
-    "copilot-ai-configuration",
+    "ai-settings",
     "batch-translation",
-    "smart-edits",
     "merging-editing-source-cells",
     "video-audio-translation",
     "exporting-project",
