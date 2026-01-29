@@ -1,13 +1,8 @@
-import { docs } from '@/.source';
+import { docs } from '@/.source/server';
 import { loader } from 'fumadocs-core/source';
 
 // See https://fumadocs.vercel.app/docs/headless/source-api for more info
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const sourceData = docs.toFumadocsSource() as any;
-export const source = loader({
+export const source = loader(docs.toFumadocsSource(), {
   // it assigns a URL to your pages
   baseUrl: '/docs',
-  source: {
-    files: typeof sourceData.files === 'function' ? sourceData.files() : sourceData.files,
-  },
 });
