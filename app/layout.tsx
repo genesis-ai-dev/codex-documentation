@@ -25,7 +25,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <head>
         <script defer src="https://cloud.umami.is/script.js" data-website-id="16ce21bc-d12b-4ff0-93d0-bf6e1388cd56"></script>
       </head>
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen antialiased">
         <RootProvider>{children}</RootProvider>
       </body>
     </html>

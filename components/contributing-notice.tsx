@@ -2,13 +2,13 @@ import { Card } from 'fumadocs-ui/components/card';
 
 export function ContributingNotice() {
   return (
-    <div className="mt-8 border-2 border-dashed border-fd-primary/30 hover:border-fd-primary/50 bg-fd-primary/5 hover:bg-fd-primary/10 transition-all duration-200 shadow-sm hover:shadow-md rounded-lg">
+    <div className="mt-12 border border-fd-border/50 bg-fd-card rounded-xl overflow-hidden">
       <Card
-        title="Help improve Codex Documentation!👋"
+        title="Help Improve This Documentation"
         description={
           <>
-            Found a bug in our documentation, have a suggestion, or want to request new content? <br />
-            <span className="underline">Click this card to let us know on GitHub.</span>
+            Found an issue, have a suggestion, or want to request new content?{' '}
+            <span className="text-fd-primary font-medium">Let us know on GitHub.</span>
           </>
         }
         external

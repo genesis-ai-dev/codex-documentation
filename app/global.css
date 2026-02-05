@@ -1,3 +1,105 @@
 @import 'tailwindcss';
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
+
+/* Warm, earthy color palette */
+:root {
+  /* Primary accent - Sage green */
+  --fd-primary: 145 44% 51%;
+  --fd-primary-foreground: 0 0% 100%;
+  
+  /* Background - Linen (warm off-white) */
+  --fd-background: 45 33% 97%;
+  
+  /* Surface - Alabaster (sidebar with green tint) */
+  --fd-card: 135 18% 95%;
+  --fd-muted: 135 18% 95%;
+  
+  /* Text colors */
+  --fd-foreground: 212 23% 23%; /* Charcoal */
+  --fd-muted-foreground: 216 16% 52%; /* Stone */
+  
+  /* Borders */
+  --fd-border: 135 15% 88%;
+  
+  /* Hover state - Deep Forest */
+  --fd-accent: 150 48% 35%;
+  --fd-accent-foreground: 0 0% 100%;
+  
+  /* Semantic colors */
+  --fd-destructive: 0 76% 57%; /* Error red */
+  --fd-warning: 40 67% 51%; /* Warning yellow */
+  
+  /* Subtle refinements */
+  --fd-radius: 0.625rem;
+}
+
+.dark {
+  /* Keep dark mode with adjusted warmth */
+  --fd-primary: 145 44% 58%;
+  --fd-background: 212 25% 12%;
+  --fd-card: 212 24% 15%;
+  --fd-muted: 212 24% 15%;
+  --fd-foreground: 45 10% 88%;
+  --fd-muted-foreground: 216 12% 62%;
+  --fd-border: 212 20% 22%;
+  --fd-accent: 150 48% 42%;
+  --fd-destructive: 0 76% 62%;
+  --fd-warning: 40 67% 58%;
+}
+
+/* Smooth page transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Subtle shadow refinements for cards */
+.fd-card {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.fd-card:hover {
+  transform: translateY(-1px);
+}
+
+/* Subtle code block polish */
+pre {
+  border: 1px solid hsl(var(--fd-border) / 0.5);
+}
+
+/* Inline code with subtle color tint */
+:not(pre) > code {
+  background: hsl(135 18% 93%);
+  border: 1px solid hsl(135 15% 88%);
+  color: hsl(212 23% 23%);
+}
+
+.dark :not(pre) > code {
+  background: hsl(212 24% 18%);
+  border: 1px solid hsl(212 20% 25%);
+  color: hsl(45 10% 88%);
+}
+
+/* Active sidebar item - sage accent (10% rule) */
+[data-active="true"] {
+  border-left: 2px solid hsl(var(--fd-primary)) !important;
+  background: hsl(var(--fd-primary) / 0.08) !important;
+}
+
+/* Links with sage color */
+.prose a:not([class]) {
+  color: hsl(var(--fd-primary));
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+
+.prose a:not([class]):hover {
+  color: hsl(var(--fd-accent));
+}
+
+/* Refined focus states */
+:focus-visible {
+  outline: 2px solid hsl(var(--fd-primary));
+  outline-offset: 2px;
+}
