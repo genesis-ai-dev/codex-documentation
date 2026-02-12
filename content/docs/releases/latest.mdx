@@ -2,13 +2,13 @@
 title: Latest Release
 ---
 
-# Release Notes (v1.99.24291)
+# Release Notes (v1.108.10998)
 
 This page provides the latest stable release notes for the Codex editor. We are currently streamlining our development and release process, and this page will serve as the central location for all future release announcements. Stay tuned for exciting changes!
 
 These are the latest release notes for the Codex editor.
 
-**Full Changelog**: https://github.com/genesis-ai-dev/codex/compare/1.99.24289...1.99.24291
+**Full Changelog**: https://github.com/genesis-ai-dev/codex/compare/1.99.24291...1.108.10998
 
 ## About Codex
 
@@ -16,11 +16,113 @@ Codex is a fork of [VSCodium](https://vscodium.com/), which is a community-drive
 
 ## Changes
 
-### v1.99.24291
+### v1.108.10998
+
+This is a major release representing over 300 commits and 8 intermediate version updates (1.100 → 1.108), bringing significant improvements across all areas of the editor.
+
+#### 🚀 Major Version Update
+*   **Updated to VSCodium 1.108.1**: Bringing all the latest features, performance improvements, and security updates from upstream Visual Studio Code
+*   **Electron 39.2.7**: Updated to the latest Electron version for improved performance and security
+*   **Node.js 22.21.1**: Updated runtime for better performance and compatibility
+
+#### 🎨 New Features
+*   **Command Filtering**: Enhanced customization allowing you to filter and control which commands are available
+*   **User Product Configuration**: Support for user-level product.json customization
+*   **Activity Bar Customization**: Added patch to hide specific activity bar items for a cleaner, more focused workspace
+*   **Save As Removal**: Streamlined file operations by removing "Save As" where not needed
+*   **Microphone Support**: Enhanced webview capabilities with microphone permissions
+*   **OpenVSX Integration**: Added script to download and install extensions from OpenVSX marketplace
+
+#### 🔒 Privacy and Control Enhancements
+*   **Chat Disabled by Default**: AI chat features are now opt-in for better privacy control
+*   **Copilot UI Disabled**: GitHub Copilot integration disabled by default with all UI elements hidden
+*   **VSCode.dev Disabled**: Removed VSCode.dev integration for better privacy
+*   **VSDA Library Removed**: Eliminated missing Visual Studio Developer Assistant dependencies
+*   **Update Mode Control**: Set update.mode to none when updates are disabled, preventing unwanted connections
+*   **Personalized Policy File**: Global policy file now properly personalized
+
+#### 🛠️ CLI Improvements
+*   **Enhanced CLI Binary**: Complete CLI packaging and distribution improvements
+*   **User product.json Loading**: CLI now properly loads user's custom product.json
+*   **Explicit URLs**: Better URL handling with explicit configuration
+*   **Windows Update URL Fix**: Corrected update URLs for Windows builds
+*   **Prebuilt OpenSSL**: Improved build times with prebuilt OpenSSL support
+
+#### 🐧 Linux Enhancements
+*   **XDG_STATE_HOME Support**: Logs now properly use XDG_STATE_HOME following Linux standards
+*   **Multi-Architecture Support**: Enhanced builds for loong64, ppc64le, riscv64, and s390x architectures
+*   **GLIBC Compatibility**: Improved compatibility with older GLIBC versions (2.31 for riscv64)
+*   **libstdc++ ABI Matching**: Fixed ABI compatibility between Node and @parcel/watcher
+*   **ABI Verification**: Added scripts to verify ABI and C++11 requirements
+*   **Update Check Enabled**: Linux builds can now check for updates
+
+#### 📦 Snap Package Improvements
+*   **Native Wayland Support**: Use native Wayland client when possible for better performance
+*   **Desktop Entries**: Re-added and improved desktop entries
+*   **Build File Fixes**: Corrected snapcraft build configuration
+*   **Version Sorting**: Fixed version sorting using numeric comparison
+
+#### 🐳 Docker and Containerization
+*   **Multi-Stage Builds**: Optimized Docker builds with multi-stage approach
+*   **VSCodium Web Server**: Complete Docker workflow for web server deployment
+*   **User Directory Configuration**: Proper user and data directory setup
+*   **Extension Installation**: Automated extension installation in Docker images
+*   **GitHub Actions Integration**: Automated Docker image build and push workflow
+*   **Attestation Support**: Added build attestation for security
+
+#### 🏗️ Build System Improvements
+*   **Automated gh CLI Installation**: Streamlined GitHub CLI installation with retry logic
+*   **Node.js Installation Scripts**: Improved Node.js setup for Linux builds
+*   **Patch Management**: Enhanced patch update and rebuild processes
+*   **Source Map Handling**: Improved source map generation, upload, and organization
+*   **CI/CD Improvements**: Better workflow targeting, Node version management via .nvmrc
+*   **Windows AppX Packaging**: Added support for Windows AppX distribution
+*   **Versioned Resources Fix**: Removed problematic versioned resources on Windows
+
+#### 🔧 Remote Extension Host (REH) Improvements
+*   **Alpine REH Fixes**: Better Node.js setup for Alpine builds
+*   **Resource Rebranding**: Proper rebranding of REH web resources
+*   **Bootstrap Fixes**: Improved REH bootstrap process
+*   **RISCV Support**: Fixed RISCV builds with correct paths
+*   **x86 Library Rebuilds**: Rebuilt node modules for GLIBC 2.17 compatibility
+
+#### 🐛 Bug Fixes and Refinements
+*   **Gallery Integration**: Fixed extension gallery marketplace issues
+*   **Keymap Handling**: Improved keyboard mapping functionality
+*   **Remote Library Support**: Enhanced remote development library handling
+*   **Policy Management**: Better policy file handling across platforms
+*   **Tunnel Extension Recommendations**: Fixed extension recommendation system
+*   **User Sync Service**: Re-added user settings synchronization service
+*   **Extension API Proposals**: Updated and improved extension API support
+*   **Update Connection Control**: Avoid extra connections when using manual update mode
+*   **Icon Size Increase**: Increased maximum macOS icon size
+*   **Binary Name Correction**: Fixed binary name references throughout
+*   **Telemetry**: Disabled workbench.enableExperiments by default
+
+#### 📚 Documentation
+*   **Copilot How-To**: Added documentation for Copilot setup (for those who want it)
+*   **Telemetry Documentation**: Improved privacy and telemetry documentation
+*   **Linux Troubleshooting**: Added troubleshooting for bad EGL driver issues
+*   **Extension Compatibility**: Updated extension compatibility documentation
+
+#### 🔄 Incremental Updates
+This release includes all improvements from intermediate versions:
+*   v1.100, v1.101, v1.102, v1.103, v1.104, v1.105, v1.106, v1.107 → v1.108
+*   Each version brought progressive improvements to patches, builds, and features
+
+### Previous Releases
+
+#### v1.99.24959
+*   **Extensions in Activity Bar**: Reintroduced extensions in the activity bar with additional refinements.
+*   **CI/CD Update**: Updated Windows build environment to windows-2022 for better compatibility.
+
+#### v1.99.24939
+*   **UI Enhancement**: Reintroduced extensions in the activity bar for easier access to extension management.
+*   **Build Process**: Fixed patch-rebuild to only dispatch one build request per quality, preventing duplicate builds.
+
+#### v1.99.24291
 *   Updated icons and replaced remaining "codium" references for improved branding.
 *   General repository maintenance.
-
-### Previous Updates
 *   **Microphone Access**: Enabled microphone usage in webviews.
 *   **UI Customization**: Moved several items from the activity bar for a cleaner interface.
 *   **Build Process**: Implemented a new workflow for patch rebuilds, allowing for more flexible and timely updates.
