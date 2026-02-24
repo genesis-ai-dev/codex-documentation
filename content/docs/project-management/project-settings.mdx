@@ -3,59 +3,65 @@ title: Project Settings Overview
 description: Configure and customize your translation project settings in Codex Editor
 ---
 
-<LoomVideo videoId="d54a4570d55748888381e3acbcbebf3b" timestamp={0} title="Settings Overview" />
+## Navigating to the Main Menu
 
-Project settings are the control center for your translation work in Codex Editor. Proper configuration ensures optimal AI performance, team collaboration, and translation quality.
+The main menu is your primary hub for navigating between different areas of Codex Editor.
 
-## Accessing Project Settings
+To open it:
+1. Look at the **top-left corner** of the interface.
+2. Click the **file-tree icon** (it looks like a folder or document tree).
 
-After importing sources, close the tab to reach the welcome view.
+![Menu-icon](/images/menu-icon.png)
 
-From there:
-1. Open the main menu.
-2. You'll see sections: Translations, Project Settings, Parallel Passages, and Comments.
-3. Select Project Settings to view and configure.
+## Project Settings
 
-Alternative access:
-- From Project Dashboard: Click the settings gear icon
-- From Translation View: Access through the toolbar
+When you open Project Settings from the main menu, the panel is organized into three main areas.
 
-## Viewing Basic Information
+### Basic Project Information
 
-In Project Settings, you'll see:
-- Project name (e.g., Awesome Project)
-- Source language (e.g., English)
-- Target language (e.g., French)
+![project-info](/images/project-info.png)
 
-Setting the source and target languages properly is the primary way to inform the AI about translation requirements.
+- **Title** — the name of your project, editable at any time
+- **Source Language** — the language of the original text you are translating from
+- **Target Language** — the language you are translating into
+- **Required Validations** — configure validation requirements for your team, including separate settings for text validation and audio validation
+- **Project Documents** — shows a count of the total documents in your project, with a **+** button to add more files
 
-## Uploading Additional Files
+## Sync Settings
 
-To upload more files:
-1. Click on 'Project Documents'.
-2. This returns you to the upload page for importing additional sources.
+Below the project information, you'll find controls for keeping your project synchronized:
 
-## Additional Configuration
+![sync-settings](/images/sync-settings.png)
 
-Project settings include categories for:
-- Basic Information: Name, description, tags
-- Languages: Source and target configuration
-- AI Settings: Copilot configuration (see [Configuring AI Copilot Settings](/docs/translation/ai-settings))
-- Collaboration: Team access and permissions
-- Export Options: Output formats
+- **Sync button** — triggers a manual sync immediately
+- **Auto-sync toggle** — an on/off switch (I/O) that enables automatic background syncing
+- **Sync interval** — when auto-sync is on, use the dropdown to choose how frequently syncs occur: **5 minutes**, **15 minutes**, **30 minutes**, or **1 hour**
 
-## Advanced Settings
+## Project Tools
 
-- Technical: Backups, storage, performance
-- Customization: Interface, shortcuts, display
+The bottom section contains a list of tools and actions for managing your project:
 
-## Validation and Best Practices
+![project-tools](/images/project-tools.png)
 
-Verify settings before translating. Plan configurations, document decisions, review regularly.
+- **AI Metrics** — view usage and performance data for the AI assistant
+- **Import Labels** — import label sets into your project
+- **Migration Tool** — tools for migrating project data (see [Migration Tool](/docs/project-management/migration-tool))
+- **Copilot Settings** — configure how the AI Copilot behaves during translation (see [Configuring AI Copilot Settings](/docs/translation/ai-settings))
+- **Export Project** — export your project in your chosen output format
+- **Check for Updates** — check whether a newer version of Codex Editor is available
+- **Text Display Settings** — opens an overlay panel on top of the current View
+---
+![display settings](/images/display-settings.png)
 
-## Troubleshooting
+  - **File Scope** - apply display settings to Source, Target or both
+  - **Update Behavior** — choose between applying settings to **all files** or **skip files with local settings**
+  - **Font Size** — adjust the text size in the editor
+  - **Line Numbers** — toggle line number display on or off
+  - **Text Direction** — set left-to-right or right-to-left text direction
+  - **Apply Changes** button at the bottom to confirm and save your display preferences
+---
 
-Common issues: AI not working (check languages), access problems (verify permissions).
+- **Close Project** — located at the very bottom of the list; closes the current project
 
 ## Next Steps
 
