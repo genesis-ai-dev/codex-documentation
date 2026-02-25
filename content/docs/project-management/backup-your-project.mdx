@@ -3,41 +3,32 @@ title: Backing Up Your Project
 description: Learn how to create a backup of your project as a downloadable zip file that you can share or store safely
 ---
 
-<LoomVideo videoId="31e519af82964516a882aba14aba2316" timestamp={0} title="Backing Up Your Project" />
+### 1. Navigate to the Project List
 
-### 1. Close Your Current Project
+**If you have a project open**, open the main menu and scroll to the bottom, then click **Close Project**.
 
-- If you have a project open, you need to close it first
-- Press the menu button to open the side menu
-- Navigate to 'Project Settings'
-- Click the 'Close Project' button at the bottom
+<img src="/images/main-menu.png" alt="Main menu with Close Project at the bottom" />
 
-### 2. Access the Project List
+<img src="/images/close-project.png" alt="Close Project button at the bottom of the menu" />
 
-- Once closed, you'll be taken to the startup screen
-- Here you can see the list of all your available projects
-- Each project shows its progress and current status
+**If you're on the welcome screen**, click **View Projects** to see all your available projects.
 
-### 3. Find Your Project
+<img src="/images/view-projects.png" alt="View Projects button on the welcome screen" />
 
-- Locate the project you want to back up from the list
-- You'll see several options available for each project
+### 2. Select a Backup Format
 
-### 4. Open Project Options
+Find the project you want to back up in the list. You'll see two backup options:
 
-- Click on the 'Show' option (three dots menu) for your project
-- This will reveal additional options below the project
+<img src="/images/zip-with-git.png" alt="ZIP with Git option" />
 
-### 5. Download the Backup
+<img src="/images/mini-zip.png" alt="Mini ZIP option" />
 
-- Look for the package icon at the bottom of the expanded options
-- Click 'Download as ZIP'
-- Choose where you want to save the backup file
-- The system will compress your project into a zip file
+|  | ZIP (with Git) | Mini ZIP |
+|---|---|---|
+| `includeGit` flag | `true` | `false` (omitted) |
+| `.git` folder | Included | Excluded |
+| File size | Larger | Smaller |
+| Git history preserved | Yes | No |
+| Best for | Backups or handoffs | Sharing or distribution |
 
-### 6. Save and Share
-
-- Your project backup is now saved as a zip file
-- You can share this file with others or keep it for safekeeping
-- Recipients can open and use this zip file as a complete project
-- Send it to team members, support, or store it for future use 
+Click your preferred option. The system will compress your project into a zip file that you can save anywhere and share freely.
