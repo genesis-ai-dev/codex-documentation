@@ -1,0 +1,135 @@
+---
+title: Project Swap
+description: Learn how to move your team from one project repository to a new one using Project Swap, preserving all work in the process.
+---
+
+### Overview
+
+Project Swap lets you move your entire team from one project repository to a new one—without losing any work. Think of it like moving to a new house: the admin prepares the new address, announces the move, and then each team member clicks one button to bring their work with them. The old project stays intact for records, but everyone continues working from the new one.
+
+You would use a Project Swap when a project's repository has grown too large or unwieldy and needs a clean slate with a fresh git history.
+
+<Callout type="info">
+Project Swap is a two-step admin process followed by a one-click action for contributors.
+</Callout>
+
+---
+
+### For Admins
+
+#### Step 1 — Create the New Project
+
+The first step is to create a clean copy of the project. This produces a new local project with all the current content but none of the old git history.
+
+1. Open the old project in the editor.
+2. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac) to open the command palette.
+3. Type `Project Swap` and select **"Project Swap - Copy to New Project (Step 1)"**.
+
+4. When prompted, enter a name for the new project (e.g. `Genesis Clean`). A unique identifier is added automatically.
+5. Press **Enter** or click **OK**.
+
+6. Wait for the copy to finish. The new project will open automatically when it's ready.
+
+#### Publish the New Project to the Cloud
+
+The new project currently only exists on your local machine. You need to publish it so that it has a remote address your team can move to.
+
+1. Open the **Sync** panel or use the sync command.
+2. Click **Sync / Publish** to push the new project to the cloud.
+3. Wait for the sync to complete.
+
+4. Once published, copy the new project's **Git clone URL** from your projects list in Codex — you'll need it in Step 2.
+
+5. Switch back to the **old project** (use **File → Open Folder** or reopen it from the startup screen).
+
+---
+
+#### Step 2 — Initiate the Swap
+
+Step 2 notifies everyone that the project has moved. Once initiated, all team members will see a **Swap Project** button the next time they open or sync the old project.
+
+1. Make sure the **old project** is open.
+2. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac).
+3. Type `Project Swap` and select **"Project Swap - Initiate Swap (Step 2)"**.
+
+4. Paste the new project's **Git URL** into the input box and press **Enter**.
+
+5. Optionally, enter a reason for the swap (e.g. `Repository cleanup`) and press **Enter**.
+
+6. A confirmation dialog will appear. Click **"Yes, Initiate Swap"**.
+
+7. Wait for the swap to be published to the remote. When the success message appears, click **OK**.
+
+<Callout type="warning">
+Once a swap is initiated, all contributors will see the Swap Project button on the old project. They will not be able to open the old project as normal until they complete the swap.
+</Callout>
+
+The admin's work is done. Contributors can now complete the move on their end.
+
+---
+
+### For Contributors
+
+When a swap has been initiated on a project, the project list will show a **Swap Project** button instead of the usual **Open** button.
+
+1. Open the startup screen (close your current project if needed).
+2. Locate the old project in your project list.
+3. Click the **Swap Project** button.
+
+4. If there are media files that haven't been downloaded yet, you may be prompted to download them before swapping. Click **Download & Swap** to proceed.
+
+5. The swap will back up your local work, switch the remote to the new project, and preserve all your files.
+6. When it completes, the project opens automatically in the new repository.
+
+<Callout type="info">
+All your work — translations, notebooks, media — comes with you. The only thing that changes is the git repository address.
+</Callout>
+
+---
+
+### Additional Admin Actions
+
+#### View Swap Status
+
+You can check who has completed the swap and who hasn't.
+
+1. Open the project.
+2. Press `Ctrl+Shift+P` (or `Cmd+Shift+P`).
+3. Type `Project Swap` and select **"Project Swap - View Status"**.
+
+A dialog will show swap history including which contributors have moved and when.
+
+#### Cancel a Swap
+
+If you need to cancel a swap before all contributors have completed it:
+
+1. Press `Ctrl+Shift+P` (or `Cmd+Shift+P`).
+2. Type `Project Swap` and select **"Project Swap - Cancel Swap"**.
+
+<Callout type="warning">
+Only admins (Maintainer or Owner role) can cancel a swap. Contributors who have already completed the swap will not be reverted automatically.
+</Callout>
+
+---
+
+### What Happens to the Old Project
+
+The old repository is not deleted. It remains on the cloud as a record. If someone attempts to clone it after the swap has been initiated, they will see a deprecation warning with a link to the new project's address.
+
+---
+
+### Quick Reference
+
+| Step | Who | Action |
+|------|-----|--------|
+| 1 | Admin | `Cmd/Ctrl+Shift+P` → **Project Swap - Copy to New Project (Step 1)** |
+| 2 | Admin | Enter new project name → **OK** |
+| 3 | Admin | Sync / Publish new project to the cloud |
+| 4 | Admin | Copy new project's Git URL from Projects List |
+| 5 | Admin | Switch back to old project |
+| 6 | Admin | `Cmd/Ctrl+Shift+P` → **Project Swap - Initiate Swap (Step 2)** |
+| 7 | Admin | Paste new Git URL → **OK** |
+| 8 | Admin | Enter reason (optional) → Confirm **"Yes, Initiate Swap"** |
+| 9 | Contributor | Open startup screen → click **Swap Project** on old project |
+| 10 | Contributor | Click **Download & Swap** if prompted |
+| 11 | Contributor | Wait for completion — project opens in new repository |
