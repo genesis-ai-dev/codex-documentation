@@ -1,5 +1,6 @@
 # deps
 /node_modules
+.pnpm-store
 
 # generated content
 .contentlayer
@@ -11,6 +12,7 @@
 /.next/
 /out/
 /build
+.turbo
 *.tsbuildinfo
 
 # misc
@@ -19,6 +21,7 @@
 /.pnp
 .pnp.js
 npm-debug.log*
+pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 

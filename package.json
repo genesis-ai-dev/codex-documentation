@@ -24,6 +24,7 @@
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
     "eslint": "^9.18.0",
+    "minimatch": "9.0.6",
     "eslint-config-next": "16.1.6",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.7",
@@ -35,7 +36,13 @@
       "brace-expansion@2.0.1": "2.0.2",
       "js-yaml": "^4.1.1",
       "mdast-util-to-hast": "^13.2.1",
-      "tar": "^7.5.7"
+      "tar": "^7.5.8",
+      "minimatch": "9.0.6",
+      "eslint>minimatch": "9.0.6",
+      "eslint-config-next>minimatch": "9.0.6",
+      "eslint-plugin-import>minimatch": "9.0.6",
+      "minimatch@<9": ">=3.1.3",
+      "ajv": ">=6.14.0"
     }
   }
 }
