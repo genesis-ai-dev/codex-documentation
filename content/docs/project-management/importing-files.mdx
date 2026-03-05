@@ -1,9 +1,9 @@
 ---
 title: Importing Files
-description: Learn how to import various file formats into Codex Editor including Word documents, subtitles, Bible texts, audio, and more
+description: Learn how to import various file formats into Codex Editor including Word documents, subtitles, structured texts, audio, and more
 ---
 
-Codex Editor supports importing a wide variety of file formats for translation projects. Whether you're working with Bible texts, documents, subtitles, or audio, the import wizard walks you through the process and automatically processes your files.
+Codex Editor supports importing a wide variety of file formats for translation projects. Whether you're working with structured texts, documents, subtitles, or audio, the import wizard walks you through the process and automatically processes your files.
 
 ## Understanding Source vs Target Import
 
@@ -12,7 +12,7 @@ Before importing, it's important to understand the two types of imports:
 **Source Import** - Import original content that you want to translate
 - Creates a new source file (read-only reference)
 - Automatically creates a blank target file for your translation
-- Use this for: Bible texts, documents you're translating, video subtitles, audio
+- Use this for: source texts, documents you're translating, video subtitles, audio
 
 **Target Import** - Import existing translations for source files already in your project
 - Matches translated content to existing source files
@@ -51,7 +51,7 @@ Use this when you have existing translations to bring into Codex:
 
 ## Supported File Formats
 
-Importers are organized into two groups: **Essential** (general-purpose) and **Specialized** (Bible and scripture-specific).
+Importers are organized into two groups: **Essential** (general-purpose) and **Specialized** (format-specific and structured-content workflows).
 
 ### Essential Importers
 
@@ -97,7 +97,7 @@ Importers are organized into two groups: **Essential** (general-purpose) and **S
 - Unified Standard Format Markers (`.usfm`, `.sfm`)
 - Headers are placed in chapter 1; target imports import verse content only
 - **Round-trip export supported**
-- **Use for:** Bible translation projects, Paratext exports
+- **Use for:** Translation projects, Paratext exports
 
 **Paratext Projects**
 - Import complete Paratext projects (folder or ZIP archive)
@@ -105,7 +105,7 @@ Importers are organized into two groups: **Essential** (general-purpose) and **S
 - **Use for:** Existing Paratext translation work
 
 **eBible Download**
-- Download Bible translations directly from eBible.org
+- Download translations directly from eBible.org
 - Access to hundreds of open-license translations
 - Includes popular versions (BBE, WEB, ASV, KJV) and original language texts
 - Optionally import as a translation only (to populate an existing target project)
@@ -126,16 +126,16 @@ Importers are organized into two groups: **Essential** (general-purpose) and **S
 **Biblica Study Notes**
 - Biblica IDML importer with Study Bible notes
 - **Round-trip export supported**
-- **Use for:** Study Bible translation projects
+- **Use for:** Study translation projects
 
 **Bible Spreadsheet with Audio Data**
 - CSV and TSV files with verse-by-verse content and audio URL columns
 - **Round-trip export supported**
-- **Use for:** Spreadsheet-based Bible translation workflows with associated audio
+- **Use for:** Spreadsheet-based translation workflows with associated audio
 
 ## Import Workflow Examples
 
-### Example 1: Importing a Bible Book (USFM)
+### Example 1: Importing a Structured Text File (USFM)
 
 1. Open Navigation → **Add Files**
 2. Select **"Import Your Content"**
@@ -145,14 +145,14 @@ Importers are organized into two groups: **Essential** (general-purpose) and **S
    - `GEN.source` — Source text (read-only)
    - `GEN.codex` — Your translation workspace
 
-### Example 2: Downloading a Bible from the Cloud
+### Example 2: Downloading Source Text from the Cloud
 
-You can download open-license Bibles directly within Codex:
+You can download open-license source texts directly within Codex:
 
 1. Open Navigation → **Add Files**
 2. Select **"Import Your Content"**
 3. Choose **"eBible Download"** importer
-4. Search for your language or specific Bible version (e.g., "WEB", "Greek")
+4. Search for your language or specific text version (e.g., "WEB", "Greek")
 5. Click **Download** to fetch the text
    - Optionally check **"Import as Translation Only"** to populate an existing target project
 6. Monitor progress and confirm once complete
@@ -199,7 +199,7 @@ You can download open-license Bibles directly within Codex:
 When importing translations (Target Import), Codex uses intelligent alignment:
 
 **ID-Based Matching**
-- Matches by verse references (for Bible texts)
+- Matches by segment references (for structured texts)
 - Matches by cell IDs (for structured content)
 - **Accuracy:** Very high for properly structured files
 
@@ -231,7 +231,7 @@ For translation imports, you can:
 - Verify the file format is supported (check file extension)
 - Check that the file isn't corrupted (open it in its original application first)
 - Ensure the file isn't password-protected or encrypted
-- For Bible texts, confirm the file follows the expected format (USFM, SFM, etc.)
+- For structured texts, confirm the file follows the expected format (USFM, SFM, etc.)
 
 ### Translation Import Shows Poor Alignment
 
@@ -314,7 +314,7 @@ After importing your files:
     - **"Round-trip"** tag if you need to export back to the original format
     - Format-specific importers for best accuracy
     - **Essential** importers for general documents, media, and audio
-    - **Specialized** importers for Bible translation workflows
+    - **Specialized** importers for translation workflows
   </Accordion>
 
   <Accordion title="Can I import audio files?">

@@ -1,6 +1,6 @@
 ---
 title: Advanced Export Options
-description: Learn about all available export formats in Codex Editor including round-trip workflows for Word, InDesign, and specialized formats
+description: Learn about all available export formats in Codex Editor including round-trip workflows for Word, InDesign, and other specialized formats
 ---
 
 Beyond the basic export formats (Plain Text, HTML, USFM), Codex Editor offers powerful advanced export options including round-trip workflows that preserve formatting and structure. These options let you move seamlessly between Codex and other professional tools.
@@ -13,7 +13,7 @@ These formats create simple, readable outputs:
 
 - **Plain Text** - Clean text without formatting
 - **HTML** - For web viewing or publishing
-- **USFM** - Standard Bible translation format
+- **USFM** - Standard translation format
 
 ### Round-Trip Exports
 
@@ -21,7 +21,7 @@ These formats preserve complete structure for editing and re-import:
 
 - **DOCX Round-trip** - Export back to Microsoft Word with formatting
 - **IDML Round-trip** - Export to InDesign for layout work
-- **OBS Markdown** - Export Bible stories with images
+- **OBS Markdown** - Export story-based Markdown with images
 - **VTT/SRT** - Export translated subtitles
 - **Biblica Format** - Specialized publishing format
 
@@ -66,11 +66,11 @@ Automatically detects the original import format and exports accordingly:
 
 **Example Output:**
 ```
-Genesis 1:1
-In the beginning God created the heavens and the earth.
+Section 1
+Translated text for the first segment.
 
-Genesis 1:2
-Now the earth was formless and empty...
+Section 2
+Translated text for the second segment.
 ```
 
 <Callout type="info">
@@ -100,9 +100,9 @@ Now the earth was formless and empty...
 ### USFM Export
 
 **Use For:**
-- Bible translation workflows
+- Translation workflows
 - Paratext integration
-- Scripture publishing
+- Structured text publishing
 - Standard format archival
 
 **What You Get:**
@@ -113,11 +113,11 @@ Now the earth was formless and empty...
 
 **Example Output:**
 ```
-\id GEN
-\h Genesis
+\id DOC
+\h Document Title
 \c 1
-\v 1 In the beginning God created the heavens and the earth.
-\v 2 Now the earth was formless and empty...
+\v 1 Translated text for the first segment.
+\v 2 Translated text for the second segment.
 ```
 
 ## Round-Trip Export Formats
@@ -189,7 +189,7 @@ Export to Adobe InDesign Markup Language for professional layout and publishing.
 - Publishing metadata
 
 **Use Cases:**
-- Professional Bible publishing
+- Professional publishing
 - Magazine layout
 - Newsletter production
 - Print-ready materials
@@ -229,7 +229,7 @@ Your translated text for the first segment goes here.
 
 Your translated text for the second segment goes here.
 
-_A Bible story from: Genesis 1-2_
+_Story source: Section 1-2_
 ```
 
 **Features:**
@@ -414,7 +414,7 @@ Exported files follow this pattern:
 |--------|-------------|------------|--------|----------|
 | **Plain Text** | No | None | No | Simple reading, universal access |
 | **HTML** | No | Basic | Yes | Web publishing, sharing |
-| **USFM** | No | Markers | No | Bible translation, Paratext |
+| **USFM** | No | Markers | No | Translation, Paratext |
 | **DOCX Round-trip** | Yes | Full | Coming | Document translation |
 | **IDML** | Yes | Full | Yes | Professional publishing |
 | **OBS Markdown** | Yes | Basic | Yes | Story translation |
@@ -432,7 +432,7 @@ Exported files follow this pattern:
 6. **Polish:** Final edits in Word (optional)
 7. **Deliver:** Client receives formatted document
 
-### Workflow 2: Bible Publishing Pipeline
+### Workflow 2: Structured Text Publishing Pipeline
 
 1. **Import:** USFM files from Paratext
 2. **Translate:** With team collaboration
@@ -453,12 +453,12 @@ Exported files follow this pattern:
 6. **Re-export:** Final version
 7. **Deliver:** Ready for dubbing or subtitling
 
-### Workflow 4: Multi-Book Project
+### Workflow 4: Multi-File Project
 
-1. **Project:** 10 Bible books translated
+1. **Project:** 10 structured text files translated
 2. **Export:**
-   - **Individual:** USFM for each book (consultant review)
-   - **Combined:** HTML for all books (web preview)
+   - **Individual:** USFM for each file (editorial review)
+   - **Combined:** HTML for all files (web preview)
    - **Backup:** Plain text for all (archival)
 3. **Distribute:** Different formats to different stakeholders
 
@@ -546,7 +546,7 @@ Now that you understand export options:
   </Accordion>
 
   <Accordion title="Which format is best for archival?">
-    Use **Plain Text** for long-term archival (universal compatibility) and **USFM** for Bible translations (industry standard). Keep original files as well.
+    Use **Plain Text** for long-term archival (universal compatibility) and **USFM** for translations (industry standard). Keep original files as well.
   </Accordion>
 
   <Accordion title="Can I re-import exported files?">
@@ -570,7 +570,7 @@ Now that you understand export options:
   </Accordion>
 
   <Accordion title="How large can exported files be?">
-    There's no strict limit, but very large files (100+ pages, 1000+ verses) may take longer to process. Consider splitting large books into smaller sections if performance is an issue.
+    There's no strict limit, but very large files (100+ pages, 1000+ segments) may take longer to process. Consider splitting large files into smaller sections if performance is an issue.
   </Accordion>
 </Accordions>
 
