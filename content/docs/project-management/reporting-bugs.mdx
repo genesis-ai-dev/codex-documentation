@@ -1,96 +1,57 @@
 ---
-title: Reporting Bugs in Codex
-description: Learn how to access developer tools and console logs to help report bugs and issues in the Codex application
+title: Reporting Bugs
+description: Learn how to capture error information and report bugs effectively in the Codex application
 ---
 
-<LoomVideo videoId="7e649480af144c36b2f94d2bab34035a" timestamp={0} title="Reporting Bugs in Codex" />
+When you encounter a bug in Codex, capturing error details helps the team diagnose and fix the problem faster. Here's how to gather the information needed for an effective bug report.
 
-### 1. Accessing Developer Tools
+## Opening Developer Tools
 
-When you encounter an issue or bug in Codex, capturing console logs can help our support team diagnose and fix the problem more quickly.
+Developer Tools give you access to the console, which logs errors and warnings as you use the application.
 
-**Opening Developer Tools:**
-- Click on **Help** at the top of the screen
-- Look for the button to **Toggle Developer Tools**
-- On Mac: The interface may look slightly different
-- On Windows: The layout might vary from Mac
+1. Click **Help** in the top menu bar
+2. Select **Toggle Developer Tools**
 
-### 2. Understanding the Developer Tools Interface
+The Developer Tools panel will appear as a sidebar, a separate window, or at the bottom of the screen — all locations work the same way.
 
-Once you open the developer tools, they may appear in different locations:
-- As a **sidebar** on the right
-- As a **separate window**
-- At the **bottom** of the screen
+## Finding Error Messages
 
-All of these locations work fine for accessing the console.
+1. Click the **Console** tab in the Developer Tools panel
+2. Look for messages color-coded by severity:
+   - **Red** — Errors (these are the most important for bug reports)
+   - **Yellow** — Warnings (usually not critical but sometimes relevant)
+   - **White/gray** — Informational messages
 
-### 3. Finding the Console Tab
+## Capturing Errors for a Bug Report
 
-**Locating the Console:**
-- Look for a menu called **Console** in the developer tools
-- You may need to click the **arrows** to expand the menu options
-- Select **Console** from the available tabs
+1. **Reproduce the issue** — perform the action that caused the problem while the console is open
+2. **Look for red error messages** that appear as you trigger the bug
+3. **Click the arrow** next to an error to expand its full details (stack trace)
+4. **Right-click the error** and select **Copy** to copy the full message
+5. Save or paste the error text for your report
 
-### 4. Reading Console Messages
+## What to Include in a Bug Report
 
-The console displays different types of messages:
+A good bug report includes:
 
-**Message Types:**
-- **Yellow messages:** Warning messages (usually not critical)
-- **Red messages:** Error messages (these are what we need for bug reports)
-- **Other colors:** Various informational messages
+- **Error messages** from the console (the full red text, including any expanded details)
+- **Steps to reproduce** — exactly what you did before the error occurred
+- **Expected behavior** — what you thought should happen
+- **Actual behavior** — what happened instead
+- **Your environment** — operating system and Codex version (found in the Extensions panel)
+- **Screenshots** — if the issue is visual, a screenshot helps
 
-### 5. Capturing Error Messages
+<Callout type="info">
+Before reporting, try reproducing the error to confirm it happens consistently. Also check the [Discord community](https://discord.gg/6kVJTEXYEp) to see if others have already reported the same issue.
+</Callout>
 
-When you encounter a bug or issue:
+## Where to Report Bugs
 
-**Reproducing the Error:**
-1. Try to perform the action that caused the problem
-2. Watch the console for any **red error messages**
-3. These errors will appear in real-time as you interact with the application
+- **Discord**: Post in our [Discord community](https://discord.gg/6kVJTEXYEp) for quick feedback and to check if the issue is already known
+- **GitHub**: Open an issue on the [Codex Editor repository](https://github.com/genesis-ai-dev/codex-editor/issues) with the details above
 
-**Copying Error Messages:**
-1. **Select the error message** in the console
-2. **Expand the error** if there's a dropdown arrow to see more details
-3. **Copy the entire error message** including any expanded details
-4. **Send the error message** to our support team
+## Tips
 
-### 6. Best Practices for Bug Reporting
-
-**What to Include:**
-- The complete error message from the console
-- A description of what you were trying to do when the error occurred
-- Steps to reproduce the issue
-- Any relevant project information
-
-**Before Reporting:**
-- Try to reproduce the error to confirm it's consistent
-- Check if there are multiple error messages related to the same issue
-- Take note of any patterns or specific actions that trigger the error
-- Search our [Discord community](https://discord.gg/6kVJTEXYEp) to see if others have encountered similar issues
-
-### 7. When to Check Console Logs
-
-**Recommended Times:**
-- When you encounter unexpected behavior
-- When features aren't working as expected
-- When the application becomes unresponsive
-- Before reporting any issues to support
-
-**Proactive Monitoring:**
-- Keep the developer tools open while working if you're experiencing intermittent issues
-- Check the console periodically during intensive work sessions
-- Clear the console (if needed) before testing specific features
-
-### 8. Getting Help
-
-Once you've captured the error messages:
-- Send them to our support team along with your bug report
-- Include the steps you took that led to the error
-- Mention your operating system and Codex version if known
-- Our team can use this information to investigate and resolve the issue more effectively
-
-**Community Support:**
-- Join our [Discord community](https://discord.gg/6kVJTEXYEp) for real-time help and tips
-- Share your bug reports and get assistance from other users
-- Connect with fellow Codex users who may have encountered similar issues 
+- **Keep Developer Tools open** if you're experiencing intermittent issues — this makes it easier to catch errors as they happen
+- **Clear the console** before reproducing an issue to isolate only the relevant messages (right-click in the console and select **Clear Console**)
+- **Check for updates** — the issue may already be fixed in a newer version (see [How to Update Codex](/docs/project-management/update-extensions))

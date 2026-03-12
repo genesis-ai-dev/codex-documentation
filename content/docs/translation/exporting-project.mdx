@@ -1,68 +1,106 @@
 ---
-title: How to Export Your Translation Project
-description: Learn how to export your translation project in different formats including Plain Text, HTML, and USFM
+title: Export Options
+description: Learn about all available export formats in Codex Editor and how to export your translation project
 ---
 
-<LoomVideo videoId="5425e3368c5d47d3844ab3658a739488" timestamp={0} title="How to Export Your Translation Project" />
+Codex Editor supports a wide range of export formats. The export wizard walks you through a three-step process: select files, choose a format, and pick a save location.
 
-### 1. Open the Main Menu
+## How to Export
 
-- If the main menu is not open, press the sidebar.
-- Navigate to 'Project Settings'.
-
-### 2. Locate Export Project Option
-
-- Scroll down until you see 'Export Project'.
-
-### 3. Choose Export Format
-
-Codex offers several export formats:
-
-**Standard Formats:**
-- **Plain Text** - Simple text file, works anywhere
-- **HTML** - For viewing in browsers or publishing as websites
-- **USFM** - Universal Standard Format for translations
-
-**Advanced Formats:**
-- **DOCX Round-trip** - Export back to Word with formatting preserved
-- **VTT/SRT** - Export translated subtitles for videos
-- **OBS Markdown** - Export story-based Markdown with images
-- **IDML** - Export to InDesign for professional publishing
-- **Rebuild Export** - Automatically detects the right format
+1. Open the **Main Menu** from the sidebar
+2. Click **Export Project**
+3. **Step 1 — Select files**: Choose the `.codex` files you want to export. Files are grouped by import type (e.g., all USFM files together, all DOCX files together). You can only export files from one group at a time.
+4. **Step 2 — Choose format**: Pick an export format (see below). You can also toggle **Audio export** to include per-cell audio attachments alongside your chosen text format.
+5. **Step 3 — Select location**: Choose a folder on your computer to save the exported files.
+6. Click **Export** to finish.
 
 <Callout type="info">
-**Need more export options?** See our comprehensive [Advanced Export Options guide](/docs/translation/advanced-export-options) for details on round-trip workflows, subtitle exports, and more.
+You must set your source and target languages in Project Settings before the export view will load.
 </Callout>
 
-### 4. Select Your Files
+## Export Formats
 
-- Choose which files to export
-- You can export single files or multiple at once
+The formats available in Step 2 depend on which file group you selected in Step 1. Not all formats appear for every file type.
 
-### 5. Download Your Export
+### Round-trip Export
 
-- Click the export button
-- Choose where to save the file
-- Your translation is ready to use!
+If your files were imported with a round-trip importer, the **Round-trip Export** option appears. This intelligently detects the original file format and exports back to it with your translations applied.
 
-## Quick Tips
+Supported round-trip formats:
+
+| Original Import | Exported As |
+|----------------|-------------|
+| USFM | `.usfm` with markers |
+| Word Documents (DOCX) | `.docx` with formatting |
+| OBS (Bible Stories) | Markdown with images |
+| TMS (TMX/XLIFF) | `.xliff` / `.tmx` |
+| Markdown | `.md` |
+| CSV/TSV Spreadsheet | `.csv` / `.tsv` |
+| InDesign (IDML) | `.idml` |
+| Biblica Study Notes | `.idml` (Biblica format) |
 
 <Callout type="info">
-**Tip:** Opening your exported .txt file in Microsoft Word
-
-  1. Launch Word and go to **File > Open**.
-
-  2. In the Open dialog, change the file type dropdown to "Text Files (*.txt)".
-
-  3. Browse to your .txt file, select it, and click **Open**. 
-
-  4. Word will import the content, which you can then edit and save as a .docx file.
+**When in doubt, use Round-trip Export.** It automatically picks the right format based on how the file was originally imported.
 </Callout>
+
+### Subtitle Export
+
+For files imported with the Subtitles importer, three subtitle-specific options are available:
+
+- **SubRip (SRT)** — Standard subtitle format, plain text only, compatible with most video players
+- **WebVTT with Styling** — Web-native subtitles with text formatting preserved
+- **WebVTT Plain** — Web-native subtitles without formatting
+
+All subtitle exports preserve the original timestamps.
+
+### Standard Text Formats
+
+These are available for most file types:
+
+- **Generate Plaintext** — Plain text with minimal formatting. Universal compatibility.
+- **Generate XLIFF** — XML Localization Interchange File Format for professional translation workflows.
+
+### Scripture-Specific Formats
+
+These appear only for USFM and eBible file groups:
+
+- **Generate USFM** — Export with full USFM markers (`\id`, `\c`, `\v`, etc.). Includes an option to skip USFM validation for faster export.
+- **Generate HTML** — Web pages with chapter navigation.
+
+### Data Export
+
+These are available for all file types and useful for analysis or quality assurance:
+
+- **CSV** — Comma-separated values with ID, source text, target text, and metadata columns
+- **TSV** — Tab-separated values with the same columns as CSV
+- **Backtranslations (CSV)** — Exports backtranslations with ID, source text, translation, and backtranslation columns
+
+### Audio Export
+
+The **Audio** toggle at the top of Step 2 lets you export per-cell audio attachments alongside any text format. You can optionally embed timestamps in audio metadata (WAV, WebM, M4A). Audio can also be exported on its own without selecting a text format.
+
+## Tips
+
+- **Mixed-format projects**: If your project has files from different importers (e.g., some DOCX and some USFM), you'll need to export each group separately since you can only select files from one group at a time.
+- **Test first**: Export a single file before batch-exporting an entire project to verify the output looks correct.
+- **Round-trip requirements**: Round-trip export only works if the file was originally imported with a round-trip importer. If you see an error about importer type mismatch, re-import the original file using the correct round-trip importer.
+
+## Troubleshooting
+
+**"File not imported with correct importer"**
+- The file needs to be re-imported using the appropriate round-trip importer for the format you want.
+
+**Export creates an empty or corrupted file**
+- Check that the cells have content.
+- Verify metadata is intact.
+- Try exporting a single file first.
+- Check available disk space.
+
+**Formatting lost in exported DOCX**
+- Only files imported with the Word Documents (round-trip) importer will preserve formatting on export.
 
 ## Next Steps
 
-After exporting your project:
-
-- **Round-trip workflows:** Learn about [advanced export options](/docs/translation/advanced-export-options) for DOCX and other formats
-- **Video projects:** See our [video & audio translation guide](/docs/translation/video-audio-translation) for subtitle export details
-- **Share your work:** Use the [project sharing features](/docs/project-management/sharing-managing-projects) to collaborate with others
+- [Import files](/docs/project-management/importing-files) to set up round-trip workflows
+- [Translate with AI tools](/docs/translation/translation-tools) before exporting
+- [Share your project](/docs/project-management/sharing-managing-projects) with your team
