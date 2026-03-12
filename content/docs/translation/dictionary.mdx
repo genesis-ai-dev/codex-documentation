@@ -1,0 +1,102 @@
+---
+title: Dictionary & Spell Check
+description: Learn how to use the project dictionary, spell checking, word lookups, and word frequency analysis in Codex Editor
+---
+
+Codex Editor includes a built-in dictionary system and spell checker to help you maintain consistency and accuracy in your translations. The dictionary is per-project, stored locally, and can be populated with Wiktionary data or your own entries.
+
+## Project Dictionary
+
+### Opening the Dictionary
+
+Open the dictionary editor in any of these ways:
+
+- Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) and search for **"Dictionary Table: Show"**
+- Open the file `files/project.dictionary` directly from the file explorer
+
+The dictionary opens as an editor tab with a searchable, editable table of word entries.
+
+### Adding Words
+
+In the dictionary editor, you can:
+
+- **Add entries manually** — Click the add button to create a new entry with a head word and definition
+- **Edit existing entries** — Click on any cell in the table to modify it
+- **Delete entries** — Remove words you no longer need
+
+### Importing Wiktionary Data
+
+To bulk-populate your dictionary with definitions:
+
+1. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`)
+2. Search for **"Import Wiktionary"**
+3. Select a `.jsonl` file containing Wiktionary data
+4. The importer processes each word and its definitions, creating dictionary entries automatically
+
+<Callout type="info">
+Wiktionary JSONL files contain word definitions in a structured format. Each line should be a JSON object with a `word` field and a `senses` array containing `glosses`.
+</Callout>
+
+### Dictionary Storage
+
+- **SQLite database**: The active dictionary lives at `.project/dictionary.sqlite` for fast lookups
+- **JSONL export**: User-created entries are also saved to `files/project.dictionary` so they sync with your project and team
+
+## Spell Check
+
+Codex includes a built-in spell checker powered by the project dictionary and a language server.
+
+### Enabling Spell Check
+
+Spell check is disabled by default. To enable it, update your project settings:
+
+1. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`)
+2. Search for **"Preferences: Open Settings"**
+3. Find `codex-project-manager.spellcheckIsEnabled` and set it to `true`
+
+### How It Works
+
+When spell check is enabled:
+
+- Words in your translation cells are checked against the project dictionary
+- Unrecognized words are highlighted
+- Click on a highlighted word to see correction suggestions
+- Select **"Add to Dictionary"** to add the word to your project dictionary, removing the highlight
+
+The spell checker uses Levenshtein distance to suggest similar words from your dictionary when a word isn't recognized.
+
+## Word Lookup
+
+To quickly look up a word's definition:
+
+1. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`)
+2. Search for **"Look Up Word"**
+3. Type the word you want to look up
+4. If definitions exist in your dictionary, they're shown in a list
+5. If no definitions are found, you'll see a "No definitions found" message
+
+## Word Frequency Analysis (KWIC View)
+
+Codex includes a **Key Word In Context (KWIC)** view for analyzing word usage across your translations:
+
+1. Open the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`)
+2. Search for **"Frontier: View All Words"**
+3. A panel opens showing every unique word in your target translations
+
+### KWIC Features
+
+- **Word frequency**: See how often each word appears across your project
+- **Context display**: View the left and right context surrounding each occurrence
+- **Sorting**: Sort by frequency, left context, or right context
+- **Search**: Filter for specific words
+- **Bulk replace**: Select occurrences and replace them across the project
+- **Pagination**: Navigate through large word lists
+
+This is useful for spotting inconsistencies in terminology, finding uncommon words, or ensuring key terms are translated consistently throughout the project.
+
+## Tips
+
+- **Build your dictionary early** — Import Wiktionary data for your target language before starting translation
+- **Add words as you go** — When the spell checker flags a correct word, add it to your dictionary so it's recognized going forward
+- **Use KWIC for consistency** — Periodically review word frequencies to catch inconsistent translations of the same term
+- **Dictionary syncs with your project** — User entries in `project.dictionary` are included in project sync, so your team shares the same dictionary

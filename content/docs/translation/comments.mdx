@@ -1,0 +1,102 @@
+---
+title: Comments
+description: Learn how to use the Comments panel to leave notes, discuss translations, and collaborate with your team in Codex Editor
+---
+
+The Comments panel lets you and your team leave notes, ask questions, and discuss translations directly on individual cells. Comments are synced with your project, so everyone on the team can see and respond to them.
+
+## Accessing Comments
+
+### From the Activity Bar
+
+Click the **Note icon** in the activity bar (left sidebar) to open the Comments panel.
+
+### From a Cell
+
+Hover over any cell in the editor to reveal a **comment bubble** icon on the right side:
+
+- If the cell has **no comments**, clicking the bubble opens the Comments panel and immediately shows the new comment form
+- If the cell has **unresolved comments**, a badge with the count appears instead — clicking it opens the Comments panel filtered to that cell
+
+You can also use the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`) and search for **"Focus Comments View"**.
+
+## View Modes
+
+The Comments panel has two modes, toggled in the header:
+
+### All Comments
+
+Shows every comment thread across your entire project. This is useful for reviewing all discussions, finding unresolved items, or getting an overview of team activity.
+
+### Current Cell
+
+Shows only the comment threads attached to the cell you currently have selected in the editor. This focuses the view on the specific verse or segment you're working on.
+
+## Creating a Comment
+
+1. Select a cell in the editor (or click the comment bubble on a cell)
+2. In the Comments panel, type your comment in the input field at the top
+3. Press **Enter** or click the **Comment** button
+4. A new comment thread is created, linked to that cell
+
+Each thread gets a default title based on the creation timestamp. You can edit the title later by clicking the edit icon next to it.
+
+<Callout type="info">
+You must be logged in to create comments. Your username is displayed as the comment author.
+</Callout>
+
+## Replying to Comments
+
+1. Expand a comment thread
+2. Type your reply in the reply field
+3. Press Enter to submit
+
+You can also click **"Reply to this comment"** on a specific comment within a thread to quote it in your reply.
+
+## Resolving Comments
+
+Mark a discussion as resolved when the issue has been addressed:
+
+- Click the **circle icon** on a thread to mark it as resolved
+- A **"Resolved"** badge appears on resolved threads
+- Resolved threads can be hidden — a banner at the bottom lets you show or hide them
+- Click the **check icon** on a resolved thread to reopen it if needed
+
+The resolve history tracks who resolved or reopened each thread and when.
+
+## Sorting and Filtering
+
+### Search
+
+Use the search bar to filter comments by thread title, comment text, or cell reference. Search is available in "All Comments" mode.
+
+### Sort Options (All Comments mode)
+
+Click the sort button to choose:
+
+- **Location in Project** — Groups threads by file and section, following project structure order
+- **Time Increasing** — Oldest threads first
+- **Time Decreasing** — Newest threads first
+
+## Deleting Comments
+
+- **Individual comments**: Click the delete button on a comment you authored. Deleted comments show "This comment has been deleted" with an **Undo** option
+- **Entire threads**: Delete a thread to remove it from the list (soft delete — can be undone)
+
+## Context Display
+
+In "All Comments" mode, each thread shows contextual information so you know exactly where it belongs:
+
+- **File name** (e.g., "Genesis", "Hebrew Matthew")
+- **Section/milestone** (e.g., "Matthew 5")
+- **Line number** within the section
+- **Cell label** if one exists (e.g., "Narrator", speaker names)
+
+## Collaboration
+
+Comments are stored in your project's `.project/comments.json` file and are included in project sync. This means:
+
+- All team members see the same comments
+- New comments appear after syncing
+- Resolved/unresolved status is shared across the team
+- Comment history is preserved through sync conflicts

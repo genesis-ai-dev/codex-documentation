@@ -1,0 +1,104 @@
+---
+title: Search & Replace
+description: Learn how to search across your translation project, find passages, pin results, and perform find-and-replace operations in Codex Editor
+---
+
+Codex Editor includes a dedicated **Search Passages** panel designed for translation projects. Unlike a standard text editor search, it understands the structure of your project — searching across source and target cells, showing results with their cell labels, and letting you pin passages for reference.
+
+## Accessing Search
+
+### In-Tab Search (Current File)
+
+Press `Ctrl+F` (Windows/Linux) or `Cmd+F` (Mac) while in the cell editor to open a floating search bar scoped to the current file.
+
+- Type your query and press Enter or click the search icon
+- Navigate between matches with the up/down arrows
+- Click the **expand** button to open the full Search Passages sidebar with your current query
+
+### Search Passages Sidebar (All Files)
+
+Open the full project-wide search in any of these ways:
+
+- Click the **Eye icon** in the activity bar (left sidebar)
+- Press `Ctrl+Shift+F` (Windows/Linux) or `Cmd+Shift+F` (Mac)
+- From the in-tab search bar, click the expand button to transfer your query
+
+### Search with Replace
+
+- Press `Ctrl+Shift+R` (Windows/Linux) or `Cmd+Shift+R` (Mac) to open the sidebar with the replace section already expanded
+
+## Search Options
+
+### Search Scope
+
+Control where your search looks using the scope toggle:
+
+- **Both** — Search in source and target cells (default)
+- **Source** — Search only in source (original) cells
+- **Target** — Search only in target (translation) cells
+
+### Complete Only
+
+When enabled, results only include cells that have both source and target content. This is useful for reviewing completed translations.
+
+### File Filter
+
+By default, search covers all project files. Use the file selector to narrow your search to specific source or target files.
+
+## Search Results
+
+Each result displays:
+
+- **Cell label** (e.g., GEN 1:1, or a subtitle timestamp)
+- **Source text** with the match highlighted
+- **Target text** with the match highlighted
+- A **pin** button to keep the result for reference
+
+Click on the source or target text of any result to navigate directly to that cell in the editor.
+
+### Recent Searches
+
+The search panel remembers your last 5 searches. Click the dropdown arrow next to the search input to quickly re-run a previous query.
+
+## Pinning Results
+
+Pin results you want to keep visible while working:
+
+- Click the **pin icon** on any individual result
+- Use **Pin All** to pin every result in the current search
+- Toggle the **pinned filter** to show only pinned results
+- Pinned results persist even when you run a new search
+
+This is particularly useful for comparing parallel passages across different books or documents.
+
+## Find and Replace
+
+### Opening Replace Mode
+
+1. Press `Ctrl+Shift+R` / `Cmd+Shift+R`, or
+2. Click the **Replace** toggle in the Search Passages sidebar
+
+### Replacing Text
+
+1. Enter your search query
+2. Type the replacement text in the "Replace with" field
+3. Choose one of:
+   - **Replace** on an individual result to replace just that cell
+   - **Replace All** to replace all matches at once
+
+The replace count shows how many matches can be replaced.
+
+### Retain Validations
+
+Enable the **Retain my validations** checkbox to keep your validation status intact when replacing text. This prevents validations from being cleared after a replace operation.
+
+### HTML-Aware Replacement
+
+Codex is aware of formatting in your cells. If a search match spans across HTML tags (e.g., bold or italic formatting), that match will be skipped during replacement. The system reports how many matches were skipped so you can review them manually.
+
+## Tips
+
+- **Start with in-tab search** (`Ctrl+F`) for quick lookups in the current file, then expand to all files if needed
+- **Use scope filters** to search only source or only target text when checking consistency
+- **Pin parallel passages** from different books to compare translations side by side
+- **Use "Complete only"** when reviewing finished work to skip untranslated cells

@@ -7,15 +7,22 @@ description: Learn how to share projects, manage teams and members, create subgr
 
 > In this guide, we focus on managing projects, teams, members, and access. We use the Global Translation Tools organization as a sample to demonstrate creating teams, managing access, and publishing to subgroups. The same steps will apply to your own organization.
 
+<Callout type="info">
+**About git.genesisrnd.com**
+
+When you create an account in the Codex application, your credentials are automatically set up on `git.genesisrnd.com` — a GitLab server that handles project hosting, team management, and synchronization for Codex projects. You can log into the web interface at [git.genesisrnd.com](https://git.genesisrnd.com) using the same username and password you use in the Codex app. This is where you manage organizations, team members, and project access.
+</Callout>
+
 ### 1. Introduction to Project Sharing
 
-- Overview of sharing a project using a cloud-based management tool.
+- When you publish a project from Codex, it is hosted on `git.genesisrnd.com` where team members can access it.
 - Example group used in this guide: Global Translation Tools.
 
 ### 2. Accessing the Group
 
-- Navigate to your organization/group page with a simple edit to this url git.genesisrnd.com/groups/input_your_orginization_name_here 
-(for example: "git.genesisrnd.com/groups/GlobalTranslationTools")
+- Log into [git.genesisrnd.com](https://git.genesisrnd.com) with your Codex account credentials
+- Navigate to your organization/group page at `git.genesisrnd.com/groups/your_organization_name` 
+(for example: `git.genesisrnd.com/groups/GlobalTranslationTools`)
 
 ### 3. Managing Group Members
 
@@ -41,11 +48,11 @@ description: Learn how to share projects, manage teams and members, create subgr
 
 ### 7. Syncing Projects
 
-- Understand the syncing process: 
-  - Projects can be synced to the cloud.
-  - Manual sync option available.
+- Projects sync to `git.genesisrnd.com` using Git under the hood
+- **Manual sync**: Click the sync button in the main menu to sync immediately
+- **Auto-sync**: Enable auto-sync in project settings to sync on an interval (5, 15, 30, or 60 minutes)
 
 ### 8. Collaboration and Version Control
 
-- Multiple users can work on the same project simultaneously.
-- Use version history to track changes and resolve conflicts.
+- Multiple users can work on the same project with automatic interval-based synchronization.
+- Use Git-based version history to track changes and resolve conflicts.

@@ -3,327 +3,353 @@ title: FAQs
 description: Common questions and answers about Codex Editor
 ---
 
-Here you can find the answers to the most common questions about Codex Editor. If you can't find what you're looking for, check our documentation, or contact support and we'll be happy to help you.
+Here you can find the answers to the most common questions about Codex Editor. If you can't find what you're looking for, check our documentation or reach out on [Discord](https://discord.gg/6kVJTEXYEp).
 
-## Getting Started
+<Tabs items={["Getting Started", "Projects & Files", "AI & Translation", "Collaboration", "Technical"]}>
 
-<Accordions type="multiple">
-  <Accordion title="What is a source text and a target text?">
-    A source text is the original content you want to translate, like a structured text file, subtitle file, or document. A target text is the translation or transformed version of that content.<br/><br/>
-    <img src="/images/example-ui.png" alt="Example showing source text on the left and target text on the right" style={{maxWidth: '100%', borderRadius: '8px'}} />
-  </Accordion>
+<Tab value="Getting Started">
 
-  <Accordion title="I just created a project—what should I do next?">
-    Start by importing your source files. Codex will automatically create blank target files that you can translate into or populate by importing existing translations.
-  </Accordion>
+### How do I download Codex Editor?
 
-  <Accordion title="How do I import my files?">
-    Click "Add Files" to open the import wizard. Choose "Import Your Content" to add original texts, or "Add Your Translation" to bring in existing translations and align them with your source content.
-  </Accordion>
+Visit **[codexeditor.app](https://codexeditor.app)** and select your operating system:
 
-  <Accordion title="What happens if I import a file with the same name as one I already imported?">
-    Codex will show a warning and ask if you want to overwrite the existing file. If confirmed, the original file will be replaced.
-  </Accordion>
+- **macOS** — Choose Apple Silicon or Intel based on your Mac
+- **Windows** — Download the x64 installer (you'll need to approve security warnings since the app is unsigned)
+- **Linux** — Select x64, arm64, or armhf architecture
 
-  <Accordion title="Can I import more files later?">
-    Yes. You can add source or target files anytime as your project grows.
-  </Accordion>
-
-  <Accordion title="What if I have a partially complete translation from another tool?">
-    Import it using the Target Files option. Codex will attempt to match your existing source content with the incoming translations.
-  </Accordion>
-
-  <Accordion title="What file formats can I import?">
-    Codex supports a wide variety of formats including DOCX, SRT/VTT (subtitles), USFM, Paratext projects, Markdown, eBible Download, Open Bible Stories, InDesign (IDML), TMS files (TMX/XLIFF), CSV/TSV, audio files, and more. See our comprehensive <a href="/docs/project-management/importing-files">file import guide</a> for details on all supported formats.
-  </Accordion>
-
-  <Accordion title="What if my source and target files don't align perfectly?">
-    Codex matches content based on references, not just line numbers. Even imperfectly structured files can often be aligned effectively.
-  </Accordion>
-
-  <Accordion title="Can I undo or delete an import?">
-    Not automatically—you'll need to manually delete any files you imported by mistake, or re-import a corrected version.
-  </Accordion>
-
-  <Accordion title="Where can I get help or ask questions?">
-    Join our Discord server: <a href="https://discord.gg/6kVJTEXYEp">https://discord.gg/6kVJTEXYEp</a>. You'll find active support from the Codex team and other users.
-  </Accordion>
-
-   <Accordion title="How do I download Codex Editor?">
-    Visit <strong><a href="https://codexeditor.app">codexeditor.app</a></strong> and select your operating system:<br/>
-    • <strong>macOS:</strong> Choose Apple Silicon or Intel based on your Mac<br/>
-    • <strong>Windows:</strong> Download the x64 installer<br/>
-    • <strong>Linux:</strong> Select x64, arm64, or armhf architecture<br/><br/>
-    <strong>Windows Note:</strong> The application is unsigned, so you'll need to approve security warnings during installation.<br/><br/>
-    <a href="/docs/getting-started/download-codex">See detailed download instructions →</a>
-  </Accordion>
-  
-  <Accordion title="Do I need technical experience?">
-    No, Codex Editor is designed to be user-friendly for both novice and experienced translators. The interface is intuitive, and our <a href="/docs/getting-started/initial-setup">step-by-step guides</a> will help you get started quickly.
-  </Accordion>
-  
-  <Accordion title="How do I create an account?">
-    1. Open Codex Editor and click "Create a new account"<br/>
-    2. Enter a unique username, valid email address, and a strong 15 character password<br/>
-    3. Complete registration and you'll be automatically logged in<br/>
-    4. You'll remain logged in for up to one year<br/><br/>
-    <strong>Important:</strong> Use a real email address, as fake emails cannot be used for password resets.<br/><br/>
-    <a href="/docs/getting-started/initial-setup">See detailed account creation guide →</a>
-  </Accordion>
-  
-  <Accordion title="Can I change my username?">
-    No, usernames cannot be changed after account creation. Choose carefully during registration.
-  </Accordion>
-</Accordions>
-
-## Projects and Setup
-
-<Accordions type="multiple">
-  <Accordion title="How do I start importing files?">
-    Click "Add Files" to open the import wizard and bring in original content such as structured texts, documents, subtitles, audio, and more. Codex will create matching empty translation files automatically.
-  </Accordion>
-
-  <Accordion title="Can I import more files later?">
-    Yes. You can import additional source or target files at any time. They will be added to your project and matched accordingly.
-  </Accordion>
-
-  <Accordion title="What happens if I re-import a source file with the same name?">
-    Codex will warn you and ask if you want to overwrite the existing file. If you confirm, the old file will be replaced.
-  </Accordion>
-
-  <Accordion title="I already have partial translations—can I import them?">
-    Yes. Use "Target Files" to import translated versions. Codex will try to align them with your existing source files based on file name and structure.
-  </Accordion>
-
-  <Accordion title="What formats are supported?">
-    Click "Add Files" to view all supported formats. These include USFM, DOCX, SRT/VTT (subtitles), Markdown, audio files, TMS/XLIFF, and more via plugin architecture.
-  </Accordion>
-
-  <Accordion title="What if my translation file structure doesn't match the source?">
-    Codex aligns by reference, not by line number, so even if the structure varies, it will attempt to match segments based on content anchors.
-  </Accordion>
-
-  <Accordion title="What kinds of content can I translate with Codex?">
-    Codex supports structured and semi-structured content including documents, video subtitles, podcast transcripts, literature, audio-linked text, and more. Check out our guides for <a href="/docs/translation/video-audio-translation">video & audio translation</a> and <a href="/docs/project-management/importing-files">importing various file formats</a>.
-  </Accordion>
-
-  <Accordion title="How do I get help if something goes wrong?">
-    Join our Discord community for support: <a href="https://discord.gg/6kVJTEXYEp">https://discord.gg/6kVJTEXYEp</a>. Our team and other users can help troubleshoot or guide you.
-  </Accordion>
-
-  <Accordion title="Can I bulk import?">
-    Yes. You can drag and drop multiple files or use ZIP archives with a clear folder structure.
-  </Accordion>
-
-  <Accordion title="Can I undo an import?">
-    Not currently. If you need to reverse an import, manually delete the file from the project or re-import a corrected version.
-  </Accordion>
-
-  <Accordion title="How do I create my first project?">
-    1. Click "Create New Project" from the project setup screen<br/>
-    2. Enter your project name<br/>
-    3. Your project will be created instantly<br/>
-    4. Set your source and target languages<br/>
-    5. Import your source texts<br/><br/>
-    <a href="/docs/project-management/creating-project">See detailed project creation guide →</a>
-  </Accordion>
-  
-  <Accordion title="What types of projects can I create?">
-    <strong>Translation Projects:</strong> Pre-configured for texts with verse-by-verse organization<br/><br/>
-    <strong>General Text Translation:</strong> Flexible structure for literature, documents, or other texts<br/><br/>
-    <strong>Collaborative Projects:</strong> Team-based projects with enhanced sharing and permission features
-  </Accordion>
-  
-  <Accordion title="Can I work on multiple projects?">
-    Yes, you can create and manage multiple projects. Each project is independent with its own settings, languages, and collaboration features.
-  </Accordion>
-</Accordions>
-
-## AI Features
-
-<Accordions type="multiple">
-  <Accordion title="How does the AI translation work?">
-    Codex Editor uses advanced AI to provide translation suggestions based on:<br/>
-    • Your source and target languages<br/>
-    • Custom AI instructions you provide<br/>
-    • Previous translations and corrections you've made<br/>
-    • Context from surrounding segments or text
-  </Accordion>
-  
-  <Accordion title="Can I customize the AI's behavior?">
-    Yes! You can:<br/>
-    • Write custom AI instructions manually<br/>
-    • Use the AI to generate translation instructions automatically (click the sparkle button)<br/>
-    • Modify generated instructions to match your specific needs<br/>
-    • Train the AI by accepting or editing its suggestions<br/><br/>
-    <a href="/docs/translation/ai-settings">Learn how to customize AI instructions →</a>
-  </Accordion>
-  
-  <Accordion title="What is batch translation?">
-    Batch translation uses AI to queue multiple cells at once for autocompletion, rather than translating cell by cell. You can select cell types (empty cells, not validated by users, etc.), choose how many to translate, and the AI will process them in batch. The AI learns from your edits and improves over time, making it increasingly accurate as your project progresses.<br/><br/>
-    <a href="/docs/translation/batch-translation">Learn how to use batch translation →</a>
-  </Accordion>
-  
-  <Accordion title="How accurate are the AI translations?">
-    AI translations are suggestions designed to accelerate your work, not replace human judgment. Always review, edit, and validate AI-generated translations to ensure accuracy and cultural appropriateness.
-  </Accordion>
-</Accordions>
-
-## Collaboration and Sharing
-
-<Accordions type="multiple">
-  <Accordion title="How do I share my project with others?">
-    1. Go to your sidebar menu<br/>
-    2. Click "Publish Project" to make it available for sharing<br/>
-    3. Create or join groups in your organization's platform (e.g., Global Translation Tools)<br/>
-    4. Add team members and assign appropriate roles (Developer, Maintainer, or Owner)<br/><br/>
-    <a href="/docs/project-management/sharing-managing-projects">See detailed project sharing guide →</a>
-  </Accordion>
-  
-  <Accordion title="Can multiple people work on the same project?">
-    Yes, Codex Editor supports real-time collaboration. Multiple users can work on the same project with:<br/>
-    • Version control to track changes<br/>
-    • Robust edit history for each verse<br/>
-    • Communication features for team coordination
-  </Accordion>
-  
-  <Accordion title="What are the different user roles?">
-    <strong>Owner:</strong> Full project control, can manage all settings and members<br/><br/>
-    <strong>Maintainer:</strong> Can manage project content and some settings<br/><br/>
-    <strong>Developer:</strong> Can contribute translations and edits<br/><br/>
-    <strong>Reporter:</strong> Read-only access to project content
-  </Accordion>
-  
-  <Accordion title="How do I create subgroups for specific languages?">
-    You can create subgroups within your main organization to:<br/>
-    • Organize projects by language or region<br/>
-    • Manage access and reduce confusion<br/>
-    • Streamline collaboration for specific translation teams
-  </Accordion>
-</Accordions>
-
-## Quality Assurance
-
-<Accordions type="multiple">
-  <Accordion title="What is back translation and how do I use it?">
-    Back translation is a quality assurance tool that translates your work back into the source language to verify accuracy:<br/><br/>
-    1. Click on a translated verse<br/>
-    2. Go to the "Back Translation" tab<br/>
-    3. Click the refresh button to generate the back translation<br/>
-    4. Review and edit the back translation as needed<br/>
-    5. The AI learns from your corrections to improve future back translations<br/><br/>
-    <a href="/docs/translation/translation-tools">Learn more about translation tools →</a>
-  </Accordion>
-  
-  <Accordion title="How do I validate translations?">
-    • Review AI-generated translations carefully<br/>
-    • Use back translation to verify accuracy<br/>
-    • Include phrase-level notes for detailed evaluation<br/>
-    • Have team members review and approve translations<br/>
-    • Document who approved each translation for accountability
-  </Accordion>
-  
-  <Accordion title="Can I change the back translation language?">
-    Yes, you can switch the source language for your back translation to ensure accurate results. This is particularly useful when working with multiple source languages.<br/><br/>
-    <a href="/docs/translation/translation-tools">Learn more about translation tools →</a>
-  </Accordion>
-</Accordions>
-
-## Technical Questions
-
-<Accordions type="multiple">
-  <Accordion title="How do I update the Codex Editor extension?">
-    1. Press <code>Ctrl + Shift + P</code> (Windows/Linux) or <code>Cmd + Shift + P</code> (Mac)<br/>
-    2. Type "extensions" and select "Focus on Extensions View"<br/>
-    3. Find "Codex Translation Editor" in the list<br/>
-    4. Click the gear icon and select "Install Specific Version"<br/>
-    5. Choose the latest version<br/>
-    6. Reload the window using the command palette<br/><br/>
-    <a href="/docs/project-management/update-extensions">See detailed extension update guide →</a>
-  </Accordion>
-  
-  <Accordion title="How long do I stay logged in?">
-    You'll remain logged in for up to one year after initial login, making it convenient for regular use.
-  </Accordion>
-  
-  <Accordion title="What export formats are available?">
-    Codex Editor supports multiple export formats:<br/>
-    • Plain text, HTML, and USFM (standard formats)<br/>
-    • DOCX Round-trip (export back to Word with formatting)<br/>
-    • VTT/SRT (translated subtitles)<br/>
-    • OBS Markdown (story-based Markdown with images)<br/>
-    • IDML (InDesign for publishing)<br/>
-    • Rebuild Export (auto-detects format)<br/><br/>
-    See our <a href="/docs/translation/exporting-project">export options guide</a> for details on all formats.
-  </Accordion>
-  
-  <Accordion title="Can I work offline?">
-    Projects are stored locally on your device, allowing for offline work. Changes sync when you reconnect to the internet.
-  </Accordion>
-</Accordions>
-
-## Bible Library
-
-<Accordions type="multiple">
-  <Accordion title="How many Bible versions are available?">
-    Codex Editor provides access to hundreds of translations in dozens of languages, including:<br/>
-    • Original language texts (Hebrew, Greek, Aramaic)<br/>
-    • Historical and modern translations<br/>
-    • Public domain and freely available texts<br/>
-    • Scholarly editions and critical texts
-  </Accordion>
-  
-  <Accordion title="Can I use copyrighted Bible versions?">
-    The Bible library includes public domain and freely available texts. Always verify usage rights and licensing for your specific project needs.
-  </Accordion>
-  
-  <Accordion title="What if I need a Bible version that's not in the library?">
-    You can import your own Bible texts using the <a href="/docs/project-management/importing-files">file import feature</a>. Contact support if you need help with specific versions or formats.
-  </Accordion>
-</Accordions>
-
-## Troubleshooting
-
-<Accordions type="multiple">
-  <Accordion title="My project won't initialize. What should I do?">
-    • Check your internet connection<br/>
-    • Ensure you have sufficient storage space<br/>
-    • Try restarting the application<br/>
-    • Clear any error messages and try again<br/><br/>
-    If issues persist, see our <a href="/docs/getting-started/initial-setup">initial setup guide</a> or try <a href="/docs/project-management/creating-project">creating a new project</a>.
-  </Accordion>
-  
-  <Accordion title="The AI isn't providing good translations. How can I improve them?">
-    • Review and customize your <a href="/docs/translation/ai-settings">AI instructions</a><br/>
-    • Provide more context in your source texts<br/>
-    • Edit AI suggestions to train the system<br/>
-    • Ensure your <a href="/docs/project-management/source-and-target-languages">source and target languages</a> are set correctly<br/><br/>
-    Remember, the AI learns from your edits, so the more you edit, the better it gets.
-  </Accordion>
-  
-  <Accordion title="I forgot my password. How do I reset it?">
-    Use the password reset option on the **login screen**. This is why it's important to use a real email address during <a href="/docs/getting-started/initial-setup">registration</a>.
-  </Accordion>
-</Accordions>
-
-## Getting Help
-
-<Accordions type="multiple">
-  <Accordion title="Where can I find more detailed documentation?">
-    Browse our comprehensive documentation sections:<br/>
-    • <a href="/docs/getting-started/download-codex">Getting Started</a> - Complete setup guide<br/>
-    • <a href="/docs/translation/translation-tools">Translation Tools</a> - AI features and workflows<br/>
-    • <a href="/docs/project-management/sharing-managing-projects">Project Management</a> - Collaboration tools
-  </Accordion>
-  
-  <Accordion title="How do I contact support?">
-    • Check this FAQ and our documentation first<br/>
-    • Contact our technical support team<br/>
-    • Join our <a href="https://discord.gg/6kVJTEXYEp">Discord community</a> for tips and assistance<br/>
-    • Connect with other translators in our community
-  </Accordion>
-</Accordions>
+[See detailed download instructions →](/docs/getting-started/download-codex)
 
 ---
 
-**Still have questions?** Our documentation is constantly evolving to better serve you. If you can't find the answer you're looking for, don't hesitate to reach out to our support team or [Discord community](https://discord.gg/6kVJTEXYEp). 
+### How do I create an account?
+
+1. Open Codex Editor and click "Create a new account"
+2. Enter a unique username, valid email address, and a strong 15-character password
+3. Complete registration and you'll be automatically logged in
+4. You'll remain logged in for up to one year
+
+**Important:** Use a real email address — fake emails cannot be used for password resets.
+
+[See detailed account creation guide →](/docs/getting-started/initial-setup)
+
+---
+
+### Can I change my username?
+
+No, usernames cannot be changed after account creation. Choose carefully during registration.
+
+---
+
+### Do I need technical experience?
+
+No. Codex Editor is designed to be user-friendly for both novice and experienced translators. The interface is intuitive, and our [step-by-step guides](/docs/getting-started/initial-setup) will help you get started quickly.
+
+---
+
+### What is a source text and a target text?
+
+A **source text** is the original content you want to translate — a structured text file, subtitle file, document, etc. A **target text** is your translation of that content.
+
+<img src="/images/example-ui.png" alt="Example showing source text on the left and target text on the right" style={{maxWidth: '100%', borderRadius: '8px'}} />
+
+---
+
+### Where can I get help or ask questions?
+
+Join our Discord server: [discord.gg/6kVJTEXYEp](https://discord.gg/6kVJTEXYEp). You'll find active support from the Codex team and other users.
+
+</Tab>
+
+<Tab value="Projects & Files">
+
+### How do I create my first project?
+
+1. Click "Create New Project" from the project setup screen
+2. Enter your project name
+3. Your project will be created instantly
+4. Set your source and target languages
+5. Import your source texts
+
+[See detailed project creation guide →](/docs/project-management/creating-project)
+
+---
+
+### I just created a project — what should I do next?
+
+Start by importing your source files. Codex will automatically create blank target files that you can translate into or populate by importing existing translations.
+
+---
+
+### How do I import my files?
+
+Click "Add Files" to open the import wizard. Choose "Import Your Content" to add original texts, or "Add Your Translation" to bring in existing translations and align them with your source content.
+
+---
+
+### What file formats can I import?
+
+Codex supports a wide variety of formats including DOCX, SRT/VTT (subtitles), USFM, Paratext projects, Markdown, eBible Download, Open Bible Stories, InDesign (IDML), Biblica Study Notes, TMS files (TMX/XLIFF), CSV/TSV, audio files (MP3, WAV, M4A, AAC, OGG, WebM, FLAC), and more.
+
+[See the full file import guide →](/docs/project-management/importing-files)
+
+---
+
+### What happens if I import a file with the same name?
+
+Codex will show a warning and ask if you want to overwrite the existing file. If confirmed, the original file will be replaced.
+
+---
+
+### Can I import more files later?
+
+Yes. You can add source or target files at any time as your project grows.
+
+---
+
+### What if I have a partially complete translation from another tool?
+
+Import it using the "Add Your Translation" option. Codex will attempt to match your existing source content with the incoming translations based on file name and structure.
+
+---
+
+### What if my source and target files don't align perfectly?
+
+Codex matches content based on references, not just line numbers. Even imperfectly structured files can often be aligned effectively.
+
+---
+
+### Can I bulk import?
+
+Yes. You can drag and drop multiple files or use ZIP archives with a clear folder structure.
+
+---
+
+### Can I undo an import?
+
+Not automatically. If you need to reverse an import, manually delete the file from the project or re-import a corrected version.
+
+---
+
+### What kinds of content can I translate with Codex?
+
+Codex supports structured and semi-structured content including documents, video subtitles, podcast transcripts, literature, audio-linked text, and more. Check out our guides for [video & audio translation](/docs/translation/video-audio-translation) and [importing various file formats](/docs/project-management/importing-files).
+
+---
+
+### Can I work on multiple projects?
+
+Yes. Each project is independent with its own settings, languages, and collaboration features.
+
+</Tab>
+
+<Tab value="AI & Translation">
+
+### How does the AI translation work?
+
+Codex Editor uses advanced AI to provide translation suggestions based on:
+
+- Your source and target languages
+- Custom AI instructions you provide
+- Previous translations and corrections you've made
+- Context from surrounding segments or text
+
+---
+
+### Can I customize the AI's behavior?
+
+Yes! You can:
+
+- Write custom AI instructions manually
+- Use the AI to generate translation instructions automatically (click the sparkle button)
+- Modify generated instructions to match your specific needs
+- Train the AI by accepting or editing its suggestions
+
+[Learn how to customize AI instructions →](/docs/translation/ai-settings)
+
+---
+
+### What is batch translation?
+
+Batch translation uses AI to queue multiple cells at once for autocompletion, rather than translating cell by cell. You can select cell types (empty cells, not validated by users, etc.), choose how many to translate, and the AI will process them in batch. The AI learns from your edits and improves over time.
+
+[Learn how to use batch translation →](/docs/translation/batch-translation)
+
+---
+
+### How accurate are the AI translations?
+
+AI translations are suggestions designed to accelerate your work, not replace human judgment. Always review, edit, and validate AI-generated translations to ensure accuracy and cultural appropriateness.
+
+---
+
+### What is back translation and how do I use it?
+
+Back translation is a quality assurance tool that translates your work back into the source language to verify accuracy:
+
+1. Click on a translated verse
+2. Go to the "Back Translation" tab
+3. Click the refresh button to generate the back translation
+4. Review and edit the back translation as needed
+5. The AI learns from your corrections to improve future back translations
+
+[Learn more about translation tools →](/docs/translation/translation-tools)
+
+---
+
+### How do I validate translations?
+
+- Review AI-generated translations carefully
+- Use back translation to verify accuracy
+- Have team members review and approve translations
+- Use the validation circle on each cell to mark it as approved
+- Configure required validation counts in project settings
+
+---
+
+### The AI isn't providing good translations. How can I improve them?
+
+- Review and customize your [AI instructions](/docs/translation/ai-settings)
+- Provide more context in your source texts
+- Edit AI suggestions to train the system
+- Ensure your [source and target languages](/docs/project-management/source-and-target-languages) are set correctly
+
+The AI learns from your edits, so the more you edit, the better it gets.
+
+</Tab>
+
+<Tab value="Collaboration">
+
+### How do I share my project with others?
+
+1. Go to your sidebar menu
+2. Click "Publish Project" to make it available for sharing
+3. Create or join groups in your organization on [git.genesisrnd.com](https://git.genesisrnd.com)
+4. Add team members and assign appropriate roles (Developer, Maintainer, or Owner)
+
+[See detailed project sharing guide →](/docs/project-management/sharing-managing-projects)
+
+---
+
+### Can multiple people work on the same project?
+
+Yes. Multiple users can work on the same project with:
+
+- Automatic synchronization on configurable intervals (5, 15, 30, or 60 minutes)
+- Git-based version control to track changes
+- Robust edit history for each verse
+- Manual sync option for immediate updates
+
+---
+
+### What are the different user roles?
+
+| Role | Access |
+|------|--------|
+| **Owner** | Full project control, can manage all settings and members |
+| **Maintainer** | Can manage project content and some settings |
+| **Developer** | Can contribute translations and edits |
+| **Reporter** | Read-only access to project content |
+
+---
+
+### How do I create subgroups for specific languages?
+
+You can create subgroups within your main organization on [git.genesisrnd.com](https://git.genesisrnd.com) to organize projects by language or region, manage access, and streamline collaboration for specific translation teams.
+
+[See permissions guide →](/docs/project-management/managing-project-permissions)
+
+</Tab>
+
+<Tab value="Technical">
+
+### How do I update the Codex Editor extension?
+
+The easiest way is through the main menu:
+
+1. Open the **Main Menu** from the sidebar
+2. Scroll to the **Tools** section and click **Updates**
+3. Follow the prompts to install available updates
+4. Reload the window when prompted
+
+You can also update manually through the Extensions panel (`Ctrl+Shift+X` / `Cmd+Shift+X`).
+
+[See detailed extension update guide →](/docs/project-management/update-extensions)
+
+---
+
+### How long do I stay logged in?
+
+You'll remain logged in for up to one year after initial login, making it convenient for regular use.
+
+---
+
+### What export formats are available?
+
+Codex Editor supports multiple export formats:
+
+- **Standard formats** — Plain text, HTML, USFM, and XLIFF
+- **Round-trip Export** — Auto-detects original format (DOCX, USFM, OBS, TMS, CSV/TSV, IDML, Biblica)
+- **Subtitles** — VTT/SRT with original timing preserved
+- **Data export** — CSV/TSV with source, target, and metadata columns
+- **Backtranslations** — CSV with source, translation, and backtranslation
+- **Audio** — Per-cell audio attachments
+
+[See all export options →](/docs/translation/exporting-project)
+
+---
+
+### Can I work offline?
+
+Yes. Projects are stored locally on your device, allowing for offline work. Changes sync when you reconnect to the internet.
+
+---
+
+### I forgot my password. How do I reset it?
+
+Use the password reset option on the login screen. This is why it's important to use a real email address during [registration](/docs/getting-started/initial-setup).
+
+---
+
+### My project won't initialize. What should I do?
+
+- Check your internet connection
+- Ensure you have sufficient storage space
+- Try restarting the application
+- Clear any error messages and try again
+
+If issues persist, see our [initial setup guide](/docs/getting-started/initial-setup) or try [creating a new project](/docs/project-management/creating-project).
+
+---
+
+### How many Bible versions are available?
+
+Codex Editor provides access to hundreds of translations in dozens of languages, including original language texts (Hebrew, Greek, Aramaic), historical and modern translations, public domain and freely available texts, and scholarly editions. You can also [import your own texts](/docs/project-management/importing-files).
+
+---
+
+### Where can I find more detailed documentation?
+
+Browse our comprehensive documentation sections:
+
+- [Getting Started](/docs/getting-started/download-codex) — Complete setup guide
+- [Translation Tools](/docs/translation/translation-tools) — AI features and workflows
+- [Project Management](/docs/project-management/sharing-managing-projects) — Collaboration tools
+- [Search & Replace](/docs/translation/search-and-replace) — Find passages across your project
+- [Comments](/docs/translation/comments) — Team discussion and notes
+- [Dictionary](/docs/translation/dictionary) — Spell check and word analysis
+
+---
+
+### How do I contact support?
+
+- Check this FAQ and our documentation first
+- Join our [Discord community](https://discord.gg/6kVJTEXYEp) for tips and assistance
+- Connect with other translators in our community
+
+</Tab>
+
+</Tabs>
+
+---
+
+**Still have questions?** Our documentation is constantly evolving to better serve you. If you can't find the answer you're looking for, don't hesitate to reach out on our [Discord community](https://discord.gg/6kVJTEXYEp).

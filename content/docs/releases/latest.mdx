@@ -1,131 +1,351 @@
 ---
-title: Latest Release
+title: Release Notes
+description: Latest release notes for the Codex Translation Editor extension and the Codex application
 ---
 
-# Release Notes (v1.108.11148)
+This page tracks releases for both the **Codex Translation Editor extension** (the translation features) and the **Codex application** (the editor platform). The extension is where most user-facing changes happen.
 
-This page provides the latest stable release notes for the Codex editor. We are currently streamlining our development and release process, and this page will serve as the central location for all future release announcements. Stay tuned for exciting changes!
+**Extension releases**: [GitHub](https://github.com/genesis-ai-dev/codex-editor/releases)
+**App releases**: [Stable](https://github.com/genesis-ai-dev/codex/releases)
 
-These are the latest release notes for the Codex editor.
+---
 
-**Download**: [Stable](https://github.com/genesis-ai-dev/codex/releases) · [Insiders](https://github.com/genesis-ai-dev/codex-insiders/releases)
+## Codex Translation Editor Extension
 
-**Full Changelog**: https://github.com/genesis-ai-dev/codex/compare/1.99.24291...1.108.11148
+### v0.22.0 — March 2, 2026 (Latest)
 
-## About Codex
+#### 🔧 Improvements
+- Archived projects display correctly
+- The project export workflow is now smoother and more intuitive to use
+- Improved display of cell line numbers, now distinct from speaker labels
 
-Codex is a fork of [VSCodium](https://vscodium.com/), which is a community-driven, freely-licensed binary distribution of Microsoft's Visual Studio Code. This means that Codex is built from the same source code as Visual Studio Code, but without Microsoft's proprietary telemetry and branding. By using VSCodium as a foundation, Codex can offer a powerful and extensible editing experience while also integrating specialized features for our users.
+### v0.21.0 — March 2, 2026
 
-## Changes
+#### 🚀 New Features
+- Improved handling and display of verse range references in content
+- Enhanced feedback is provided to users when opening projects
+- The "Comments All" section now offers sorting based on project structure
+- Project types are simplified by removing the "Bible" vs. "Non-Bible" differentiation
+- Comments now display file, milestone, and line context instead of complex internal IDs
 
-### v1.108.11148
+#### 🐛 Bug Fixes
+- Fixed: File and folder deletion now requires more steps to prevent accidental data loss
+- Fixed: Exporters can now consistently handle content from older imported projects, including verse range cells
+- Fixed: Progress bar tooltips no longer obscure important modals like delete confirmations
+- Fixed: The audio play button now reliably works on every click
+- Fixed: The audio icon now correctly displays after syncing a project
 
-This is a major release representing over 300 commits and 8 intermediate version updates (1.100 → 1.108), bringing significant improvements across all areas of the editor.
+#### 🔧 Improvements
+- The HTML exporter can now successfully export content from eBible and USFM imported files
+- The frequency of A/B testing and attention checks has been greatly reduced
+- Main menu items are now optimized for smaller screens, collapsing into a single column
+- Chapter navigation header responsiveness has been significantly improved across various screen sizes
+- The editor now remains open after an AI generation, streamlining your editing workflow
 
-#### 🚀 Major Version Update
-*   **Updated to VSCodium 1.108.1**: Bringing all the latest features, performance improvements, and security updates from upstream Visual Studio Code
-*   **Electron 39.2.7**: Updated to the latest Electron version for improved performance and security
-*   **Node.js 22.21.1**: Updated runtime for better performance and compatibility
+### v0.20.0 — February 10, 2026
 
-#### 🎨 New Features
-*   **Command Filtering**: Enhanced customization allowing you to filter and control which commands are available
-*   **User Product Configuration**: Support for user-level product.json customization
-*   **Activity Bar Customization**: Added patch to hide specific activity bar items for a cleaner, more focused workspace
-*   **Save As Removal**: Streamlined file operations by removing "Save As" where not needed
-*   **Microphone Support**: Enhanced webview capabilities with microphone permissions
-*   **OpenVSX Integration**: Added script to download and install extensions from OpenVSX marketplace
+#### 🚀 New Features
+- Added the ability to edit system messages
 
-#### 🔒 Privacy and Control Enhancements
-*   **Chat Disabled by Default**: AI chat features are now opt-in for better privacy control
-*   **Copilot UI Disabled**: GitHub Copilot integration disabled by default with all UI elements hidden
-*   **VSCode.dev Disabled**: Removed VSCode.dev integration for better privacy
-*   **VSDA Library Removed**: Eliminated missing Visual Studio Developer Assistant dependencies
-*   **Update Mode Control**: Set update.mode to none when updates are disabled, preventing unwanted connections
-*   **Personalized Policy File**: Global policy file now properly personalized
+#### 🐛 Bug Fixes
+- Fixed issues for offline orphaned projects detection
 
-#### 🛠️ CLI Improvements
-*   **Enhanced CLI Binary**: Complete CLI packaging and distribution improvements
-*   **User product.json Loading**: CLI now properly loads user's custom product.json
-*   **Explicit URLs**: Better URL handling with explicit configuration
-*   **Windows Update URL Fix**: Corrected update URLs for Windows builds
-*   **Prebuilt OpenSSL**: Improved build times with prebuilt OpenSSL support
+#### 🔧 Improvements
+- Improved upload speed as well as retries of media files
+- Significantly improved overall offline functionality and project state management, including a "server unreachable" status
+- Implemented UI locking and messages to provide better feedback during project fixing and swapping operations
+- Enhanced project swap workflows with clearer notifications, improved filtering, and better handling of offline states
+- Added loading indicators and improved project list refreshing, especially during connectivity restoration
+- Enabled instant switching between webviews for a smoother user experience
 
-#### 🐧 Linux Enhancements
-*   **XDG_STATE_HOME Support**: Logs now properly use XDG_STATE_HOME following Linux standards
-*   **Multi-Architecture Support**: Enhanced builds for loong64, ppc64le, riscv64, and s390x architectures
-*   **GLIBC Compatibility**: Improved compatibility with older GLIBC versions (2.31 for riscv64)
-*   **libstdc++ ABI Matching**: Fixed ABI compatibility between Node and @parcel/watcher
-*   **ABI Verification**: Added scripts to verify ABI and C++11 requirements
-*   **Update Check Enabled**: Linux builds can now check for updates
+### v0.19.0 — February 10, 2026
 
-#### 📦 Snap Package Improvements
-*   **Native Wayland Support**: Use native Wayland client when possible for better performance
-*   **Desktop Entries**: Re-added and improved desktop entries
-*   **Build File Fixes**: Corrected snapcraft build configuration
-*   **Version Sorting**: Fixed version sorting using numeric comparison
+#### 🐛 Bug Fixes
+- Resolved an issue where LLM generation could fail during A/B tests
 
-#### 🐳 Docker and Containerization
-*   **Multi-Stage Builds**: Optimized Docker builds with multi-stage approach
-*   **VSCodium Web Server**: Complete Docker workflow for web server deployment
-*   **User Directory Configuration**: Proper user and data directory setup
-*   **Extension Installation**: Automated extension installation in Docker images
-*   **GitHub Actions Integration**: Automated Docker image build and push workflow
-*   **Attestation Support**: Added build attestation for security
+#### 🔧 Improvements
+- Initial content now loads more reliably and displays correctly, even with complex data
 
-#### 🏗️ Build System Improvements
-*   **Automated gh CLI Installation**: Streamlined GitHub CLI installation with retry logic
-*   **Node.js Installation Scripts**: Improved Node.js setup for Linux builds
-*   **Patch Management**: Enhanced patch update and rebuild processes
-*   **Source Map Handling**: Improved source map generation, upload, and organization
-*   **CI/CD Improvements**: Better workflow targeting, Node version management via .nvmrc
-*   **Windows AppX Packaging**: Added support for Windows AppX distribution
-*   **Versioned Resources Fix**: Removed problematic versioned resources on Windows
+### v0.18.0 — February 5, 2026
 
-#### 🔧 Remote Extension Host (REH) Improvements
-*   **Alpine REH Fixes**: Better Node.js setup for Alpine builds
-*   **Resource Rebranding**: Proper rebranding of REH web resources
-*   **Bootstrap Fixes**: Improved REH bootstrap process
-*   **RISCV Support**: Fixed RISCV builds with correct paths
-*   **x86 Library Rebuilds**: Rebuilt node modules for GLIBC 2.17 compatibility
+#### 🚀 New Features
+- Project Swap for seamless project transitions
 
-#### 🐛 Bug Fixes and Refinements
-*   **Gallery Integration**: Fixed extension gallery marketplace issues
-*   **Keymap Handling**: Improved keyboard mapping functionality
-*   **Remote Library Support**: Enhanced remote development library handling
-*   **Policy Management**: Better policy file handling across platforms
-*   **Tunnel Extension Recommendations**: Fixed extension recommendation system
-*   **User Sync Service**: Re-added user settings synchronization service
-*   **Extension API Proposals**: Updated and improved extension API support
-*   **Update Connection Control**: Avoid extra connections when using manual update mode
-*   **Icon Size Increase**: Increased maximum macOS icon size
-*   **Binary Name Correction**: Fixed binary name references throughout
-*   **Telemetry**: Disabled workbench.enableExperiments by default
+#### 🔧 Improvements
+- Automatically checks for and downloads missing audio files during project activations
+- Project name handling refined with whitespace trimming and prevented saving of unchanged names
 
-#### 📚 Documentation
-*   **Copilot How-To**: Added documentation for Copilot setup (for those who want it)
-*   **Telemetry Documentation**: Improved privacy and telemetry documentation
-*   **Linux Troubleshooting**: Added troubleshooting for bad EGL driver issues
-*   **Extension Compatibility**: Updated extension compatibility documentation
+### v0.17.0 — February 4, 2026
 
-#### 🔄 Incremental Updates
-This release includes all improvements from intermediate versions:
-*   v1.100, v1.101, v1.102, v1.103, v1.104, v1.105, v1.106, v1.107 → v1.108
-*   Each version brought progressive improvements to patches, builds, and features
+#### 🚀 New Features
+- Introduced a Codex Migration Tool, accessible directly from the main menu
 
-### Previous Releases
+#### 🐛 Bug Fixes
+- Fixed an issue where line number offsets were incorrect after milestone updates
+- Removed problematic keyboard shortcuts that interfered with editor use
 
-#### v1.99.24959
-*   **Extensions in Activity Bar**: Reintroduced extensions in the activity bar with additional refinements.
-*   **CI/CD Update**: Updated Windows build environment to windows-2022 for better compatibility.
+#### 🔧 Improvements
+- Milestone updates now reflect changes instantly within the editor interface
+- Better handling for DOCX files, including improved import and export capabilities
+- Improved subtitle alignment logic, enhancing accuracy, structure, and robustness of imported content
+- Child cells now stay on the same page as their parent cells for improved readability
+- Enhanced robustness of file saving, especially when overwriting existing files
 
-#### v1.99.24939
-*   **UI Enhancement**: Reintroduced extensions in the activity bar for easier access to extension management.
-*   **Build Process**: Fixed patch-rebuild to only dispatch one build request per quality, preventing duplicate builds.
+### v0.16.0 — January 29, 2026
 
-#### v1.99.24291
-*   Updated icons and replaced remaining "codium" references for improved branding.
-*   General repository maintenance.
-*   **Microphone Access**: Enabled microphone usage in webviews.
-*   **UI Customization**: Moved several items from the activity bar for a cleaner interface.
-*   **Build Process**: Implemented a new workflow for patch rebuilds, allowing for more flexible and timely updates.
-*   **Versioning**: Improved timestamp-based versioning for in-app update alerts.
+#### 🚀 New Features
+- Milestones in the Accordion can now be edited inline for quicker adjustments
+- You can now edit source and target milestones independently
+
+#### 🐛 Bug Fixes
+- Saving failures in the TextCellEditor now display an error message
+- Fixed issues that caused editor to crash
+
+#### 🔧 Improvements
+- The deprecated "Book name" option has been removed from the main menu, streamlining the interface
+
+### v0.15.0 — January 20, 2026
+
+#### 🐛 Bug Fixes
+- Resolved an issue with the importer to ensure reliable data import
+
+### v0.14.0 — January 15, 2026
+
+#### 🚀 New Features
+- Enhanced subtitle import functionality to support optional cell labels
+- Enhanced milestone cell editing, including consistent UUIDs, improved error handling, and file type-specific edit options
+- Introduced an initial milestone page selector accordion for easier navigation and added a dedicated edit button for milestone names
+- Enhanced validation system with support for text/audio validation levels, required validations, and improved progress display
+- Implemented comprehensive protection for locked cells, preventing modifications to content, timestamps, labels, and attachments
+- Enhanced new page navigation within the chapter navigation
+
+#### 🐛 Bug Fixes
+- Fixed misplaced paratext cells, ensuring correct order within documents
+- Fixed dark mode color inconsistencies across the editor
+- Fixed paratext cells incorrectly contributing to subsection progress calculations
+
+#### 🔧 Improvements
+- Reduced file sizes when importing `.x` files and temporarily disabled lock/unlock controls in the UI for clarity
+- Enhanced cell merging and highlighting, now working for both Bible and non-Bible formatted content
+- Improved stability and reliability of notebook file saving, and optimized data migrations
+- Validation tooltips now display percentages and levels on hover, replacing text descriptions
+- Sync progress messages now dismiss automatically upon completion, and webviews close for deleted books/files
+
+### v0.13.0 — December 11, 2025
+
+#### 🐛 Bug Fixes
+- Added Content Security Policy directives for sourcemaps and Cloudflare in remote web environments
+- Resolved an issue where the save button appeared incorrectly after using the Sparkle button
+- Corrected a bug related to A/B testing functionality
+- Security policy adjusted for better compatibility and function with preview APIs
+- Project IDs are no longer incorrectly appended to project names during creation
+
+#### 🔧 Improvements
+- Improved username retrieval for more consistent authentication across the editor
+
+### v0.12.0 — December 3, 2025
+
+#### 🚀 New Features
+- Projects now generate a unique ID at creation, tied to the project folder, making them easier to find even if the name changes
+
+#### 🐛 Bug Fixes
+- Enhanced resilience of the publishing feature to gracefully handle missing project metadata
+- Resolved issues where project identifiers could mismatch during initialization
+- Corrected an incorrect "Project name cannot be empty" error message that appeared when opening the Create New Project modal
+- Prevented the creation of projects with duplicate folder names
+
+#### 🔧 Improvements
+- Ensured that the edited project name is consistently displayed throughout the Project Setup
+- Improved the project publishing process to use unique project IDs, making published projects easier to identify
+- Added a loading state to the "Initialize Project" button to prevent multiple clicks during project setup
+- Improved project initialization flow in the Main Menu, ensuring consistency and preventing unnecessary metadata file creation
+- Prevented recent saves from being accidentally overwritten by external file changes
+
+### v0.11.0 — November 28, 2025
+
+#### 🚀 New Features
+- Notifies users if they're offline when trying to generate a translation using AI
+- Automatic preservation of paratextual cell positions during merge resolutions
+- Robust authentication and status checks added for offline login and project lists
+- Work on projects and view downloaded projects even without an internet connection (does not require login)
+
+#### 🐛 Bug Fixes
+- Fixed an issue where the projects list displayed with an incorrect size
+
+#### 🔧 Improvements
+- Improved startup flow by ensuring local assets load correctly
+- Enhanced reliability with improved error handling when fetching project overviews
+- Improved security and expanded connectivity options within the cell editor
+- Enhanced accuracy in displaying cell counts, line numbers, and child cell labels
+
+### v0.10.0 — November 28, 2025
+
+#### 🚀 New Features
+- New support for importing and exporting Biblica content
+- Rename your projects easily using the new "Rename Project" modal
+
+#### 🐛 Bug Fixes
+- Resolved issues that were affecting the Biblica content importer and exporter
+- Fixed an error where project metadata could be misread due to a race condition after edits
+
+#### 🔧 Improvements
+- Project metadata now includes CRDT edit history for more robust change tracking and data integrity
+- When migrating, chat system messages are now automatically generated if not already present, based on project languages
+
+### v0.9.0 — November 26, 2025
+
+#### 🚀 New Features
+- Added Biblica content import and export capabilities
+
+#### 🐛 Bug Fixes
+- Resolved a problem with audio merging when in source edit mode
+- Fixed an issue where merging cells with audio didn't always include all previously merged audio
+
+#### 🔧 Improvements
+- Sync is now automatically disabled when logged out, with a message indicating this
+- Clicking the sparkle icon now prompts a sign-in modal if you're logged out
+- The login button is now disabled with a clear message if the Frontier extension is not active
+- Cleaned up the login page by removing redundant Frontier authentication messages
+- Improved version warnings by using standard VS Code information messages
+
+### v0.8.0 — November 22, 2025
+
+#### 🚀 New Features
+- Media files are now properly arranged into specific folders based on the chosen download strategy
+- Implemented comprehensive find and replace functionality, supporting scoped operations within the editor
+- Enhanced project healing options, allowing users to select sync or AI Learning via a new UI dropdown
+- Introduced a simple and detailed mode toggle for viewing AI Metrics
+- Added remote healing capabilities for projects, including Frontier integration
+
+#### 🐛 Bug Fixes
+- Addressed various prompting issues within the editor
+- Fixed authentication handling to use the Frontier extension API for more reliable session management
+- Resolved a bug affecting the functionality of the search checkbox
+- Corrected an issue where media strategy changes were not preserved upon collapsing and expanding groups
+- Fixed multiple login issues, including preventing users from logging in on web or after logging out
+
+#### 🔧 Improvements
+- Removed redundant media file verification, significantly speeding up project opening for auto-download strategies
+- User validations are now retained during cell content updates, including search and replace operations
+- Enhanced the login page with updated prompts for restart information, improved styling, and an added reset password button
+- Improved remote healing management, including better viewing and sorting of healing history
+- Project healing now disables when offline, and remote healing checks bypass the cache for better connectivity
+
+### v0.7.0 — November 11, 2025
+
+#### 🚀 New Features
+- Dedicated modal for editing book names
+- Option to remove IDs from plain text exports
+- Audio validation progress displays on navigation cards
+- FFmpeg and FFprobe now download automatically when importing audio
+
+#### 🐛 Bug Fixes
+- Lock files no longer prevent synchronization
+- Transcription issues resolved
+- Validation buttons no longer disappear when using AI autocomplete
+- Cell content now saves correctly in all scenarios
+- Fixed audio import failures due to missing dependencies
+
+#### 🔧 Improvements
+- Requires Frontier v0.4.17 or higher
+- OBS Translation Memory System roundtrip support added
+- Sync status between Codex and Frontier is now more consistent
+- Book and corpus renaming is more reliable with improved corpus marker handling
+
+<Accordions>
+<Accordion title="Earlier releases (v0.6.x)">
+
+### v0.6.23 — October 27, 2025
+
+- Resolved problems encountered with Biblica Chapters
+- Corrected the layout of various buttons for a cleaner interface
+- Fixed issues with audio segment display and timestamp accuracy
+- Enhanced the security and reliability of connections
+
+### v0.6.22 — October 21, 2025
+
+- Delimited exports now support both Code and Markup cell types
+- Empty cell labels now display placeholder text when you open the editor
+- A new option allows you to automatically download audio files
+- Source cells with audio are now automatically transcribed when you start translating a target cell
+- New importers for DOCX, IDML, Biblica, and an experimental PDF importer
+- Optimized repository handling and improved webview stability and loading performance
+
+### v0.6.21 — September 22, 2025
+
+- You can now export audio from your Codex Editor sessions
+- Resolved issues with audio handling, playback, and display in the history viewer
+- Enhanced cursor behavior and positioning within the text editor
+- Improved consistency of timestamps in exported audio files
+
+### v0.6.20 — September 22, 2025
+
+- Cell content can now conditionally display timestamps
+- Recording audio no longer closes your active editor window
+- Audio attachments now refresh automatically across all open editor windows after synchronization
+- Audio attachments are reliably saved, with validation and error handling
+- You can now attach audio directly to cells within the editor
+
+</Accordion>
+</Accordions>
+
+---
+
+## Codex Application
+
+The Codex application is a fork of [VSCodium](https://vscodium.com/), a community-driven, freely-licensed distribution of Visual Studio Code without Microsoft's telemetry. App updates provide the editor platform, while the extension (above) provides translation features.
+
+**Current version**: v1.108.11148
+
+<Accordions>
+<Accordion title="Application release notes (v1.108.11148)">
+
+This is a major release representing over 300 commits and 8 intermediate version updates (1.100 → 1.108).
+
+**Major Version Update**
+- Updated to VSCodium 1.108.1 with the latest VS Code features and security updates
+- Electron 39.2.7 and Node.js 22.21.1 for improved performance
+
+**New Features**
+- Command filtering and user product configuration
+- Activity bar customization for a cleaner workspace
+- Microphone support in webviews
+- OpenVSX extension marketplace integration
+
+**Privacy Enhancements**
+- AI chat and GitHub Copilot disabled by default (opt-in)
+- VSCode.dev integration removed
+- Telemetry experiments disabled by default
+
+**Platform Improvements**
+- Linux: XDG_STATE_HOME support, multi-architecture builds, GLIBC compatibility
+- Windows: AppX packaging, update URL fixes
+- macOS: Increased maximum icon size
+- Snap: Native Wayland support, improved desktop entries
+- Docker: Multi-stage builds, web server workflow, automated extension installation
+
+**CLI and Build**
+- Enhanced CLI binary with user product.json loading
+- Improved patch management and source map handling
+- Automated GitHub CLI installation with retry logic
+
+</Accordion>
+
+<Accordion title="Previous application releases">
+
+**v1.99.24959**
+- Reintroduced extensions in the activity bar with additional refinements
+- Updated Windows build environment to windows-2022
+
+**v1.99.24939**
+- Reintroduced extensions in the activity bar for easier access
+- Fixed patch-rebuild to only dispatch one build request per quality
+
+**v1.99.24291**
+- Updated icons and replaced remaining "codium" references for improved branding
+- Enabled microphone usage in webviews
+- Moved several items from the activity bar for a cleaner interface
+- Implemented a new workflow for patch rebuilds
+
+</Accordion>
+</Accordions>

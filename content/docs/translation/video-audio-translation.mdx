@@ -108,7 +108,7 @@ Codex plays video directly inside the editor using a built-in video player.
 
 ### Video Player
 
-When you open a `.codex` file that has video timestamps (e.g., imported from subtitles), a **Video** tab appears in the cell editor. The video player:
+When you open a `.codex` file that has a video URL set in its document metadata (typically after importing subtitles), a **Video** tab appears in the cell editor. The video player:
 
 - Plays back local video files or HTTP(S) URLs
 - Supports VTT subtitles overlaid on the video
@@ -179,10 +179,13 @@ Select multiple audio files at once. Each file gets its own tab at the top of th
 
 ### Supported Audio Formats
 
-- **`.wav`** - Recommended for best quality
 - **`.mp3`** - Good compression, widely supported
+- **`.wav`** - Recommended for best quality
 - **`.m4a`** - Apple format, good quality
+- **`.aac`** - Advanced audio coding
 - **`.ogg`** - Open source format
+- **`.webm`** - Web-native format (also used internally for recordings)
+- **`.flac`** - Lossless compression
 
 ---
 
@@ -410,7 +413,7 @@ Both formats are automatically detected and parsed.
 
 ### Audio Storage
 
-Imported and recorded audio is stored in `.project/attachments/files/{documentId}/` within your project. Files are referenced by attachment ID in cell metadata, not by book/chapter/verse naming convention. The importer manages this automatically.
+Imported and recorded audio is stored in `.project/attachments/files/{BOOK}/` within your project (e.g., `.project/attachments/files/MAT/`), with a legacy fallback to `.project/attachments/{BOOK}/`. Recorded files use auto-generated names (e.g., `audio-{timestamp}-{id}.webm`) and are referenced by attachment ID in cell metadata. The importer manages this automatically.
 
 ### File Size Considerations
 
