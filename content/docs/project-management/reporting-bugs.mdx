@@ -3,7 +3,15 @@ title: Reporting Bugs
 description: Learn how to capture error information and report bugs effectively in the Codex application
 ---
 
-When you encounter a bug in Codex, capturing error details helps the team diagnose and fix the problem faster. Here's how to gather the information needed for an effective bug report.
+When you encounter a bug in Codex, capturing error details helps the team diagnose and fix the problem faster. Start with the [Troubleshooting guide](/docs/troubleshooting) to rule out common fixes, then use this page to gather the information needed for an effective bug report.
+
+## Before You Report
+
+Before escalating, make sure you have already:
+
+1. Tried the closest path in the [Troubleshooting guide](/docs/troubleshooting)
+2. Checked for updates using [How to Update Codex](/docs/project-management/update-extensions)
+3. Reviewed the [latest release notes](/docs/releases/latest) to see whether the issue may already be fixed
 
 ## Opening Developer Tools
 
@@ -34,15 +42,18 @@ The Developer Tools panel will appear as a sidebar, a separate window, or at the
 
 A good bug report includes:
 
+- **Codex version** and extension version
+- **Operating system**
+- **What you were trying to do**
 - **Error messages** from the console (the full red text, including any expanded details)
 - **Steps to reproduce** — exactly what you did before the error occurred
 - **Expected behavior** — what you thought should happen
 - **Actual behavior** — what happened instead
-- **Your environment** — operating system and Codex version (found in the Extensions panel)
 - **Screenshots** — if the issue is visual, a screenshot helps
+- **Troubleshooting already attempted** — for example updating, restarting, re-importing, or retrying with a smaller test case
 
 <Callout type="info">
-Before reporting, try reproducing the error to confirm it happens consistently. Also check the [Discord community](https://discord.gg/6kVJTEXYEp) to see if others have already reported the same issue.
+Before reporting, try reproducing the error to confirm it happens consistently. Also check the [Discord community](https://discord.gg/6kVJTEXYEp) and the [latest release notes](/docs/releases/latest) to see if the issue is already known or recently fixed.
 </Callout>
 
 ## Where to Report Bugs
@@ -56,3 +67,4 @@ Before reporting, try reproducing the error to confirm it happens consistently. 
 - **Keep Developer Tools open** if you're experiencing intermittent issues — this makes it easier to catch errors as they happen
 - **Clear the console** before reproducing an issue to isolate only the relevant messages (right-click in the console and select **Clear Console**)
 - **Check for updates** — the issue may already be fixed in a newer version. Use the **Updates** button in the main menu's Tools section (see [How to Update Codex](/docs/project-management/update-extensions))
+- **Link to the relevant troubleshooting path** when asking for help — this tells the team what you already tried

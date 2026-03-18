@@ -4,6 +4,7 @@ import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { LoomVideo } from '@/components/loom-video';
+import { TroubleshootingFlow } from '@/components/troubleshooting-flow';
 import type { MDXComponents } from 'mdx/types';
 import { ContributingNotice } from './components/contributing-notice';
 
@@ -20,6 +21,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Step,
     Steps,
     LoomVideo,
+    TroubleshootingFlow,
     ContributingNotice,
     ...components,
   };

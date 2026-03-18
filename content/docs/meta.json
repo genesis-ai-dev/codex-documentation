@@ -1,6 +1,7 @@
 {
   "title": "Codex Editor Documentation",
   "pages": [
+    "troubleshooting",
     "getting-started",
     "project-management",
     "translation",
