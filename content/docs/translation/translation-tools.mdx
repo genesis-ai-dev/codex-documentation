@@ -106,6 +106,64 @@ You can change required validations to 2 or more to enable collaborative review 
 - **Review AI Suggestions**: Always review and edit AI translations for accuracy
 - **Leverage Audio Features**: Record and validate audio translations for multimedia projects
 
+---
+
+<Accordions>
+<Accordion title="Troubleshooting AI Suggestions">
+
+### AI suggestions are not appearing
+
+Work through these checks in order:
+
+1. **Check your internet connection.** AI features require a live internet connection. Open a browser and confirm you can load a website.
+2. **Confirm you are logged in.** AI features require an active Codex session. If your session has expired, log out and log back in, then try again.
+3. **Check your Codex version.** Go to **Help > About Codex** and compare to the [latest release](/docs/releases/latest). Update if needed.
+4. **Close and reopen the project.** This refreshes the AI connection for the current session.
+5. **Try a different project.** If the Autocomplete button works in another project but not yours, the issue is project-specific — note both project names for the support form.
+6. **If nothing works:** complete the [Troubleshooting guide](/docs/troubleshooting) support form and paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp). If your whole team is affected, mention **P1** in your Discord message.
+
+---
+
+### AI suggestion quality is poor or inconsistent
+
+Poor AI suggestion quality is almost always caused by missing or incorrect AI instructions (the system message). This is configured during the import flow when you first add source content to a project.
+
+**If you did not configure AI instructions at setup:**
+
+Complete the [Troubleshooting guide](/docs/troubleshooting) support form with your project name and paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp). The team can help you locate and update the system message configuration for your project.
+
+**What good AI instructions include:**
+
+- Translation style (formal/literal vs natural/dynamic)
+- Domain (scripture, devotional media, academic)
+- Key theological terms to preserve without paraphrasing
+- Any style conventions specific to your language or organization
+
+The more specific your instructions, the better the suggestions. Vague instructions produce generic output.
+
+---
+
+### AI suggestions are inconsistent between translators on the same project
+
+This usually means different team members are working with different system message configurations, or one team member's session has stale settings.
+
+1. Have all team members close and reopen the project.
+2. Confirm everyone is on the same version of Codex (Help > About Codex).
+3. If the problem persists, complete the [Troubleshooting guide](/docs/troubleshooting) support form. Describe how the suggestions differ between team members, then paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+
+---
+
+### The Autocomplete Chapter button is not visible
+
+If you cannot find the Autocomplete button:
+
+1. Make sure you have a file open in the translation editor — the button only appears when a source file and target notebook are both loaded.
+2. Click on a target cell to select it, then look for the Autocomplete option in the toolbar.
+3. If the button is still not visible, check your Codex version and update if needed. UI changes between versions may affect button placement.
+
+</Accordion>
+</Accordions>
+
 ## Next Steps
 
 1. [Learn about batch translation](/docs/translation/batch-translation)

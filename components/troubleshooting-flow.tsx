@@ -151,6 +151,7 @@ const troubleshootingPaths: TroubleshootingPath[] = [
       'Ask teammates whether they have synced recently if this is a shared project.',
     ],
     docs: [
+      { title: 'Sync Troubleshooting', href: '/docs/project-management/sync-troubleshooting' },
       { title: 'Sharing & Managing Projects', href: '/docs/project-management/sharing-managing-projects' },
       { title: 'How to Update Codex', href: '/docs/project-management/update-extensions' },
       { title: 'Release Notes', href: '/docs/releases/latest' },
@@ -228,9 +229,11 @@ const troubleshootingPaths: TroubleshootingPath[] = [
   },
 ];
 
-const requiredFields: { key: EvidenceFieldKey; label: string; placeholder: string; multiline: boolean }[] = [
-  { key: 'appVersion', label: 'Codex app version (Help → About)', placeholder: 'e.g. 1.108.11148', multiline: false },
-  { key: 'extensionVersion', label: 'Extension version (Extensions panel)', placeholder: 'e.g. 1.8.0', multiline: false },
+const VERSION_HELP_HREF = '/docs/project-management/update-extensions#verifying-your-versions';
+
+const requiredFields: { key: EvidenceFieldKey; label: string; placeholder: string; multiline: boolean; helpHref?: string; helpLabel?: string }[] = [
+  { key: 'appVersion', label: 'Codex app version', placeholder: 'e.g. 1.108.11148', multiline: false, helpHref: `${VERSION_HELP_HREF}`, helpLabel: 'How to find this (Help → About)' },
+  { key: 'extensionVersion', label: 'Extension version', placeholder: 'e.g. 1.8.0', multiline: false, helpHref: `${VERSION_HELP_HREF}`, helpLabel: 'How to find this (Extensions panel)' },
   { key: 'operatingSystem', label: 'Operating system', placeholder: 'e.g. macOS 15, Ubuntu 24.04, Windows 11', multiline: false },
   { key: 'task', label: 'What were you trying to do?', placeholder: 'Describe the workflow or action', multiline: false },
   { key: 'reproductionSteps', label: 'Exact steps to reproduce', placeholder: 'List the steps someone else could follow', multiline: true },
@@ -651,7 +654,19 @@ ${docsList}`;
                 key={field.key}
                 className={`text-sm font-medium text-fd-foreground ${field.multiline ? 'md:col-span-2' : ''}`}
               >
-                {field.label}
+                <span className="flex items-baseline justify-between gap-2">
+                  <span>{field.label}</span>
+                  {field.helpHref && (
+                    <a
+                      href={field.helpHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-normal text-fd-primary transition-colors hover:text-fd-accent"
+                    >
+                      {field.helpLabel ?? 'How to find this'}
+                    </a>
+                  )}
+                </span>
                 {field.multiline ? (
                   <textarea
                     value={evidence[field.key]}

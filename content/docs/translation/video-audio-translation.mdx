@@ -308,7 +308,8 @@ For communities creating oral translations:
 
 ---
 
-## Troubleshooting
+<Accordions>
+<Accordion title="Troubleshooting">
 
 ### Audio Buttons Not Appearing
 
@@ -358,6 +359,9 @@ For communities creating oral translations:
 - Verify network access to the transcription endpoint
 - The default timeout is 60 seconds—large audio files may exceed this
 - Try a shorter audio clip first to confirm the connection works
+
+</Accordion>
+</Accordions>
 
 ---
 
@@ -451,7 +455,7 @@ After setting up your video/audio project:
   </Accordion>
 
   <Accordion title="How do I handle subtitles for multiple speakers?">
-    Use the Cell Label Importer feature to add speaker names. See [Import Labels documentation](/docs/project-management/importing-files#cell-labels) for details.
+    Use the Cell Label Importer feature to add speaker names. See the [Importing Files documentation](/docs/project-management/importing-files) for details.
   </Accordion>
 
   <Accordion title="Can I use Codex for podcast translation?">
@@ -477,4 +481,82 @@ After setting up your video/audio project:
 
 ---
 
-**Need help with media translation?** Start with the [Troubleshooting guide](/docs/troubleshooting) for audio, subtitle, and transcription issues, then join our [Discord community](https://discord.gg/6kVJTEXYEp) with your file type, workflow, and any error details.
+<Accordions>
+<Accordion title="Troubleshooting Audio and Video">
+
+### First audio import is not processing
+
+The first time you import an audio file, Codex automatically downloads audio processing tools (FFmpeg). This is a one-time download that is required before any audio file can be processed.
+
+<Callout type="info">
+Make sure you have a stable internet connection for your first audio import. If the FFmpeg download fails silently, audio processing will not work. If this happens, close Codex, reconnect to a stable network, and try the import again.
+</Callout>
+
+If you are on a restricted network (corporate firewall, VPN, or limited bandwidth), you may need to ask your network administrator to allow access to FFmpeg download servers, or import on a different network for the first session.
+
+---
+
+### Audio file format support
+
+Codex supports the following audio formats for **import and full playback**:
+
+- `.mp3`
+- `.wav`
+- `.m4a`
+- `.ogg`
+- `.webm`
+
+The following formats can be **imported** but may not play back correctly in the cell editor:
+
+- `.aac`
+- `.flac`
+
+If you are working with `.aac` or `.flac` files and experiencing playback issues, convert them to `.mp3` or `.wav` before importing for the best experience.
+
+---
+
+### Audio cells are not aligning correctly with the source
+
+Audio is split into cells using Voice Activity Detection, which identifies speech boundaries automatically. If cells are not aligning as expected:
+
+1. Check that your audio file is clean — background noise, music overlapping speech, or very fast speech can affect detection accuracy.
+2. Try a shorter segment to test alignment before importing a full recording.
+3. If alignment is consistently wrong across a project, complete the [Troubleshooting guide](/docs/troubleshooting) support form. Describe what you expect vs what you are seeing, then paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp) with a short sample of the audio file.
+
+---
+
+### Video is not playing alongside subtitle cells
+
+If you have imported a subtitle file but cannot see or attach a video:
+
+1. In the subtitle translation view, look for a **video attachment** option in the toolbar or project settings.
+2. The video file must be on your local device — Codex does not stream video from external sources.
+3. Supported video formats vary by operating system. If a format is not supported, convert the video to `.mp4` (H.264) before attaching.
+4. If you cannot locate the video attachment option, check your Codex version and update if needed — this feature was added in a recent release.
+
+---
+
+### Subtitle timestamp alignment is off after export
+
+If your exported VTT or SRT file has timing that does not match the video:
+
+1. Check whether the source subtitle file was edited after you imported it into Codex. Changes to the source timestamps after import will not automatically update in Codex.
+2. Re-import the updated source file and translate the changed cells.
+3. Export again and test against the video.
+
+If timestamps are consistently off by a fixed amount (e.g. always 2 seconds early), this may be a source file offset issue. Complete the [Troubleshooting guide](/docs/troubleshooting) support form with a description of the offset, then paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp) with a sample of the source and exported files.
+
+---
+
+### Still stuck?
+
+1. Review [Reporting Bugs](/docs/project-management/reporting-bugs) to collect console logs.
+2. Complete the [Troubleshooting guide](/docs/troubleshooting) support form with your audio or video file format and what you tried.
+3. Paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+
+</Accordion>
+</Accordions>
+
+---
+
+**Need help with media translation?** Complete the [Troubleshooting guide](/docs/troubleshooting) support form for audio, subtitle, and transcription issues, then paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).

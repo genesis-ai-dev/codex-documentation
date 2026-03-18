@@ -12,6 +12,7 @@
     "migration-tool",
     "project-swap",
     "update-extensions",
+    "sync-troubleshooting",
     "reporting-bugs"
   ]
 }

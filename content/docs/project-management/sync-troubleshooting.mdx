@@ -1,0 +1,73 @@
+---
+title: Sync Troubleshooting
+description: How to diagnose and resolve sync errors in Codex
+---
+
+Codex syncs your project files to a remote server so your team can collaborate. When sync fails, your changes may not reach your teammates, or your project may show outdated content. This page covers the most common sync errors and how to resolve them.
+
+## Before Troubleshooting
+
+Make sure you are on the latest version of Codex before attempting any of the steps below. Many sync issues are fixed in newer releases.
+
+1. Go to **Help > About Codex** and note your version.
+2. Compare to the [latest release](/docs/releases/latest).
+3. Update if needed, then check whether the sync issue persists.
+
+---
+
+## "Sync failed" or "Failed dircache magic file number" error
+
+<Callout type="warning">
+**Do not delete project files manually.** Deleting local project files to fix a sync error can cause data loss. Always contact support first.
+</Callout>
+
+This error occurs when a project's local files become corrupted during a sync operation. It is a known issue that cannot be resolved by the user from within the product.
+
+**What to do:**
+
+1. Note the exact error message text.
+2. Note your project name and Codex version (Help > About Codex).
+3. Go to the [Troubleshooting guide](/docs/troubleshooting), select **"Sync or offline behavior is strange"**, and complete the support form at the end. Include **SYNC ERROR** in the description field.
+4. Paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+
+The team will resolve this from the server side. Do not attempt to re-import or recreate the project until you hear back from support.
+
+---
+
+## Changes not appearing for teammates
+
+If you have made changes but your teammates cannot see them:
+
+1. Check your internet connection — sync requires a stable connection.
+2. In your project, look for the **Sync** button or indicator. Click it manually to trigger a sync.
+3. Ask your teammates to also click Sync on their devices.
+4. If sync is still not working after 10 minutes, check the **Console** in Developer Tools (Help > Toggle Developer Tools) for red error messages. Copy any errors you find.
+5. If the problem persists, go to the [Troubleshooting guide](/docs/troubleshooting) and complete the support form. Include the console errors in the error text field, then paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+
+---
+
+## Project shows outdated content after a team member made changes
+
+1. Close and reopen the project to trigger a fresh sync.
+2. If the content is still outdated: click the Sync button manually.
+3. Ask the team member who made the changes to confirm their changes saved and synced on their side.
+4. If you are consistently seeing outdated content, go to the [Troubleshooting guide](/docs/troubleshooting) and complete the support form. Describe what content you expect vs what you see, then paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+
+---
+
+## The yellow sync indicator will not go away
+
+A yellow unsynced indicator means your project has local changes that have not yet synced to the server.
+
+1. Check your internet connection.
+2. Click the Sync button to attempt a manual sync.
+3. If the indicator persists with a stable connection: check Developer Tools console (Help > Toggle Developer Tools) for errors. Copy any red error messages.
+4. Go to the [Troubleshooting guide](/docs/troubleshooting) and complete the support form. Include the console errors in the error text field, then paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+
+---
+
+## Still stuck?
+
+1. Review [Reporting Bugs](/docs/project-management/reporting-bugs) to collect console logs — this significantly speeds up diagnosis.
+2. Go to the [Troubleshooting guide](/docs/troubleshooting) and complete the full support form. It will collect your version, OS, reproduction steps, and error details into a single template.
+3. Paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp). This gives the support team everything they need without back-and-forth.

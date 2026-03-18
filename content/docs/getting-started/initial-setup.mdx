@@ -58,7 +58,7 @@ When you need to log in manually:
 
 1. **Open Codex Editor**: Launch the application
 2. **Enter Credentials**: 
-   - Username or email address(typically your email address will work best)
+   - Username or email address (typically your email address will work best)
    - Your account password
 3. **Click Login**: Submit your credentials to access your account
 
@@ -80,36 +80,105 @@ Passwords containing information from your username or email will be rejected
 - Ensure the email account is secure
 - Add Codex Editor to your email whitelist to prevent important messages from going to spam
 
-## Troubleshooting Initial Setup
+<Accordions>
+<Accordion title="Troubleshooting Install and Login">
 
-### Application Won't Start
-- Verify your system meets the minimum requirements
-- Try running the application as an administrator (Windows) or with elevated permissions
-- Check that your antivirus software isn't blocking the application
+If you are having trouble installing Codex or logging in, work through the relevant section below before contacting support.
 
-### Permission Issues
-- Ensure the application has necessary file system permissions
-- On macOS, you may need to allow the app in System Preferences > Security & Privacy
-- On Linux, verify the executable has the correct permissions
+### The app will not open or is very slow to start
 
-### Network Connectivity
-- Codex Editor requires internet access for AI features
-- Check your firewall settings to ensure the application can connect
-- Verify your network connection is stable
+**Step 1 — Check your Codex version first**
 
-### Common Account Issues
+Most "won't open" and slow-loading issues are caused by running an outdated version. Update before troubleshooting anything else.
 
-**Username Already Taken**
-- Try variations of your preferred username
-- Add numbers or underscores to make it unique
+1. Open Codex. Go to **Help > About Codex**.
+2. Note the version number.
+3. Compare it to the [latest release](/docs/releases/latest).
+4. If you are not on the latest version, update now and try again before continuing.
 
-**Email Already Registered**
-- You may already have an account
-- Try the password reset option if you've forgotten your credentials
+**Step 2 — Force quit and restart**
 
-**Password Requirements Not Met**
-- Ensure your password meets minimum security requirements
-- Check for any specific character requirements
+- **Windows**: Press `Ctrl + Shift + Esc` to open Task Manager. Find Codex in the list. Right-click > End Task. Reopen Codex.
+- **Mac**: Press `Cmd + Option + Esc`. Select Codex. Click Force Quit. Reopen Codex.
+- **Linux**: Run `killall codex` in a terminal. Reopen Codex.
+
+**Step 3 — Restart your computer**
+
+A full reboot clears memory and temporary files that a force quit does not. This resolves many loading issues.
+
+**Step 4 — Check your internet connection**
+
+Codex requires internet access for AI features and project sync. Open a browser and confirm you can load a website. If your connection is unstable, resolve that first.
+
+**Step 5 — Check antivirus or firewall (Windows)**
+
+Antivirus software can block Codex from starting. Temporarily disable your antivirus and try again. If Codex opens, add it to your antivirus exceptions list.
+
+Codex requires access to these domains:
+
+- `api.frontierrnd.com`
+- `gitlab.com` and `git.door43.org`
+- `github.com` and `api.github.com`
+- `raw.githubusercontent.com`
+- `registry.npmjs.org`
+- `lff.api.languagetechnology.org`
+
+**Step 6 — macOS permissions (Gatekeeper)**
+
+1. Go to **System Preferences > Security & Privacy**.
+2. If you see a message saying Codex was blocked, click **Open Anyway**.
+3. You may need to enter your Mac password to confirm.
+
+---
+
+### Login and account issues
+
+#### The "username" field requires your email address
+
+<Callout type="warning">
+The login field is labelled **Username** but it requires your **email address**. If you are getting an "invalid credentials" error, try entering your email address instead of your username. This is a known labelling issue — using your email address resolves it in almost all cases.
+</Callout>
+
+#### Cannot log in after registering
+
+After registering, Codex logs you in automatically. You should not need to log in again immediately. If you are prompted to log in:
+
+1. Enter the **email address** you used to register (not your username).
+2. Enter your password.
+3. If you see an error message, note the exact text. Complete the [Troubleshooting guide](/docs/troubleshooting) support form and paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+4. If you forgot your password, use the **Forgot Password** option on the login screen. Check your spam folder for the reset email.
+
+#### Registration is not working
+
+Make sure your password meets all three requirements:
+
+- At least **15 characters** long
+- At least one **uppercase** letter
+- At least one **lowercase** letter
+
+<Callout type="info">
+Numbers and symbols are not required. If the password field is showing an error, check that your password is at least 15 characters and contains both uppercase and lowercase letters.
+</Callout>
+
+If registration still fails, complete the [Troubleshooting guide](/docs/troubleshooting) support form with the exact error message, then paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+
+#### Common account issues
+
+- **Username already taken**: Try variations of your preferred username, or add numbers or underscores to make it unique.
+- **Email already registered**: You may already have an account. Try the password reset option if you have forgotten your credentials.
+
+---
+
+### Still stuck?
+
+If none of the above steps resolve your issue:
+
+1. Check the [latest release notes](/docs/releases/latest) — your issue may already be fixed in a newer version.
+2. Complete the [Troubleshooting guide](/docs/troubleshooting) support form to collect your version, OS, and error details.
+3. Paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+
+</Accordion>
+</Accordions>
 
 ## Next Steps
 
@@ -122,6 +191,6 @@ Once you've successfully completed the initial setup and logged in:
 ## Need Help?
 
 If you encounter issues during setup:
-- Start with the [Troubleshooting guide](/docs/troubleshooting)
-- Use [Reporting Bugs](/docs/project-management/reporting-bugs) if you need to collect error details
-- Join our [Discord community](https://discord.gg/6kVJTEXYEp) with your version, OS, steps to reproduce, and any console errors
+- Complete the [Troubleshooting guide](/docs/troubleshooting) support form first
+- Use [Reporting Bugs](/docs/project-management/reporting-bugs) if you need to collect console logs
+- Paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp)

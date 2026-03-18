@@ -31,10 +31,80 @@ Always save your work before closing the project to avoid losing any unsaved cha
 
 ![open-project](/images/open-project.png)
 
-3. The project will load, restoring everything exactly as it was when you last closed it, or syncing any changes from the cloud
+3. The project will load, restoring everything exactly as it was when you last closed it, or syncing any changes from the cloud.
 
 ### Additional Information
 
 - The startup screen also provides an option to create a new project, or to clone projects you have access to.
 - Always save your work before closing to avoid data loss.
 - If you are part of a translation team on Codex, your projects sync across devices for seamless access.
+
+---
+
+<Accordions>
+<Accordion title="Troubleshooting Project Issues">
+
+### "Setup is already running" message
+
+This error appears when a previous Codex session did not close cleanly.
+
+**Fix:**
+
+1. Force quit Codex completely:
+   - **Windows**: `Ctrl + Shift + Esc` > find Codex > Right-click > End Task
+   - **Mac**: `Cmd + Option + Esc` > select Codex > Force Quit
+2. Reopen Codex. The message should not appear again.
+
+If it appears every time you open Codex, restart your computer and try again. If it persists after a restart, complete the [Troubleshooting guide](/docs/troubleshooting) support form and paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+
+---
+
+### Project not visible after being invited
+
+If a teammate invited you to a project but you cannot see it:
+
+1. Confirm you are logged in with the **exact email address** your project coordinator used to invite you. Even a small difference (e.g. a dot, a different domain) means the invite will not appear.
+2. On the project screen, find the **filter dropdown** and select **Remote Only**. Invited projects appear here before you download them locally.
+3. Click **Clone** next to the project name to download it to your device.
+4. If the project still does not appear after selecting Remote Only, ask your project coordinator to confirm which email address they used to send the invite.
+
+---
+
+### Project loads but content disappears or target language resets
+
+This typically occurs when running an outdated version of Codex.
+
+1. Go to **Help > About Codex** and note your version.
+2. Compare it to the [latest release](/docs/releases/latest).
+3. Update Codex if needed, then reopen the project.
+4. If the problem continues after updating, complete the [Troubleshooting guide](/docs/troubleshooting) support form and paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+
+---
+
+### Project stuck on loading screen
+
+1. Wait **2 minutes** — projects with large source files take time to sync on first open.
+2. If still loading: close Codex completely (force quit if needed) and reopen.
+3. If the project is looping on a language or configuration screen: force quit, restart Codex, and open the project again.
+4. If none of these work, complete the [Troubleshooting guide](/docs/troubleshooting) support form and paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+
+---
+
+### Source files missing from a project
+
+If files that were previously visible are no longer showing:
+
+1. Close and reopen the project — files sometimes reappear after a fresh sync.
+2. Ask your project coordinator to go to **Project Settings > Request Project Update**. This pushes the latest files to all team members.
+3. If files were visible before and are now gone, complete the [Troubleshooting guide](/docs/troubleshooting) support form. Include **URGENT** and when you last saw the files in the description, then paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+
+---
+
+### Still stuck?
+
+1. Check the [latest release notes](/docs/releases/latest) — the issue may already be fixed.
+2. Review [Reporting Bugs](/docs/project-management/reporting-bugs) to collect console logs.
+3. Complete the [Troubleshooting guide](/docs/troubleshooting) support form and paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+
+</Accordion>
+</Accordions>
