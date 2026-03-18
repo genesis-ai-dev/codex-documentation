@@ -229,8 +229,8 @@ const troubleshootingPaths: TroubleshootingPath[] = [
 ];
 
 const requiredFields: { key: EvidenceFieldKey; label: string; placeholder: string; multiline: boolean }[] = [
-  { key: 'appVersion', label: 'Codex version', placeholder: 'e.g. 0.14.2', multiline: false },
-  { key: 'extensionVersion', label: 'Extension version', placeholder: 'e.g. 1.8.0', multiline: false },
+  { key: 'appVersion', label: 'Codex app version (Help → About)', placeholder: 'e.g. 1.108.11148', multiline: false },
+  { key: 'extensionVersion', label: 'Extension version (Extensions panel)', placeholder: 'e.g. 1.8.0', multiline: false },
   { key: 'operatingSystem', label: 'Operating system', placeholder: 'e.g. macOS 15, Ubuntu 24.04, Windows 11', multiline: false },
   { key: 'task', label: 'What were you trying to do?', placeholder: 'Describe the workflow or action', multiline: false },
   { key: 'reproductionSteps', label: 'Exact steps to reproduce', placeholder: 'List the steps someone else could follow', multiline: true },

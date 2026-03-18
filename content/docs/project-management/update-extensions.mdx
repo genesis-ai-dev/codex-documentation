@@ -43,9 +43,34 @@ After the update installs, reload the application:
 - Type "Reload Window" and select the command
 - The window will reload with the updated extension
 
-## Verifying Your Version
+## Verifying Your Versions
 
-To check which version you're running:
+Codex has two version numbers you may need when troubleshooting: the **application version** (the base app binary) and the **extension version** (the translation features).
+
+### Application version
+
+The application version is shown in the **About** dialog:
+
+- **Mac:** Click **Codex** in the menu bar (top left) and select **About**
+- **Windows / Linux:** Click **Help** in the menu bar and select **About**
+
+The dialog displays useful details including:
+
+| Field | Example |
+|-------|---------|
+| Version | 1.108.11148 |
+| Commit | *(commit hash)* |
+| Date | *(build date)* |
+| Electron | 39.2.7 |
+| Chromium | 142.0.7444.235 |
+| Node.js | 22.21.1 |
+| OS | Linux x64 6.18.7 |
+
+The **Version** line is the application version. Include it in any support request so the team can match your build.
+
+### Extension version
+
+The extension version is shown in the **Extensions** panel:
 
 - Open the Extensions panel (see Step 1 above)
 - Find **Codex Translation Editor** in the list
