@@ -1,0 +1,104 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Process MDX files
+        run: pnpm run postinstall
+
+      - name: Type check
+        run: pnpm exec tsc --noEmit
+
+      - name: Build documentation site
+        run: pnpm run build
+
+      - name: Run ESLint
+        run: pnpm exec eslint . --ext .ts,.tsx,.js,.jsx,.mdx --max-warnings=0
+
+      - name: Check for broken internal links
+        run: |
+          echo "🔍 Scanning MDX files for broken internal link patterns..."
+          ISSUES=0
+
+          for file in $(find content/docs -name "*.mdx"); do
+            if grep -Pn '\]\(\s*\)' "$file"; then
+              echo "⚠️  Empty link found in $file"
+              ISSUES=$((ISSUES + 1))
+            fi
+            if grep -Pn '\]\(/[^)]*\s[^)]*\)' "$file"; then
+              echo "⚠️  Link with spaces found in $file"
+              ISSUES=$((ISSUES + 1))
+            fi
+          done
+
+          if [ "$ISSUES" -gt 0 ]; then
+            echo "❌ Found $ISSUES link issues — review the warnings above"
+            exit 1
+          else
+            echo "✅ No broken internal link patterns found"
+          fi
+
+      - name: Check for broken links (lychee)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --include-fragments
+            --exclude-mail
+            --exclude 'localhost'
+            --exclude '127.0.0.1'
+            --exclude 'PLACEHOLDER'
+            --exclude 'discord.gg'
+            --exclude 'git.genesisrnd.com'
+            --exclude 'git.door43.org'
+            --exclude 'lff.api.languagetechnology.org'
+            --exclude 'codexeditor.app'
+            --suggest
+            'content/docs/**/*.mdx'
+          fail: true
+          output: lychee-report.md
+
+      - name: Upload link check report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lychee-link-report
+          path: lychee-report.md
+          retention-days: 14
+
+      - name: Summary
+        run: |
+          echo "🎉 CI completed successfully!"
+          echo "✅ Dependencies installed"
+          echo "✅ MDX processed"
+          echo "✅ Type checking passed"
+          echo "✅ Site built successfully"
+          echo "✅ Linting completed"
+          echo "✅ Link checking completed (see lychee-link-report artifact for details)"
+          echo ""
+          echo "Your documentation site is healthy! 🚀"
