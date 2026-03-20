@@ -69,7 +69,6 @@ jobs:
           args: >-
             --no-progress
             --include-fragments
-            --exclude-mail
             --exclude 'localhost'
             --exclude '127.0.0.1'
             --exclude 'PLACEHOLDER'

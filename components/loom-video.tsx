@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 interface LoomVideoProps {
   videoId: string;
@@ -13,28 +13,7 @@ export function LoomVideo({ videoId, timestamp = 0, title = "Loom Video", classN
   const containerRef = useRef<HTMLDivElement>(null);
   const embedUrl = `https://www.loom.com/embed/${videoId}?sid=1&t=${timestamp}`;
 
-  const pauseOtherVideos = (activeContainer: HTMLDivElement) => {
-    // Find all other video containers and replace them with placeholders
-    const allVideoContainers = document.querySelectorAll('[data-loom-video]');
-    
-    allVideoContainers.forEach((container) => {
-      if (container !== activeContainer && !container.hasAttribute('data-is-placeholder')) {
-        const iframe = container.querySelector('iframe');
-        if (iframe) {
-          replaceWithPlaceholder(container as HTMLDivElement, iframe);
-        }
-      }
-    });
-  };
-
-  const ensureVideoActive = (container: HTMLDivElement) => {
-    // If this container is a placeholder, restore the iframe
-    if (container.hasAttribute('data-is-placeholder')) {
-      restoreIframe(container);
-    }
-  };
-
-  const replaceWithPlaceholder = (container: HTMLDivElement, iframe: HTMLIFrameElement) => {
+  const replaceWithPlaceholder = useCallback((container: HTMLDivElement, iframe: HTMLIFrameElement) => {
     // Store the iframe data for restoration
     container.setAttribute('data-iframe-src', iframe.src);
     container.setAttribute('data-iframe-title', iframe.title || '');
@@ -55,9 +34,9 @@ export function LoomVideo({ videoId, timestamp = 0, title = "Loom Video", classN
     // Replace iframe with a clickable placeholder.
     iframe.remove();
     container.appendChild(placeholder);
-  };
+  }, []);
 
-  const restoreIframe = (container: HTMLDivElement) => {
+  const restoreIframe = useCallback((container: HTMLDivElement) => {
     const src = container.getAttribute('data-iframe-src');
     const title = container.getAttribute('data-iframe-title');
     
@@ -85,7 +64,28 @@ export function LoomVideo({ videoId, timestamp = 0, title = "Loom Video", classN
       container.removeAttribute('data-iframe-title');
       container.removeAttribute('data-is-placeholder');
     }
-  };
+  }, []);
+
+  const pauseOtherVideos = useCallback((activeContainer: HTMLDivElement) => {
+    // Find all other video containers and replace them with placeholders
+    const allVideoContainers = document.querySelectorAll('[data-loom-video]');
+
+    allVideoContainers.forEach((container) => {
+      if (container !== activeContainer && !container.hasAttribute('data-is-placeholder')) {
+        const iframe = container.querySelector('iframe');
+        if (iframe) {
+          replaceWithPlaceholder(container as HTMLDivElement, iframe);
+        }
+      }
+    });
+  }, [replaceWithPlaceholder]);
+
+  const ensureVideoActive = useCallback((container: HTMLDivElement) => {
+    // If this container is a placeholder, restore the iframe
+    if (container.hasAttribute('data-is-placeholder')) {
+      restoreIframe(container);
+    }
+  }, [restoreIframe]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -104,7 +104,7 @@ export function LoomVideo({ videoId, timestamp = 0, title = "Loom Video", classN
     return () => {
       document.removeEventListener('click', handleVideoClick);
     };
-  }, []);
+  }, [ensureVideoActive, pauseOtherVideos]);
 
   return (
     <div 
