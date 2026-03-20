@@ -1,5 +1,6 @@
 "use client";
 
+import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 type SupportLink = {
@@ -539,7 +540,7 @@ ${docsList}`;
               onClick={() => goTo(0)}
               className="text-sm text-fd-muted-foreground transition-colors hover:text-fd-foreground"
             >
-              These don't match &mdash; go back
+              These don&apos;t match &mdash; go back
             </button>
           </div>
         </WizardCard>
@@ -765,7 +766,7 @@ ${docsList}`;
                 Start here for a quick check on whether the issue is known.
               </span>
             </a>
-            <a
+            <Link
               href="/docs/project-management/reporting-bugs"
               className="rounded-xl border border-fd-border bg-fd-background px-4 py-4 text-sm text-fd-foreground transition-colors hover:border-fd-primary/40 hover:bg-fd-primary/5"
             >
@@ -773,7 +774,7 @@ ${docsList}`;
               <span className="mt-2 block text-fd-muted-foreground">
                 Use the reporting guide to decide whether it belongs on GitHub.
               </span>
-            </a>
+            </Link>
           </div>
 
           <NavButtons

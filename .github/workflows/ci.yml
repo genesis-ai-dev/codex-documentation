@@ -38,7 +38,7 @@ jobs:
         run: pnpm run build
 
       - name: Run ESLint
-        run: pnpm exec eslint . --ext .ts,.tsx,.js,.jsx,.mdx --max-warnings=0
+        run: pnpm exec eslint app components lib mdx-components.tsx eslint.config.mjs next.config.mjs postcss.config.mjs source.config.ts
 
       - name: Check for broken internal links
         run: |

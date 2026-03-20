@@ -12,28 +12,6 @@ interface LoomVideoProps {
 export function LoomVideo({ videoId, timestamp = 0, title = "Loom Video", className = "" }: LoomVideoProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const embedUrl = `https://www.loom.com/embed/${videoId}?sid=1&t=${timestamp}`;
-  
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const handleVideoClick = (event: Event) => {
-      // Check if this click is on our video container
-      const clickedContainer = (event.target as Element).closest('[data-loom-video]');
-      if (clickedContainer === container) {
-        // This video was clicked - pause all others and ensure this one is active
-        pauseOtherVideos(container);
-        ensureVideoActive(container);
-      }
-    };
-
-    // Listen for clicks on any video container in the document
-    document.addEventListener('click', handleVideoClick);
-
-    return () => {
-      document.removeEventListener('click', handleVideoClick);
-    };
-  }, []);
 
   const pauseOtherVideos = (activeContainer: HTMLDivElement) => {
     // Find all other video containers and replace them with placeholders
@@ -74,7 +52,7 @@ export function LoomVideo({ videoId, timestamp = 0, title = "Loom Video", classN
       <p class="text-white text-sm font-medium opacity-90">${iframe.title || 'Click to play video'}</p>
     `;
     
-    // Replace iframe with placeholderhttps://classy-clafoutis-ff4fd0.netlify.app/docs/translation/back-translations
+    // Replace iframe with a clickable placeholder.
     iframe.remove();
     container.appendChild(placeholder);
   };
@@ -108,6 +86,25 @@ export function LoomVideo({ videoId, timestamp = 0, title = "Loom Video", classN
       container.removeAttribute('data-is-placeholder');
     }
   };
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleVideoClick = (event: Event) => {
+      const clickedContainer = (event.target as Element).closest('[data-loom-video]');
+      if (clickedContainer === container) {
+        pauseOtherVideos(container);
+        ensureVideoActive(container);
+      }
+    };
+
+    document.addEventListener('click', handleVideoClick);
+
+    return () => {
+      document.removeEventListener('click', handleVideoClick);
+    };
+  }, []);
 
   return (
     <div 
