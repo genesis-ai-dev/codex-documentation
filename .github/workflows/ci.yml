@@ -63,12 +63,13 @@ jobs:
             echo "✅ No broken internal link patterns found"
           fi
 
-      - name: Check for broken links (lychee)
+      - name: Check external links (lychee)
         uses: lycheeverse/lychee-action@v2
         with:
           args: >-
             --no-progress
             --include-fragments
+            --exclude '^/'
             --exclude 'localhost'
             --exclude '127.0.0.1'
             --exclude 'PLACEHOLDER'
@@ -98,6 +99,6 @@ jobs:
           echo "✅ Type checking passed"
           echo "✅ Site built successfully"
           echo "✅ Linting completed"
-          echo "✅ Link checking completed (see lychee-link-report artifact for details)"
+          echo "✅ External link checking completed (see lychee-link-report artifact for details)"
           echo ""
           echo "Your documentation site is healthy! 🚀"
