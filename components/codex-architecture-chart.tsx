@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 function LayerConnector() {
   return (
     <div className="flex justify-center py-1">
@@ -86,7 +88,7 @@ export function CodexArchitectureChart() {
         label="Foundation"
         sublabel="Desktop application for Windows, macOS, and Linux"
       >
-        <a
+        <Link
           href="/docs/getting-started/download-codex"
           className="block rounded-xl border border-fd-primary/20 bg-fd-primary/5 px-4 py-3 text-center transition-colors hover:bg-fd-primary/10 hover:border-fd-primary/40"
         >
@@ -99,7 +101,7 @@ export function CodexArchitectureChart() {
           <p className="mt-2 inline-flex items-center gap-1 rounded-md bg-fd-primary/10 px-2.5 py-1 text-xs font-medium text-fd-primary">
             Download for your platform →
           </p>
-        </a>
+        </Link>
       </LayerSection>
 
       <LayerConnector />
