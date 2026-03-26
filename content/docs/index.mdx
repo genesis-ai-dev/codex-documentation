@@ -1,42 +1,92 @@
 ---
 title: Codex Editor Documentation
-description: "Comprehensive documentation for Codex Editor - an AI-powered platform for collaborative translation projects. This site is a living document and subject to changes as we optimize the user experience for you."
+description: "Comprehensive documentation for Codex Editor — an AI-powered platform for collaborative translation projects. This site is a living document and subject to changes as we optimize the user experience."
 ---
 
 # Welcome to Codex Editor
 
-Codex Editor is a powerful AI-assisted translation platform designed to streamline multilingual translation workflows. Whether you're working on structured texts, literary works, subtitles, or other documents, Codex combines cutting-edge artificial intelligence with intuitive project management tools to help you create accurate, contextually appropriate translations.
+Codex Editor is an AI-assisted translation platform that combines a powerful editor foundation with modular extensions for translation, collaboration, and quality assurance. Whether you're working on structured texts, literary works, subtitles, or other documents, Codex helps you create accurate, contextually appropriate translations.
 
 ## What is Codex Editor?
 
-Codex Editor is an AI-powered translation tool that addresses the complex needs of translation projects worldwide. It integrates advanced features to make translation accessible to both novice and experienced translators, supporting:
+Codex is an AI-powered translation tool built to handle the complex needs of translation projects worldwide. It supports:
 
 - **Global Accessibility**: Lowering barriers for translators in regions with limited resources
 - **Community Collaboration**: Enabling teams to work together across geographic and linguistic boundaries
 - **Cultural Sensitivity**: Allowing customization for specific domain and cultural contexts
 - **Quality Assurance**: Providing tools for validation, back translation, and consistency checking
 
+## How Codex Works
+
+Codex is not a single monolithic application. It is a custom build of VS Code (through [VSCodium](https://github.com/VSCodium/vscodium)) that uses a **modular extension architecture** — each component owns a distinct responsibility, and together they form the full translation platform.
+
+<CodexArchitectureChart />
+
+### Core Extensions
+
+When you first launch Codex, a lightweight bootstrap extension called the **Extension Sideloader** automatically fetches and installs the core extensions from the [Open VSX](https://open-vsx.org/) marketplace. After installation, all extensions are available offline for subsequent launches.
+
+<Tabs items={["Translation Editor", "Authentication", "Shared State Store", "Extension Sideloader"]}>
+  <Tab value="Translation Editor">
+    **Codex Translation Editor** — The heart of the platform. Provides the custom `.codex` notebook editor with a Quill-based cell editor supporting spellcheck and audio attachments, an embedded language server for spelling diagnostics, LLM-powered "smart edits" for AI-assisted translation and back-translation, and multiple webview panels for navigation, parallel passages, comments, project settings, and more. This is the extension users interact with directly when translating.
+  </Tab>
+  <Tab value="Authentication">
+    **Frontier Authentication** — Handles cloud identity and remote project lifecycle — user login and registration, GitLab-backed project sync (including auto-sync, merge conflict handling, and LFS support), and communication with the Frontier API for user accounts and sessions. Without this extension, users cannot log in, sync projects, or collaborate remotely.
+  </Tab>
+  <Tab value="Shared State Store">
+    **Shared State Store** — A small utility extension that provides reactive, persisted key-value state shared across all other extensions and webviews. The Translation Editor depends on it to synchronize context (current verse, active document, selection state, etc.) between its many panels without tight coupling.
+  </Tab>
+  <Tab value="Extension Sideloader">
+    **Extension Sideloader** — Developed and published to Open VSX as its own extension, but during the Codex build process its VSIX is downloaded and embedded directly into the binary — so it's available on first launch with no network. Its only job is to fetch a remote JSON manifest and trigger installation of the other extensions listed above. It has no UI of its own, and once the other extensions are installed it effectively becomes idle.
+  </Tab>
+</Tabs>
+
+### How Extensions Are Loaded
+
+Extensions reach a running Codex instance through two phases:
+
+<Steps>
+  <Step>
+    ### Build Time — Bundled in the Binary
+
+    All extensions (including the Sideloader) are developed in their own repositories and published to Open VSX independently. During CI/CD, the Codex build pipeline downloads the **Extension Sideloader** VSIX from Open VSX, unzips it into the VS Code extensions directory, and the platform packaging step bakes it into the final binary. This is the only extension embedded at build time — it's available immediately at first launch with no network required.
+  </Step>
+  <Step>
+    ### Runtime — Sideloaded on First Launch
+
+    When Codex starts, the bundled Sideloader activates after startup finishes. It fetches an `extensions.json` manifest from GitHub, checks which extensions are missing, and installs them from the Open VSX gallery. On subsequent launches, extensions are already installed and no network is needed.
+  </Step>
+</Steps>
+
+<Callout type="info">
+  The Open VSX marketplace is configured during the build process via `product.json`. This is the same gallery used by VSCodium and other open-source VS Code distributions.
+</Callout>
+
+### Desktop Application
+
+Codex runs as a **desktop application** (Electron-based, like VS Code) on Windows, macOS, and Linux.
+
 ## Key Features
 
-### **AI-Powered Translation**
+### AI-Powered Translation
 - Smart translation suggestions powered by advanced AI
 - Customizable AI instructions for style and accuracy
 - Batch prediction for efficient translation workflows
 - AI learns from your edits to improve over time
 
-### **Collaboration & Project Management**
+### Collaboration & Project Management
 - Team-based project sharing and management
 - Group creation with role-based permissions
 - Automatic synchronization across team members on configurable intervals
 - Version control and change tracking
 
-### **Quality Assurance**
+### Quality Assurance
 - Back translation generation for accuracy verification
 - Validation workflows for translation review
 - Consistency checking across translations
 - Phrase-level notes and annotations
 
-### **Export & Integration**
+### Export & Integration
 - Multiple export formats (plain text, HTML, USFM)
 - Integration with existing translation workflows
 - Project archiving and backup capabilities
@@ -48,14 +98,11 @@ New to Codex Editor? Start here to set up your account and create your first tra
 <Cards>
   <Card title="Download" href="/docs/getting-started/download-codex">
     Download Codex Editor to get started today!
-    </Card>
-  <Card title="Initial Setup" href="/docs/getting-started/initial-setup">
-    Learn how to install and configure Codex Editor
   </Card>
-  <Card title="Create Account" href="/docs/getting-started/initial-setup">
-    Set up your Codex Editor account and user profile
+  <Card title="Initial Setup & Account" href="/docs/getting-started/initial-setup">
+    Set up your account and configure Codex Editor
   </Card>
-  <Card title="Your First Project" href="/docs/project-management/creating-project">
+  <Card title="Create a Project" href="/docs/project-management/creating-project">
     Create and configure your first translation project
   </Card>
 </Cards>
@@ -63,7 +110,6 @@ New to Codex Editor? Start here to set up your account and create your first tra
 ## Core Workflows
 
 ### Translation Process
-Master the essential translation workflows, from project setup to final validation.
 
 <Cards>
   <Card title="Batch Translations" href="/docs/translation/batch-translation">
@@ -87,7 +133,6 @@ Master the essential translation workflows, from project setup to final validati
 </Cards>
 
 ### Project Management
-Collaborate effectively with teams and manage large-scale translation projects.
 
 <Cards>
   <Card title="Sharing & Managing Projects" href="/docs/project-management/sharing-managing-projects">
@@ -97,29 +142,6 @@ Collaborate effectively with teams and manage large-scale translation projects.
     Export your translations in various formats for distribution
   </Card>
 </Cards>
-
-## Use Cases
-
-### Language Teams
-A language team translating educational, community, or reference content into a local dialect can use Codex to:
-- Set up collaborative projects with native speakers
-- Leverage AI suggestions while maintaining cultural relevance
-- Use back translations to verify accuracy with community leaders
-- Export translations for digital and print distribution
-
-### Scholarly Translation
-Academic translators and scholars can utilize Codex for:
-- Detailed segment-by-segment analysis with AI assistance
-- Collaborative review processes with peer scholars
-- Quality assurance through back translation verification
-- Integration with existing research workflows
-
-### Community Projects
-Local communities working on translation can benefit from:
-- User-friendly interface accessible to non-technical users
-- Collaborative features for community input and review
-- AI assistance to accelerate the translation process
-- Export capabilities for local distribution and use
 
 ## Support & Resources
 
@@ -140,4 +162,4 @@ If something is not working, start with the troubleshooting flow before escalati
 
 ---
 
-Ready to begin your translation journey? Start with our [Getting Started guide](/docs/getting-started/download-codex) or explore specific features in the [Translation](/docs/translation/ai-settings) section.
+Ready to begin your translation journey? Start with our [Getting Started guide](/docs/getting-started/download-codex) or explore specific features in the [Translation](/docs/translation/translation-tools) section.
