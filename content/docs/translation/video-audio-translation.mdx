@@ -10,7 +10,6 @@ Codex Editor provides powerful features for translating video subtitles and mana
 ### What You Can Do
 
 - **Translate Video Subtitles** - Import VTT/SRT files, translate, and export
-- **Play Video in the Editor** - Built-in video player with synchronized timeline
 - **Import Audio Files** - Automatic segmentation with Voice Activity Detection
 - **Record Audio** - Record directly inside the cell editor
 - **Cell-by-Cell Audio Playback** - Waveform visualization aligned with each cell
@@ -99,37 +98,6 @@ The subtitle importer handles:
 - **many:many mapping** - Complex overlapping subtitles
 
 The system uses **timestamp overlap detection** to automatically align translations during Target Import.
-
----
-
-## Video in the Editor
-
-Codex plays video directly inside the editor using a built-in video player.
-
-### Video Player
-
-When you open a `.codex` file that has a video URL set in its document metadata (typically after importing subtitles), a **Video** tab appears in the cell editor. The video player:
-
-- Plays back local video files or HTTP(S) URLs
-- Supports VTT subtitles overlaid on the video
-- Calls back with the current playback time so the editor can highlight the active cell
-
-### Timeline Editor
-
-Below the video player is an interactive **Timeline Editor** that:
-
-- Shows all translation cells as time blocks along the video timeline
-- Highlights the cell currently playing
-- Allows **click-to-seek**: clicking a time block jumps the video to that position
-- Stays synchronized with video playback in real time
-
-### Resizable Player
-
-Drag the **grabber bar** between the video player and timeline to resize the player height (minimum 200px). This lets you allocate more screen space to translation or to the timeline as needed.
-
-<Callout type="info">
-**Pro Tip:** Use the timeline view to navigate quickly between subtitle segments. Click any block to jump to that point in the video without having to scrub manually.
-</Callout>
 
 ---
 
