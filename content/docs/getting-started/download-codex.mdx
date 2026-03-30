@@ -4,6 +4,31 @@ description: Download and install Codex Editor on macOS, Windows, and Linux
 ---
 Download Codex Editor to start your translation journey. The application is available for macOS, Windows, and Linux platforms, with specific builds optimized for different system architectures.
 
+## System Requirements
+
+### Minimum Requirements
+- **RAM**: 4GB (8GB recommended)
+- **Storage**: 2GB free space for the application
+- **Internet**: Required for initial setup and collaboration via our GitLab cloud service
+
+### Project Storage
+
+In addition to the application itself, you'll need disk space for your translation projects:
+
+- **Text-only projects**: Text and version history are lightweight — most projects stay well under 500MB.
+- **Audio projects**: Audio recordings add up quickly depending on length and format. For reference:
+  - A **30-second clip** (e.g., a single verse or short paragraph): ~5MB uncompressed (WAV), under 1MB compressed (MP3)
+  - A **10-minute recording** (roughly the length of a typical YouTube video): ~100MB WAV, ~10MB MP3
+  - A **30-minute recording** (a book chapter or short podcast episode): ~300MB WAV, ~30MB MP3
+  - A **45-minute recording** (a TV episode): ~450MB WAV, ~45MB MP3
+
+  Audio storage scales with your project's scope and recording format. Compressed formats (MP3, OGG) use roughly one-tenth the space of uncompressed WAV. Plan your disk space accordingly based on how much audio your project will involve.
+
+### Supported Operating Systems
+- **macOS**: 10.15 (Catalina) or later
+- **Windows**: Windows 10 or later
+- **Linux**: Most modern distributions (Ubuntu 20.04+, Fedora 36+, or equivalent)
+
 ## Download Options
 
 Visit [codexeditor.app](https://codexeditor.app/) to access the download page with platform-specific options.
@@ -29,7 +54,10 @@ Visit [codexeditor.app](https://codexeditor.app/) to access the download page wi
   </Card>
 </Cards>
 
-## macOS Installation
+## Installation Instructions
+
+<Tabs items={["macOS", "Windows", "Linux"]}>
+<Tab value="macOS">
 
 ### Determining Your Mac Type
 
@@ -45,7 +73,7 @@ Before downloading, you need to identify your Mac's processor type:
 - Check: Apple Menu → About This Mac → look for "Intel" processor
 - Or run in Terminal: `uname -m` (returns "x86_64")
 
-### Download Steps for macOS
+### Download Steps
 
 1. Visit [codexeditor.app](https://codexeditor.app/)
 2. Click the **macOS** button at the top of the page
@@ -54,20 +82,21 @@ Before downloading, you need to identify your Mac's processor type:
    - **Intel** - for older Intel-based Macs
 4. The download will begin automatically
 
-### macOS Installation Process
+### Installation Process
 
 1. Once downloaded, open the `.dmg` file
 2. Drag Codex Editor to your Applications folder
 
-## Windows Installation
+</Tab>
+<Tab value="Windows">
 
-### Download Steps for Windows
+### Download Steps
 
 1. Visit [codexeditor.app](https://codexeditor.app/)
 2. Click the **Windows** button at the top of the page
 3. The download will start automatically (x64.exe file)
 
-### Windows Installation Process
+### Installation Process
 
 1. Locate the downloaded `.exe` file (usually in Downloads folder)
 2. Double-click to run the installer
@@ -83,25 +112,25 @@ Windows may show security warnings because the application isn't code-signed:
 2. **User Account Control**: Allow the installer to make changes
 3. Follow the installation wizard prompts
 
-**What "Unsigned" Means**: The application doesn't have a digital signature from a recognized certificate authority(aka Microsoft). Windows flags this as potentially risky, but it's safe to proceed.
+**What "Unsigned" Means**: The application doesn't have a digital signature from a recognized certificate authority (aka Microsoft). Windows flags this as potentially risky, but it's safe to proceed.
 
-## Linux Installation
+</Tab>
+<Tab value="Linux">
 
-### Determining Your Linux Architecture
+### Determining Your Architecture
 
 Before downloading, identify your system architecture:
 
 ```bash
-# Check your architecture
 uname -m
 ```
 
 **Common Results:**
 - `x86_64` → Choose **x64**
-- `aarch64` → Choose **arm64**  
+- `aarch64` → Choose **arm64**
 - `armv7l` → Choose **armhf**
 
-### Download Steps for Linux
+### Download Steps
 
 1. Visit [codexeditor.app](https://codexeditor.app/)
 2. Click the **Linux** button at the top of the page
@@ -110,7 +139,7 @@ uname -m
    - **arm64** - For 64-bit ARM processors (like Raspberry Pi 4, Apple Silicon via emulation)
    - **armhf** - For 32-bit ARM processors (older Raspberry Pi models)
 
-### Linux Installation Process
+### Installation Process
 
 The exact installation method depends on the package format provided:
 
@@ -148,17 +177,8 @@ Linux systems may require additional permissions:
 
 **What "Unsigned" Means**: The package isn't signed with a recognized GPG key or distributed through official repositories. This is common for third-party applications.
 
-## System Requirements
-
-### Minimum Requirements
-- **RAM**: 4GB (8GB recommended)
-- **Storage**: 2GB free space
-- **Internet**: Required for initial setup and cloud features
-
-### Supported Operating Systems
-- **macOS**: 10.14 (Mojave) or later
-- **Windows**: Windows 10 or later
-- **Linux**: Most modern distributions
+</Tab>
+</Tabs>
 
 ## Post-Installation Steps
 
@@ -166,7 +186,7 @@ After successfully installing Codex Editor:
 
 1. **Launch the Application**: Find and open Codex Editor
 2. **Initial Setup**: [Creating your account](/docs/getting-started/initial-setup)
-4. **Start Your Project**: [Create your first translation project](/docs/project-management/creating-project)
+3. **Start Your Project**: [Create your first translation project](/docs/project-management/creating-project)
 
 ---
 
@@ -209,4 +229,4 @@ If you encounter issues during download or installation:
 Once Codex Editor is installed and running:
 
 1. [Complete the initial setup](/docs/getting-started/initial-setup)
-3. [Start your first translation project](/docs/project-management/creating-project) 
+2. [Start your first translation project](/docs/project-management/creating-project)

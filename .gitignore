@@ -25,6 +25,9 @@ pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# workspace files
+*.code-workspace
+
 # others
 .env*.local
 .vercel

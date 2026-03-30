@@ -1,5 +1,5 @@
 ---
-title: Export Options
+title: Exporting Projects
 description: Learn about all available export formats in Codex Editor and how to export your translation project
 ---
 
@@ -22,7 +22,25 @@ You must set your source and target languages in Project Settings before the exp
 
 The formats available in Step 2 depend on which file group you selected in Step 1. Not all formats appear for every file type.
 
-### Round-trip Export
+<Callout type="info">
+Formats marked **Beta** are functional but still being refined — output may require manual review. Formats marked **Coming Soon** are visible in the interface but not yet fully implemented.
+</Callout>
+
+### Standard Text Formats
+
+These are available for most file types:
+
+- **Generate Plaintext** — Plain text with minimal formatting. Universal compatibility.
+- **Generate HTML** — Web pages with chapter navigation.
+
+### Scripture-Specific Formats `Beta`
+
+These appear only for USFM and eBible file groups:
+
+- **Generate USFM** — Export with full USFM markers (`\id`, `\c`, `\v`, etc.). Includes an option to skip USFM validation for faster export.
+- **Generate XLIFF** — XML Localization Interchange File Format for professional translation workflows.
+
+### Round-trip Export `Beta`
 
 If your files were imported with a round-trip importer, the **Round-trip Export** option appears. This intelligently detects the original file format and exports back to it with your translations applied.
 
@@ -42,7 +60,7 @@ Supported round-trip formats:
 **When in doubt, use Round-trip Export.** It automatically picks the right format based on how the file was originally imported.
 </Callout>
 
-### Subtitle Export
+### Subtitle Export `Beta`
 
 For files imported with the Subtitles importer, three subtitle-specific options are available:
 
@@ -52,21 +70,7 @@ For files imported with the Subtitles importer, three subtitle-specific options 
 
 All subtitle exports preserve the original timestamps.
 
-### Standard Text Formats
-
-These are available for most file types:
-
-- **Generate Plaintext** — Plain text with minimal formatting. Universal compatibility.
-- **Generate XLIFF** — XML Localization Interchange File Format for professional translation workflows.
-
-### Scripture-Specific Formats
-
-These appear only for USFM and eBible file groups:
-
-- **Generate USFM** — Export with full USFM markers (`\id`, `\c`, `\v`, etc.). Includes an option to skip USFM validation for faster export.
-- **Generate HTML** — Web pages with chapter navigation.
-
-### Data Export
+### Data Export `Coming Soon`
 
 These are available for all file types and useful for analysis or quality assurance:
 
@@ -74,7 +78,7 @@ These are available for all file types and useful for analysis or quality assura
 - **TSV** — Tab-separated values with the same columns as CSV
 - **Backtranslations (CSV)** — Exports backtranslations with ID, source text, translation, and backtranslation columns
 
-### Audio Export
+### Audio Export `Coming Soon`
 
 The **Audio** toggle at the top of Step 2 lets you export per-cell audio attachments alongside any text format. You can optionally embed timestamps in audio metadata (WAV, WebM, M4A). Audio can also be exported on its own without selecting a text format.
 
