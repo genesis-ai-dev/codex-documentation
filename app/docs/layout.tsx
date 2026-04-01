@@ -10,7 +10,8 @@ export default function Layout({ children }: { children: ReactNode }) {
       {...baseOptions}
       sidebar={{
         banner: (
-          <a 
+          <a
+            key="sidebar-banner"
             href="https://github.com/genesis-ai-dev/codex-documentation/issues/new/choose"
             target="_blank"
             rel="noopener noreferrer"
