@@ -10,10 +10,10 @@
     "watch": "fumadocs-mdx watch"
   },
   "dependencies": {
-    "fumadocs-core": "16.4.10",
-    "fumadocs-mdx": "14.2.6",
-    "fumadocs-ui": "16.4.10",
-    "next": "16.1.7",
+    "fumadocs-core": "16.7.9",
+    "fumadocs-mdx": "14.2.11",
+    "fumadocs-ui": "16.7.9",
+    "next": "16.2.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },
@@ -24,7 +24,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.4",
-    "eslint-config-next": "16.1.7",
+    "eslint-config-next": "16.2.2",
     "minimatch": "9.0.7",
     "postcss": "^8.5.8",
     "tailwindcss": "^4.2.1",
@@ -43,7 +43,8 @@
       "eslint-plugin-import>minimatch": "9.0.7",
       "minimatch@<9": ">=3.1.3",
       "ajv": "6.12.6",
-      "minimatch@>=9.0.0 <9.0.7": ">=9.0.7"
+      "minimatch@>=9.0.0 <9.0.7": ">=9.0.7",
+      "ajv@<6.14.0": ">=6.14.0"
     }
   }
 }
