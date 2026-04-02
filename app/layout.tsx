@@ -1,10 +1,10 @@
 import './global.css';
 import { RootProvider } from 'fumadocs-ui/provider/next';
-import { Inter } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import type { ReactNode } from 'react';
 import type { Metadata } from 'next';
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
 });
 
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={inter.className} suppressHydrationWarning>
+    <html lang="en" className={jakarta.className} suppressHydrationWarning>
       <head>
         <script defer src="https://cloud.umami.is/script.js" data-website-id="16ce21bc-d12b-4ff0-93d0-bf6e1388cd56"></script>
       </head>

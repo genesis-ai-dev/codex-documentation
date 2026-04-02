@@ -2,58 +2,67 @@
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
 
-/* Warm, earthy color palette */
 :root {
-  /* Primary accent - Sage green */
-  --fd-primary: 145 44% 51%;
-  --fd-primary-foreground: 0 0% 100%;
-  
-  /* Background - Linen (warm off-white) */
-  --fd-background: 45 33% 97%;
-  
-  /* Surface - Alabaster (sidebar with green tint) */
-  --fd-card: 135 18% 95%;
-  --fd-muted: 135 18% 95%;
-  
-  /* Text colors */
-  --fd-foreground: 212 23% 23%; /* Charcoal */
-  --fd-muted-foreground: 216 16% 52%; /* Stone */
-  
-  /* Borders */
-  --fd-border: 135 15% 88%;
-  
-  /* Hover state - Deep Forest */
-  --fd-accent: 150 48% 35%;
+  /* Primary — Codex teal */
+  --fd-primary: 168 100% 42%;
+  --fd-primary-foreground: 240 44% 7%;
+
+  /* Background — Codex parchment */
+  --fd-background: 60 20% 97%;
+
+  /* Surfaces — clean white cards, warm muted fills */
+  --fd-card: 0 0% 100%;
+  --fd-muted: 37 21% 93%;
+
+  /* Text — Codex ink and muted stone */
+  --fd-foreground: 240 28% 14%;
+  --fd-muted-foreground: 240 9% 46%;
+
+  /* Borders — warm neutral */
+  --fd-border: 37 20% 87%;
+
+  /* Hover / active — deeper teal */
+  --fd-accent: 168 100% 36%;
   --fd-accent-foreground: 0 0% 100%;
-  
-  /* Semantic colors */
-  --fd-destructive: 0 76% 57%; /* Error red */
-  --fd-warning: 40 67% 51%; /* Warning yellow */
-  
-  /* Subtle refinements */
+
+  /* Semantic */
+  --fd-destructive: 358 75% 59%;
+  --fd-warning: 45 80% 55%;
+
   --fd-radius: 0.625rem;
 }
 
 .dark {
-  /* Keep dark mode with adjusted warmth */
-  --fd-primary: 145 44% 58%;
-  --fd-background: 212 25% 12%;
-  --fd-card: 212 24% 15%;
-  --fd-muted: 212 24% 15%;
-  --fd-foreground: 45 10% 88%;
-  --fd-muted-foreground: 216 12% 62%;
-  --fd-border: 212 20% 22%;
-  --fd-accent: 150 48% 42%;
-  --fd-destructive: 0 76% 62%;
-  --fd-warning: 40 67% 58%;
+  --fd-primary: 168 100% 42%;
+  --fd-primary-foreground: 240 44% 7%;
+
+  /* Background — Codex deep navy */
+  --fd-background: 240 28% 14%;
+
+  /* Surfaces — Codex surface navy */
+  --fd-card: 240 26% 18%;
+  --fd-muted: 240 22% 21%;
+
+  /* Text — warm off-white */
+  --fd-foreground: 36 10% 90%;
+  --fd-muted-foreground: 240 9% 58%;
+
+  /* Borders — subtle navy edges */
+  --fd-border: 240 18% 20%;
+
+  /* Hover — brighter teal for dark backgrounds */
+  --fd-accent: 168 100% 46%;
+  --fd-accent-foreground: 36 10% 90%;
+
+  --fd-destructive: 358 75% 62%;
+  --fd-warning: 45 80% 58%;
 }
 
-/* Smooth page transitions */
 html {
   scroll-behavior: smooth;
 }
 
-/* Subtle shadow refinements for cards */
+/* Card hover lift */
 .fd-card {
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
@@ -62,31 +71,31 @@ html {
   transform: translateY(-1px);
 }
 
-/* Subtle code block polish */
+/* Code block border */
 pre {
   border: 1px solid hsl(var(--fd-border) / 0.5);
 }
 
-/* Inline code with subtle color tint */
+/* Inline code — warm parchment tint */
 :not(pre) > code {
-  background: hsl(135 18% 93%);
-  border: 1px solid hsl(135 15% 88%);
-  color: hsl(212 23% 23%);
+  background: hsl(37 21% 94%);
+  border: 1px solid hsl(37 20% 88%);
+  color: hsl(240 28% 14%);
 }
 
 .dark :not(pre) > code {
-  background: hsl(212 24% 18%);
-  border: 1px solid hsl(212 20% 25%);
-  color: hsl(45 10% 88%);
+  background: hsl(240 26% 20%);
+  border: 1px solid hsl(240 18% 24%);
+  color: hsl(36 10% 90%);
 }
 
-/* Active sidebar item - sage accent (10% rule) */
+/* Sidebar active item — teal accent bar */
 [data-active="true"] {
   border-left: 2px solid hsl(var(--fd-primary)) !important;
   background: hsl(var(--fd-primary) / 0.08) !important;
 }
 
-/* Links with sage color */
+/* Prose links */
 .prose a:not([class]) {
   color: hsl(var(--fd-primary));
   text-decoration-thickness: 1px;
@@ -98,7 +107,7 @@ pre {
   color: hsl(var(--fd-accent));
 }
 
-/* Refined focus states */
+/* Focus states */
 :focus-visible {
   outline: 2px solid hsl(var(--fd-primary));
   outline-offset: 2px;
