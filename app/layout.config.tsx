@@ -70,5 +70,10 @@ export const baseOptions: BaseLayoutProps = {
       url: "https://codexeditor.app",
       external: true,
     },
+    {
+      text: "Status",
+      url: "https://status.codexeditor.com",
+      external: true,
+    },
   ],
 };

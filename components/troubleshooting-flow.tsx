@@ -85,10 +85,12 @@ const troubleshootingPaths: TroubleshootingPath[] = [
       'Use password reset if you already created an account.',
       'Make sure the app has the permissions it requests.',
       'Check your network if the issue involves sign-in or AI access.',
+      'Check the Codex Status page (status.codexeditor.com) to see if the servers are currently down.',
     ],
     docs: [
       { title: 'Initial Setup', href: '/docs/getting-started/initial-setup' },
       { title: 'FAQ', href: '/docs/faq' },
+      { title: 'Codex Status', href: 'https://status.codexeditor.com' },
     ],
   },
   {
@@ -152,12 +154,14 @@ const troubleshootingPaths: TroubleshootingPath[] = [
       'Reload the project or editor window.',
       'Check for updates and recent fixes related to sync or offline behavior.',
       'Ask teammates whether they have synced recently if this is a shared project.',
+      'Check the Codex Status page (status.codexeditor.com) to see if the servers are currently down.',
     ],
     docs: [
       { title: 'Sync Troubleshooting', href: '/docs/project-management/sync-troubleshooting' },
       { title: 'Sharing & Managing Projects', href: '/docs/project-management/sharing-managing-projects' },
       { title: 'How to Update Codex', href: '/docs/project-management/update-extensions' },
       { title: 'Release Notes', href: '/docs/releases/latest' },
+      { title: 'Codex Status', href: 'https://status.codexeditor.com' },
     ],
   },
   {
@@ -177,11 +181,13 @@ const troubleshootingPaths: TroubleshootingPath[] = [
       'Review your AI instructions and simplify them if needed.',
       'Edit AI outputs to guide future suggestions.',
       'Check whether the issue may be related to connectivity or a recent release.',
+      'Check the Codex Status page (status.codexeditor.com) to see if the AI services are currently down.',
     ],
     docs: [
       { title: 'AI Settings', href: '/docs/translation/ai-settings' },
       { title: 'Translation Tools', href: '/docs/translation/translation-tools' },
       { title: 'Batch Translation', href: '/docs/translation/batch-translation' },
+      { title: 'Codex Status', href: 'https://status.codexeditor.com' },
     ],
   },
   {
@@ -763,7 +769,18 @@ ${docsList}`;
             </p>
           )}
 
-          <div className="mt-6 grid gap-3 md:grid-cols-2">
+          <div className="mt-6 grid gap-3 md:grid-cols-3">
+            <a
+              href="https://status.codexeditor.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-xl border border-fd-border bg-fd-background px-4 py-4 text-sm text-fd-foreground transition-colors hover:border-fd-primary/40 hover:bg-fd-primary/5"
+            >
+              <span className="block text-base font-semibold">Check server status</span>
+              <span className="mt-2 block text-fd-muted-foreground">
+                See if the Codex API services are currently up or experiencing issues.
+              </span>
+            </a>
             <a
               href="https://discord.gg/6kVJTEXYEp"
               target="_blank"
