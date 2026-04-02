@@ -18,6 +18,8 @@ type TroubleshootingPath = {
 };
 
 type EvidenceFields = {
+  projectName: string;
+  username: string;
   appVersion: string;
   extensionVersion: string;
   operatingSystem: string;
@@ -233,6 +235,8 @@ const troubleshootingPaths: TroubleshootingPath[] = [
 const VERSION_HELP_HREF = '/docs/project-management/update-extensions#verifying-your-versions';
 
 const requiredFields: { key: EvidenceFieldKey; label: string; placeholder: string; multiline: boolean; helpHref?: string; helpLabel?: string }[] = [
+  { key: 'projectName', label: 'Project name', placeholder: 'e.g. My Translation Project', multiline: false },
+  { key: 'username', label: 'Username', placeholder: 'Your Codex account username', multiline: false },
   { key: 'appVersion', label: 'Codex app version', placeholder: 'e.g. 1.108.11148', multiline: false, helpHref: `${VERSION_HELP_HREF}`, helpLabel: 'How to find this (Help → About)' },
   { key: 'extensionVersion', label: 'Extension version', placeholder: 'e.g. 1.8.0', multiline: false, helpHref: `${VERSION_HELP_HREF}`, helpLabel: 'How to find this (Extensions panel)' },
   { key: 'operatingSystem', label: 'Operating system', placeholder: 'e.g. macOS 15, Ubuntu 24.04, Windows 11', multiline: false },
@@ -248,6 +252,8 @@ const optionalFields: { key: EvidenceFieldKey; label: string; placeholder: strin
 ];
 
 const emptyEvidence: EvidenceFields = {
+  projectName: '',
+  username: '',
   appVersion: '',
   extensionVersion: '',
   operatingSystem: '',
@@ -382,6 +388,9 @@ export function TroubleshootingFlow() {
       : '- (none)';
 
     return `Issue category: ${selectedPath?.title ?? '(not selected)'}
+
+Project: ${templateValue(evidence.projectName)}
+Username: ${templateValue(evidence.username)}
 
 Environment
 - Codex version: ${templateValue(evidence.appVersion)}
