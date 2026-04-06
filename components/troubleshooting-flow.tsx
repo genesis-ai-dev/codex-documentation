@@ -20,13 +20,12 @@ type TroubleshootingPath = {
 type EvidenceFields = {
   projectName: string;
   username: string;
+  ticketIssuerName: string;
   appVersion: string;
   extensionVersion: string;
   operatingSystem: string;
   task: string;
   reproductionSteps: string;
-  expectedResult: string;
-  actualResult: string;
   errorText: string;
   screenshotNotes: string;
 };
@@ -34,6 +33,10 @@ type EvidenceFields = {
 type EvidenceFieldKey = keyof EvidenceFields;
 
 const COPY_RESET_MS = 2500;
+
+const HISTORY_STEP_KEY = 'troubleshootingStep' as const;
+
+type TroubleshootingHistoryState = { [HISTORY_STEP_KEY]: number };
 
 const STEP_LABELS = [
   'Choose issue',
@@ -240,13 +243,17 @@ const requiredFields: { key: EvidenceFieldKey; label: string; placeholder: strin
   { key: 'appVersion', label: 'Codex app version', placeholder: 'e.g. 1.108.11148', multiline: false, helpHref: `${VERSION_HELP_HREF}`, helpLabel: 'How to find this (Help → About)' },
   { key: 'extensionVersion', label: 'Extension version', placeholder: 'e.g. 1.8.0', multiline: false, helpHref: `${VERSION_HELP_HREF}`, helpLabel: 'How to find this (Extensions panel)' },
   { key: 'operatingSystem', label: 'Operating system', placeholder: 'e.g. macOS 15, Ubuntu 24.04, Windows 11', multiline: false },
-  { key: 'task', label: 'What were you trying to do?', placeholder: 'Describe the workflow or action', multiline: false },
+  { key: 'task', label: 'Describe the issue', placeholder: 'What is going wrong?', multiline: false },
   { key: 'reproductionSteps', label: 'Exact steps to reproduce', placeholder: 'List the steps someone else could follow', multiline: true },
-  { key: 'expectedResult', label: 'Expected result', placeholder: 'What should have happened?', multiline: true },
-  { key: 'actualResult', label: 'Actual result', placeholder: 'What happened instead?', multiline: true },
 ];
 
-const optionalFields: { key: EvidenceFieldKey; label: string; placeholder: string }[] = [
+const optionalFields: { key: EvidenceFieldKey; label: string; placeholder: string; multiline?: boolean }[] = [
+  {
+    key: 'ticketIssuerName',
+    label: 'Ticket issuer name',
+    placeholder: 'If a manager or teammate is submitting on your behalf, enter their name',
+    multiline: false,
+  },
   { key: 'errorText', label: 'Error text (if any)', placeholder: 'Paste the exact error message or console output' },
   { key: 'screenshotNotes', label: 'Screenshot or recording notes', placeholder: 'Mention any attachments you plan to include' },
 ];
@@ -254,13 +261,12 @@ const optionalFields: { key: EvidenceFieldKey; label: string; placeholder: strin
 const emptyEvidence: EvidenceFields = {
   projectName: '',
   username: '',
+  ticketIssuerName: '',
   appVersion: '',
   extensionVersion: '',
   operatingSystem: '',
   task: '',
   reproductionSteps: '',
-  expectedResult: '',
-  actualResult: '',
   errorText: '',
   screenshotNotes: '',
 };
@@ -391,6 +397,7 @@ export function TroubleshootingFlow() {
 
 Project: ${templateValue(evidence.projectName)}
 Username: ${templateValue(evidence.username)}
+Ticket issuer (if different from username): ${templateValue(evidence.ticketIssuerName)}
 
 Environment
 - Codex version: ${templateValue(evidence.appVersion)}
@@ -398,9 +405,7 @@ Environment
 - Operating system: ${templateValue(evidence.operatingSystem)}
 
 Problem summary
-- What I was trying to do: ${templateValue(evidence.task)}
-- Expected result: ${templateValue(evidence.expectedResult)}
-- Actual result: ${templateValue(evidence.actualResult)}
+- Describe the issue: ${templateValue(evidence.task)}
 
 Reproduction steps
 ${templateValue(evidence.reproductionSteps)}
@@ -428,25 +433,41 @@ ${docsList}`;
     containerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, []);
 
-  const goTo = useCallback(
+  const advanceToStep = useCallback(
     (target: number) => {
+      if (typeof window !== 'undefined') {
+        window.history.pushState({ [HISTORY_STEP_KEY]: target } satisfies TroubleshootingHistoryState, '', '');
+      }
       setStep(target);
       scrollToTop();
     },
     [scrollToTop],
   );
 
+  useEffect(() => {
+    const onPopState = (e: PopStateEvent) => {
+      const s = (e.state as TroubleshootingHistoryState | null)?.[HISTORY_STEP_KEY];
+      if (typeof s === 'number' && s >= 0 && s <= 5) {
+        setStep(s);
+      } else {
+        setStep(0);
+      }
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
+
   const handleSelectPath = (pathId: string) => {
     setSelectedPathId(pathId);
     setCompletedChecks(new Set());
     setCopyState('idle');
-    goTo(1);
+    advanceToStep(1);
   };
 
   const handleSkipToEvidence = () => {
     setSelectedPathId(null);
     setCompletedChecks(new Set());
-    goTo(4);
+    advanceToStep(4);
   };
 
   const handleToggleCheck = (index: number) => {
@@ -537,8 +558,8 @@ ${docsList}`;
           </ul>
 
           <NavButtons
-            onBack={() => goTo(0)}
-            onNext={() => goTo(2)}
+            onBack={() => window.history.back()}
+            onNext={() => advanceToStep(2)}
             nextLabel="Yes, continue to fixes"
             backLabel="Pick a different issue"
           />
@@ -546,7 +567,7 @@ ${docsList}`;
           <div className="mt-3 text-right">
             <button
               type="button"
-              onClick={() => goTo(0)}
+              onClick={() => window.history.back()}
               className="text-sm text-fd-muted-foreground transition-colors hover:text-fd-foreground"
             >
               These don&apos;t match &mdash; go back
@@ -606,8 +627,8 @@ ${docsList}`;
           )}
 
           <NavButtons
-            onBack={() => goTo(1)}
-            onNext={() => goTo(3)}
+            onBack={() => window.history.back()}
+            onNext={() => advanceToStep(3)}
             nextLabel="I've tried these — continue"
             nextDisabled={completedChecks.size === 0}
           />
@@ -638,8 +659,8 @@ ${docsList}`;
           </div>
 
           <NavButtons
-            onBack={() => goTo(2)}
-            onNext={() => goTo(4)}
+            onBack={() => window.history.back()}
+            onNext={() => advanceToStep(4)}
             nextLabel="Still stuck — continue to support form"
           />
         </WizardCard>
@@ -657,6 +678,7 @@ ${docsList}`;
             Fill in as much as you can. This generates the support template you will paste into Discord or a
             bug report.
           </p>
+          <p className="mt-1 text-sm text-fd-muted-foreground">* indicates required fields</p>
 
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {requiredFields.map((field) => (
@@ -665,7 +687,10 @@ ${docsList}`;
                 className={`text-sm font-medium text-fd-foreground ${field.multiline ? 'md:col-span-2' : ''}`}
               >
                 <span className="flex items-baseline justify-between gap-2">
-                  <span>{field.label}</span>
+                  <span>
+                    {field.label}
+                    <span className="text-fd-primary"> *</span>
+                  </span>
                   {field.helpHref && (
                     <a
                       href={field.helpHref}
@@ -705,20 +730,29 @@ ${docsList}`;
             {optionalFields.map((field) => (
               <label key={field.key} className="text-sm font-medium text-fd-foreground">
                 {field.label}
-                <textarea
-                  value={evidence[field.key]}
-                  onChange={(e) => handleEvidenceChange(field.key, e.target.value)}
-                  rows={3}
-                  placeholder={field.placeholder}
-                  className="mt-2 w-full rounded-xl border border-fd-border bg-fd-background px-3 py-2 text-sm font-normal text-fd-foreground"
-                />
+                {field.multiline === false ? (
+                  <input
+                    value={evidence[field.key]}
+                    onChange={(e) => handleEvidenceChange(field.key, e.target.value)}
+                    placeholder={field.placeholder}
+                    className="mt-2 w-full rounded-xl border border-fd-border bg-fd-background px-3 py-2 text-sm font-normal text-fd-foreground"
+                  />
+                ) : (
+                  <textarea
+                    value={evidence[field.key]}
+                    onChange={(e) => handleEvidenceChange(field.key, e.target.value)}
+                    rows={3}
+                    placeholder={field.placeholder}
+                    className="mt-2 w-full rounded-xl border border-fd-border bg-fd-background px-3 py-2 text-sm font-normal text-fd-foreground"
+                  />
+                )}
               </label>
             ))}
           </div>
 
           <NavButtons
-            onBack={selectedPath ? () => goTo(3) : () => goTo(0)}
-            onNext={() => goTo(5)}
+            onBack={() => window.history.back()}
+            onNext={() => advanceToStep(5)}
             nextLabel="Generate support template"
             nextDisabled={!isEvidenceComplete}
             backLabel={selectedPath ? 'Back' : 'Back to issue picker'}
@@ -736,13 +770,22 @@ ${docsList}`;
         <WizardCard>
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 className="text-2xl font-semibold text-fd-foreground">Your support handoff</h2>
-            <button
-              type="button"
-              onClick={handleCopy}
-              className="rounded-xl bg-fd-primary px-4 py-2 text-sm font-semibold text-fd-primary-foreground transition-opacity hover:opacity-90"
-            >
-              {copyState === 'copied' ? 'Copied!' : 'Copy template'}
-            </button>
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                type="button"
+                onClick={() => window.history.back()}
+                className="rounded-xl border border-fd-border bg-fd-background px-4 py-2 text-sm font-medium text-fd-muted-foreground transition-colors hover:border-fd-primary/40 hover:text-fd-foreground"
+              >
+                Edit details
+              </button>
+              <button
+                type="button"
+                onClick={handleCopy}
+                className="rounded-xl bg-fd-primary px-4 py-2 text-sm font-semibold text-fd-primary-foreground transition-opacity hover:opacity-90"
+              >
+                {copyState === 'copied' ? 'Copied!' : 'Copy template'}
+              </button>
+            </div>
           </div>
 
           <p className="mt-2 text-sm leading-6 text-fd-muted-foreground">
@@ -786,20 +829,22 @@ ${docsList}`;
             </Link>
           </div>
 
-          <NavButtons
-            onBack={() => goTo(4)}
-            backLabel="Edit details"
-          />
-
           <div className="mt-4 border-t border-fd-border pt-4 text-center">
             <button
               type="button"
               onClick={() => {
-                setStep(0);
                 setSelectedPathId(null);
                 setCompletedChecks(new Set());
                 setEvidence(emptyEvidence);
                 setCopyState('idle');
+                if (typeof window !== 'undefined') {
+                  window.history.replaceState(
+                    { [HISTORY_STEP_KEY]: 0 } satisfies TroubleshootingHistoryState,
+                    '',
+                    '',
+                  );
+                }
+                setStep(0);
                 scrollToTop();
               }}
               className="text-sm text-fd-muted-foreground transition-colors hover:text-fd-foreground"
