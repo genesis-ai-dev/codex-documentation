@@ -1,6 +1,5 @@
 "use client";
 
-import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 type SupportLink = {
@@ -812,7 +811,7 @@ ${docsList}`;
             </p>
           )}
 
-          <div className="mt-6 grid gap-3 md:grid-cols-3">
+          <div className="mt-6 grid gap-3 md:grid-cols-2">
             <a
               href="https://status.codexeditor.com"
               target="_blank"
@@ -835,15 +834,6 @@ ${docsList}`;
                 Start here for a quick check on whether the issue is known.
               </span>
             </a>
-            <Link
-              href="/docs/project-management/reporting-bugs"
-              className="rounded-xl border border-fd-border bg-fd-background px-4 py-4 text-sm text-fd-foreground transition-colors hover:border-fd-primary/40 hover:bg-fd-primary/5"
-            >
-              <span className="block text-base font-semibold">File a bug report</span>
-              <span className="mt-2 block text-fd-muted-foreground">
-                Use the reporting guide to decide whether it belongs on GitHub.
-              </span>
-            </Link>
           </div>
 
           <div className="mt-4 border-t border-fd-border pt-4 text-center">
