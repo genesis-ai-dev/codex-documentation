@@ -8,7 +8,6 @@ import {
 import { notFound } from 'next/navigation';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { getMDXComponents } from '@/mdx-components';
-import { ContributingNotice } from '@/components/contributing-notice';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -32,7 +31,6 @@ export default async function Page(props: {
             a: createRelativeLink(source, page),
           })}
         />
-        <ContributingNotice />
       </DocsBody>
     </DocsPage>
   );

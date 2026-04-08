@@ -7,7 +7,6 @@ import { LoomVideo } from '@/components/loom-video';
 import { TroubleshootingFlow } from '@/components/troubleshooting-flow';
 import { CodexArchitectureChart } from '@/components/codex-architecture-chart';
 import type { MDXComponents } from 'mdx/types';
-import { ContributingNotice } from './components/contributing-notice';
 
 // use this function to get MDX components, you will need it for rendering MDX
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
@@ -24,7 +23,6 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     LoomVideo,
     TroubleshootingFlow,
     CodexArchitectureChart,
-    ContributingNotice,
     ...components,
   };
 }
