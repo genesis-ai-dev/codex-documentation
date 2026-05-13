@@ -36,6 +36,22 @@ If you already know the area you need, jump straight to the deeper guide:
 
 Also check our [Frequently Asked Questions](/docs/faq) — your question may already be answered there.
 
+## Windows Update Error: File Handle or Install Failed
+
+If Codex fails while updating from the cog menu or **Check for Updates**, you may see an error like:
+
+- `There was an error while Opening file handle: "C:\\Program Files\\Codex\\Codex.exe"`
+- `Failed to create file handle: The process cannot access the file because it is being used by another process.`
+- `Failed to install Visual Studio Code update.`
+
+Codex is based on VS Code, so some Windows update dialogs may mention "Visual Studio Code." If this happens, do not keep retrying the updater. Instead:
+
+1. Close Codex completely.
+2. Uninstall Codex from Windows settings.
+3. Remove the old Codex installer from your Downloads folder or wherever you saved it.
+4. Download the latest installer again from [codexeditor.app](https://codexeditor.app/).
+5. Run the new installer and open Codex again.
+
 ## Before You Escalate
 
 Use the guided flow above, then make sure you have:
