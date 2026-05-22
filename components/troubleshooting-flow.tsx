@@ -62,10 +62,11 @@ const troubleshootingPaths: TroubleshootingPath[] = [
       'Restart the application or reload the editor window.',
       'Verify you downloaded the correct installer for your OS and architecture.',
       'Re-download the installer if the file may be incomplete.',
-      'Check security prompts, antivirus, or system permission settings.',
+      'Check security prompts, antivirus exceptions, or system permission settings.',
       'On Linux, verify the executable has the correct permissions.',
     ],
     docs: [
+      { title: 'Antivirus or Anti-Malware Blocking Codex', href: '/docs/antivirus-blockages' },
       { title: 'Download Codex', href: '/docs/getting-started/download-codex' },
       { title: 'Initial Setup', href: '/docs/getting-started/initial-setup' },
     ],

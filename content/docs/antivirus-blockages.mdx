@@ -1,0 +1,57 @@
+---
+title: Antivirus or Anti-Malware Blocking Codex
+description: How to allow Codex when antivirus or anti-malware software blocks the app or its sync service
+---
+
+# Antivirus or Anti-Malware Blocking Codex
+
+Some antivirus, anti-malware, firewall, or endpoint protection tools may flag or block Codex. This is usually controlled by the third-party security app or by your organization's device policy, so the Codex team cannot remove the block from our side.
+
+The recommended fix is to allow Codex in the security tool that is blocking it.
+
+## What to Allow
+
+Add Codex to your antivirus or anti-malware exception list. Different tools use different names for this setting, such as:
+
+- **Exceptions**
+- **Exclusions**
+- **Allow list**
+- **Trusted sites**
+- **Do not block**
+
+If the tool asks for a website, server, or URL to allow, add:
+
+```text
+https://git.genesisrnd.com/
+```
+
+If the tool only accepts a domain instead of a full URL, use:
+
+```text
+git.genesisrnd.com
+```
+
+If the tool supports app-based exceptions, also allow the Codex application itself.
+
+## If You Have an IT Team
+
+If your computer is managed by an organization, school, or ministry IT team, ask them to add the Codex service URL to the antivirus, anti-malware, firewall, or endpoint protection exception list:
+
+```text
+https://git.genesisrnd.com/
+```
+
+They should be able to apply this through the security tool's **Exceptions**, **Allow list**, **Trusted sites**, or **Do not block** settings.
+
+## What Not to Do
+
+Do not permanently disable your antivirus or anti-malware protection. If you temporarily pause protection to confirm that it is the source of the problem, turn it back on and add an exception instead.
+
+## Still Blocked?
+
+Because this block is controlled by a third-party security product, the Codex team may not be able to resolve it directly. If Codex is still blocked after adding the exception:
+
+1. Note the name of the antivirus, anti-malware, firewall, or endpoint protection tool.
+2. Copy the exact warning or block message.
+3. Contact your IT person or security software support team and share the Codex service URL above.
+4. If you still need Codex support, complete the [Troubleshooting guide](/docs/troubleshooting) support form and include the security tool name and warning text.
