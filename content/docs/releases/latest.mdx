@@ -14,7 +14,45 @@ If you are troubleshooting a problem, compare your symptoms with the fixes below
 
 ## Codex Translation Editor Extension
 
-### v0.24.0 — March 23, 2026 (Latest)
+### v0.27.0 — May 1, 2026 (Latest)
+
+#### 🚀 New Features
+- Paste text without formatting using a new text-only paste option
+- Audio recording now shows a countdown before it starts
+- Added support for the Saurashtra script as a project language
+- Import now warns you when a VTT or SRT subtitle file is invalid
+- Export now warns you before producing an empty export
+- A confirmation prompt now appears when closing a project from the welcome view
+
+#### 🐛 Bug Fixes
+- Fixed problems importing target files
+- Fixed eBibles with verse ranges not importing correctly
+- Fixed the VTT importer leaving leftover HTML in cell content
+- Fixed a USFM importer round-trip issue
+- Fixed SRT export breaking files in some projects
+- Fixed audio export when exporting without timestamps
+- Fixed reference verses that could go missing (such as Genesis verses in a Spanish reference)
+- Fixed the spreadsheet importer and exporter to prevent project mismatches
+- Fixed switching the project language
+- The "Start Translating" button now opens the imported file
+
+#### 🔧 Improvements
+- Improved Markdown round-trip import and export
+- Reworked the export options and export header flow for a clearer experience
+- Added HTML mapping enforcement and improved USFM footnote handling
+- More reliable binary downloads with versioned folders and automatic retries
+
+### v0.26.0 — April 27, 2026
+
+#### 🐛 Bug Fixes
+- Fixed a project version logging issue
+
+### v0.25.0 — April 17, 2026
+
+#### 🐛 Bug Fixes
+- Resolved a DOCX file parsing issue to ensure correct and reliable content processing
+
+### v0.24.0 — March 23, 2026
 
 #### 🔧 Improvements
 - Add infrastructure for future extension locking/pinning
@@ -322,10 +360,22 @@ If you are troubleshooting a problem, compare your symptoms with the fixes below
 
 The Codex application is a fork of [VSCodium](https://vscodium.com/), a community-driven, freely-licensed distribution of Visual Studio Code without Microsoft's telemetry. App updates provide the editor platform, while the extension (above) provides translation features.
 
-**Current version**: v1.108.11148
+**Current version**: v1.108.13184
 
 <Accordions>
-<Accordion title="Application release notes (v1.108.11148)">
+<Accordion title="Latest application updates (v1.108.13184)">
+
+Recent app releases focus on extension management for pinned profiles, building on the VSCodium 1.108.1 platform base described below.
+
+**v1.108.13184 — May 12, 2026**
+- Reworked extension management for pinned profiles
+
+**v1.108.12734 — April 23, 2026**
+- Added extension version pinning with the CodexConductor profile system and CLI support
+
+</Accordion>
+
+<Accordion title="Platform update notes (v1.100 → v1.108)">
 
 This is a major release representing over 300 commits and 8 intermediate version updates (1.100 → 1.108).
 
