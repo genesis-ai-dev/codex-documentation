@@ -8,6 +8,15 @@ updates:
     groups:
       minor-and-patch:
         update-types: ["minor", "patch"]
+    # The fumadocs trio is exact-pinned and supplies the site's entire theme.
+    # 16.8+ renamed the theme CSS variables (--fd-* -> --color-fd-*), so any
+    # bump without migrating app/global.css silently drops the Codex colors
+    # (this broke the header once already). Upgrade all three together,
+    # deliberately, migrating the theme variables in the same PR.
+    ignore:
+      - dependency-name: "fumadocs-core"
+      - dependency-name: "fumadocs-ui"
+      - dependency-name: "fumadocs-mdx"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
