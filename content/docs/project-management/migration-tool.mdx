@@ -1,68 +1,81 @@
 ---
 title: Migration Tool
-description: Learn how to migrate your translation data from one target file to another target file in Codex
+description: Copy translation text, validations, and edits from one target file to another target file in Codex.
 ---
 
-<LoomVideo videoId="b70f456db6c44fdfa30e52e17c8468c6" timestamp={0} title="How to use the Migration Tool in Codex" />
+# Migration Tool
 
-### Overview
+The Migration Tool copies translation work from one target file to another. Use it when you have already translated against one file structure but need to move that work into a newer or better-aligned target file.
 
-The Migration Tool allows you to copy and transfer your translation data, validations, and edits from one target file to another target file. This is useful when you need to move your work to a different file structure or format.
+<Callout type="warning">
+Migration can change many cells at once. Create a backup before migrating and review the destination file before syncing to a team.
+</Callout>
 
-### How to Access the Migration Tool
+## When To Use Migration
 
-1. Navigate to your **Main Menu**
-2. Scroll down to find the **Migration Tool** button
-3. Click to open the Migration Tool interface
+Use the Migration Tool when:
 
-### Migration Process
+- You re-imported source content with a better structure.
+- A subtitle, scripture, or document file was replaced with a corrected version.
+- You need to preserve translations and validations while moving to a new target file.
+- Matching by timestamp, reference, or sequence is safer than manually copying cell by cell.
 
-#### 1. Select Your Source File
+Do not use migration when you only need to import a normal target translation. For that, use [Importing Files](/docs/project-management/importing-files).
 
-- In the first selection box, choose the file you want to **migrate from**
-- This is the file containing the translation data you want to copy
+## Open the Migration Tool
 
-#### 2. Select Your Destination File
+1. Open the project.
+2. Open the **Main Menu**.
+3. Go to **Tools**.
+4. Click **Migration**.
+5. Wait for the Migration Tool interface to load.
 
-- In the second selection box, choose the file you want to **migrate to**
-- This is where your translation data will be copied
+## Migration Process
 
-#### 3. Choose Your Matching Method
+### 1. Select the source target file
 
-The Migration Tool offers different ways to match source and target cells:
+Choose the target file that already contains the translations, validations, and edits you want to copy.
 
-**Match Timestamps:**
-- Use this option for VTT subtitle files or other time-based content
-- Matches cells based on their timestamps
-- Ideal for video/audio translation projects
+### 2. Select the destination target file
 
-**Match Global References:**
-- Use this option for content with references like verse numbers
-- Matches cells based on their reference identifiers
-- Useful for structured documents with numbered sections
+Choose the target file that should receive the migrated data. This is usually the newer or corrected target file.
 
-**Match Sequential Source Lines:**
-- Matches cells in order (Cell 1, 2, 3, 4, and so on)
-- Use when cells don't have timestamps or references
-- Good for simple sequential content
+### 3. Choose a matching method
 
-#### 4. Run the Migration
+| Method | Use it for |
+| --- | --- |
+| **Match Timestamps** | Subtitle and media projects where cells have time ranges. |
+| **Match Global References** | Scripture or structured content with stable references. |
+| **Match Sequential Source Lines** | Simple files where cells should be matched in order. |
 
-1. Select your preferred matching method
-2. Click the **Migrate** button
-3. Wait for the process to complete
-4. You'll see a confirmation message: "Your validations and your edits have been successfully migrated"
+### 4. Run the migration
 
-### What Gets Migrated
+1. Review the selected files.
+2. Choose the matching method.
+3. Click **Migrate**.
+4. Wait for completion.
+5. Review the destination file.
 
-When you run the migration tool, the following data is transferred:
-- Translation text
-- Validations
-- Edits and modifications
+## What Migrates
 
-### Tips for Successful Migration
+The Migration Tool can copy:
 
-- Make sure both files use compatible structures for the matching method you choose
-- Verify that your destination file is ready to receive the migrated data
-- Always review the migrated content after the process completes
-- Keep backups of your original files before performing migrations
+- Translation text.
+- Validations.
+- Edit data associated with matched cells.
+
+## Review After Migration
+
+After migration, check:
+
+- A few cells at the beginning, middle, and end of the file.
+- Any cells with changed references or timestamps.
+- Validation status on important sections.
+- Comments or workflow notes that may need manual follow-up.
+
+## Tips
+
+- Use timestamp matching for subtitle files.
+- Use global references for scripture-style structured content.
+- Use sequential matching only when the two files have the same order and similar segmentation.
+- Keep the original file until the migrated destination has been reviewed.

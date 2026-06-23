@@ -1,73 +1,76 @@
 ---
-title: How to Update Codex
-description: Learn how to update the Codex Translation Editor extension and the Codex application itself
+title: Update Codex and Extensions
+description: Update the Codex desktop app and understand extension version pins managed by CodexConductor.
 ---
 
-Codex has two components that can be updated independently: the **Codex application** (the editor itself) and the **Codex Translation Editor extension** (the translation features). Here's how to keep both up to date.
+# Update Codex and Extensions
 
-## Updating the Codex Application
+Codex has two update layers:
 
-Codex checks for application updates automatically in the background once every 24 hours. When an update is available, you'll see a notification with the option to install it.
+1. The **Codex desktop app** updates the application itself.
+2. The **Codex extension profile** controls the translation extensions used by a project.
 
-You can also check manually:
+Most users should update the app normally and let Codex manage project-specific extension versions automatically.
 
-1. Open the **Main Menu** from the sidebar
-2. Scroll down to the **Tools** section and click **Updates**
-3. If an update is available, follow the prompts to download and install it
-4. The application will restart with the new version
+## Update the Codex App
 
-## Updating the Extension
+Codex checks for app updates automatically. To check manually:
 
-The Codex Translation Editor extension can be updated through the Extensions panel:
+1. Open the **Main Menu**.
+2. Go to **Tools**.
+3. Click **Updates**.
+4. Follow the prompt to install the update.
+5. Restart Codex if prompted.
 
-### Step 1: Open the Extensions Panel
+You can verify the app version from **Help > About Codex** on Windows/Linux or **Codex > About Codex** on macOS.
 
-Open the Extensions panel using any of these methods:
+## Understand Extension Pins
 
-- Click the **Extensions** icon <img src="/images/extensions-icon.svg" alt="Extensions icon" style={{width: '16px', height: '16px', display: 'inline', verticalAlign: 'middle'}} /> in the sidebar
-- Press `Ctrl + Shift + X` (Windows/Linux) or `Cmd + Shift + X` (Mac)
-- Or open the command palette with `Ctrl + Shift + P` / `Cmd + Shift + P`, type "extensions", and select **Focus on Extensions View**
+Some projects require specific versions of the Codex Translation Editor, Frontier Authentication, and related extensions. Codex uses **CodexConductor** to manage these version pins.
 
-### Step 2: Find and Update the Extension
+When a project has pins:
 
-- Locate **Codex Translation Editor** in the extensions list
-- Click the refresh icon at the top of the Extensions panel to check for available updates
-- If an update is available, you'll see an **Update** button — click it
-- Alternatively, click the gear icon next to the extension and select **Install Specific Version** to choose a particular version
+- Codex may create or switch to a project-specific profile.
+- Extensions in that profile may be installed from pinned VSIX releases.
+- Codex may reload before the project opens.
+- The translation editor may wait with a message like "Applying extension version pins" until the required versions match.
 
-### Step 3: Reload the Window
+<Callout type="warning">
+Do not manually update the Codex Translation Editor from the Extensions panel for a pinned team project unless your coordinator or support asks you to. The project may switch back to the pinned version.
+</Callout>
 
-After the update installs, reload the application:
+## Manage Pins as a Coordinator
 
-- Press `Ctrl + Shift + P` / `Cmd + Shift + P`
-- Type "Reload Window" and select the command
-- The window will reload with the updated extension
+Project coordinators may use **Manage Extension Pins** from the command palette when the team needs a controlled extension version. Pins can also be managed by the Codex CLI for advanced workflows.
 
-## Verifying Your Versions
+After changing pins, sync the project so teammates receive the update. Teammates need network access the first time Codex downloads a newly pinned extension version.
 
-Codex has two version numbers you may need when troubleshooting: the **application version** (the base app binary) and the **extension version** (the translation features).
+## Manual Extension Updates
 
-### Application version
+Manual extension updates are mainly for unpinned projects or support-directed troubleshooting:
 
-The application version is shown in the **About** dialog:
+1. Open the Extensions panel.
+2. Find **Codex Translation Editor**.
+3. Check the installed version.
+4. Update or install a specific version only if the project is not pinned or support has instructed you to do so.
+5. Reload Codex.
 
-- **Mac:** Click **Codex** in the menu bar (top left) and select **About**
-- **Windows / Linux:** Click **Help** in the menu bar and select **About**
+## Troubleshooting Update Issues
 
-The dialog displays details about your build including **Version**, **Commit**, **Date**, **Electron**, **Chromium**, **Node.js**, and **OS**. The **Version** line is the application version. Include it in any support request so the team can match your build.
+### Codex is stuck applying extension pins
 
-### Extension version
+Stay online and wait for the profile switch or extension download. If Codex shows an error report, copy it and include it with your support request.
 
-The extension version is shown in the **Extensions** panel:
+### Extension update does not stick
 
-- Open the Extensions panel (see Step 1 above)
-- Find **Codex Translation Editor** in the list
-- The version number is displayed next to the extension name
+The project is probably pinned. Ask the coordinator to update the project pin instead of updating the extension manually.
 
-## Need Help?
+### App update will not install
 
-If you encounter issues during an update:
-- Try restarting the application
-- Start with the [Troubleshooting guide](/docs/troubleshooting)
-- Check our [Discord community](https://discord.gg/6kVJTEXYEp) for known issues with the latest release
-- See the [release notes](/docs/releases/latest) for details on what changed
+Restart Codex and try again. On Windows, make sure all Codex windows are closed before installing. If antivirus blocks the updater, see [Antivirus Blockages](/docs/antivirus-blockages).
+
+## Related Pages
+
+- [Initial Setup](/docs/getting-started/initial-setup)
+- [Opening and Closing Projects](/docs/project-management/opening-and-closing-projects)
+- [Release Notes](/docs/releases/latest)

@@ -1,113 +1,110 @@
 ---
 title: Exporting Projects
-description: Learn about all available export formats in Codex Editor and how to export your translation project
+description: Export completed work from Codex as text, scripture formats, subtitles, round-trip files, CSV/TSV data, backtranslations, and audio.
 ---
 
-Codex Editor supports a wide range of export formats. The export wizard walks you through a three-step process: select files, choose a format, and pick a save location.
+# Exporting Projects
 
-## How to Export
+Use export when you are ready to deliver translated content, review data, subtitle files, audio, or round-trip files for another tool.
 
-1. Open the **Main Menu** from the sidebar
-2. Click **Export Project**
-3. **Step 1 — Select files**: Choose the `.codex` files you want to export. Files are grouped by import type (e.g., all USFM files together, all DOCX files together). You can only export files from one group at a time.
-4. **Step 2 — Choose format**: Pick an export format (see below). You can also toggle **Audio export** to include per-cell audio attachments alongside your chosen text format.
-5. **Step 3 — Select location**: Choose a folder on your computer to save the exported files.
-6. Click **Export** to finish.
+## Open the Export Wizard
 
-<Callout type="info">
-You must set your source and target languages in Project Settings before the export view will load.
-</Callout>
+1. Open the **Main Menu**.
+2. Go to **Tools**.
+3. Click **Export**.
+4. The **Export Project** wizard opens.
 
-## Export Formats
-
-The formats available in Step 2 depend on which file group you selected in Step 1. Not all formats appear for every file type.
+You can also open export from the Navigation panel when that shortcut is visible.
 
 <Callout type="info">
-Formats marked **Beta** are functional but still being refined — output may require manual review. Formats marked **Coming Soon** are visible in the interface but not yet fully implemented.
+Set source and target languages before exporting. The export view needs language metadata to generate correct output.
 </Callout>
 
-### Standard Text Formats
+## Export Flow
 
-These are available for most file types:
+The wizard changes based on the selected files and format, but the usual flow is:
 
-- **Generate Plaintext** — Plain text with minimal formatting. Universal compatibility.
-- **Generate HTML** — Web pages with chapter navigation.
+1. **Select files**: Choose a compatible file group. Mixed importer groups may need separate exports.
+2. **Choose format**: Select text, round-trip, subtitle, data, backtranslation, or audio options.
+3. **Select milestones**: Appears for some structured workflows, such as Bible audio export.
+4. **Select location**: Choose where Codex saves the files.
+5. Click **Export**.
 
-### Scripture-Specific Formats `Beta`
+## Text and Markup Formats
 
-These appear only for USFM and eBible file groups:
+| Format | Use for |
+| --- | --- |
+| **Plaintext** | Simple text review and general transfer. |
+| **HTML** | Web-readable output with structure preserved. |
+| **USFM** | Scripture workflows that need USFM markers. |
+| **Generate USFM Without Validation** | Faster scripture export when you intentionally need to bypass validation. |
+| **XLIFF** | Localization and CAT-tool workflows. |
 
-- **Generate USFM** — Export with full USFM markers (`\id`, `\c`, `\v`, etc.). Includes an option to skip USFM validation for faster export.
-- **Generate XLIFF** — XML Localization Interchange File Format for professional translation workflows.
+## Round-trip Export
 
-### Round-trip Export `Beta`
+Use **Round-trip Export** when the file was imported with a round-trip importer and you want to return to the original format.
 
-If your files were imported with a round-trip importer, the **Round-trip Export** option appears. This intelligently detects the original file format and exports back to it with your translations applied.
+Supported round-trip workflows include DOCX, IDML, Markdown, OBS, TMS files, CSV/TSV, USFM, and Biblica-style imports.
 
-Supported round-trip formats:
-
-| Original Import | Exported As |
-|----------------|-------------|
-| USFM | `.usfm` with markers |
-| Word Documents (DOCX) | `.docx` with formatting |
-| OBS (Bible Stories) | Markdown with images |
-| TMS (TMX/XLIFF) | `.xliff` / `.tmx` |
-| CSV/TSV Spreadsheet | `.csv` / `.tsv` |
-| InDesign (IDML) | `.idml` |
-| Biblica Study Notes | `.idml` (Biblica format) |
-
-<Callout type="info">
-**When in doubt, use Round-trip Export.** It automatically picks the right format based on how the file was originally imported.
+<Callout type="warning">
+Round-trip export may require original media or attachment files to be available locally. Stream-only media projects can block or limit some round-trip outputs.
 </Callout>
 
-### Subtitle Export `Beta`
+## Subtitle Export
 
-For files imported with the Subtitles importer, three subtitle-specific options are available:
+Subtitle projects can export:
 
-- **SubRip (SRT)** — Standard subtitle format, plain text only, compatible with most video players
-- **WebVTT with Styling** — Web-native subtitles with text formatting preserved
-- **WebVTT Plain** — Web-native subtitles without formatting
+- **SubRip (SRT)**.
+- **WebVTT with Styling**.
+- **WebVTT Plain**.
+- WebVTT cue-splitting options when available.
+- Options to exclude speaker labels when the workflow requires clean subtitle text.
 
-All subtitle exports preserve the original timestamps.
+Subtitle exports preserve timing from the imported subtitle file.
 
-### Data Export `Coming Soon`
+## Data and Backtranslation Export
 
-These are available for all file types and useful for analysis or quality assurance:
+Codex can export project data for QA and review:
 
-- **CSV** — Comma-separated values with ID, source text, target text, and metadata columns
-- **TSV** — Tab-separated values with the same columns as CSV
-- **Backtranslations (CSV)** — Exports backtranslations with ID, source text, translation, and backtranslation columns
+- **CSV**.
+- **TSV**.
+- **Backtranslations (CSV)**.
 
-### Audio Export `Coming Soon`
+Use these formats when reviewers need spreadsheet-friendly source, target, metadata, or backtranslation columns.
 
-The **Audio** toggle at the top of Step 2 lets you export per-cell audio attachments alongside any text format. You can optionally embed timestamps in audio metadata (WAV, WebM, M4A). Audio can also be exported on its own without selecting a text format.
+## Audio Export
+
+Audio export is available for projects with audio attachments or media workflows. Options can include:
+
+- Include per-cell audio files.
+- Include timestamps.
+- Export audio alongside selected text formats.
+- **Consolidate by Character** for dialogue or dubbing workflows.
+- Preview character-consolidated output before export.
+
+For video and dubbing workflows, see [Video and Audio Translation](/docs/translation/video-audio-translation).
 
 ## Tips
 
-- **Mixed-format projects**: If your project has files from different importers (e.g., some DOCX and some USFM), you'll need to export each group separately since you can only select files from one group at a time.
-- **Test first**: Export a single file before batch-exporting an entire project to verify the output looks correct.
-- **Round-trip requirements**: Round-trip export only works if the file was originally imported with a round-trip importer. If you see an error about importer type mismatch, re-import the original file using the correct round-trip importer.
+- Export one file first when using a new format.
+- Use round-trip export when the final deliverable needs the original structure.
+- Confirm media strategy before exporting media-heavy projects.
+- Keep a project backup before major delivery exports.
 
 <Accordions>
-<Accordion title="Troubleshooting">
+<Accordion title="Troubleshooting exports">
 
-**"File not imported with correct importer"**
-- The file needs to be re-imported using the appropriate round-trip importer for the format you want.
+### Export creates an empty file
 
-**Export creates an empty or corrupted file**
-- Check that the cells have content.
-- Verify metadata is intact.
-- Try exporting a single file first.
-- Check available disk space.
+Check that the selected target cells contain content. If a recent release note mentions empty-export warnings, update Codex and try again.
 
-**Formatting lost in exported DOCX**
-- Only files imported with the Word Documents (round-trip) importer will preserve formatting on export.
+### Round-trip export is unavailable
+
+Confirm the file was imported with a round-trip importer. If it was imported with a plain text or simplified importer, Codex may not have enough original structure to rebuild the source format.
+
+### Audio export is missing files
+
+Check the project media strategy. Stream-only projects may not have the needed original or recorded media locally.
 
 </Accordion>
 </Accordions>
-
-## Next Steps
-
-- [Import files](/docs/project-management/importing-files) to set up round-trip workflows
-- [Translate with AI tools](/docs/translation/translation-tools) before exporting
-- [Share your project](/docs/project-management/sharing-managing-projects) with your team

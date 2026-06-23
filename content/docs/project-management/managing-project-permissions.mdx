@@ -1,95 +1,62 @@
 ---
 title: Managing Project Permissions
-description: Learn how to manage groups, add members with different roles, create subgroups, and control access permissions for your Codex projects and organizations.
+description: Manage GitLab groups, subgroups, members, and roles for Codex projects.
 ---
 
-<LoomVideo videoId="c85de9a751664aa6b7bd7ee0a772062f" timestamp={0} title="Managing Project Permissions and Group Access" />
+# Managing Project Permissions
 
-> This guide demonstrates how to manage groups, permissions, and member access for Codex projects on [git.genesisrnd.com](https://git.genesisrnd.com) — the GitLab server that hosts your Codex projects. You log in with the same credentials you use in the Codex application. Learn how to create subgroups, assign roles, and control who can access specific projects within your organization.
+Codex project permissions are managed through `git.genesisrnd.com`. Use this page if you coordinate teams, invite translators, or organize projects into language or program groups.
 
-<Callout type="info">
-**Understanding User Roles**
+## Roles
 
-Before managing permissions, it's helpful to understand the different role types:
-- **Owner** - Full control over organization, subgroups, and projects
-- **Maintainer** - Can manage subgroups and projects, invite members
-- **Developer** - Can create, edit, and translate within projects
-- **Reporter** - Read-only access for review and reporting purposes
-</Callout>
+| Role | Typical use |
+| --- | --- |
+| **Owner** | Organization administrators with full control. |
+| **Maintainer** | Coordinators who manage groups, projects, and members. |
+| **Developer** | Translators and editors who work in projects. |
+| **Reporter** | Reviewers who need limited or read-only access. |
 
-### 1. Understanding Organization Structure
+## Organization Structure
 
-Your Codex organization can contain:
-- **Projects** - Individual translation projects
-- **Subgroups** - Folders that organize projects by language, team, or purpose
-- **Members** - Users with different permission levels
+A Codex organization can contain:
 
-At the organization level, you can create multiple folders and add people to those folders. These folders could be for specific projects, groups of projects, specific languages, or whatever organizational structure makes sense for your team.
+- **Projects**: Individual translation projects.
+- **Subgroups**: Folders for languages, teams, regions, or programs.
+- **Members**: People with roles assigned at the organization, subgroup, or project level.
 
-### 2. Adding Members at Organization Level
+Permissions can inherit downward. A member added to the organization may appear in subgroups because their access comes from a parent level.
 
-To add a manager or team member to your organization:
+## Add a Member
 
-1. Navigate to your organization page on [git.genesisrnd.com](https://git.genesisrnd.com)
-2. Click **Manage** → **Members**
-3. Click **Invite Member**
-4. Type in their name to find their account
-5. Select the appropriate role:
-   - **Owner** - Full administrative access
-   - **Maintainer** - Can manage groups and projects
-   - **Developer** - Can work on projects
-   - **Reporter** - Limited access for viewing
+1. Open the organization, subgroup, or project on `git.genesisrnd.com`.
+2. Go to **Manage > Members**.
+3. Click **Invite Member**.
+4. Search for the person's Codex account.
+5. Choose a role.
+6. Send the invitation.
 
-### 3. Creating Subgroups for Project Organization
+Add members at the lowest level that gives them the access they need.
 
-To create organized folders for your projects (e.g., by language):
+## Create a Subgroup
 
-1. From your organization main page
-2. Click **Create Subgroup**
-3. Name your subgroup (e.g., "French Projects")
-4. This creates a dedicated folder where you can:
-   - Publish projects from Codex
-   - Control access for specific team members
-   - Organize projects by language or team
+1. Open the organization page.
+2. Click **Create Subgroup**.
+3. Name the subgroup for a language, team, or program.
+4. Add members to the subgroup.
+5. Publish Codex projects into that subgroup when appropriate.
 
-When publishing from Codex, these subgroups will appear in your list of available places to publish, but only if you're logged into an account with access.
+## Change or Remove Access
 
-### 4. Managing Subgroup Permissions
+1. Go to **Manage > Members** where the permission was assigned.
+2. Find the user.
+3. Change the role or remove the member.
 
-Once inside a subgroup (like "French Projects"):
+If you cannot remove a member from a subgroup, they may have inherited access from the organization. Change their access at the parent level.
 
-1. Click **Manage** → **Members**
-2. Click **Invite Members** to add people specifically to this subgroup
-3. Select the appropriate role:
-   - **Developer** - For translators who will be creating new content and making changes
-   - **Reporter** - For reviewers with limited access
-4. Click **Invite** to add them to the subgroup
+## Best Practices
 
-### 5. Understanding Permission Inheritance
-
-Members can be added at different levels:
-
-- **Organization Level** - These members automatically have access to all subgroups and projects
-- **Subgroup Level** - These members only have access to projects within that specific subgroup
-
-If you see members in a subgroup that you can't directly remove, they likely have permissions inherited from the organization level.
-
-### 6. Modifying and Removing Member Access
-
-To change a member's permissions:
-1. Navigate to **Manage** → **Members**
-2. Find the member you want to modify
-3. Change their role using the dropdown menu
-4. To remove them entirely, click **Remove Member**
-
-**Important:** If a member was added at the organization level, you must go back to the organization's member management to remove their access completely.
-
-### 7. Best Practices for Permission Management
-
-- **Use subgroups** to organize projects by language, team, or project type
-- **Assign appropriate roles** - developers for translators, reporters for reviewers
-- **Add members at the lowest level needed** - organization-wide access should be limited
-- **Regularly review permissions** to ensure team members have appropriate access
-- **Use the inheritance system** - add managers at organization level, translators at subgroup level
-
-This permission system ensures that your translation teams have appropriate access while maintaining security and organization across your projects.
+- Use subgroups to keep project lists understandable.
+- Give translators **Developer** access unless they need admin powers.
+- Reserve **Owner** and **Maintainer** roles for coordinators.
+- Review access regularly, especially when teams change.
+- Confirm invite email addresses before troubleshooting missing projects.

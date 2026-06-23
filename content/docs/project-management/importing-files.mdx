@@ -1,346 +1,113 @@
 ---
 title: Importing Files
-description: Learn how to import various file formats into Codex Editor including Word documents, subtitles, structured texts, audio, and more
+description: Import source content or existing translations using the current Codex import wizard and supported importer list.
 ---
 
-Codex Editor supports importing a wide variety of file formats for translation projects. Whether you're working with structured texts, documents, subtitles, or audio, the import wizard walks you through the process and automatically processes your files.
+# Importing Files
 
-## Understanding Source vs Target Import
+Importing creates the source and target files you translate in Codex. Use **source import** when you are adding original content. Use **target import** when you already have a translation and want Codex to align it to an existing source file.
 
-Before importing, it's important to understand the two types of imports:
+## Open the Import Wizard
 
-**Source Import** - Import original content that you want to translate
-- Creates a new source file (read-only reference)
-- Automatically creates a blank target file for your translation
-- Use this for: source texts, documents you're translating, video subtitles, audio
+1. Open **Navigation** from the compass icon.
+2. Click **Add Source File** to import original content.
+3. Or click **Import Target File** to import an existing translation for a source file already in the project.
 
-**Target Import** - Import existing translations for source files already in your project
-- Matches translated content to existing source files
-- Populates your target notebook with translations
-- Use this for: partially completed translations, importing work from other tools
+The wizard first asks whether you are working with source files or target files, then shows the importer picker.
 
-## Opening the Import Interface
+## Source vs Target Imports
 
-1. Click the **Compass icon** in the sidebar to open Navigation
-2. Click **"Add Files"** button
-3. The import wizard will guide you through the process
+| Import type | Use it when | Result |
+| --- | --- | --- |
+| **Source Files** | You are adding content to translate. | Codex creates source files and blank target `.codex` files. |
+| **Target Files** | You already have translated content. | Codex aligns the translation to existing source files. |
 
-## Choosing Your Import Type
-
-### Option 1: Import New Source Files
-
-Use this when you're starting fresh or adding new content to translate:
-
-1. Select **"Import Your Content"** in the wizard
-2. Browse available importers (see supported formats below)
-3. Upload your file(s)
-4. Codex creates both source and target notebooks automatically
-
-### Option 2: Import Translations
-
-Use this when you have existing translations to bring into Codex:
-
-1. Select **"Add Your Translation"** in the wizard
-2. Choose which source file this translation belongs to
-3. Select the appropriate importer
-4. The system aligns your translation with the source content
-
-<Callout type="info">
-**Tip:** If you're importing a translation, make sure you've already imported the corresponding source file first. The wizard will show you which source files are available.
+<Callout type="warning">
+Import target files only after the matching source file already exists in the project.
 </Callout>
 
-## Supported File Formats
+## Active Importers
 
-Importers are organized into two groups: **Essential** (general-purpose) and **Specialized** (format-specific and structured-content workflows).
-
-<Callout type="info">
-Some importers below are marked **Round-trip export supported**, meaning you can export back to the original format after translating. Round-trip export is currently in beta — see [Export Formats](/docs/translation/exporting-project#export-formats) for details.
-</Callout>
+Importers are grouped by general-purpose and specialized workflows. The exact list can change by release, but these are the active user-facing categories in the current editor.
 
 ### Essential Importers
 
-**Audio**
-- Supports `.mp3`, `.wav`, `.m4a`, `.aac`, `.ogg`, `.webm`, `.flac`
-- Backend processing supports large files
-- **Use for:** Audio translation, recording-based projects
-
-**Markdown**
-- GitHub Flavored Markdown (`.md`, `.markdown`, `.mdown`, `.mkd`)
-- Image extraction and formatting preservation
-- **Use for:** Documentation translation, blog posts, articles
-
-**Subtitles**
-- WebVTT (`.vtt`) and SubRip (`.srt`) formats
-- Timestamp-based cell alignment for media synchronization
-- **Use for:** Video dubbing, subtitle translation
-
-<Callout type="info">
-**Media Translation Workflow:** Import subtitle files, translate the text cells, then export back to VTT/SRT format. See our [Video & Audio Translation guide](/docs/translation/video-audio-translation) for details.
-</Callout>
-
-**TMS Files**
-- Translation memory and localization files: `.tmx`, `.xliff`, `.xlf`
-- **Round-trip export supported**
-- **Use for:** CAT tool workflows, localization projects, translation memory exchange
-
-**Word Documents**
-- Microsoft Word (`.docx`) with full structure preservation
-- **Round-trip export supported** — preserves formatting for export back to Word
-- **Use for:** Document translation, literature projects
-
-**InDesign Files**
-- Adobe InDesign Markup (`.idml`)
-- Loss-free round-trip editing
-- **Round-trip export supported**
-- **Use for:** Publishing and layout projects
+| Importer | Formats | Notes |
+| --- | --- | --- |
+| **Audio** | `.mp3`, `.wav`, `.m4a`, `.aac`, `.ogg`, `.webm`, `.flac` | Creates audio-linked cells for transcription or translation workflows. |
+| **Subtitles** | `.vtt`, `.srt` | Preserves cue timing for subtitle translation and export. |
+| **Word Documents** | `.docx` | Supports round-trip export back to DOCX. |
+| **Markdown** | `.md`, `.markdown`, `.mdown`, `.mkd` | Supports round-trip Markdown workflows and image handling. |
+| **TMS Files** | `.tmx`, `.xliff`, `.xlf` | For localization and translation-memory workflows. |
+| **InDesign** | `.idml` | Supports layout-oriented round-trip workflows. |
 
 ### Specialized Importers
 
-**USFM New**
-- Unified Standard Format Markers (`.usfm`, `.sfm`)
-- Headers are placed in chapter 1; target imports import verse content only
-- **Round-trip export supported**
-- **Use for:** Translation projects, Paratext exports
+| Importer | Use for |
+| --- | --- |
+| **USFM** / **USFM Biblical Texts** | Scripture projects from USFM or SFM files. |
+| **Paratext Projects** | Complete Paratext archives. |
+| **eBible Download** | Downloading open-license scripture resources. |
+| **Macula Bible** | Hebrew and Greek source texts with linguistic annotations. |
+| **Bible Stories** | Open Bible Stories Markdown and ZIP workflows. |
+| **Biblica Study Notes** | Biblica IDML study note projects. |
+| **Bible Spreadsheet with Audio Data** | CSV or TSV scripture workflows with audio URL columns. |
 
-**Paratext Projects**
-- Import complete Paratext projects (`.zip` or `.ptx` archive)
-- Processes `.SFM` files and reads project settings and book names
-- **Use for:** Existing Paratext translation work
+<Callout type="info">
+PDF import is not currently an active import path in the importer picker. If you need PDF content, convert it to a supported source format before importing.
+</Callout>
 
-**eBible Download**
-- Download translations directly from eBible.org
-- Access to hundreds of open-license translations
-- Includes popular versions (BBE, WEB, ASV, KJV) and original language texts
-- Optionally import as a translation only (to populate an existing target project)
-- **Use for:** Source text acquisition
+## Example: Import a USFM Source File
 
-**Macula Bible**
-- Hebrew Old Testament and Greek New Testament with linguistic annotations
-- Downloaded directly within Codex
-- **Use for:** Original language study, interlinear translation projects
+1. Open **Navigation**.
+2. Click **Add Source File**.
+3. Choose **Source Files**.
+4. Select **USFM**.
+5. Upload the `.usfm` or `.sfm` file.
+6. Review the import summary.
+7. Continue to the system message step if Codex asks for AI instructions.
+8. Click **Start Translating** when import finishes.
 
-**Bible Stories**
-- Open Bible Stories (OBS) format (`.md`, `.zip`)
-- Supports single files, ZIP archives
-- Preserves images and story structure
-- **Round-trip export supported**
-- **Use for:** Bible story translation projects
+## Example: Import Existing Translations
 
-**Biblica Study Notes**
-- Biblica IDML importer with Study Bible notes
-- **Round-trip export supported**
-- **Use for:** Study translation projects
+1. Import the source file first.
+2. Open **Navigation**.
+3. Click **Import Target File**.
+4. Choose the source file this translation belongs to.
+5. Choose the importer that matches the translation file.
+6. Review the alignment preview.
+7. Apply the import when the matches look correct.
 
-**Bible Spreadsheet with Audio Data**
-- CSV and TSV files with verse-by-verse content and audio URL columns
-- **Round-trip export supported**
-- **Use for:** Spreadsheet-based translation workflows with associated audio
+## Alignment Methods
 
-## Import Workflow Examples
+Target imports may use different matching strategies depending on the file type:
 
-### Example 1: Importing a Structured Text File (USFM)
+- **ID-based matching** for structured content with stable references.
+- **Sequential insertion** for document-style formats.
+- **Timestamp matching** for subtitles and media workflows.
 
-1. Open Navigation → **Add Files**
-2. Select **"Import Your Content"**
-3. Choose **"USFM New"** importer
-4. Upload your `.usfm` file (e.g., `01-GEN.usfm`)
-5. Codex creates:
-   - `GEN.source` — Source text (read-only)
-   - `GEN.codex` — Your translation workspace
+Always review imported target content before continuing translation work.
 
-### Example 2: Downloading Source Text from the Cloud
+## Round-trip Workflows
 
-You can download open-license source texts directly within Codex:
+Round-trip importers keep enough original structure to export back to the original format. Common examples include DOCX, IDML, USFM, Markdown, OBS, TMS files, CSV/TSV, and Biblica workflows.
 
-1. Open Navigation → **Add Files**
-2. Select **"Import Your Content"**
-3. Choose **"eBible Download"** importer
-4. Search for your language or specific text version (e.g., "WEB", "Greek")
-5. Click **Download** to fetch the text
-   - Optionally check **"Import as Translation Only"** to populate an existing target project
-6. Monitor progress and confirm once complete
-
-### Example 3: Importing Video Subtitles
-
-1. Open Navigation → **Add Files**
-2. Select **"Import Your Content"**
-3. Choose **"Subtitles"** importer
-4. Upload your subtitle file (e.g., `video.vtt`)
-5. Codex creates timestamped cells for each subtitle cue
-6. Translate each cell
-7. Export back to VTT/SRT when complete
-
-### Example 4: Importing a Word Document for Translation
-
-1. Open Navigation → **Add Files**
-2. Select **"Import Your Content"**
-3. Choose **"Word Documents"** importer
-4. Upload your `.docx` file
-5. Translate paragraph by paragraph
-6. Export back to DOCX with formatting preserved
-
-### Example 5: Importing an Existing Translation
-
-1. Open Navigation → **Add Files**
-2. Select **"Add Your Translation"**
-3. Choose the source file this translation belongs to
-4. Select the appropriate importer (USFM, DOCX, etc.)
-5. Upload your translation file
-6. Codex aligns content with your source file
-7. Review alignment and continue translation work
-
-## Advanced Import Features
-
-### Batch Import (Multiple Files)
-
-- Drag and drop multiple files at once
-- Use ZIP archives for organized imports
-- System processes files in parallel
-
-### Alignment Algorithms
-
-When importing translations (Target Import), Codex uses intelligent alignment:
-
-**ID-Based Matching**
-- Matches by segment references (for structured texts)
-- Matches by cell IDs (for structured content)
-- **Accuracy:** Very high for properly structured files
-
-**Sequential Insertion**
-- Fills empty cells in order
-- Used for content without IDs (DOCX, Markdown, plain text)
-- **Accuracy:** Good for similar-length translations
-
-**Timestamp-Based (Subtitles)**
-- Matches by time overlap
-- Handles complex 1:many and many:1 mappings
-- **Accuracy:** Excellent for time-synced content
-
-### Preview & Confirm
-
-For translation imports, you can:
-- Preview alignment results before applying
-- See matched vs paratext content statistics
-- Try different alignment methods
-- Review confidence scores
+See [Exporting Projects](/docs/translation/exporting-project) for the export side of round-trip workflows.
 
 <Accordions>
-<Accordion title="Troubleshooting Import Issues">
+<Accordion title="Troubleshooting imports">
 
-### Import Fails or File Not Recognized
+### The file is not recognized
 
-**Problem:** File won't import or shows an error
+Check the file extension, confirm the file opens in its original application, and make sure it is not password-protected or corrupted.
 
-**Solutions:**
-- Verify the file format is supported (check file extension)
-- Check that the file isn't corrupted (open it in its original application first)
-- Ensure the file isn't password-protected or encrypted
-- For structured texts, confirm the file follows the expected format (USFM, SFM, etc.)
+### Imported translations do not align well
 
-### Translation Import Shows Poor Alignment
+Confirm you selected the correct source file. If the preview offers multiple alignment methods, try the one that best matches the source structure.
 
-**Problem:** Imported translation doesn't match source content well
+### Formatting or images are missing
 
-**Solutions:**
-- Try a different alignment method in the preview screen
-- Verify you selected the correct source file
-- Check that source and translation have similar structure
-- Consider manual alignment for complex cases
-
-### Images or Formatting Lost
-
-**Problem:** Images or formatting didn't import
-
-**Solutions:**
-- Use round-trip importer versions (Word Documents, InDesign, OBS, Biblica)
-- Standard importers focus on text content only
-- Images are stored in `.project/attachments/` folder
-- Some formatting is intentionally simplified for translation
-
-### Duplicate File Warning
-
-**Problem:** System warns that a file with this name already exists
-
-**Solutions:**
-- Rename the new file if it's different content
-- Overwrite if you want to replace the existing file
-- Cancel and review your existing files first
+Use a round-trip importer when you need to preserve structure and media. Some importers intentionally simplify formatting so translators can focus on text.
 
 </Accordion>
 </Accordions>
-
-## Best Practices
-
-### Before Importing
-
-1. **Organize your files** with clear, descriptive names
-2. **Check file formats** are supported
-3. **Backup important files** before conversion
-4. **Review file quality** (no corruption, proper encoding)
-
-### During Import
-
-1. **Use round-trip importers** if you need to export back to the original format
-2. **Preview alignment results** for translation imports
-3. **Check cell counts** to ensure complete import
-4. **Verify structure** looks correct before proceeding
-
-### After Import
-
-1. **Review imported content** for accuracy
-2. **Check metadata** (book names, cell IDs, timestamps)
-3. **Test export** if using a round-trip workflow
-4. **Begin translation** with confidence!
-
-## Next Steps
-
-After importing your files:
-
-- [Begin using translation tools](/docs/translation/translation-tools)
-- [Configure AI assistance](/docs/translation/ai-settings)
-- [Set up collaboration](/docs/project-management/sharing-managing-projects)
-- [Learn about export options](/docs/translation/exporting-project)
-
-## FAQ
-
-<Accordions type="multiple">
-  <Accordion title="Can I import multiple books at once?">
-    Yes! You can drag and drop multiple files, or use a ZIP archive containing multiple books. The system will process each file separately and create individual notebook pairs.
-  </Accordion>
-
-  <Accordion title="What if I make a mistake during import?">
-    Original files are preserved in `.project/attachments/originals/`. You can delete the imported notebooks and re-import with different settings. However, any translation work you've done would need to be redone.
-  </Accordion>
-
-  <Accordion title="Can I import from Paratext?">
-    Yes! Use the "Paratext Projects" importer. You can import either a project folder or a ZIP export from Paratext. All SFM files and project settings will be processed.
-  </Accordion>
-
-  <Accordion title="How do I know which importer to use?">
-    The import wizard shows descriptions and tags for each importer. Look for:
-    - **"Round-trip"** tag if you need to export back to the original format
-    - Format-specific importers for best accuracy
-    - **Essential** importers for general documents, media, and audio
-    - **Specialized** importers for translation workflows
-  </Accordion>
-
-  <Accordion title="Can I import audio files?">
-    Yes! Use the **Audio** importer in the "Import Your Content" wizard. It supports `.mp3`, `.wav`, `.m4a`, `.aac`, `.ogg`, `.webm`, and `.flac` files and handles large files via backend processing. See our [Audio Translation guide](/docs/translation/video-audio-translation) for more details.
-  </Accordion>
-
-  <Accordion title="What happens to images in imported documents?">
-    Images are extracted and stored in `.project/attachments/` organized by document. For DOCX and Markdown files, images are embedded in cells. For round-trip workflows (Word Documents, InDesign Files, Bible Stories, Biblica), images are preserved for export.
-  </Accordion>
-
-  <Accordion title="Can I import translations from other CAT tools?">
-    If you can export to a supported format (USFM, DOCX, TMS/XLIFF, CSV, etc.), yes! Use the "Add Your Translation" import option and Codex will align the translation with your source content.
-  </Accordion>
-
-  <Accordion title="Can I import original language texts (Hebrew or Greek)?">
-    Yes! Use the **Macula Bible** importer to download Hebrew Old Testament and Greek New Testament texts with full linguistic annotations directly within Codex.
-  </Accordion>
-</Accordions>
-
----
-
-**Need more help?** Complete the [Troubleshooting guide](/docs/troubleshooting) support form for import and alignment issues, then paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).

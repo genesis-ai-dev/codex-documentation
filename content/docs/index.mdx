@@ -1,162 +1,120 @@
 ---
 title: Codex Editor Documentation
-description: "Comprehensive documentation for Codex Editor — an AI-powered platform for collaborative translation projects. This site is a living document and subject to changes as we optimize the user experience."
+description: User guides for installing Codex, setting up projects, translating content, collaborating with teams, and exporting completed work.
 ---
 
-# Welcome to Codex Editor
+# Codex Editor Documentation
 
-Codex Editor is an AI-assisted translation platform that combines a powerful editor foundation with modular extensions for translation, collaboration, and quality assurance. Whether you're working on structured texts, literary works, subtitles, or other documents, Codex helps you create accurate, contextually appropriate translations.
+Codex is a desktop translation workspace for teams working with scripture, subtitles, audio, documents, spreadsheets, and other structured content. It combines the Codex desktop app with the Codex Translation Editor extension so translators can import source material, create target translations, collaborate with teammates, use AI assistance, validate work, and export deliverables.
 
-## What is Codex Editor?
+If you are new, follow the path below. If something is broken, use the troubleshooting pages after you know which part of the workflow is failing.
 
-Codex is an AI-powered translation tool built to handle the complex needs of translation projects worldwide. It supports:
+<Cards>
+  <Card title="Download Codex" href="/docs/getting-started/download-codex">
+    Install the desktop app for Windows, macOS, or Linux.
+  </Card>
+  <Card title="Initial Setup" href="/docs/getting-started/initial-setup">
+    Launch Codex, create an account, and understand first-launch behavior.
+  </Card>
+  <Card title="Create or Open a Project" href="/docs/project-management/creating-project">
+    Start a new project or download one your team has shared with you.
+  </Card>
+  <Card title="Import Files" href="/docs/project-management/importing-files">
+    Add source content or import an existing translation.
+  </Card>
+</Cards>
 
-- **Global Accessibility**: Lowering barriers for translators in regions with limited resources
-- **Community Collaboration**: Enabling teams to work together across geographic and linguistic boundaries
-- **Cultural Sensitivity**: Allowing customization for specific domain and cultural contexts
-- **Quality Assurance**: Providing tools for validation, back translation, and consistency checking
+## How Codex Is Organized
 
-## How Codex Works
-
-Codex is not a single monolithic application. It is a custom build of VS Code (through [VSCodium](https://github.com/VSCodium/vscodium)) that uses a **modular extension architecture** — each component owns a distinct responsibility, and together they form the full translation platform.
-
-<CodexArchitectureChart />
-
-### Core Extensions
-
-When you first launch Codex, a lightweight bootstrap extension called the **Extension Sideloader** automatically fetches and installs the core extensions from the [Open VSX](https://open-vsx.org/) marketplace. After installation, all extensions are available offline for subsequent launches.
-
-<Tabs items={["Translation Editor", "Authentication", "Shared State Store", "Extension Sideloader"]}>
-  <Tab value="Translation Editor">
-    **Codex Translation Editor** — The heart of the platform. Provides the custom `.codex` notebook editor with a Quill-based cell editor supporting spellcheck and audio attachments, an embedded language server for spelling diagnostics, LLM-powered "smart edits" for AI-assisted translation and back-translation, and multiple webview panels for navigation, parallel passages, comments, project settings, and more. This is the extension users interact with directly when translating.
-  </Tab>
-  <Tab value="Authentication">
-    **Frontier Authentication** — Handles cloud identity and remote project lifecycle — user login and registration, GitLab-backed project sync (including auto-sync, merge conflict handling, and LFS support), and communication with the Frontier API for user accounts and sessions. Without this extension, users cannot log in, sync projects, or collaborate remotely.
-  </Tab>
-  <Tab value="Shared State Store">
-    **Shared State Store** — A small utility extension that provides reactive, persisted key-value state shared across all other extensions and webviews. The Translation Editor depends on it to synchronize context (current verse, active document, selection state, etc.) between its many panels without tight coupling.
-  </Tab>
-  <Tab value="Extension Sideloader">
-    **Extension Sideloader** — Developed and published to Open VSX as its own extension, but during the Codex build process its VSIX is downloaded and embedded directly into the binary — so it's available on first launch with no network. Its only job is to fetch a remote JSON manifest and trigger installation of the other extensions listed above. It has no UI of its own, and once the other extensions are installed it effectively becomes idle.
-  </Tab>
-</Tabs>
-
-### How Extensions Are Loaded
-
-Extensions reach a running Codex instance through two phases:
+Codex is not only a website and not only an extension. It has two user-visible layers:
 
 <Steps>
   <Step>
-    ### Build Time — Bundled in the Binary
+    ### Codex Desktop App
 
-    All extensions (including the Sideloader) are developed in their own repositories and published to Open VSX independently. During CI/CD, the Codex build pipeline downloads the **Extension Sideloader** VSIX from Open VSX, unzips it into the VS Code extensions directory, and the platform packaging step bakes it into the final binary. This is the only extension embedded at build time — it's available immediately at first launch with no network required.
+    The app is a VSCodium-based desktop application. It owns installation, app updates, the Open VSX extension gallery, microphone permissions, user profiles, and the built-in Codex components that install or pin the translation extensions.
   </Step>
   <Step>
-    ### Runtime — Sideloaded on First Launch
+    ### Codex Translation Editor
 
-    When Codex starts, the bundled Sideloader activates after startup finishes. It fetches an `extensions.json` manifest from GitHub, checks which extensions are missing, and installs them from the Open VSX gallery. On subsequent launches, extensions are already installed and no network is needed.
+    The translation extension owns the project list, Frontier login, file import, the `.codex` editor, comments, search, sync, AI settings, project settings, and export workflows.
   </Step>
 </Steps>
 
 <Callout type="info">
-  The Open VSX marketplace is configured during the build process via `product.json`. This is the same gallery used by VSCodium and other open-source VS Code distributions.
+Codex can work offline after the app and required extensions are installed, but first launch, project downloads, AI suggestions, sync, and new extension version pins require network access.
 </Callout>
 
-### Desktop Application
+## Core App Components
 
-Codex runs as a **desktop application** (Electron-based, like VS Code) on Windows, macOS, and Linux.
+<Tabs items={["Translation Editor", "Authentication", "Shared State", "Conductor & Sideloader"]}>
+  <Tab value="Translation Editor">
+    **Codex Translation Editor** provides the startup project list, Navigation panel, Main Menu, `.codex` cell editor, Search Passages panel, Comments panel, AI tools, media handling, and export wizard.
+  </Tab>
+  <Tab value="Authentication">
+    **Frontier Authentication** handles Codex account login, remote project access, publishing, sync, and team collaboration.
+  </Tab>
+  <Tab value="Shared State">
+    **Shared State Store** keeps shared project and UI state synchronized between Codex webviews, such as the active document, selected cell, current passage, and project context.
+  </Tab>
+  <Tab value="Conductor & Sideloader">
+    **CodexSideloader** installs the required core extensions from Open VSX when they are missing. **CodexConductor** manages extension version pins and project-specific profiles so a team can keep everyone on compatible extension versions.
+  </Tab>
+</Tabs>
 
-## Key Features
+## Main Workflows
 
-### AI-Powered Translation
-- Smart translation suggestions powered by advanced AI
-- Customizable AI instructions for style and accuracy
-- Batch prediction for efficient translation workflows
-- AI learns from your edits to improve over time
-
-### Collaboration & Project Management
-- Team-based project sharing and management
-- Group creation with role-based permissions
-- Automatic synchronization across team members on configurable intervals
-- Version control and change tracking
-
-### Quality Assurance
-- Back translation generation for accuracy verification
-- Validation workflows for translation review
-- Consistency checking across translations
-- Phrase-level notes and annotations
-
-### Export & Integration
-- Stable export to plain text and HTML, with additional formats (USFM, XLIFF, round-trip, subtitles) in beta
-- Integration with existing translation workflows
-- Project archiving and backup capabilities
-
-## Getting Started
-
-New to Codex Editor? Start here to set up your account and create your first translation project.
+### Project Setup
 
 <Cards>
-  <Card title="Download" href="/docs/getting-started/download-codex">
-    Download Codex Editor to get started today!
+  <Card title="Creating a Project" href="/docs/project-management/creating-project">
+    Choose a name, source language, and target language.
   </Card>
-  <Card title="Initial Setup & Account" href="/docs/getting-started/initial-setup">
-    Set up your account and configure Codex Editor
+  <Card title="Opening and Closing Projects" href="/docs/project-management/opening-and-closing-projects">
+    Understand project filters, Download, Open, Open Offline, Fix & Open, and Update states.
   </Card>
-  <Card title="Create a Project" href="/docs/project-management/creating-project">
-    Create and configure your first translation project
+  <Card title="Media and Storage" href="/docs/project-management/media-and-storage">
+    Choose Auto Download Media, Stream & Save, or Stream Only.
+  </Card>
+  <Card title="Project Settings" href="/docs/project-management/project-settings">
+    Manage languages, validation counts, sync, AI metrics, Copilot settings, and interface settings.
   </Card>
 </Cards>
 
-## Core Workflows
-
-### Translation Process
+### Translation
 
 <Cards>
-  <Card title="Batch Translations" href="/docs/translation/batch-translation">
-    Use AI to queue and translate multiple cells at once for faster workflows
-  </Card>
-  <Card title="AI Copilot Settings" href="/docs/translation/ai-settings">
-    Configure AI instructions to guide translations in your project
-  </Card>
   <Card title="Translation Tools" href="/docs/translation/translation-tools">
-    Learn about AI-assisted translation, back translation, and validation tools
+    Edit cells, use AI autocomplete, backtranslation, validation, locks, comments, and audio tools.
   </Card>
-  <Card title="Search & Replace" href="/docs/translation/search-and-replace">
-    Search across files, pin parallel passages, and find-and-replace in your project
+  <Card title="AI Settings" href="/docs/translation/ai-settings">
+    Configure the project system message and AI behavior.
   </Card>
-  <Card title="Comments" href="/docs/translation/comments">
-    Leave notes, discuss translations, and collaborate with your team
+  <Card title="Milestones and Navigation" href="/docs/translation/milestones-and-navigation">
+    Move through structured projects and select milestone ranges for export.
+  </Card>
+  <Card title="Search and Replace" href="/docs/translation/search-and-replace">
+    Search files, compare passages, and replace target text safely.
   </Card>
 </Cards>
 
-### Project Management
+### Collaboration and Delivery
 
 <Cards>
-  <Card title="Sharing & Managing Projects" href="/docs/project-management/sharing-managing-projects">
-    Collaborate with teams and manage project permissions
+  <Card title="Sharing Projects" href="/docs/project-management/sharing-managing-projects">
+    Publish to Cloud and invite collaborators.
+  </Card>
+  <Card title="Sync Troubleshooting" href="/docs/project-management/sync-troubleshooting">
+    Diagnose common sync and project access issues.
   </Card>
   <Card title="Exporting Projects" href="/docs/translation/exporting-project">
-    Export your translations in various formats for distribution
+    Export plaintext, HTML, USFM, XLIFF, round-trip files, subtitles, CSV/TSV, backtranslations, and audio.
+  </Card>
+  <Card title="Update Codex" href="/docs/project-management/update-extensions">
+    Update the app and understand extension pins.
   </Card>
 </Cards>
 
-## Support & Resources
+## When You Need Help
 
-- **Documentation**: Comprehensive guides for all features and workflows
-- **Community**: Connect with other translators and share best practices on [Discord](https://discord.gg/6kVJTEXYEp)
-- **Support**: Technical assistance and troubleshooting help
-
-If something is not working, start with the troubleshooting flow before escalating to support:
-
-<Cards>
-  <Card title="Troubleshooting" href="/docs/troubleshooting">
-    Diagnose common setup, project, import, sync, AI, media, and export issues before escalating.
-  </Card>
-  <Card title="Reporting Bugs" href="/docs/project-management/reporting-bugs">
-    Learn how to collect console errors, screenshots, and reproduction steps that help the team fix bugs faster.
-  </Card>
-</Cards>
-
----
-
-Ready to begin your translation journey? Start with our [Getting Started guide](/docs/getting-started/download-codex) or explore specific features in the [Translation](/docs/translation/translation-tools) section.
+Start with the specific page for the task you were doing. If the problem is still unclear, use the [Troubleshooting guide](/docs/troubleshooting) to collect the right details before posting in [Discord](https://discord.gg/6kVJTEXYEp).

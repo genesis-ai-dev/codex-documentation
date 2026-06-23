@@ -1,45 +1,47 @@
 # codex-documentation
 
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+User-facing documentation for Codex Editor, built with Next.js and Fumadocs.
 
-Run development server:
+## Purpose
+
+This site explains how translators, project coordinators, media teams, and support staff use the current Codex desktop app and Codex Translation Editor extension. Treat `codex-editor` and `codex` as source-of-truth repos for product behavior and UI labels.
+
+## Local Development
 
 ```bash
-npm run dev
-# or
+pnpm install
 pnpm dev
-# or
-yarn dev
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+Open http://localhost:3000.
 
-## Explore
+After adding, deleting, or renaming MDX files, regenerate the Fumadocs source layer:
 
-In the project, you can see:
+```bash
+pnpm postinstall
+```
 
-- `lib/source.ts`: Code for content source adapter, [`loader()`](https://fumadocs.dev/docs/headless/source-api) provides the interface to access your content.
-- `app/layout.config.tsx`: Shared options for layouts, optional but preferred to keep.
+## Useful Commands
 
-| Route                     | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
-| `app/(home)`              | The route group for your landing page and other pages. |
-| `app/docs`                | The documentation layout and pages.                    |
-| `app/api/search/route.ts` | The Route Handler for search.                          |
+```bash
+pnpm build
+pnpm watch
+```
 
-### Fumadocs MDX
+## Content Map
 
-A `source.config.ts` config file has been included, you can customise different options like frontmatter schema.
+- `content/docs/` contains MDX documentation pages.
+- `content/docs/meta.json` controls top-level navigation.
+- Each section folder has its own `meta.json` for ordering.
+- `public/images/` contains screenshots and static assets.
+- `components/` contains custom MDX components such as troubleshooting flows.
+- `docs/plans/` contains durable branch briefs for larger rewrites.
 
-Read the [Introduction](https://fumadocs.dev/docs/mdx) for further details.
+## Writing Rules
 
-## Learn More
-
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.vercel.app) - learn about Fumadocs
+- Use current Codex UI labels exactly.
+- Prefer task-based pages over long feature inventories.
+- Keep FAQ answers short and link to canonical pages.
+- Use "cell" or "segment" for general workflows; use "verse" only for scripture-specific guidance.
+- Do not document inactive importers or unshipped features as available.
+- When app behavior is involved, distinguish the Codex desktop app from the Codex Translation Editor extension.

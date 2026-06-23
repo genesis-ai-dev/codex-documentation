@@ -1,110 +1,91 @@
 ---
 title: Opening and Closing Projects
-description: Learn how to open and close projects in Codex, manage your project list, and handle cloud and local projects effectively.
+description: Understand the startup project list, project filters, project-card actions, offline states, and safe project closing.
 ---
 
-This guide explains how to open and close projects in Codex, ensuring your work is saved and projects are managed efficiently.
+# Opening and Closing Projects
 
-### Closing a Project
+The startup screen is your project hub. It shows local projects, cloud projects you can download, synced team projects, and projects that need attention before opening.
 
-<Callout type="warning">
-Always save your work before closing the project to avoid losing any unsaved changes. If you have an open editing cell, save it first by selecting the checkmark in the top right corner of the cell. If you have not made any changes then the checkmark will not appear.
-</Callout>
+## Project Filters
 
-1. Locate and open the main menu on the side panel.
+The project list can be filtered by status:
 
-![main-menu](/images/main-menu.png)
+- **All Projects**: Everything Codex can currently show.
+- **Available Locally**: Projects already on this device.
+- **Online Only**: Projects available in the cloud but not yet downloaded.
+- **Synced Projects**: Local projects connected to cloud sync.
+- **Non-Synced Projects**: Local projects without active cloud sync.
 
-2. Scroll down to the bottom of the menu.
+If an invited project is missing, confirm you are signed in with the exact email address your coordinator invited, then check **Online Only**.
 
-3. Click the "Close Project" button (indicated by an X icon).
+## Project Card Actions
 
-![close-project](/images/close-project.png)
+Different buttons appear depending on project state.
 
-4. Once confirmed, the project will close and you'll be directed to the startup screen displaying your project list.
+| Action | What it means |
+| --- | --- |
+| **Download** | Download an online project to this device. |
+| **Open** | Open a local project. |
+| **Open Offline** | Open a local project without reaching the server. Use this when the server or network is unavailable. |
+| **Fix & Open** | Repair a local project entry whose remote connection or metadata is not fully aligned, then open it. |
+| **Update** | Pull required project changes before opening. |
+| **Update Project** | Apply an admin-initiated project update or project swap. |
+| **Clean Media** | Remove locally cached streamed media files. |
+| **ZIP (with git)** | Create a full backup archive that includes Git history. |
+| **Mini ZIP** | Create a smaller backup archive without full Git history. |
+| **Delete** | Remove the local copy from this device. |
 
-### Opening a Project
+Badges such as **Unsynced**, **Archived**, **Not Found Online**, **Server Unreachable**, **Deprecated**, and **Update required** explain why a project card is behaving differently.
 
-1. From the startup screen, view the list of available projects. This includes cloud projects (if you are part of a team project) or local projects.
+## Open a Project
 
-2. Select the project you wish to open by clicking on it.
+1. Launch Codex.
+2. Sign in if the project requires cloud access.
+3. Use the filter or search box to find the project.
+4. Click the project card's action button: **Open**, **Download**, **Open Offline**, or **Update**.
+5. Wait for sync or setup to finish.
 
-![open-project](/images/open-project.png)
+Large projects, media-heavy projects, or first downloads can take longer than local projects.
 
-3. The project will load, restoring everything exactly as it was when you last closed it, or syncing any changes from the cloud.
+## Close a Project
 
-### Additional Information
+1. Save the cell you are editing. If a checkmark appears in the cell editor, click it to finish the edit.
+2. Open the **Main Menu**.
+3. Scroll to the bottom.
+4. Click **Close Project**.
+5. Confirm the close action.
 
-- The startup screen also provides an option to create a new project, or to clone projects you have access to.
-- Always save your work before closing to avoid data loss.
-- If you are part of a translation team on Codex, your projects sync across devices for seamless access.
+Codex returns to the startup screen.
 
----
+## Offline Opening
+
+If the server is unreachable but the project exists on your device, use **Open Offline**. You can continue local editing. Sync, AI suggestions, project downloads, and team updates resume when you are online again.
+
+## Project Updates
+
+Admins can require contributors to update a project before continuing. When this happens, the project card shows **Update required** and an **Update** or **Update Project** action. Use that project-card update flow before opening the project.
 
 <Accordions>
-<Accordion title="Troubleshooting Project Issues">
+<Accordion title="Troubleshooting project opening">
 
-### "Setup is already running" message
+### Project not visible after invitation
 
-This error appears when a previous Codex session did not close cleanly.
+1. Confirm the invitation email matches the account you are signed into.
+2. Check **Online Only**.
+3. If the project appears, click **Download**.
+4. If it still does not appear, ask the coordinator to confirm the invite and project permissions.
 
-**Fix:**
+### Project is stuck loading
 
-1. Force quit Codex completely:
-   - **Windows**: `Ctrl + Shift + Esc` > find Codex > Right-click > End Task
-   - **Mac**: `Cmd + Option + Esc` > select Codex > Force Quit
-2. Reopen Codex. The message should not appear again.
+1. Wait a few minutes for first sync on large projects.
+2. Force quit Codex and reopen it.
+3. Try **Open Offline** if the server is unreachable and the project is already local.
+4. Use the [Troubleshooting guide](/docs/troubleshooting) if the project still will not open.
 
-If it appears every time you open Codex, restart your computer and try again. If it persists after a restart, complete the [Troubleshooting guide](/docs/troubleshooting) support form and paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+### Source files are missing
 
----
-
-### Project not visible after being invited
-
-If a teammate invited you to a project but you cannot see it:
-
-1. Confirm you are logged in with the **exact email address** your project coordinator used to invite you. Even a small difference (e.g. a dot, a different domain) means the invite will not appear.
-2. On the project screen, find the **filter dropdown** and select **Remote Only**. Invited projects appear here before you download them locally.
-3. Click **Clone** next to the project name to download it to your device.
-4. If the project still does not appear after selecting Remote Only, ask your project coordinator to confirm which email address they used to send the invite.
-
----
-
-### Project loads but content disappears or target language resets
-
-This typically occurs when running an outdated version of Codex.
-
-1. Go to **Help > About Codex** and note your version.
-2. Compare it to the [latest release](/docs/releases/latest).
-3. Update Codex if needed, then reopen the project.
-4. If the problem continues after updating, complete the [Troubleshooting guide](/docs/troubleshooting) support form and paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
-
----
-
-### Project stuck on loading screen
-
-1. Wait **2 minutes** — projects with large source files take time to sync on first open.
-2. If still loading: close Codex completely (force quit if needed) and reopen.
-3. If the project is looping on a language or configuration screen: force quit, restart Codex, and open the project again.
-4. If none of these work, complete the [Troubleshooting guide](/docs/troubleshooting) support form and paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
-
----
-
-### Source files missing from a project
-
-If files that were previously visible are no longer showing:
-
-1. Close and reopen the project — files sometimes reappear after a fresh sync.
-2. Ask your project coordinator to go to **Project Settings > Request Project Update**. This pushes the latest files to all team members.
-3. If files were visible before and are now gone, complete the [Troubleshooting guide](/docs/troubleshooting) support form. Include **URGENT** and when you last saw the files in the description, then paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
-
----
-
-### Still stuck?
-
-1. Check the [latest release notes](/docs/releases/latest) — the issue may already be fixed.
-2. Review [Reporting Bugs](/docs/project-management/reporting-bugs) to collect console logs.
-3. Complete the [Troubleshooting guide](/docs/troubleshooting) support form and paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+Close and reopen the project first. If the project is shared, sync when online. If an admin required a project update, apply the project-card **Update** action.
 
 </Accordion>
 </Accordions>

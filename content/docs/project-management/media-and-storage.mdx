@@ -1,0 +1,53 @@
+---
+title: Media and Storage
+description: Choose how Codex stores project media, understand offline tradeoffs, and clean cached media safely.
+---
+
+# Media and Storage
+
+Media-heavy projects can contain large audio or video files. Codex lets you choose how each project handles media so you can balance disk space, offline access, and export needs.
+
+## Media Strategies
+
+Project cards can offer three media strategies:
+
+| Strategy | Best for | Tradeoff |
+| --- | --- | --- |
+| **Auto Download Media** | Offline work and reliable export. | Uses the most disk space. |
+| **Stream & Save** | Teams with internet access who still want local caching. | First playback needs network; disk use grows as media is cached. |
+| **Stream Only** | Devices with limited storage. | Requires network for media playback and can limit round-trip export if original media is not local. |
+
+<Callout type="warning">
+If you need to export deliverables that depend on original media, avoid **Stream Only** unless your coordinator confirms the export workflow does not need local media files.
+</Callout>
+
+## Change Media Strategy
+
+1. Go to the startup project list.
+2. Find the project card.
+3. Open the media strategy selector.
+4. Choose **Auto Download Media**, **Stream & Save**, or **Stream Only**.
+5. Open the project after the choice is saved.
+
+## Clean Cached Media
+
+Use **Clean Media** from the expanded project card when a streamed project has cached files you no longer need locally. This removes downloaded media cache without deleting the project itself.
+
+## Backups and Storage
+
+Use project-card backups before major changes:
+
+- **ZIP (with git)** creates a fuller backup with Git history.
+- **Mini ZIP** creates a smaller archive for easier transfer.
+
+See [Backup Your Project](/docs/project-management/backup-your-project) for backup guidance.
+
+## Offline Behavior
+
+Local text editing can continue offline. Media behavior depends on the strategy:
+
+- **Auto Download Media**: Previously downloaded media should be available offline.
+- **Stream & Save**: Cached media can play offline; uncached media needs network.
+- **Stream Only**: Media playback needs network.
+
+Sync, project downloads, AI, and extension pin updates require network access.
