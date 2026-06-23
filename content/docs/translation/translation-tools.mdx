@@ -1,172 +1,102 @@
 ---
 title: Translation Tools
-description: Learn how to translate texts using AI assistance in Codex Editor.
+description: Edit cells, use AI, validate work, manage backtranslations, comments, locks, footnotes, and audio in Codex.
 ---
 
-<LoomVideo videoId="dee3a9177243412092f4e2c11be1312b" title="Translation Process" />
+# Translation Tools
 
-Once you're in Codex and have imported your source files, you're ready to begin translating.
+After you import source content, Codex creates target cells or segments for your translation. The translation editor shows source content for reference and editable target cells for your work.
 
-## Accessing Your Translation Files
+## Open Translation Files
 
-There are two ways to navigate to your translations:
+Use **Navigation** from the compass icon to open source and target files. Navigation shows imported files, progress, and actions such as **Add Source File**, **Import Target File**, and **Export**.
 
-1. **Open Translation Files** directly from your dashboard
-2. **Navigation panel** — click the **Compass icon** in the sidebar activity bar to see:
-   - Your imported source files
-   - Progress bars for text translation
-   - Progress bars for audio translation
+## Manual Editing
 
-## The Translation Interface
+1. Open a target file.
+2. Click a target cell.
+3. Type or edit the translation.
+4. Click the checkmark when you are finished editing the cell.
 
-The interface displays:
-- **Source text** on the left (the text you're translating from)
-- **Target translation** on the right (your translation)
+Use "cell" or "segment" for general projects. In scripture projects, cells often correspond to verses or verse ranges.
 
-## Translating Verses
+## AI Autocomplete
 
-### Manual Translation
+Codex has two AI autocomplete flows:
 
-Click on a verse and start typing your translation directly.
+| Tool | Use it for |
+| --- | --- |
+| **Autocomplete with AI** | Generate or revise one selected cell. |
+| **Autocomplete Chapter** | Queue AI suggestions for multiple cells in the current chapter or section. |
 
-### AI-Assisted Translation
+AI suggestions depend on the project system message, source and target languages, surrounding context, and edits already made in the project.
 
-1. Click on a verse
-2. Click the **Sparkle button** to autocomplete with AI
+<Callout type="warning">
+AI suggestions are drafts. Review, edit, and validate them before treating them as final translation.
+</Callout>
 
-The AI uses your prompt settings (configured in AI settings from the main menu) and will translate based on your project configuration.
+## Source Tab and Backtranslation
 
-**Important**: The AI will improve over time as you make edits. It learns from your corrections and preferences. Sometimes it will offer two options and ask which you prefer, continuously learning to match your translation style.
+The cell editor includes a Source tab for reference and quality checks. Use the Backtranslation section there to generate a reverse translation with **Generate Backtranslation**.
 
-## Batch Translation
+Backtranslation helps reviewers see whether the target text communicates the intended meaning. It is not a replacement for human review.
 
-To translate multiple cells at once using AI:
+## Validation
 
-1. Click the **Sparkle button** at the top of the interface
-2. Select the cell type criteria:
-   - Empty cells with no content
-   - Not validated by any user
-   - Not validated by you
-   - Fully validated by others
-3. Choose the number of cells to translate (or use "All" to translate all matching cells)
-4. The AI will queue and autocomplete the selected cells
+Validation circles mark text or audio as reviewed. Project coordinators can set required validation counts in **Main Menu > Required Validations**.
 
-The AI improves over time as it learns from your edits and corrections, making subsequent batch translations more accurate.
+- Text validation requires translated text.
+- Audio validation can be tracked independently.
+- Projects with multiple reviewers can require more than one validation.
 
-## Translation Tools
+## Cell Tools
 
-Each verse has access to powerful editing tools:
+Depending on the cell type and project state, tools can include:
 
-### Text & Formatting Tools
-- **Show Edit History**: View all changes made to a verse
-- **Add Child Cells**: Create sub-cells for complex translations
-- **Add Paratextual Cells**: Add notes or context
-- **Change Styling and Indentation**: Format your text
-- **See Tags**: View markup and formatting tags
-- **Look at Source Text**: Reference where the translation came from
+- **Edit history** for reviewing previous changes.
+- **Footnotes** for translator notes.
+- **Child cells** for breaking complex content into smaller parts.
+- **Source editing mode** for approved source correction workflows.
+- **Locked cells** to prevent editing, recording, or AI changes.
+- **Paste as plain text** when formatting from copied content should be stripped.
+- **Similar wording** inspection for consistency checks.
 
-### Advanced Features
-- **Generate Back Translation**: Create a reverse translation for quality checking
-- **Add Footnotes**: Include translator notes and references
+## Audio Tools
 
-### Audio Tools
-- **Record Audio**: Record audio for your translation
-- **Play Audio**: Listen to recorded audio
-- **Audio History**: View previous audio recordings
-- **Rerecord/Remove Audio**: Manage your recordings
-- **Transcribe**: Generate text from audio
-- **Validate Audio**: Mark audio as approved
+Media and audio projects can include tools to:
 
-## Validation System
+- Record audio.
+- Play audio.
+- Replace or remove recordings.
+- Transcribe speech to text when configured.
+- Validate audio.
+- Use a recording countdown before capture starts.
 
-### How Validation Works
+See [Video and Audio Translation](/docs/translation/video-audio-translation) for media workflows.
 
-Each verse shows a **blank circle** that you can click to validate. Validation tracking shows:
-- Which verses have been validated
-- Who performed the validation
-
-### Validation Settings
-
-Configure validations in **Project Settings** (accessed from the main menu in the top left):
-
-- **Required Validations for Text**: Set to 1 (default) or higher for collaborative review
-- **Required Validations for Audio**: Can be set independently (e.g., 3 if you have dedicated audio reviewers)
-
-**Note**: You cannot validate verses that have no text content. Audio can be validated independently.
-
-### Collaborative Validation
-
-You can change required validations to 2 or more to enable collaborative review where you and your translation partner both validate translations together.
-
-## Best Practices
-
-- **Let the AI Learn**: The AI improves as you make edits and corrections
-- **Validate Consistently**: Use the validation system to track progress and quality
-- **Use Batch Translation**: Speed up initial drafts for large sections
-- **Review AI Suggestions**: Always review and edit AI translations for accuracy
-- **Leverage Audio Features**: Record and validate audio translations for multimedia projects
-
----
+## Troubleshooting AI Suggestions
 
 <Accordions>
-<Accordion title="Troubleshooting AI Suggestions">
+<Accordion title="AI suggestions are not appearing">
 
-### AI suggestions are not appearing
+1. Confirm you are online.
+2. Confirm you are signed in.
+3. Check **Main Menu > Copilot Settings** for the project system message.
+4. Close and reopen the project.
+5. Check your Codex version in **Help > About Codex**.
+6. Use the [Troubleshooting guide](/docs/troubleshooting) if the issue continues.
 
-Work through these checks in order:
+</Accordion>
+<Accordion title="AI quality is poor">
 
-1. **Check your internet connection.** AI features require a live internet connection. Open a browser and confirm you can load a website.
-2. **Confirm you are logged in.** AI features require an active Codex session. If your session has expired, log out and log back in, then try again.
-3. **Check your Codex version.** Go to **Help > About Codex** and compare to the [latest release](/docs/releases/latest). Update if needed.
-4. **Close and reopen the project.** This refreshes the AI connection for the current session.
-5. **Try a different project.** If the Autocomplete button works in another project but not yours, the issue is project-specific — note both project names for the support form.
-6. **If nothing works:** complete the [Troubleshooting guide](/docs/troubleshooting) support form and paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp). If your whole team is affected, mention **P1** in your Discord message.
-
----
-
-### AI suggestion quality is poor or inconsistent
-
-Poor AI suggestion quality is almost always caused by missing or incorrect AI instructions (the system message). This is configured during the import flow when you first add source content to a project.
-
-**If you did not configure AI instructions at setup:**
-
-Complete the [Troubleshooting guide](/docs/troubleshooting) support form with your project name and paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp). The team can help you locate and update the system message configuration for your project.
-
-**What good AI instructions include:**
-
-- Translation style (formal/literal vs natural/dynamic)
-- Domain (scripture, devotional media, academic)
-- Key theological terms to preserve without paraphrasing
-- Any style conventions specific to your language or organization
-
-The more specific your instructions, the better the suggestions. Vague instructions produce generic output.
-
----
-
-### AI suggestions are inconsistent between translators on the same project
-
-This usually means different team members are working with different system message configurations, or one team member's session has stale settings.
-
-1. Have all team members close and reopen the project.
-2. Confirm everyone is on the same version of Codex (Help > About Codex).
-3. If the problem persists, complete the [Troubleshooting guide](/docs/troubleshooting) support form. Describe how the suggestions differ between team members, then paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
-
----
-
-### The Autocomplete Chapter button is not visible
-
-If you cannot find the Autocomplete button:
-
-1. Make sure you have a file open in the translation editor — the button only appears when a source file and target notebook are both loaded.
-2. Click on a target cell to select it, then look for the Autocomplete option in the toolbar.
-3. If the button is still not visible, check your Codex version and update if needed. UI changes between versions may affect button placement.
+Update the system message in [AI Settings](/docs/translation/ai-settings). Include style, audience, terminology, and any project-specific translation principles. Then keep editing suggestions so the project has better examples.
 
 </Accordion>
 </Accordions>
 
 ## Next Steps
 
-1. [Learn about batch translation](/docs/translation/batch-translation)
-2. [Configure AI Copilot settings](/docs/translation/ai-settings)
-3. [Learn about back translations](#advanced-features)
-4. [Export your completed project](/docs/translation/exporting-project)
+- [AI Settings](/docs/translation/ai-settings)
+- [Batch Translation](/docs/translation/batch-translation)
+- [Milestones and Navigation](/docs/translation/milestones-and-navigation)
+- [Exporting Projects](/docs/translation/exporting-project)

@@ -1,203 +1,102 @@
 ---
 title: Initial Setup
-description: Now that you've finished downloading Codex, you can complete the initial setup, create your account, and log in to Codex Editor to begin your translation journey.
+description: Launch Codex, create an account, sign in, and understand what happens on first launch.
 ---
 
-## Loading the Codex App
+# Initial Setup
 
-1. **Launch the Application**: Open the Codex Editor application on your device.
-2. **Accept Permissions**: When prompted, accept any necessary permissions that the application requests.
-3. **Restart if Needed**: If the application doesn't load properly after accepting permissions, close and reopen it.
+After you install Codex, launch the desktop app from your applications menu or desktop shortcut. The first launch may take longer than later launches because Codex checks for required extensions and installs any missing core extensions from Open VSX.
 
-## Account Registration Process
+<Callout type="info">
+If you are setting up Codex for the first time, stay online until the startup screen appears. Later editing can continue offline for local projects, but first launch, login, project download, sync, AI, and new extension pins need network access.
+</Callout>
 
-Creating an account with Codex Editor gives you access to all translation features, project management tools, and collaboration capabilities.
+## First Launch Checklist
 
-### Step 1: Access the Registration Screen
-1. From the initial screen, select the option to create a new account.
+1. Open **Codex**.
+2. Approve operating-system prompts, such as opening an unsigned app or allowing microphone access for audio workflows.
+3. Wait for the startup screen to finish loading.
+4. If Codex asks to reload after extension setup, allow the reload.
+5. Sign in or create an account.
+
+Codex includes built-in app components that install and manage the translation extensions. If a team project requires specific extension versions, Codex may switch into a pinned profile and reload before the project opens.
+
+## Create an Account
+
+1. On the startup screen, choose the option to create a new account.
+2. Enter a username, email address, and password.
+3. Click **Register**.
+4. After registration, Codex signs you in automatically.
 
 ![Screenshot of the login page](/images/create-account.png)
 
-### Step 2: Enter Your Information
-
-<Callout type="info">
-We recommend writing down your login details somewhere safe
-</Callout>
-
-1. **Username**:
-   - Must be unique across all Codex Editor users
-   - Can contain letters, numbers, and underscores
-   - Usernames are case sensitive (CAP sensitive)
-   - Cannot be changed after account creation
-
-2. **Email Address**:
-   <Callout type="warning">
-   Use a real email address or a reliable burner email
-   </Callout>
-   - Fake emails cannot be used for password resets
-   - You may receive important notifications at this address
-
-3. **Password**:
-   - Minimum length of 15 characters required
-   - Must include at least one uppercase and one lowercase letter
-   - Numbers and symbols are not required
-   - Confirm your password by entering it again
-   - Click the eye icon to view the password if needed
-
 ![Screenshot of the registration page](/images/registration-example.png)
 
-4. **Register**
-   - Click **Register** to complete your initial setup
+### Username
 
-### Automatic Login After Registration
-- After creating your account, you will be logged in automatically
-- You will remain logged in for up to one year
-- This means you won't need to log in frequently
-- Your session persists across application restarts
+- Usernames must be unique.
+- Usernames are case-sensitive.
+- You can also use your email address when logging in.
+- Usernames cannot be changed after account creation.
 
-### Manual Login
-When you need to log in manually:
+### Email Address
 
-1. **Open Codex Editor**: Launch the application
-2. **Enter Credentials**: 
-   - Username (case sensitive) or email address
-   - Your account password
-3. **Click Login**: Submit your credentials to access your account
+Use an email address you can access. Password resets are sent by email, so fake or inaccessible addresses can lock you out of your account.
+
+### Password
+
+Passwords must:
+
+- Be at least **15 characters** long.
+- Avoid using parts of your username or email address.
+
+<Callout type="warning">
+The current visible validation is length plus avoiding username/email fragments. If Codex shows a stricter message in the app, follow the app message.
+</Callout>
+
+## Sign In Later
+
+When you need to sign in manually:
+
+1. Open Codex.
+2. Enter your username or email address.
+3. Enter your password.
+4. Click **Login**.
+
+Your session normally persists across app restarts. You may be asked to sign in again after a token expires, after clearing app data, or when opening a project that needs cloud access.
 
 <Callout type="info" title="Forgot your password?">
-Forgot your password? Use the **Forgot Password** option on the login screen.  
-See the dedicated guide: **[Reset Forgotten Password →](/docs/getting-started/forgot-password)**
+Use **Forgot Password** on the login screen. See [Reset Forgotten Password](/docs/getting-started/forgot-password).
 </Callout>
 
-## Account Security Best Practices
+## What To Do Next
 
-### Password Guidelines
-
-<Callout type="warning">
-Passwords containing information from your username or email will be rejected
-</Callout>
-
-- Use a unique password that you don't use elsewhere
-- Consider using a password manager
-- Avoid personal information like birthdays or names
-
-### Email Considerations
-- Use an email you check regularly
-- Ensure the email account is secure
-- Add Codex Editor to your email whitelist to prevent important messages from going to spam
+1. [Create a project](/docs/project-management/creating-project) if you are starting new work.
+2. [Open or download a project](/docs/project-management/opening-and-closing-projects) if your team has already shared one.
+3. [Import source files](/docs/project-management/importing-files) when your project is ready.
 
 <Accordions>
-<Accordion title="Troubleshooting Install and Login">
+<Accordion title="Troubleshooting setup and login">
 
-If you are having trouble installing Codex or logging in, work through the relevant section below before contacting support.
+### Codex will not open or is very slow to start
 
-### The app will not open or is very slow to start
+1. Force quit Codex and reopen it.
+2. Restart your computer if force quit does not help.
+3. Confirm your internet connection works.
+4. Check antivirus or firewall settings, especially on Windows. See [Antivirus Blockages](/docs/antivirus-blockages).
+5. Check your app version in **Help > About Codex** and compare it with [Release Notes](/docs/releases/latest).
 
-**Step 1 — Check your Codex version first**
+### Core extensions are missing or Codex keeps reloading
 
-Most "won't open" and slow-loading issues are caused by running an outdated version. Update before troubleshooting anything else.
+Codex may be applying extension version pins for a project. Stay online and let the reload finish. If Codex stops with an error report, include that report when asking for support.
 
-1. Open Codex. Go to **Help > About Codex**.
-2. Note the version number.
-3. Compare it to the [latest release](/docs/releases/latest).
-4. If you are not on the latest version, update now and try again before continuing.
+### Registration is not working
 
-**Step 2 — Force quit and restart**
+Check that your password is at least 15 characters and does not include parts of your username or email address. If registration still fails, copy the exact error message and use the [Troubleshooting guide](/docs/troubleshooting).
 
-- **Windows**: Press `Ctrl + Shift + Esc` to open Task Manager. Find Codex in the list. Right-click > End Task. Reopen Codex.
-- **Mac**: Press `Cmd + Option + Esc`. Select Codex. Click Force Quit. Reopen Codex.
-- **Linux**: Run `killall codex` in a terminal. Reopen Codex.
+### Login says invalid credentials
 
-**Step 3 — Restart your computer**
-
-A full reboot clears memory and temporary files that a force quit does not. This resolves many loading issues.
-
-**Step 4 — Check your internet connection**
-
-Codex requires internet access for AI features and project sync. Open a browser and confirm you can load a website. If your connection is unstable, resolve that first.
-
-**Step 5 — Check antivirus or firewall (Windows)**
-
-Antivirus software can block Codex from starting or connecting to its sync service. If this happens, follow the [antivirus and anti-malware troubleshooting guide](/docs/antivirus-blockages) to add Codex and the Codex service URL to your security tool's exceptions or allow list.
-
-Codex requires access to these domains:
-
-- `git.genesisrnd.com`
-- `api.frontierrnd.com`
-- `gitlab.com` and `git.door43.org`
-- `github.com` and `api.github.com`
-- `raw.githubusercontent.com`
-- `registry.npmjs.org`
-- `lff.api.languagetechnology.org`
-
-**Step 6 — macOS permissions (Gatekeeper)**
-
-1. Go to **System Preferences > Security & Privacy**.
-2. If you see a message saying Codex was blocked, click **Open Anyway**.
-3. You may need to enter your Mac password to confirm.
-
----
-
-### Login and account issues
-
-#### Invalid credentials error during login
-
-<Callout type="warning">
-Usernames are **case sensitive** (CAP sensitive). If you are getting an "invalid credentials" error, ensure you are using the exact capitalization you used when registering. Alternatively, you can enter your **email address** in the username field to log in.
-</Callout>
-
-#### Cannot log in after registering
-
-After registering, Codex logs you in automatically. You should not need to log in again immediately. If you are prompted to log in:
-
-1. Enter your **username** (case sensitive) or the **email address** you used to register.
-2. Enter your password.
-3. If you see an error message, note the exact text. Complete the [Troubleshooting guide](/docs/troubleshooting) support form and paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
-4. If you forgot your password, use the **[Forgot Password](/docs/getting-started/forgot-password)** flow on the login screen. Check your spam folder for the reset email.
-
-#### Registration is not working
-
-Make sure your password meets all three requirements:
-
-- At least **15 characters** long
-- At least one **uppercase** letter
-- At least one **lowercase** letter
-
-<Callout type="info">
-Numbers and symbols are not required. If the password field is showing an error, check that your password is at least 15 characters and contains both uppercase and lowercase letters.
-</Callout>
-
-If registration still fails, complete the [Troubleshooting guide](/docs/troubleshooting) support form with the exact error message, then paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
-
-#### Common account issues
-
-- **Username already taken**: Try variations of your preferred username, or add numbers or underscores to make it unique.
-- **Email already registered**: You may already have an account. Use the **[Forgot Password](/docs/getting-started/forgot-password)** flow if you need to regain access.
-
----
-
-### Still stuck?
-
-If none of the above steps resolve your issue:
-
-1. Check the [latest release notes](/docs/releases/latest) — your issue may already be fixed in a newer version.
-2. Complete the [Troubleshooting guide](/docs/troubleshooting) support form to collect your version, OS, and error details.
-3. Paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+Usernames are case-sensitive. Try your email address instead of your username. If you cannot remember the password, use [Forgot Password](/docs/getting-started/forgot-password).
 
 </Accordion>
 </Accordions>
-
-## Next Steps
-
-Once you've successfully completed the initial setup and logged in:
-
-1. [Create your first project](/docs/project-management/creating-project)
-2. [Configure languages and sources](/docs/project-management/source-and-target-languages)
-3. [Review project settings](/docs/project-management/project-settings)
-
-## Need Help?
-
-If you encounter issues during setup:
-- Complete the [Troubleshooting guide](/docs/troubleshooting) support form first
-- Use [Reporting Bugs](/docs/project-management/reporting-bugs) if you need to collect console logs
-- Paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp)

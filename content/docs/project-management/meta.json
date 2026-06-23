@@ -1,18 +1,19 @@
 {
   "title": "Project Management",
   "pages": [
-    "project-settings",
     "creating-project",
-    "source-and-target-languages",
     "opening-and-closing-projects",
+    "project-settings",
+    "source-and-target-languages",
     "importing-files",
+    "media-and-storage",
     "backup-your-project",
     "sharing-managing-projects",
     "managing-project-permissions",
-    "migration-tool",
+    "sync-troubleshooting",
     "project-swap",
     "update-extensions",
-    "sync-troubleshooting",
+    "migration-tool",
     "reporting-bugs"
   ]
 }

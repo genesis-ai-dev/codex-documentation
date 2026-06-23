@@ -1,38 +1,37 @@
 ---
 title: Source and Target Languages
-description: Set up and manage your source and target languages in Codex Editor.
+description: Set and update project source and target languages in Codex.
 ---
 
-<LoomVideo videoId="f5a1eba5a0d343d3bc22a8b47bd1616f" title="Source and Target Language Configuration" />
+# Source and Target Languages
 
-When initializing a project in Codex, one of the first steps is selecting your source and target languages.
+Every Codex project has a source language and a target language. These values affect import metadata, AI suggestions, search context, export metadata, and what collaborators expect when they open the project.
 
-## Setting Initial Languages
+## What the Languages Mean
 
-### Source Language
-The **Source Language** is the language you are translating *from*.
-- Example: If translating from Spanish to English, select **Spanish** as the Source Language.
-- You can search for languages in the provided menu.
+- **Source** is the language you are translating from.
+- **Target** is the language you are translating into.
 
-### Target Language
-The **Target Language** is the language you are translating *to*.
-- Example: If translating from Spanish to English, select **English** as the Target Language.
-- Codex provides a comprehensive list of languages.
-- **Custom Languages:** You can also create a custom language if your specific target language is not listed.
+For example, if you are translating Spanish content into English, set **Source** to Spanish and **Target** to English.
 
-## Changing Languages After Setup
+## Set Languages When Creating a Project
 
-If you need to change your language settings after the initial project setup:
+The **Create New Project** flow asks for source and target languages before the project is created. Choose them carefully before importing files.
 
-1.  Open the **Sidebar Menu** (top left).
-2.  Look for the **Source Language** and **Target Language** settings.
-3.  Click the **Edit Icon** next to the language you want to change.
-4.  Select the new language from the list (or create a custom one).
+## Change Languages Later
 
-> **Note:** It is important to set up these languages according to the documents you have on hand. Your Source Language setting should match the language of the source text you plan to import.
+1. Open the **Main Menu**.
+2. Find the project details near the top.
+3. Click the **Source** or **Target** language field.
+4. Choose the correct language, or create a custom language if needed.
+5. Sync shared projects after changing language metadata.
+
+<Callout type="warning">
+Changing language settings after translation work has started can affect AI behavior and export metadata. Tell collaborators before changing languages in a shared project.
+</Callout>
 
 ## Next Steps
 
-Once your languages are configured, you will proceed to upload your source text.
-
+- [Creating a Project](/docs/project-management/creating-project)
 - [Importing Files](/docs/project-management/importing-files)
+- [AI Settings](/docs/translation/ai-settings)

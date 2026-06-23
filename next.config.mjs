@@ -5,15 +5,6 @@ const withMDX = createMDX();
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'cdn.loom.com',
-        pathname: '/**',
-      },
-    ],
-  },
   // Baseline security headers. These also reach users browsing via the
   // codexeditor.app/docs proxy (it preserves upstream response headers);
   // 'self' is origin-relative, so framing rules behave correctly on both

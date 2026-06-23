@@ -1,428 +1,72 @@
 ---
-title: Release Notes
-description: Latest release notes for the Codex Translation Editor extension and the Codex application
+title: Latest Release Notes
+description: Current Codex app and Codex Translation Editor release notes relevant to users.
 ---
 
-This page tracks releases for both the **Codex Translation Editor extension** (the translation features) and the **Codex application** (the editor platform). The extension is where most user-facing changes happen.
-
-If you are troubleshooting a problem, compare your symptoms with the fixes below and then use the [Troubleshooting guide](/docs/troubleshooting) to decide whether you need to update, retry, or escalate.
-
-**Extension releases**: [GitHub](https://github.com/genesis-ai-dev/codex-editor/releases)
-**App releases**: [Stable](https://github.com/genesis-ai-dev/codex/releases)
-
----
-
-## Codex Translation Editor Extension
-
-### v0.27.0 — May 1, 2026 (Latest)
+# Latest Release Notes
 
-#### 🚀 New Features
-- Paste text without formatting using a new text-only paste option
-- Audio recording now shows a countdown before it starts
-- Added support for the Saurashtra script as a project language
-- Import now warns you when a VTT or SRT subtitle file is invalid
-- Export now warns you before producing an empty export
-- A confirmation prompt now appears when closing a project from the welcome view
-
-#### 🐛 Bug Fixes
-- Fixed problems importing target files
-- Fixed eBibles with verse ranges not importing correctly
-- Fixed the VTT importer leaving leftover HTML in cell content
-- Fixed a USFM importer round-trip issue
-- Fixed SRT export breaking files in some projects
-- Fixed audio export when exporting without timestamps
-- Fixed reference verses that could go missing (such as Genesis verses in a Spanish reference)
-- Fixed the spreadsheet importer and exporter to prevent project mismatches
-- Fixed switching the project language
-- The "Start Translating" button now opens the imported file
+This page summarizes user-facing changes that matter when following the documentation. For exact build artifacts and historical release details, use the project release channels provided by the Codex team.
 
-#### 🔧 Improvements
-- Improved Markdown round-trip import and export
-- Reworked the export options and export header flow for a clearer experience
-- Added HTML mapping enforcement and improved USFM footnote handling
-- More reliable binary downloads with versioned folders and automatic retries
+## Current Source-Checked Versions
 
-### v0.26.0 — April 27, 2026
+| Component | Latest stable release reflected here |
+| --- | --- |
+| **Codex Translation Editor extension** | `0.29.0` |
+| **Codex desktop app** | `1.108.13184` |
 
-#### 🐛 Bug Fixes
-- Fixed a project version logging issue
+<Callout type="info">
+If your installed version is older, update Codex before troubleshooting behavior that differs from these docs.
+</Callout>
 
-### v0.25.0 — April 17, 2026
+## Codex Translation Editor 0.29.0
 
-#### 🐛 Bug Fixes
-- Resolved a DOCX file parsing issue to ensure correct and reliable content processing
+Published June 22, 2026.
 
-### v0.24.0 — March 23, 2026
+### Media and Audio
 
-#### 🔧 Improvements
-- Add infrastructure for future extension locking/pinning
+- The play-video button is available even when the cell does not have recorded audio yet.
+- URL and video file deletion now asks for confirmation before removing the item.
+- Overlapping subtitle timestamp handling was fixed for a media project edge case.
+- Character audio export functionality and audio export options were expanded.
 
-### v0.23.0 — March 18, 2026
+### Export and Project Structure
 
-#### 🚀 New Features
-- Added line numbers for biblical texts at import
-- Project list and search now display and use the project's Git name for consistency
-- Clicking a comment bubble now immediately opens the "New Comment" card if no existing comments
-- Added "Biblical-Hebrew-Aramaic-Greek" as a new language option
+- Export cancellation and media download strategy behavior were improved.
+- Milestone hoisting in verse-range reordering was fixed, improving structured scripture workflows.
 
-#### 🐛 Bug Fixes
-- Resolved an issue where search results sometimes failed to display after getting no results
-- Corrected language storage issues for consistent use across projects
-- Fixed an issue where 1 and 2 JHN in the Macula Bible were not being imported correctly
-- Fixed a bug where long project names could cause duplicate project IDs during creation
+### Interface and Updates
 
-#### 🔧 Improvements
-- Optimized performance and memory usage, especially for comments, by enhancing display information handling
-- Significantly optimized performance and responsiveness when interacting with comment threads and replies
-- Virtualized the "All Comments" list and optimized the Comments Provider for faster loading of large comment files
-- Streamlined project creation by removing project type selection and unnecessary startup screens
+- The **Restart Now** button no longer overflows its container.
+- The extension package now targets the `0.29.0` release and updates the required Frontier Authentication version.
 
-### v0.22.0 — March 2, 2026
+Full changelog: [codex-editor 0.29.0](https://github.com/genesis-ai-dev/codex-editor/releases/tag/0.29.0).
 
-#### 🔧 Improvements
-- Archived projects display correctly
-- The project export workflow is now smoother and more intuitive to use
-- Improved display of cell line numbers, now distinct from speaker labels
+## Codex Desktop App 1.108.13184
 
-### v0.21.0 — March 2, 2026
+Published May 12, 2026.
 
-#### 🚀 New Features
-- Improved handling and display of verse range references in content
-- Enhanced feedback is provided to users when opening projects
-- The "Comments All" section now offers sorting based on project structure
-- Project types are simplified by removing the "Bible" vs. "Non-Bible" differentiation
-- Comments now display file, milestone, and line context instead of complex internal IDs
+- Codex is based on VS Code `1.108.1`.
+- Extension management for pinned profiles was reworked. This supports the CodexConductor behavior described in [Update Codex and Extensions](/docs/project-management/update-extensions).
 
-#### 🐛 Bug Fixes
-- Fixed: File and folder deletion now requires more steps to prevent accidental data loss
-- Fixed: Exporters can now consistently handle content from older imported projects, including verse range cells
-- Fixed: Progress bar tooltips no longer obscure important modals like delete confirmations
-- Fixed: The audio play button now reliably works on every click
-- Fixed: The audio icon now correctly displays after syncing a project
+Full changelog and downloads: [codex 1.108.13184](https://github.com/genesis-ai-dev/codex/releases/tag/1.108.13184).
 
-#### 🔧 Improvements
-- The HTML exporter can now successfully export content from eBible and USFM imported files
-- The frequency of A/B testing and attention checks has been greatly reduced
-- Main menu items are now optimized for smaller screens, collapsing into a single column
-- Chapter navigation header responsiveness has been significantly improved across various screen sizes
-- The editor now remains open after an AI generation, streamlining your editing workflow
+## Recent Features To Know
 
-### v0.20.0 — February 10, 2026
+- Media-heavy projects can choose **Auto Download Media**, **Stream & Save**, or **Stream Only**.
+- Audio export includes character-consolidated workflows and expanded audio options.
+- Project swap and remote updates can require contributors to apply project-card updates before continuing.
+- Offline and server-unreachable states allow local projects to open even when cloud services are unavailable.
+- CodexConductor extension pins keep team projects on compatible extension versions through project-specific profiles.
 
-#### 🚀 New Features
-- Added the ability to edit system messages
+## Where To Check Your Version
 
-#### 🐛 Bug Fixes
-- Fixed issues for offline orphaned projects detection
+### App Version
 
-#### 🔧 Improvements
-- Improved upload speed as well as retries of media files
-- Significantly improved overall offline functionality and project state management, including a "server unreachable" status
-- Implemented UI locking and messages to provide better feedback during project fixing and swapping operations
-- Enhanced project swap workflows with clearer notifications, improved filtering, and better handling of offline states
-- Added loading indicators and improved project list refreshing, especially during connectivity restoration
-- Enabled instant switching between webviews for a smoother user experience
+- **Windows/Linux**: **Help > About Codex**.
+- **macOS**: **Codex > About Codex**.
 
-### v0.19.0 — February 10, 2026
+### Extension Version
 
-#### 🐛 Bug Fixes
-- Resolved an issue where LLM generation could fail during A/B tests
+Open the Extensions panel and find **Codex Translation Editor**. For pinned team projects, do not manually update the extension unless your coordinator or support instructs you to.
 
-#### 🔧 Improvements
-- Initial content now loads more reliably and displays correctly, even with complex data
-
-### v0.18.0 — February 5, 2026
-
-#### 🚀 New Features
-- Project Swap for seamless project transitions
-
-#### 🔧 Improvements
-- Automatically checks for and downloads missing audio files during project activations
-- Project name handling refined with whitespace trimming and prevented saving of unchanged names
-
-### v0.17.0 — February 4, 2026
-
-#### 🚀 New Features
-- Introduced a Codex Migration Tool, accessible directly from the main menu
-
-#### 🐛 Bug Fixes
-- Fixed an issue where line number offsets were incorrect after milestone updates
-- Removed problematic keyboard shortcuts that interfered with editor use
-
-#### 🔧 Improvements
-- Milestone updates now reflect changes instantly within the editor interface
-- Better handling for DOCX files, including improved import and export capabilities
-- Improved subtitle alignment logic, enhancing accuracy, structure, and robustness of imported content
-- Child cells now stay on the same page as their parent cells for improved readability
-- Enhanced robustness of file saving, especially when overwriting existing files
-
-### v0.16.0 — January 29, 2026
-
-#### 🚀 New Features
-- Milestones in the Accordion can now be edited inline for quicker adjustments
-- You can now edit source and target milestones independently
-
-#### 🐛 Bug Fixes
-- Saving failures in the TextCellEditor now display an error message
-- Fixed issues that caused editor to crash
-
-#### 🔧 Improvements
-- The deprecated "Book name" option has been removed from the main menu, streamlining the interface
-
-### v0.15.0 — January 20, 2026
-
-#### 🐛 Bug Fixes
-- Resolved an issue with the importer to ensure reliable data import
-
-### v0.14.0 — January 15, 2026
-
-#### 🚀 New Features
-- Enhanced subtitle import functionality to support optional cell labels
-- Enhanced milestone cell editing, including consistent UUIDs, improved error handling, and file type-specific edit options
-- Introduced an initial milestone page selector accordion for easier navigation and added a dedicated edit button for milestone names
-- Enhanced validation system with support for text/audio validation levels, required validations, and improved progress display
-- Implemented comprehensive protection for locked cells, preventing modifications to content, timestamps, labels, and attachments
-- Enhanced new page navigation within the chapter navigation
-
-#### 🐛 Bug Fixes
-- Fixed misplaced paratext cells, ensuring correct order within documents
-- Fixed dark mode color inconsistencies across the editor
-- Fixed paratext cells incorrectly contributing to subsection progress calculations
-
-#### 🔧 Improvements
-- Reduced file sizes when importing `.x` files and temporarily disabled lock/unlock controls in the UI for clarity
-- Enhanced cell merging and highlighting, now working for both Bible and non-Bible formatted content
-- Improved stability and reliability of notebook file saving, and optimized data migrations
-- Validation tooltips now display percentages and levels on hover, replacing text descriptions
-- Sync progress messages now dismiss automatically upon completion, and webviews close for deleted books/files
-
-### v0.13.0 — December 11, 2025
-
-#### 🐛 Bug Fixes
-- Added Content Security Policy directives for sourcemaps and Cloudflare in remote web environments
-- Resolved an issue where the save button appeared incorrectly after using the Sparkle button
-- Corrected a bug related to A/B testing functionality
-- Security policy adjusted for better compatibility and function with preview APIs
-- Project IDs are no longer incorrectly appended to project names during creation
-
-#### 🔧 Improvements
-- Improved username retrieval for more consistent authentication across the editor
-
-### v0.12.0 — December 3, 2025
-
-#### 🚀 New Features
-- Projects now generate a unique ID at creation, tied to the project folder, making them easier to find even if the name changes
-
-#### 🐛 Bug Fixes
-- Enhanced resilience of the publishing feature to gracefully handle missing project metadata
-- Resolved issues where project identifiers could mismatch during initialization
-- Corrected an incorrect "Project name cannot be empty" error message that appeared when opening the Create New Project modal
-- Prevented the creation of projects with duplicate folder names
-
-#### 🔧 Improvements
-- Ensured that the edited project name is consistently displayed throughout the Project Setup
-- Improved the project publishing process to use unique project IDs, making published projects easier to identify
-- Added a loading state to the "Initialize Project" button to prevent multiple clicks during project setup
-- Improved project initialization flow in the Main Menu, ensuring consistency and preventing unnecessary metadata file creation
-- Prevented recent saves from being accidentally overwritten by external file changes
-
-### v0.11.0 — November 28, 2025
-
-#### 🚀 New Features
-- Notifies users if they're offline when trying to generate a translation using AI
-- Automatic preservation of paratextual cell positions during merge resolutions
-- Robust authentication and status checks added for offline login and project lists
-- Work on projects and view downloaded projects even without an internet connection (does not require login)
-
-#### 🐛 Bug Fixes
-- Fixed an issue where the projects list displayed with an incorrect size
-
-#### 🔧 Improvements
-- Improved startup flow by ensuring local assets load correctly
-- Enhanced reliability with improved error handling when fetching project overviews
-- Improved security and expanded connectivity options within the cell editor
-- Enhanced accuracy in displaying cell counts, line numbers, and child cell labels
-
-### v0.10.0 — November 28, 2025
-
-#### 🚀 New Features
-- New support for importing and exporting Biblica content
-- Rename your projects easily using the new "Rename Project" modal
-
-#### 🐛 Bug Fixes
-- Resolved issues that were affecting the Biblica content importer and exporter
-- Fixed an error where project metadata could be misread due to a race condition after edits
-
-#### 🔧 Improvements
-- Project metadata now includes CRDT edit history for more robust change tracking and data integrity
-- When migrating, chat system messages are now automatically generated if not already present, based on project languages
-
-### v0.9.0 — November 26, 2025
-
-#### 🚀 New Features
-- Added Biblica content import and export capabilities
-
-#### 🐛 Bug Fixes
-- Resolved a problem with audio merging when in source edit mode
-- Fixed an issue where merging cells with audio didn't always include all previously merged audio
-
-#### 🔧 Improvements
-- Sync is now automatically disabled when logged out, with a message indicating this
-- Clicking the sparkle icon now prompts a sign-in modal if you're logged out
-- The login button is now disabled with a clear message if the Frontier extension is not active
-- Cleaned up the login page by removing redundant Frontier authentication messages
-- Improved version warnings by using standard VS Code information messages
-
-### v0.8.0 — November 22, 2025
-
-#### 🚀 New Features
-- Media files are now properly arranged into specific folders based on the chosen download strategy
-- Implemented comprehensive find and replace functionality, supporting scoped operations within the editor
-- Enhanced project healing options, allowing users to select sync or AI Learning via a new UI dropdown
-- Introduced a simple and detailed mode toggle for viewing AI Metrics
-- Added remote healing capabilities for projects, including Frontier integration
-
-#### 🐛 Bug Fixes
-- Addressed various prompting issues within the editor
-- Fixed authentication handling to use the Frontier extension API for more reliable session management
-- Resolved a bug affecting the functionality of the search checkbox
-- Corrected an issue where media strategy changes were not preserved upon collapsing and expanding groups
-- Fixed multiple login issues, including preventing users from logging in on web or after logging out
-
-#### 🔧 Improvements
-- Removed redundant media file verification, significantly speeding up project opening for auto-download strategies
-- User validations are now retained during cell content updates, including search and replace operations
-- Enhanced the login page with updated prompts for restart information, improved styling, and an added reset password button
-- Improved remote healing management, including better viewing and sorting of healing history
-- Project healing now disables when offline, and remote healing checks bypass the cache for better connectivity
-
-### v0.7.0 — November 11, 2025
-
-#### 🚀 New Features
-- Dedicated modal for editing book names
-- Option to remove IDs from plain text exports
-- Audio validation progress displays on navigation cards
-- FFmpeg and FFprobe now download automatically when importing audio
-
-#### 🐛 Bug Fixes
-- Lock files no longer prevent synchronization
-- Transcription issues resolved
-- Validation buttons no longer disappear when using AI autocomplete
-- Cell content now saves correctly in all scenarios
-- Fixed audio import failures due to missing dependencies
-
-#### 🔧 Improvements
-- Requires Frontier v0.4.17 or higher
-- OBS Translation Memory System roundtrip support added
-- Sync status between Codex and Frontier is now more consistent
-- Book and corpus renaming is more reliable with improved corpus marker handling
-
-<Accordions>
-<Accordion title="Earlier releases (v0.6.x)">
-
-### v0.6.23 — October 27, 2025
-
-- Resolved problems encountered with Biblica Chapters
-- Corrected the layout of various buttons for a cleaner interface
-- Fixed issues with audio segment display and timestamp accuracy
-- Enhanced the security and reliability of connections
-
-### v0.6.22 — October 21, 2025
-
-- Delimited exports now support both Code and Markup cell types
-- Empty cell labels now display placeholder text when you open the editor
-- A new option allows you to automatically download audio files
-- Source cells with audio are now automatically transcribed when you start translating a target cell
-- New importers for DOCX, IDML, Biblica, and an experimental PDF importer
-- Optimized repository handling and improved webview stability and loading performance
-
-### v0.6.21 — September 22, 2025
-
-- You can now export audio from your Codex Editor sessions
-- Resolved issues with audio handling, playback, and display in the history viewer
-- Enhanced cursor behavior and positioning within the text editor
-- Improved consistency of timestamps in exported audio files
-
-### v0.6.20 — September 22, 2025
-
-- Cell content can now conditionally display timestamps
-- Recording audio no longer closes your active editor window
-- Audio attachments now refresh automatically across all open editor windows after synchronization
-- Audio attachments are reliably saved, with validation and error handling
-- You can now attach audio directly to cells within the editor
-
-</Accordion>
-</Accordions>
-
----
-
-## Codex Application
-
-The Codex application is a fork of [VSCodium](https://vscodium.com/), a community-driven, freely-licensed distribution of Visual Studio Code without Microsoft's telemetry. App updates provide the editor platform, while the extension (above) provides translation features.
-
-**Current version**: v1.108.13184
-
-<Accordions>
-<Accordion title="Latest application updates (v1.108.13184)">
-
-Recent app releases focus on extension management for pinned profiles, building on the VSCodium 1.108.1 platform base described below.
-
-**v1.108.13184 — May 12, 2026**
-- Reworked extension management for pinned profiles
-
-**v1.108.12734 — April 23, 2026**
-- Added extension version pinning with the CodexConductor profile system and CLI support
-
-</Accordion>
-
-<Accordion title="Platform update notes (v1.100 → v1.108)">
-
-This is a major release representing over 300 commits and 8 intermediate version updates (1.100 → 1.108).
-
-**Major Version Update**
-- Updated to VSCodium 1.108.1 with the latest VS Code features and security updates
-- Electron 39.2.7 and Node.js 22.21.1 for improved performance
-
-**New Features**
-- Command filtering and user product configuration
-- Activity bar customization for a cleaner workspace
-- Microphone support in webviews
-- OpenVSX extension marketplace integration
-
-**Privacy Enhancements**
-- AI chat and GitHub Copilot disabled by default (opt-in)
-- VSCode.dev integration removed
-- Telemetry experiments disabled by default
-
-**Platform Improvements**
-- Linux: XDG_STATE_HOME support, multi-architecture builds, GLIBC compatibility
-- Windows: AppX packaging, update URL fixes
-- macOS: Increased maximum icon size
-- Snap: Native Wayland support, improved desktop entries
-- Docker: Multi-stage builds, web server workflow, automated extension installation
-
-**CLI and Build**
-- Enhanced CLI binary with user product.json loading
-- Improved patch management and source map handling
-- Automated GitHub CLI installation with retry logic
-
-</Accordion>
-
-<Accordion title="Previous application releases">
-
-**v1.99.24959**
-- Reintroduced extensions in the activity bar with additional refinements
-- Updated Windows build environment to windows-2022
-
-**v1.99.24939**
-- Reintroduced extensions in the activity bar for easier access
-- Fixed patch-rebuild to only dispatch one build request per quality
-
-**v1.99.24291**
-- Updated icons and replaced remaining "codium" references for improved branding
-- Enabled microphone usage in webviews
-- Moved several items from the activity bar for a cleaner interface
-- Implemented a new workflow for patch rebuilds
-
-</Accordion>
-</Accordions>
+See [Update Codex and Extensions](/docs/project-management/update-extensions).

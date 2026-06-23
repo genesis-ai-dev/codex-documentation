@@ -1,85 +1,49 @@
 ---
-title: AI Copilot Settings
-description: Configure and customize AI instructions to guide translations in your Codex Editor project
+title: AI Settings
+description: Configure the project system message and AI behavior for Codex autocomplete, batch translation, and backtranslation.
 ---
 
-<LoomVideo videoId="a6cfab2ee731453dbb0bd25f5c571fe4" timestamp={0} title="AI Copilot Settings" />
+# AI Settings
 
-## Overview
+AI behavior in Codex is guided by the project system message and project settings. Good AI settings make suggestions more consistent with your translation style, terminology, audience, and review expectations.
 
-Once you've created a project in Codex and imported your first source files, you can adjust your AI settings to customize how the AI assists with translations.
+## Where AI Settings Appear
 
-## Accessing Copilot Settings
+You may see AI setup in two places:
 
-1. Navigate to the **Codex main menu** in the top left corner
-2. Scroll down and click on **Copilot Settings**
+1. **Import wizard**: When source content is imported for the first time, Codex may ask for or generate the project system message.
+2. **Main Menu > Copilot Settings**: Use this later to review or adjust AI settings.
 
-## Understanding the System Message
+## What To Include
 
-The **system message** (also called the AI prompt) is the set of instructions that guides how the AI translates your content. This message is **automatically generated** when you create your project, based on your source and target languages.
+A useful system message should describe:
 
-## Regenerating AI Instructions
+- Translation style, such as formal, natural, literal, or oral.
+- Audience, such as children, church readers, subtitle viewers, or study-note readers.
+- Domain, such as scripture, devotional media, educational content, or localization.
+- Terms that should stay consistent.
+- Formatting or HTML expectations.
+- Things the AI should avoid.
 
-If you want to refresh the AI instructions:
+## AI Behavior Controls
 
-1. Click the **Sparkle button** in the Copilot Settings
-2. The system will generate new instructions based on your current project configuration
-3. This is useful if you've changed your project settings or want to start fresh
+Depending on the current release, Copilot Settings can include controls such as:
 
-## Editing Instructions Manually
-
-You and your team can customize the AI instructions to suit your specific needs:
-
-- Edit the text in the instructions field
-- Add style preferences (e.g., formal vs. contemporary language)
-- Specify terminology handling
-- Include cultural context or special requirements
-- Think of these as instructions you'd give a human translator
-
-### Example Customizations
-
-**Style Preference:**
-"Translate in a contemporary, easy-to-understand style for a general audience."
-
-**Terminology:**
-"Preserve important domain-specific terms, but use modern language for everyday concepts."
-
-**Cultural Context:**
-"Adapt idioms and metaphors to be culturally relevant for the target audience."
-
-## Saving Your Settings
-
-After making any changes to your copilot settings:
-
-1. Review your instructions
-2. Click **Save** to apply the changes
-3. The AI will use these updated instructions for all future translations
+- Using only validated examples.
+- Allowing HTML in AI predictions.
+- Speech-to-text endpoint settings.
+- Regenerating or editing the system message.
 
 <Callout type="info">
-All team members working on the project will use the same AI instructions, ensuring consistency across translations.
+If suggestions differ between teammates, have everyone sync, close the project, reopen it, and confirm they are using the same project settings and Codex version.
 </Callout>
 
-## Best Practices
+## Improving Suggestions Over Time
 
-- **Review auto-generated instructions**: The AI creates good defaults, but review them to ensure they match your goals
-- **Be specific**: Clear, detailed instructions help the AI produce better translations
-- **Test and refine**: Try translations with new settings and adjust as needed
-- **Collaborate with your team**: Ensure everyone agrees on the translation approach
-- **Regenerate when needed**: If you change languages or project settings, regenerate the instructions
+AI improves when the project contains good examples. Review suggestions, correct them, and validate approved cells. For large changes in style or terminology, update the system message before running batch translation.
 
-## How AI Instructions Affect Translations
+## Related Pages
 
-The copilot settings influence:
-- Translation style and tone
-- How technical terms are handled
-- Cultural adaptation choices
-- Formality level
-- Consistency across the project
-
-Think of these settings as the foundation for all AI-assisted work in your project.
-
-## Next Steps
-
-1. [Start translating with AI tools](/docs/translation/translation-tools)
-2. [Use batch translation](/docs/translation/batch-translation) to accelerate your workflow
-3. [Learn about validation settings](/docs/translation/translation-tools#validation-system) to track quality 
+- [Translation Tools](/docs/translation/translation-tools)
+- [Batch Translation](/docs/translation/batch-translation)
+- [Project Settings](/docs/project-management/project-settings)

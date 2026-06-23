@@ -1,58 +1,62 @@
 ---
-title: Managing Projects, Teams, and Access
-description: Learn how to share projects, manage teams and members, create subgroups, and collaborate effectively. We use the Global Translation Tools organization as a sample throughout.
+title: Sharing and Managing Projects
+description: Publish Codex projects to the cloud, invite collaborators, and organize team work.
 ---
 
-<LoomVideo videoId="856a46aeb4f04cb7b20f273639682314" timestamp={0} title="Guide to Sharing and Managing Projects, Teams, and Access" />
+# Sharing and Managing Projects
 
-> In this guide, we focus on managing projects, teams, members, and access. We use the Global Translation Tools organization as a sample to demonstrate creating teams, managing access, and publishing to subgroups. The same steps will apply to your own organization.
+Use sharing when more than one person needs access to the same project. Codex publishes projects to `git.genesisrnd.com`, the GitLab-based service used for project hosting, permissions, and sync.
 
 <Callout type="info">
-**About git.genesisrnd.com**
-
-When you create an account in the Codex application, your credentials are automatically set up on `git.genesisrnd.com` — a GitLab server that handles project hosting, team management, and synchronization for Codex projects. You can log into the web interface at [git.genesisrnd.com](https://git.genesisrnd.com) using the same username and password you use in the Codex app. This is where you manage organizations, team members, and project access.
+Your Codex account is also used for `git.genesisrnd.com`. Project coordinators can use the web interface for organization, subgroup, and permission management.
 </Callout>
 
-### 1. Introduction to Project Sharing
+## Publish a Project
 
-- When you publish a project from Codex, it is hosted on `git.genesisrnd.com` where team members can access it.
-- Example group used in this guide: Global Translation Tools.
+1. Open the project in Codex.
+2. Open the **Main Menu**.
+3. Click **Publish to Cloud**.
+4. Choose the organization or subgroup where the project belongs.
+5. Confirm the publish action.
+6. Open **Sync Settings** and confirm sync is enabled for the team workflow.
 
-### 2. Accessing the Group
+After publishing, collaborators with access can find the project from the startup screen, usually under **Online Only** until they download it.
 
-- Log into [git.genesisrnd.com](https://git.genesisrnd.com) with your Codex account credentials
-- Navigate to your organization/group page at `git.genesisrnd.com/groups/your_organization_name` 
-(for example: `git.genesisrnd.com/groups/GlobalTranslationTools`)
+## Invite Collaborators
 
-### 3. Managing Group Members
+Permissions are managed on `git.genesisrnd.com`:
 
-- Click on 'Manage Members' to add new members to the group.
-- Assign roles: Developer, Maintainer, or Owner for project updates.
+1. Log in with your Codex account.
+2. Open the organization, subgroup, or project.
+3. Go to **Manage > Members**.
+4. Invite the collaborator.
+5. Choose the role that matches their responsibility.
 
-### 4. Creating Subgroups for Specific Languages
+Use [Managing Project Permissions](/docs/project-management/managing-project-permissions) for role details.
 
-- Create subgroups within your organization for specific languages (e.g., Portuguese).
-- Subgroups help manage access and reduce confusion.
+## Organize With Subgroups
 
-### 5. Publishing Projects
+Subgroups help separate projects by language, team, region, or program. Publish projects into the lowest group that matches who should access the work.
 
-- Steps to create and publish a project: 
-  - Initialize a new project (e.g., Test Project).
-  - Set source language (e.g., English) and target language (e.g., Portuguese).
-  - Upload source files.
+## Sync Expectations
 
-### 6. Project Settings and Publishing
+- **Manual sync**: Use **Sync Now** in the Main Menu when you want to push and pull immediately.
+- **Auto-sync**: Configure interval-based sync in **Sync Settings**.
+- **Offline work**: Local edits can continue offline and sync when the connection returns.
 
-- Access project settings to publish the project.
-- Ensure the project is published under the correct subgroup (e.g., Portuguese).
+## Coordinator Checklist
 
-### 7. Syncing Projects
+Before inviting a team:
 
-- Projects sync to `git.genesisrnd.com` using Git under the hood
-- **Manual sync**: Click the sync button in the main menu to sync immediately
-- **Auto-sync**: Enable auto-sync in project settings to sync on an interval (5, 15, 30, or 60 minutes)
+- Confirm source and target languages are correct.
+- Import the needed source files.
+- Set validation counts.
+- Choose media strategy for media-heavy projects.
+- Publish to the correct organization or subgroup.
+- Invite users with the least access they need.
 
-### 8. Collaboration and Version Control
+## Related Pages
 
-- Multiple users can work on the same project with automatic interval-based synchronization.
-- Use Git-based version history to track changes and resolve conflicts.
+- [Managing Project Permissions](/docs/project-management/managing-project-permissions)
+- [Sync Troubleshooting](/docs/project-management/sync-troubleshooting)
+- [Media and Storage](/docs/project-management/media-and-storage)

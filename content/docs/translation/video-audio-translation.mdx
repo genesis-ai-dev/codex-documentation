@@ -1,534 +1,65 @@
 ---
-title: Video & Audio Translation
-description: Learn how to translate video subtitles and work with audio recordings in Codex Editor
+title: Video and Audio Translation
+description: Translate subtitles, audio-linked content, recordings, and media deliverables in Codex.
 ---
 
-Codex Editor provides powerful features for translating video subtitles and managing audio recordings. Whether you're dubbing content, translating subtitles, or creating audio Bibles, Codex handles timing and synchronization automatically.
+# Video and Audio Translation
 
-## Overview
-
-### What You Can Do
-
-- **Translate Video Subtitles** - Import VTT/SRT files, translate, and export
-- **Import Audio Files** - Automatic segmentation with Voice Activity Detection
-- **Record Audio** - Record directly inside the cell editor
-- **Cell-by-Cell Audio Playback** - Waveform visualization aligned with each cell
-- **Transcribe Audio** - Whisper-powered automatic speech recognition
-- **Validate Audio** - Multi-user validation workflow for quality checking
-- **Audio History** - Browse and restore previous recordings per cell
-
----
+Codex supports workflows for subtitle translation, audio recording, transcription, and media-aware export. These workflows depend on both the imported source format and the project's media storage strategy.
 
 ## Subtitle Translation
 
-### Supported Subtitle Formats
+1. Open **Navigation**.
+2. Click **Add Source File**.
+3. Choose **Source Files**.
+4. Select **Subtitles**.
+5. Import a `.vtt` or `.srt` file.
+6. Translate each timestamped cell.
+7. Export to SRT or WebVTT when finished.
 
-- **WebVTT (`.vtt`)** - Modern web standard format
-- **SubRip (`.srt`)** - Classic subtitle format
+Subtitle exports preserve cue timing. WebVTT exports can preserve styling or output plain text depending on the selected format.
 
-Both formats preserve timing information automatically.
+## Audio Projects
 
-### Step 1: Import Subtitle Files
+Audio imports create cells linked to audio content. Depending on project setup, you can transcribe audio, translate the text, record target audio, and validate audio separately from text.
 
-1. Open Navigation → **Add Files**
-2. Select **"Source Files"**
-3. Choose **"Subtitles (VTT/SRT)"** importer
-4. Upload your subtitle file
+Cell audio tools can include:
 
-**What Codex Creates:**
+- Play audio.
+- Record target audio.
+- Rerecord or remove audio.
+- Transcribe speech to text.
+- Validate audio.
+- Use a countdown before recording starts.
 
-```
-MyVideo.source    # Original subtitles (read-only)
-MyVideo.codex     # Your translation workspace
-```
+## Media Storage
 
-Each subtitle becomes a cell with:
-- Original text
-- Start timestamp
-- End timestamp
-- Unique cell ID
+Before starting a media-heavy project, review [Media and Storage](/docs/project-management/media-and-storage). **Auto Download Media**, **Stream & Save**, and **Stream Only** affect offline playback and export reliability.
 
-### Step 2: Translate Subtitles
+## Export Media Work
 
-1. Open the `.codex` file (your translation workspace)
-2. Each cell represents one subtitle segment
-3. Source text appears on the left (if available)
-4. Type your translation on the right
-5. Timing information is preserved automatically
+1. Open the **Main Menu**.
+2. Click **Export**.
+3. Select the file group.
+4. Choose a subtitle, round-trip, text, data, or audio export option.
+5. For audio deliverables, choose the audio options you need, such as timestamps or **Consolidate by Character**.
+6. Select milestones if the wizard asks for a range.
+7. Choose the destination folder and export.
 
-<Callout type="info">
-**Timing Tip:** The timestamp metadata is preserved in each cell. You don't need to manually manage start/end times—Codex handles this automatically during export.
+<Callout type="warning">
+If the deliverable depends on original media, avoid switching the project to **Stream Only** before export unless your coordinator confirms it is safe.
 </Callout>
 
-### Step 3: Export Translated Subtitles `Beta`
-
-1. Open **Project Settings** (sidebar menu)
-2. Scroll to **Export Project**
-3. Choose **"Rebuild Export"** or **"VTT/SRT"** option
-4. Select your translated `.codex` file
-5. Download the exported subtitle file
-
-Your exported file will have:
-- Same timing as the original
-- Your translated text
-- Original subtitle format (VTT or SRT)
-
-<Callout type="info">
-Subtitle export is currently in beta — output may require manual review. See [Export Formats](/docs/translation/exporting-project#export-formats) for details on format availability.
-</Callout>
-
-### Subtitle Import Examples
-
-**Example 1: Simple 1-to-1 Mapping**
-
-Original English subtitle:
-```
-00:00:10.000 --> 00:00:12.000
-Hello, world!
-```
-
-After import, becomes a cell:
-- **Cell ID:** `MyVideo 1:1`
-- **Start:** 10.0 seconds
-- **End:** 12.0 seconds
-- **Content:** "Hello, world!"
-
-**Example 2: Complex Mappings**
-
-The subtitle importer handles:
-- **1:1 mapping** - One source subtitle → one cell
-- **1:many mapping** - One source split across multiple target subtitles
-- **many:1 mapping** - Multiple sources combined into one target
-- **many:many mapping** - Complex overlapping subtitles
-
-The system uses **timestamp overlap detection** to automatically align translations during Target Import.
-
----
-
-## Audio Translation
-
-### Importing Audio Files
-
-The audio importer uses **Voice Activity Detection (VAD)** to automatically split a long audio file into individual segments (one per cell). This is the primary way to bring audio into a Codex project from scratch.
-
-**How to import:**
-
-1. Open Navigation → **Add Files**
-2. Choose the **Audio** importer
-3. Configure VAD settings (see below)
-4. Select your audio file(s)
-5. Review and edit the detected segments
-6. Click **Import**
-
-#### Voice Activity Detection (VAD)
-
-VAD analyzes the audio waveform to find silences and automatically places segment boundaries. Two settings control this behavior:
-
-| Setting | Range | Default | Effect |
-|---|---|---|---|
-| **Silence Threshold** | -60 to -20 dB | -40 dB | Lower values detect quieter sounds as speech |
-| **Min Silence Duration** | 0.1 to 2.0 s | 0.5 s | Shorter values create more (finer) segments |
-
-After adjusting the sliders, click **Apply** to re-run VAD on your file. Click **Revert** to return to defaults.
-
-#### Waveform Editor
-
-After the file is processed, a waveform preview appears. You can:
-
-- **Drag segment boundaries** (the vertical lines) left or right to adjust split points
-- **Click a segment** in the list to highlight it in the waveform and scroll to it
-- **Play any segment** using the play/pause button in the segment list
-- **Split a segment** at its midpoint using the **+** button
-- **Merge a segment** with the next one using the **trash** button (dissolves the boundary)
-
-<Callout type="info">
-**Auto-split:** Any segment longer than 30 seconds is automatically split into smaller pieces to keep cell sizes manageable.
-</Callout>
-
-#### Multi-file Import
-
-Select multiple audio files at once. Each file gets its own tab at the top of the importer, and all files are imported sequentially. Each file becomes its own document.
-
-### Supported Audio Formats
-
-- **`.mp3`** - Good compression, widely supported
-- **`.wav`** - Recommended for best quality
-- **`.m4a`** - Apple format, good quality
-- **`.aac`** - Advanced audio coding
-- **`.ogg`** - Open source format
-- **`.webm`** - Web-native format (also used internally for recordings)
-- **`.flac`** - Lossless compression
-
----
-
-## Working with Audio in the Cell Editor
-
-Once a cell has audio (imported or recorded), the cell editor shows a full audio panel with a waveform, playback controls, and several action buttons.
-
-### Waveform View
-
-Each cell with audio displays a **waveform canvas** showing the amplitude of the recording over time. Click play to listen. Only one cell's audio plays at a time—starting playback in one cell automatically stops any other playing cell.
-
-### Recording Audio
-
-Codex has **built-in audio recording**. To record for a cell:
-
-1. Open a cell in the editor
-2. Click **Re-record** (microphone icon) to open the recorder
-3. Record your audio using your microphone
-4. Save the recording—it replaces or is added to the cell's audio
-
-<Callout type="info">
-The recorder uses your browser's MediaRecorder API. You may be prompted to grant microphone access the first time.
-</Callout>
-
-### Transcription (Whisper)
-
-Codex integrates with Whisper automatic speech recognition to generate a text transcription of any cell's audio:
-
-1. Click **Transcribe** in the cell audio panel
-2. A progress bar shows transcription progress
-3. When complete, the transcribed text and detected language appear above the waveform
-4. Click **Insert Transcription** to copy the text into the cell's translation field
-
-### Audio History
-
-Every cell keeps a history of all recordings. Click **History** (with a count badge showing how many recordings exist) to open the history viewer, where you can:
-
-- Play any previous recording
-- Select a recording to make it the active one
-- Delete recordings you no longer need
-- Restore a previously deleted recording
-
-### Audio Validation
-
-For team workflows, cells support **multi-user audio validation**:
-
-- A **Validate** badge appears in the top-right corner of the audio panel
-- Click it to mark the recording as validated by the current user
-- Hover to see which team members have validated that recording
-- A configurable required validation count determines when a recording is fully approved
-- The badge changes appearance as validation progresses (unvalidated → partially validated → fully validated)
-
----
-
-## Advanced Workflows
-
-### Dubbing Video Content
-
-Complete workflow for video dubbing:
-
-1. **Import subtitles** (VTT/SRT) through Navigation → Add Files
-2. **Translate** the subtitle text in the `.codex` file
-3. **Record audio** for each cell using the built-in recorder or by importing files
-4. **Review** using the video player and timeline editor in the editor
-5. **Validate** recordings with your team using the audio validation workflow
-6. **Export subtitles** for final video through Project Settings (subtitle export is in beta; audio export is coming soon)
-
-### Oral Translation Projects
-
-For communities creating oral translations:
-
-1. **Import your source text** (USFM, plain text, or subtitles)
-2. **Record verse-by-verse** using the built-in recorder in each cell
-3. **Use Whisper transcription** to generate a text draft from recordings
-4. **Review** the transcription against the recording
-5. **Validate** with team members using the audio validation feature
-6. **Export** your translation when complete (text export is stable; audio export is coming soon)
-
-### Audio Bible Recording
-
-**Book:** Jude (example)
-
-1. Open your Jude `.codex` file
-2. For each verse cell, click **Re-record** and record the verse
-3. Use **Transcribe** to get a text draft if needed
-4. Use **History** to compare takes and select the best one
-5. Have team members **Validate** each verse
-6. Export the final audio files (audio export is coming soon — see [export formats](/docs/translation/exporting-project#export-formats))
-
----
-
-## Subtitle Translation Examples
-
-### Example Project: Translating a Documentary
-
-**File:** `Documentary_Episode1.vtt`
-
-**Step-by-Step:**
-
-1. **Import:**
-   - Navigation → Add Files → Subtitles
-   - Upload `Documentary_Episode1.vtt`
-   - Creates `Documentary_Episode1.source` and `Documentary_Episode1.codex`
-
-2. **Translate:**
-   - Open `Documentary_Episode1.codex`
-   - See 247 subtitle cells
-   - Each cell shows timestamp range
-   - Translate cell by cell
-
-3. **Export:**
-   - Project Settings → Export
-   - Select Rebuild Export
-   - Choose `Documentary_Episode1.codex`
-   - Download the exported `.vtt` file
-
-4. **Test:**
-   - Open the video in the Codex editor's Video tab to preview with the timeline
-   - Or open in an external player (VLC, etc.) with the exported subtitle file
-
----
-
-<Accordions>
-<Accordion title="Troubleshooting">
-
-### Audio Buttons Not Appearing
-
-**Problem:** No audio controls appear for a cell
-
-**Solutions:**
-- Verify the cell has an associated audio attachment (check by opening the cell)
-- Try re-importing the audio files
-- Reload the editor window
-
-### Audio Won't Play
-
-**Problem:** Waveform appears but no sound plays
-
-**Solutions:**
-- Check system volume and browser microphone/audio permissions
-- Verify audio file isn't corrupted (open in a media player externally)
-- Try a different audio format (WAV is most reliable)
-- Check file size—very large files may fail to load in the webview
-
-### VAD Not Splitting Correctly
-
-**Problem:** Too many or too few segments after import
-
-**Solutions:**
-- Lower the silence threshold (e.g., -50 dB) to detect more quiet pauses
-- Raise it (e.g., -30 dB) if background noise is being treated as silence
-- Increase minimum silence duration to merge short pauses into fewer segments
-- Use the waveform editor to manually split or merge segments after VAD runs
-
-### Subtitle Timing Issues
-
-**Problem:** Exported subtitles don't sync with video
-
-**Solutions:**
-- Verify original subtitle file had correct timing
-- Check you didn't accidentally modify timestamp cells
-- Re-import original if timestamps were corrupted
-- Use subtitle editing software (Aegisub, Subtitle Edit) for timing adjustments before import
-
-### Transcription Not Starting
-
-**Problem:** Clicking Transcribe has no effect or times out
-
-**Solutions:**
-- Check that a Whisper server is configured in your project settings
-- Verify network access to the transcription endpoint
-- The default timeout is 60 seconds—large audio files may exceed this
-- Try a shorter audio clip first to confirm the connection works
-
-</Accordion>
-</Accordions>
-
----
-
-## Best Practices
-
-### For Subtitle Translation
-
-1. **Keep translations concise** - Match source length when possible
-2. **Respect timing constraints** - Viewers need time to read
-3. **Use natural language** - Spoken style, not written
-4. **Test frequently** - Export and watch with video using the built-in player
-5. **Consider reading speed** - Different languages have different speeds
-
-### For Audio Projects
-
-1. **Use VAD for bulk import** - Let Codex segment your files automatically
-2. **Fine-tune boundaries** - Drag segment lines in the waveform editor
-3. **Record in a quiet environment** - Minimizes background noise
-4. **Use History** - Keep multiple takes and pick the best one
-5. **Validate as a team** - Use the validation workflow before finalizing
-6. **Transcribe for accuracy checks** - Use Whisper to verify recordings match text
-
-### For Professional Projects
-
-1. **Version control** - Use Git or regular backups
-2. **Quality checks** - Multiple reviewers using audio validation
-3. **Style guides** - Document translation conventions
-4. **Delivery formats** - Know client requirements before exporting
-5. **Archive everything** - Keep all source files and takes
-
----
-
-## Technical Details
-
-### Supported Timestamp Formats
-
-For subtitle files:
-
-**WebVTT:**
-```
-00:00:10.000 --> 00:00:12.500
-Subtitle text here
-```
-
-**SubRip (SRT):**
-```
-1
-00:00:10,000 --> 00:00:12,500
-Subtitle text here
-```
-
-Both formats are automatically detected and parsed.
-
-### Audio Storage
-
-Imported and recorded audio is stored in `.project/attachments/files/{BOOK}/` within your project (e.g., `.project/attachments/files/MAT/`), with a legacy fallback to `.project/attachments/{BOOK}/`. Recorded files use auto-generated names (e.g., `audio-{timestamp}-{id}.webm`) and are referenced by attachment ID in cell metadata. The importer manages this automatically.
-
-### File Size Considerations
-
-- **WAV files:** Large but high quality (approximately 10 MB per minute)
-- **MP3 files:** Smaller, good quality (approximately 1 MB per minute at 128 kbps)
-- **Project size:** Plan storage accordingly for complete projects
-- **Cloud sync:** Large audio files may slow synchronization
-
----
-
-## Next Steps
-
-After setting up your video/audio project:
-
-- [Configure export options](/docs/translation/exporting-project)
-- [Share with team members](/docs/project-management/sharing-managing-projects)
-- [Use AI assistance](/docs/translation/ai-settings) for subtitle translation
-- [Learn about batch translation](/docs/translation/batch-translation) for faster subtitle work
-
----
-
-## FAQ
-
-<Accordions type="multiple">
-  <Accordion title="Can Codex play video files directly?">
-    Yes. When you open a `.codex` file that has video timestamps (e.g., from a subtitle import), a Video tab appears in the cell editor with a built-in video player and synchronized timeline editor.
-  </Accordion>
-
-  <Accordion title="What if my subtitle file has timing errors?">
-    You'll need to fix timing in dedicated subtitle editing software (Aegisub, Subtitle Edit) before importing. Codex preserves the timing from import but doesn't provide timing adjustment tools.
-  </Accordion>
-
-  <Accordion title="Can I record audio directly in Codex?">
-    Yes. Click the **Re-record** button (microphone icon) in any cell's audio panel to record using your microphone. Codex uses the browser's MediaRecorder API and stores the recording as an attachment on the cell.
-  </Accordion>
-
-  <Accordion title="How do I handle subtitles for multiple speakers?">
-    Use the Cell Label Importer feature to add speaker names. See the [Importing Files documentation](/docs/project-management/importing-files) for details.
-  </Accordion>
-
-  <Accordion title="Can I use Codex for podcast translation?">
-    Yes! Import a transcript as plain text or subtitles with timestamps, translate it, and use audio files to reference the original. Export as subtitles or plain text.
-  </Accordion>
-
-  <Accordion title="What's the maximum subtitle file size?">
-    There's no hard limit, but files with thousands of subtitles (feature-length films) may take longer to process. For very large files, consider splitting into segments.
-  </Accordion>
-
-  <Accordion title="How does Voice Activity Detection work?">
-    VAD analyzes the audio waveform and detects silences based on the silence threshold (dB) and minimum silence duration you configure. Segments between silences become individual cells. You can adjust these settings and re-run VAD, then fine-tune boundaries manually in the waveform editor.
-  </Accordion>
-
-  <Accordion title="Can I keep multiple takes of a recording?">
-    Yes. Every recording is saved to the cell's history. Click **History** to view all takes, play them, and select which one is active. Previous takes are never automatically deleted unless you explicitly remove them.
-  </Accordion>
-
-  <Accordion title="What is audio validation?">
-    Audio validation is a team quality-control workflow. Team members listen to a cell's recording and click **Validate** to approve it. You can configure how many validations are required before a recording is considered fully approved. The validation badge shows current status and who has validated.
-  </Accordion>
-</Accordions>
-
----
-
-<Accordions>
-<Accordion title="Troubleshooting Audio and Video">
-
-### First audio import is not processing
-
-The first time you import an audio file, Codex automatically downloads audio processing tools (FFmpeg). This is a one-time download that is required before any audio file can be processed.
-
-<Callout type="info">
-Make sure you have a stable internet connection for your first audio import. If the FFmpeg download fails silently, audio processing will not work. If this happens, close Codex, reconnect to a stable network, and try the import again.
-</Callout>
-
-If you are on a restricted network (corporate firewall, VPN, or limited bandwidth), you may need to ask your network administrator to allow access to FFmpeg download servers, or import on a different network for the first session.
-
----
-
-### Audio file format support
-
-Codex supports the following audio formats for **import and full playback**:
-
-- `.mp3`
-- `.wav`
-- `.m4a`
-- `.ogg`
-- `.webm`
-
-The following formats can be **imported** but may not play back correctly in the cell editor:
-
-- `.aac`
-- `.flac`
-
-If you are working with `.aac` or `.flac` files and experiencing playback issues, convert them to `.mp3` or `.wav` before importing for the best experience.
-
----
-
-### Audio cells are not aligning correctly with the source
-
-Audio is split into cells using Voice Activity Detection, which identifies speech boundaries automatically. If cells are not aligning as expected:
-
-1. Check that your audio file is clean — background noise, music overlapping speech, or very fast speech can affect detection accuracy.
-2. Try a shorter segment to test alignment before importing a full recording.
-3. If alignment is consistently wrong across a project, complete the [Troubleshooting guide](/docs/troubleshooting) support form. Describe what you expect vs what you are seeing, then paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp) with a short sample of the audio file.
-
----
-
-### Video is not playing alongside subtitle cells
-
-If you have imported a subtitle file but cannot see or attach a video:
-
-1. In the subtitle translation view, look for a **video attachment** option in the toolbar or project settings.
-2. The video file must be on your local device — Codex does not stream video from external sources.
-3. Supported video formats vary by operating system. If a format is not supported, convert the video to `.mp4` (H.264) before attaching.
-4. If you cannot locate the video attachment option, check your Codex version and update if needed — this feature was added in a recent release.
-
----
-
-### Subtitle timestamp alignment is off after export
-
-If your exported VTT or SRT file has timing that does not match the video:
-
-1. Check whether the source subtitle file was edited after you imported it into Codex. Changes to the source timestamps after import will not automatically update in Codex.
-2. Re-import the updated source file and translate the changed cells.
-3. Export again and test against the video.
-
-If timestamps are consistently off by a fixed amount (e.g. always 2 seconds early), this may be a source file offset issue. Complete the [Troubleshooting guide](/docs/troubleshooting) support form with a description of the offset, then paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp) with a sample of the source and exported files.
-
----
-
-### Still stuck?
-
-1. Review [Reporting Bugs](/docs/project-management/reporting-bugs) to collect console logs.
-2. Complete the [Troubleshooting guide](/docs/troubleshooting) support form with your audio or video file format and what you tried.
-3. Paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
-
-</Accordion>
-</Accordions>
-
----
-
-**Need help with media translation?** Complete the [Troubleshooting guide](/docs/troubleshooting) support form for audio, subtitle, and transcription issues, then paste the generated template into [Discord](https://discord.gg/6kVJTEXYEp).
+## Review Checklist
+
+- Confirm translated text fits timing constraints.
+- Review speaker labels before excluding or preserving them.
+- Play sample exports before delivering the full project.
+- Validate audio when your project requires audio review.
+- Keep a backup before large media exports.
+
+## Related Pages
+
+- [Importing Files](/docs/project-management/importing-files)
+- [Media and Storage](/docs/project-management/media-and-storage)
+- [Exporting Projects](/docs/translation/exporting-project)

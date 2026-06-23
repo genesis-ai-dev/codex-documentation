@@ -1,69 +1,49 @@
 ---
-title: Batch Translations
-description: Learn how to use AI-powered batch translation to queue multiple cells at once, streamlining your translation workflow in Codex
+title: Batch Translation
+description: Use Autocomplete Chapter to queue AI suggestions for multiple cells safely.
 ---
 
-<LoomVideo videoId="276e24cc8eea4600bc2c0a26621e3e43" timestamp={0} title="Batch Translation in Codex" />
+# Batch Translation
 
-## Overview
+Batch translation lets Codex queue AI suggestions for several cells instead of working one cell at a time. It is useful for first drafts, repeated structures, and sections where the project system message is already strong.
 
-While you can translate cell by cell in Codex, batch translation allows you to leverage AI to queue up multiple cells at once for autocompletion, significantly speeding up your translation workflow.
+## Before You Start
 
-## Selecting Cells to Translate
+1. Confirm source and target languages are correct in the Main Menu.
+2. Review [AI Settings](/docs/translation/ai-settings).
+3. Make sure the current file has enough context and examples.
+4. Decide which cells should be included.
 
-When setting up a batch translation, you can choose from different cell types:
+## Run Batch Translation
 
-- **Empty cells with no content** - Cells that are completely empty
-- **Not validated by any user** - Cells that haven't been reviewed by anyone yet
-- **Not validated by you** - Cells you haven't personally validated
-- **Fully validated by others** - Cells that have been validated by other team members
+1. Open the file you want to translate.
+2. Use **Autocomplete Chapter** from the chapter or section toolbar.
+3. Choose which cells to include, such as empty cells or cells that have not been validated.
+4. Choose how many cells to queue.
+5. Start the batch.
+6. Review each suggestion before validating it.
 
-You can select the specific number of cells you want to translate at once, or use the "All" button to translate all cells matching your criteria.
+<Callout type="warning">
+Do not run a large batch immediately after changing the system message. Test a few cells first so you can catch tone, terminology, or formatting problems early.
+</Callout>
 
-## Running a Batch Translation
+## Per-Cell Autocomplete vs Chapter Autocomplete
 
-1. Select your desired cell type criteria
-2. Choose the number of cells to translate
-3. Click to start the batch translation
-4. The system will queue up the selected cells and process them with AI
+- **Autocomplete with AI** works on one selected cell.
+- **Autocomplete Chapter** queues multiple cells in the current chapter or section.
 
-Note that the system will skip cells without content, so the cell count may appear to jump (e.g., from 9 to 11 if cell 10 was empty).
+Use per-cell autocomplete for sensitive passages or cleanup. Use chapter autocomplete when the pattern is predictable and review capacity is available.
 
-## Reviewing AI Translations
+## Review Checklist
 
-After the AI generates translations, it's important to review them as a human to verify accuracy:
+After a batch finishes:
 
-- Check each translation for errors or issues
-- Edit the text manually if needed
-- Click the validation button if the translation looks good
+- Read each generated cell against the source.
+- Fix terminology and formatting.
+- Check footnotes, tags, or HTML if the source uses them.
+- Add comments for questions.
+- Validate only reviewed work.
 
-## Validation Settings
+## Troubleshooting
 
-Configure your validation settings in the top left corner:
-
-- Set the number of validators required (e.g., 2 or 3)
-- Track who has validated which cells
-- Monitor which translations have passed review
-
-Audio recording validations are also available, though they work separately from text validations.
-
-## How AI Improves Over Time
-
-The AI adapts to your translation tendencies as you make progress:
-
-- The more you translate and validate, the better the AI becomes
-- Your editing patterns help train the AI for more accurate suggestions
-- Later translations will be more aligned with your style
-
-## Automatic Validation
-
-When you edit a cell in the dialog box, it's automatically validated by you. The system assumes that if you've entered and edited a cell, you've reviewed it.
-
-If you're uncertain about a translation even after editing, you can remove your validation by clicking the delete button next to the validation indicator.
-
-## Best Practices
-
-- Start with smaller batches to review AI quality
-- Consistently validate translations to improve AI learning
-- Use the validation system to track team progress
-- Remove validations when uncertain rather than leaving potentially incorrect validations in place 
+If batch translation is unavailable, confirm a target file is open, you are signed in, and the project has a system message. If suggestions are poor, update [AI Settings](/docs/translation/ai-settings) before trying again.

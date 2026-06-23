@@ -2,14 +2,15 @@
   "title": "Translation",
   "pages": [
     "translation-tools",
-    "seed-bible-upload",
     "ai-settings",
     "batch-translation",
+    "milestones-and-navigation",
     "search-and-replace",
     "comments",
     "merging-editing-source-cells",
+    "child-cell-editing",
     "video-audio-translation",
     "exporting-project",
-    "child-cell-editing"
+    "seed-bible-upload"
   ]
-} 
+}

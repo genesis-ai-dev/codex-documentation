@@ -1,49 +1,54 @@
 ---
-title: Creating a New Project
-description: Learn how to create and initialize your first translation project in Codex Editor
+title: Creating a Project
+description: Create a new Codex project with a name, source language, and target language.
 ---
 
-<LoomVideo videoId="79a8eec17a4c4d06ac07b335e51b8f2d" title="Creating a Project" />
+# Creating a Project
 
-Once you've logged into Codex, you'll see the project setup screen displaying all available projects.
+Create a project when you are starting a new translation workspace. Codex asks for the project name, source language, and target language before it creates the project so the editor, AI settings, validation, and export tools all have the right project context.
 
-## Understanding the Project Screen
+## Create a New Project
 
-The project setup screen shows three types of projects:
+1. Launch Codex and sign in.
+2. On the **Project Setup** screen, click **Create New Project**.
+3. Enter the project name.
+4. Choose the **Source** language.
+5. Choose the **Target** language.
+6. Confirm to create the project.
 
-### Local Projects (Gray)
-Projects that exist only on your machine and haven't been synced with any teams. These are private to your computer.
+After the project opens, use the Navigation panel to add source files.
 
-### Team Projects (Blue)
-Projects that have been synced with other teams. The blue indicator shows they're connected to a shared workspace.
+<Callout type="info">
+If you create a project while offline, it starts as a local project. Publish it later from the Main Menu when you are ready to collaborate.
+</Callout>
 
-### Remote Projects
-Projects you've been invited to but haven't downloaded yet. These show a **Clone** option, allowing you to download them to your local machine.
+## What Happens After Creation
 
-## Filtering Your Projects
+A new project starts with project metadata and empty translation workspace structure. It does not contain source content until you import it.
 
-You can sort and filter projects using the view options:
+Your usual next steps are:
 
-- **Available Locally**: Shows all projects downloaded to your computer
-- **Local Only**: Projects that exist only on this machine (not yet published to teams)
-- **Remote**: Projects you've been invited to but haven't downloaded yet
+1. Open **Navigation** from the compass icon.
+2. Click **Add Source File**.
+3. Import source content.
+4. Review or create the project system message when the import wizard asks for it.
+5. Start translating in the generated target files.
 
-## Creating a New Project
+## Rename a Project
 
-Creating a project is straightforward:
+Open the **Main Menu** and edit the project name near the top of the panel. Renaming changes how the project appears in Codex. If the project is shared, sync after renaming so collaborators receive the updated metadata.
 
-1. Click the **Create New Project** button
-2. Enter your project name (e.g., "The Cool Project")
-3. Your project will be created instantly
+## Local, Cloud, and Team Projects
 
-That's it! Your new project is ready to go.
+- **Local project**: Exists on this device. You can edit it offline.
+- **Cloud project**: Available to download from the project list because you have access to it.
+- **Synced project**: Exists locally and has a cloud remote for team collaboration.
+- **Non-synced project**: Exists locally but has not been published or connected to cloud sync.
+
+Use [Opening and Closing Projects](/docs/project-management/opening-and-closing-projects) to understand the startup project filters and project-card actions.
 
 ## Next Steps
 
-After creating your project, you'll configure:
-
-1. **[Source Language](/docs/project-management/source-and-target-languages)**: The language you're translating from
-2. **[Target Language](/docs/project-management/source-and-target-languages)**: The language you're translating to
-3. **[Import Files](/docs/project-management/importing-files)**: Add your source texts to begin translation
-
-Your new project will appear as a gray (local) project until you choose to sync it with a team.
+- [Import files](/docs/project-management/importing-files)
+- [Project Settings](/docs/project-management/project-settings)
+- [Sharing and Managing Projects](/docs/project-management/sharing-managing-projects)

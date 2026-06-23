@@ -1,12 +1,13 @@
 {
   "title": "Codex Editor Documentation",
   "pages": [
-    "troubleshooting",
-    "antivirus-blockages",
+    "index",
     "getting-started",
     "project-management",
     "translation",
     "releases",
+    "troubleshooting",
+    "antivirus-blockages",
     "faq"
   ]
 }
