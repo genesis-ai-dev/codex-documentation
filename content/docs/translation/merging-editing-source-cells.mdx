@@ -38,20 +38,21 @@ The controls are hidden by default to prevent accidental source changes.
 1. Enable source editing mode.
 2. Find the second cell in the pair you want to merge.
 3. Use the merge-with-previous action on that cell.
-4. Confirm the merge when prompted.
+4. Confirm the merge when prompted. Merging always asks for confirmation before changing the structure.
 5. Review the combined source text.
 6. Save the change.
 
 When source cells merge, the corresponding target structure is kept in sync so translators can work against the updated segmentation.
 
-## Revert or Clean Up a Merge
+## Unmerge a Merged Cell
 
-If a merge was not right:
+If a merge was not right, you can undo it:
 
-1. Use the revert action when it is available.
-2. Review both source and target content afterward.
-3. Clean up any extra text that remains.
-4. Sync the project if others are working from the same files.
+1. In source editing mode, find the merged cell. Merged content appears greyed out.
+2. Click **Unmerge** on that cell.
+3. Review both source and target content afterward.
+4. Clean up any extra text that remains.
+5. Sync the project if others are working from the same files.
 
 ## Edit Source Text
 
