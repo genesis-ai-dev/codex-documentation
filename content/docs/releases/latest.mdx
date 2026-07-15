@@ -11,35 +11,45 @@ This page summarizes user-facing changes that matter when following the document
 
 | Component | Latest stable release reflected here |
 | --- | --- |
-| **Codex Translation Editor extension** | `0.29.0` |
+| **Codex Translation Editor extension** | `0.30.0` |
 | **Codex desktop app** | `1.108.13184` |
 
 <Callout type="info">
 If your installed version is older, update Codex before troubleshooting behavior that differs from these docs.
 </Callout>
 
-## Codex Translation Editor 0.29.0
+## Codex Translation Editor 0.30.0
 
-Published June 22, 2026.
+Published July 13, 2026.
 
-### Media and Audio
+### New Features
 
-- The play-video button is available even when the cell does not have recorded audio yet.
-- URL and video file deletion now asks for confirmation before removing the item.
-- Overlapping subtitle timestamp handling was fixed for a media project edge case.
-- Character audio export functionality and audio export options were expanded.
+- **Audio track selector** in the video player: when a streamed video offers more than one language track, pick which audio track plays. See [Video and Audio Translation](/docs/translation/video-audio-translation).
+- **Advanced speech recognition (ASR)**: transcription now includes language auto-detection, a new **Re-transcribe** option, and updated settings.
 
-### Export and Project Structure
+### Improvements
 
-- Export cancellation and media download strategy behavior were improved.
-- Milestone hoisting in verse-range reordering was fixed, improving structured scripture workflows.
+- **Faster project opening**: smarter media handling skips unnecessary downloads and saves bandwidth, especially for **Stream Only** projects.
+- **Better Word (.docx) import**: an option splits long passages into properly sized cells instead of one large block.
+- **HTML formatting in AI edits**: when HTML Enforcement is turned on, AI suggestions from the sparkle button keep valid formatting, and a new **Resolve All** action fixes flagged formatting mismatches in bulk.
+- **Tidier exports**: exporting files that have no audio no longer creates empty folders, and exported file names now include verse ranges.
 
-### Interface and Updates
+### Fixes
 
-- The **Restart Now** button no longer overflows its container.
-- The extension package now targets the `0.29.0` release and updates the required Frontier Authentication version.
+- The **Publish to Cloud** button no longer covers text in narrow columns.
+- The audio status shown in the cell list is accurate again.
+- **Consolidate by Character** audio export now works in **Stream & Save** and **Stream Only** modes.
+- Deleting a video now stops it from continuing to load in streaming modes.
+- In the Export wizard, clicking a cell that has no audio now opens the correct chapter.
+- The **Unmerge** option for merged content was restored, and merging in the editor now asks for confirmation. See [Merging and Editing Source Cells](/docs/translation/merging-editing-source-cells).
+- Fixed several project-content issues: duplicate or repeated cells, mismatched verse ranges between source and target, source/target timestamp mismatches, deleted lines appearing in USFM export, and lingering Greek/Hebrew corpus marker titles after an overwrite.
+- Book names containing a period no longer lose the text after it when syncing.
 
-Full changelog: [codex-editor 0.29.0](https://github.com/genesis-ai-dev/codex-editor/releases/tag/0.29.0).
+### Versions and Requirements
+
+- The extension package now targets the `0.30.0` release and raises the required Frontier Authentication version to `0.9.0`. Pinned team projects receive compatible versions automatically.
+
+Full changelog: [codex-editor 0.30.0](https://github.com/genesis-ai-dev/codex-editor/releases/tag/0.30.0).
 
 ## Codex Desktop App 1.108.13184
 
@@ -53,6 +63,8 @@ Full changelog and downloads: [codex 1.108.13184](https://github.com/genesis-ai-
 ## Recent Features To Know
 
 - Media-heavy projects can choose **Auto Download Media**, **Stream & Save**, or **Stream Only**.
+- The video player can switch between audio language tracks when the video provides them.
+- Speech recognition supports language auto-detection and re-transcribing existing recordings.
 - Audio export includes character-consolidated workflows and expanded audio options.
 - Project swap and remote updates can require contributors to apply project-card updates before continuing.
 - Offline and server-unreachable states allow local projects to open even when cloud services are unavailable.

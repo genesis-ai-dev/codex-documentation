@@ -28,9 +28,19 @@ Cell audio tools can include:
 - Play audio.
 - Record target audio.
 - Rerecord or remove audio.
-- Transcribe speech to text.
+- Transcribe speech to text, with automatic language detection.
+- **Re-transcribe** an existing recording after changing transcription settings.
+- Copy timestamps from the matching source cell when source and target timing drift apart.
 - Validate audio.
 - Use a countdown before recording starts.
+
+<Callout type="info">
+If Codex does not detect a microphone, the record button is disabled and a warning explains why. Check your input device and system permissions, then reopen the cell.
+</Callout>
+
+## Video Audio Tracks
+
+When a streamed video provides more than one audio language track, the video player shows an audio track selector. Use it to pick which language plays while you translate. The selector only appears when the video actually offers multiple tracks.
 
 ## Media Storage
 
