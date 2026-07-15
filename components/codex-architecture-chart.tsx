@@ -88,36 +88,44 @@ export function CodexArchitectureChart() {
         label="Foundation"
         sublabel="Desktop application for Windows, macOS, and Linux"
       >
-        <Link
-          href="/docs/getting-started/download-codex"
-          className="block rounded-xl border border-fd-primary/20 bg-fd-primary/5 px-4 py-3 text-center transition-colors hover:bg-fd-primary/10 hover:border-fd-primary/40"
-        >
-          <p className="text-sm font-semibold text-fd-foreground">
-            Codex Application
-          </p>
-          <p className="mt-0.5 text-xs text-fd-muted-foreground">
-            Custom VS Code distribution (via VSCodium) with Open VSX marketplace
-          </p>
-          <p className="mt-2 inline-flex items-center gap-1 rounded-md bg-fd-primary/10 px-2.5 py-1 text-xs font-medium text-fd-primary">
-            Download for your platform →
-          </p>
-        </Link>
+        <div className="space-y-3">
+          <Link
+            href="/docs/getting-started/download-codex"
+            className="block rounded-xl border border-fd-primary/20 bg-fd-primary/5 px-4 py-3 text-center transition-colors hover:bg-fd-primary/10 hover:border-fd-primary/40"
+          >
+            <p className="text-sm font-semibold text-fd-foreground">
+              Codex Application
+            </p>
+            <p className="mt-0.5 text-xs text-fd-muted-foreground">
+              Custom VS Code distribution (via VSCodium) with Open VSX marketplace
+            </p>
+            <p className="mt-2 inline-flex items-center gap-1 rounded-md bg-fd-primary/10 px-2.5 py-1 text-xs font-medium text-fd-primary">
+              Download for your platform →
+            </p>
+          </Link>
+          <div className="grid grid-cols-2 gap-3">
+            <ExtensionCard
+              name="CodexSideloader"
+              desc="Built into the app — installs the required core extensions from Open VSX when they are missing"
+              muted
+            />
+            <ExtensionCard
+              name="CodexConductor"
+              desc="Built into the app — manages extension version pins and project-specific profiles"
+              muted
+            />
+          </div>
+        </div>
       </LayerSection>
 
       <LayerConnector />
 
       <LayerSection
         label="Extension Layer"
-        sublabel="Modular components installed from Open VSX"
+        sublabel="Core extensions installed from Open VSX"
         accent
       >
         <div className="grid grid-cols-2 gap-3">
-          <ExtensionCard
-            name="Extension Sideloader"
-            desc="Bundled in the binary — activates on first launch, fetches the extensions below, then sits idle"
-            wide
-            muted
-          />
           <ExtensionCard
             name="Codex Translation Editor"
             desc="Custom .codex notebook editor, AI-powered translation tools, language server, and webview panels"
