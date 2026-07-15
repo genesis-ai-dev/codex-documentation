@@ -247,8 +247,8 @@ const VERSION_HELP_HREF = '/docs/project-management/update-extensions#verifying-
 const requiredFields: { key: EvidenceFieldKey; label: string; placeholder: string; multiline: boolean; helpHref?: string; helpLabel?: string }[] = [
   { key: 'projectName', label: 'Project name', placeholder: 'e.g. My Translation Project', multiline: false },
   { key: 'username', label: 'Username', placeholder: 'Your Codex account username', multiline: false },
-  { key: 'appVersion', label: 'Codex app version', placeholder: 'e.g. 1.108.11148', multiline: false, helpHref: `${VERSION_HELP_HREF}`, helpLabel: 'How to find this (Help → About)' },
-  { key: 'extensionVersion', label: 'Extension version', placeholder: 'e.g. 1.8.0', multiline: false, helpHref: `${VERSION_HELP_HREF}`, helpLabel: 'How to find this (Extensions panel)' },
+  { key: 'appVersion', label: 'Codex app version', placeholder: 'e.g. 1.108.13184', multiline: false, helpHref: `${VERSION_HELP_HREF}`, helpLabel: 'How to find this (Help → About)' },
+  { key: 'extensionVersion', label: 'Extension version', placeholder: 'e.g. 0.30.0', multiline: false, helpHref: `${VERSION_HELP_HREF}`, helpLabel: 'How to find this (Extensions panel)' },
   { key: 'operatingSystem', label: 'Operating system', placeholder: 'e.g. macOS 15, Ubuntu 24.04, Windows 11', multiline: false },
   { key: 'task', label: 'Describe the issue', placeholder: 'What is going wrong?', multiline: false },
   { key: 'reproductionSteps', label: 'Exact steps to reproduce', placeholder: 'List the steps someone else could follow', multiline: true },
