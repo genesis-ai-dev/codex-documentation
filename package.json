@@ -11,6 +11,7 @@
     "watch": "fumadocs-mdx watch"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.115.0",
     "fumadocs-core": "16.7.9",
     "fumadocs-mdx": "14.2.11",
     "fumadocs-ui": "16.7.9",
