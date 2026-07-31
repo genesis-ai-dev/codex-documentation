@@ -32,3 +32,5 @@ yarn-error.log*
 .env*.local
 .vercel
 next-env.d.ts
+# generated docs corpus for the Ask AI assistant
+/lib/docs-corpus.generated.json
