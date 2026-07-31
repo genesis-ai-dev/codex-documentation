@@ -1,10 +1,9 @@
-import Anthropic from '@anthropic-ai/sdk';
 import { getDocsCorpus } from '@/lib/docs-corpus';
+import { chatConfigured, streamChat, type ChatMessage } from '@/lib/chat-provider';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
 
-const MODEL = process.env.CHATBOT_MODEL ?? 'claude-haiku-4-5';
 const MAX_MESSAGES = 20;
 const MAX_MESSAGE_LENGTH = 4000;
 
@@ -35,7 +34,7 @@ Rules:
 - If the question is unrelated to Codex Editor or its documentation, politely decline and redirect to the docs.`;
 
 export async function POST(req: Request): Promise<Response> {
-  if (!process.env.ANTHROPIC_API_KEY) {
+  if (!chatConfigured()) {
     return Response.json(
       { error: 'The docs assistant is not configured on this deployment.' },
       { status: 503 },
@@ -50,7 +49,7 @@ export async function POST(req: Request): Promise<Response> {
     );
   }
 
-  let messages: { role: 'user' | 'assistant'; content: string }[];
+  let messages: ChatMessage[];
   try {
     const body = await req.json();
     messages = body.messages;
@@ -72,42 +71,9 @@ export async function POST(req: Request): Promise<Response> {
     return Response.json({ error: 'Invalid request body.' }, { status: 400 });
   }
 
-  const client = new Anthropic();
+  const system = `${INSTRUCTIONS}\n\n<documentation>\n${getDocsCorpus()}\n</documentation>`;
 
-  const stream = client.messages.stream({
-    model: MODEL,
-    max_tokens: 1024,
-    system: [
-      {
-        type: 'text',
-        text: `${INSTRUCTIONS}\n\n<documentation>\n${getDocsCorpus()}\n</documentation>`,
-        // The instructions + docs corpus are identical on every request, so
-        // repeat questions read them from cache at ~10% of input price.
-        cache_control: { type: 'ephemeral' },
-      },
-    ],
-    messages,
-  });
-
-  const encoder = new TextEncoder();
-  const readable = new ReadableStream<Uint8Array>({
-    start(controller) {
-      stream.on('text', (delta) => controller.enqueue(encoder.encode(delta)));
-      stream.on('end', () => controller.close());
-      stream.on('error', (err) => {
-        console.error('chat stream error:', err);
-        controller.enqueue(
-          encoder.encode('\n\nSorry, something went wrong. Please try again.'),
-        );
-        controller.close();
-      });
-    },
-    cancel() {
-      stream.abort();
-    },
-  });
-
-  return new Response(readable, {
+  return new Response(streamChat(system, messages), {
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
       'Cache-Control': 'no-store',

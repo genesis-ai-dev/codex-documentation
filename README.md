@@ -32,9 +32,9 @@ pnpm watch
 
 The docs site includes an "Ask AI" chat widget (bottom-right of every docs page) that answers verbatim questions from the documentation. It sends the full docs corpus to Claude Haiku with prompt caching, so no search index or vector database is involved.
 
-- Set `ANTHROPIC_API_KEY` in the deployment environment to enable it. Without the key, the widget shows a "not configured" message and the rest of the site works normally.
-- Optionally set `CHATBOT_MODEL` to override the model (defaults to `claude-haiku-4-5`).
-- The API route is `app/api/chat/route.ts`; the widget is `components/ask-ai.tsx`; the corpus builder is `lib/docs-corpus.ts`. New or edited MDX pages are picked up automatically on the next deploy.
+- The model is chosen with `CHATBOT_MODEL` (defaults to `claude-haiku-4-5`). The provider is inferred from the model name: `claude-*` uses Anthropic (requires `ANTHROPIC_API_KEY`), anything else uses OpenAI (requires `OPENAI_API_KEY`) — e.g. `CHATBOT_MODEL=gpt-5.6-luna`. Swap models by changing the env var; no code changes needed.
+- Without the matching API key, the widget shows a "not configured" message and the rest of the site works normally.
+- The API route is `app/api/chat/route.ts`; the provider layer is `lib/chat-provider.ts`; the widget is `components/ask-ai.tsx`; the corpus builder is `lib/docs-corpus.ts`. New or edited MDX pages are picked up automatically on the next deploy.
 
 ## Content Map
 

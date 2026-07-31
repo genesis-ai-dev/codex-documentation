@@ -16,6 +16,7 @@
     "fumadocs-mdx": "14.2.11",
     "fumadocs-ui": "16.7.9",
     "next": "16.2.9",
+    "openai": "^7.3.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },
