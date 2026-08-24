@@ -20,6 +20,7 @@ Use source editing when you need to:
 - Remove duplicated machine-generated content.
 - Add missing source text that was omitted during import.
 - Improve line breaks before translation begins.
+- Hide cells that do not need to be translated.
 
 Do not use source editing for translator discussion. Use [Comments](/docs/translation/comments) for questions and review notes.
 
@@ -63,6 +64,22 @@ If a merge was not right, you can undo it:
 5. Review the target side for any translation impact.
 
 Common corrections include punctuation, repeated words, missing phrases, and line breaks.
+
+## Hide Cells That Do Not Need Translation
+
+Imported files sometimes contain cells nobody should translate, such as boilerplate or repeated front matter. In source editing mode, each cell has an eye button next to the merge button:
+
+1. Enable source editing mode.
+2. Click the **eye** button on the cell you want to hide.
+3. The matching cell in the paired source or target file is hidden too.
+
+Hidden cells are not deleted. They stay in the file, appear dimmed in source editing mode so you can find and un-hide them, and sync to teammates like any other change. While hidden, they:
+
+- Do not appear in normal editing mode.
+- Are skipped by AI translation and autocomplete.
+- Are left out of exports. Round-trip exports keep the original untouched text in their place.
+
+To show a cell again, click its eye button in source editing mode.
 
 ## Disable Source Editing Mode
 

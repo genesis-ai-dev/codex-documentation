@@ -40,6 +40,8 @@ The wizard changes based on the selected files and format, but the usual flow is
 | **Generate USFM Without Validation** | Faster scripture export when you intentionally need to bypass validation. |
 | **XLIFF** | Localization and CAT-tool workflows. |
 
+USFM export offers **Export paratext cells as section headings (\s1)**, which writes unformatted heading cells as USFM section headings instead of plain paragraphs. It is off by default. Cells that span several verses export their full verse range, such as `\v 1-3`.
+
 ## Round-trip Export
 
 Use **Round-trip Export** when the file was imported with a round-trip importer and you want to return to the original format.
