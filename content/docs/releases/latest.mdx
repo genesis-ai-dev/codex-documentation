@@ -24,29 +24,31 @@ Published August 19, 2026.
 
 ### New Features
 
-- **Built-in audio editor**: edit a cell's recording inside Codex, with no FFmpeg install. Select a range on the waveform, then delete it, keep only that range, or insert another audio file at a chosen point. Zoom with Ctrl + mouse wheel, adjust the selection in 0.01-second steps, and undo edits. Saving creates a new WAV version and preserves the original recording. See [Video and Audio Translation](/docs/translation/video-audio-translation).
-- **Milestone editing**: rename milestones and subdivisions inline, and set how many cells appear per page. Turning on **Enable Milestone Placement Editing** in Interface Settings adds controls to add, remove, promote, and demote milestones on source files. See [Milestones and Navigation](/docs/translation/milestones-and-navigation).
-- **Hide cells that do not need translation**: in source editing mode, an eye button on each cell lets a project admin hide it. Hidden cells stay in the file and can be shown again at any time, but they leave the normal editing view, are skipped by AI translation, and are left out of exports. See [Merging and Editing Source Cells](/docs/translation/merging-editing-source-cells).
-- **Recording overage display**: when a recording runs past the cell's allotted time, the Audio Recording and Timestamps tabs show the extra time in brackets, such as `30.0s [+5.000s]`.
-- **AI instructions review on language change**: changing the project's source or target language opens a **Review AI Translation Instructions** window where you can regenerate or edit the AI instructions to match the new language pair. Canceling leaves the instructions untouched and points you to where to update them later. See [Source and Target Languages](/docs/project-management/source-and-target-languages).
+- **Built-in audio editor**: trim and edit recordings without altering the original, and preview your changes before saving. Recordings are automatically converted to a compact format on save. Audio attachments now share a 50 MB size limit. See [Video and Audio Translation](/docs/translation/video-audio-translation).
+- **Milestone editing**: milestones and subdivisions can now be renamed, promoted, and demoted directly from the navigation panel, and these changes are preserved across syncs. See [Milestones and Navigation](/docs/translation/milestones-and-navigation).
+- **Hide cells that shouldn't be translated**: project admins can now hide cells that shouldn't be translated. Hidden cells are excluded from exports, and the change is tracked in edit history. See [Merging and Editing Source Cells](/docs/translation/merging-editing-source-cells).
+- **Recording overage display**: when an audio recording runs past the allowed time, the recorder now shows how far over you are.
+- **AI system message review on language change**: changing your project's source or target language now prompts you to review and update the AI system message, so translation suggestions always match your current languages. Regeneration shows progress while it runs. See [Source and Target Languages](/docs/project-management/source-and-target-languages).
 
 ### Improvements
 
-- **Word (.docx) re-import repairs projects in place**: importing a file that matches an already imported document offers **Update Existing**, which rebuilds the source from the fresh file while keeping existing translations.
-- **New USFM export option**: **Export paratext cells as section headings (\s1)** turns unformatted heading cells into proper USFM section headings, and heading cells now export inside the chapter they belong to.
-- **Exports keep verse ranges**: a cell spanning several verses now exports the full range, such as `\v 1-3`, in USFM and HTML instead of only the last verse.
-- **Better find and replace**: replacements keep paragraph structure, footnotes, and inline formatting, and a **Retain my validations** checkbox controls whether prior validations carry forward. See [Search & Replace](/docs/translation/search-and-replace).
-- **Biblica Study Bible import**: stray text no longer imports, and previously missing text blocks, such as section headings, now come through.
-- **Wider edit history**: the edit history view now uses the available editor width, and Escape closes only that view.
+- Export structure warnings now include a **Continue anyway** button, so a lingering mismatch no longer blocks the export flow.
+- The edit history view is now wider, making better use of the available space.
 
 ### Fixes
 
-- **Sync data protection**: a set of fixes stops syncing from deleting or emptying files team-wide. Intentional deletions are recorded when you confirm them in the app; files that go missing without one are restored and reported, a partially read file can no longer be saved back as an empty file, and a sync that would wipe a file's cells is blocked with a **Restore from last sync** option.
-- **Structure mismatch overhaul**: persistent "Structure mismatch" warnings on Word-imported projects are now prevented at the source, resolved automatically where a safe fix exists, and repaired once in existing projects on upgrade. The **Resolve** action no longer overwrites a translation with source-language text.
-- Word documents containing text boxes no longer import their content twice.
-- Trailing blank lines at the end of a cell survive opening the cell.
-- DOCX round-trip export keeps the source text of untranslated segments in split paragraphs instead of dropping them.
-- InDesign editor markup and blank-cell merges no longer trigger tag warnings, long mismatch lists are summarized, and the export structure warning offers **Continue anyway**.
+- **Sync data protection**: fixed an issue where syncing could save a translation file back as empty, wiping its contents. Sync now prevents these wipes and automatically restores any emptied files it finds. Also fixed a bug where one user's out-of-date working copy could unintentionally delete files for everyone else during sync, and other cases where files disappeared after sync merges.
+- Verse ranges (e.g. `1-3`) are no longer dropped when exporting to HTML or USFM.
+- USFM export no longer drops Paratext chapter headings.
+- Cells split with "ideal cell length" during Word document import now export correctly, even when some segments are still untranslated.
+- Re-importing a Word document into an existing project now merges properly instead of duplicating content, with clearer prompts during import.
+- Fixed stray text in BSB imports and added support for additional Biblica content that previously wasn't imported.
+- Fixed duplicate imports caused by double-clicking during eBible downloads or the Finish Import step. Imports now complete immediately and can't be submitted twice.
+- HTML tag mismatches can now be resolved properly, with a new structure repair option, improved tag handling, and a batch-resolve button that only appears when mismatches actually exist.
+- Fixed false "missing tag" warnings: merging two untranslated cells no longer triggers a structure mismatch, and editor-only formatting from imported InDesign documents is now ignored when comparing structure. Real mismatches are still caught, and repeated tags are now summarized instead of listed one by one.
+- Merging several source cells in a row now updates the open target file after every merge, instead of only the first one until a reload.
+- The editor now stays on the verse you were viewing after merges, unmerges, milestone edits, and toggling source editing mode, instead of jumping to the top of the chapter.
+- Pressing Escape in the edit history view now closes just that view instead of the whole cell editor.
 
 ### Versions and Requirements
 
