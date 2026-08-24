@@ -11,45 +11,56 @@ This page summarizes user-facing changes that matter when following the document
 
 | Component | Latest stable release reflected here |
 | --- | --- |
-| **Codex Translation Editor extension** | `0.30.0` |
+| **Codex Translation Editor extension** | `0.32.0` |
 | **Codex desktop app** | `1.108.13184` |
 
 <Callout type="info">
 If your installed version is older, update Codex before troubleshooting behavior that differs from these docs.
 </Callout>
 
-## Codex Translation Editor 0.30.0
+## Codex Translation Editor 0.32.0
 
-Published July 13, 2026.
+Published August 19, 2026.
 
 ### New Features
 
-- **Audio track selector** in the video player: when a streamed video offers more than one language track, pick which audio track plays. See [Video and Audio Translation](/docs/translation/video-audio-translation).
-- **Advanced speech recognition (ASR)**: transcription now includes language auto-detection, a new **Re-transcribe** option, and updated settings.
+- **Built-in audio editor**: edit a cell's recording inside Codex, with no FFmpeg install. Select a range on the waveform, then delete it, keep only that range, or insert another audio file at a chosen point. Zoom with Ctrl + mouse wheel, adjust the selection in 0.01-second steps, and undo edits. Saving creates a new WAV version and preserves the original recording. See [Video and Audio Translation](/docs/translation/video-audio-translation).
+- **Milestone editing**: rename milestones and subdivisions inline, and set how many cells appear per page. Turning on **Enable Milestone Placement Editing** in Interface Settings adds controls to add, remove, promote, and demote milestones on source files. See [Milestones and Navigation](/docs/translation/milestones-and-navigation).
+- **Hide cells that do not need translation**: in source editing mode, an eye button on each cell lets a project admin hide it. Hidden cells stay in the file and can be shown again at any time, but they leave the normal editing view, are skipped by AI translation, and are left out of exports. See [Merging and Editing Source Cells](/docs/translation/merging-editing-source-cells).
+- **Recording overage display**: when a recording runs past the cell's allotted time, the Audio Recording and Timestamps tabs show the extra time in brackets, such as `30.0s [+5.000s]`.
+- **AI instructions review on language change**: changing the project's source or target language opens a **Review AI Translation Instructions** window where you can regenerate or edit the AI instructions to match the new language pair. Canceling leaves the instructions untouched and points you to where to update them later. See [Source and Target Languages](/docs/project-management/source-and-target-languages).
 
 ### Improvements
 
-- **Faster project opening**: smarter media handling skips unnecessary downloads and saves bandwidth, especially for **Stream Only** projects.
-- **Better Word (.docx) import**: an option splits long passages into properly sized cells instead of one large block.
-- **HTML formatting in AI edits**: when HTML Enforcement is turned on, AI suggestions from the sparkle button keep valid formatting, and a new **Resolve All** action fixes flagged formatting mismatches in bulk.
-- **Tidier exports**: exporting files that have no audio no longer creates empty folders, and exported file names now include verse ranges.
+- **Word (.docx) re-import repairs projects in place**: importing a file that matches an already imported document offers **Update Existing**, which rebuilds the source from the fresh file while keeping existing translations.
+- **New USFM export option**: **Export paratext cells as section headings (\s1)** turns unformatted heading cells into proper USFM section headings, and heading cells now export inside the chapter they belong to.
+- **Exports keep verse ranges**: a cell spanning several verses now exports the full range, such as `\v 1-3`, in USFM and HTML instead of only the last verse.
+- **Better find and replace**: replacements keep paragraph structure, footnotes, and inline formatting, and a **Retain my validations** checkbox controls whether prior validations carry forward. See [Search & Replace](/docs/translation/search-and-replace).
+- **Biblica Study Bible import**: stray text no longer imports, and previously missing text blocks, such as section headings, now come through.
+- **Wider edit history**: the edit history view now uses the available editor width, and Escape closes only that view.
 
 ### Fixes
 
-- The **Publish to Cloud** button no longer covers text in narrow columns.
-- The audio status shown in the cell list is accurate again.
-- **Consolidate by Character** audio export now works in **Stream & Save** and **Stream Only** modes.
-- Deleting a video now stops it from continuing to load in streaming modes.
-- In the Export wizard, clicking a cell that has no audio now opens the correct chapter.
-- The **Unmerge** option for merged content was restored, and merging in the editor now asks for confirmation. See [Merging and Editing Source Cells](/docs/translation/merging-editing-source-cells).
-- Fixed several project-content issues: duplicate or repeated cells, mismatched verse ranges between source and target, source/target timestamp mismatches, deleted lines appearing in USFM export, and lingering Greek/Hebrew corpus marker titles after an overwrite.
-- Book names containing a period no longer lose the text after it when syncing.
+- **Sync data protection**: a set of fixes stops syncing from deleting or emptying files team-wide. Intentional deletions are recorded when you confirm them in the app; files that go missing without one are restored and reported, a partially read file can no longer be saved back as an empty file, and a sync that would wipe a file's cells is blocked with a **Restore from last sync** option.
+- **Structure mismatch overhaul**: persistent "Structure mismatch" warnings on Word-imported projects are now prevented at the source, resolved automatically where a safe fix exists, and repaired once in existing projects on upgrade. The **Resolve** action no longer overwrites a translation with source-language text.
+- Word documents containing text boxes no longer import their content twice.
+- Trailing blank lines at the end of a cell survive opening the cell.
+- DOCX round-trip export keeps the source text of untranslated segments in split paragraphs instead of dropping them.
+- InDesign editor markup and blank-cell merges no longer trigger tag warnings, long mismatch lists are summarized, and the export structure warning offers **Continue anyway**.
 
 ### Versions and Requirements
 
-- The extension package now targets the `0.30.0` release and raises the required Frontier Authentication version to `0.9.0`. Pinned team projects receive compatible versions automatically.
+- The extension package now targets the `0.32.0` release. Pinned team projects receive compatible versions automatically.
 
-Full changelog: [codex-editor 0.30.0](https://github.com/genesis-ai-dev/codex-editor/releases/tag/0.30.0).
+Full changelog: [codex-editor 0.32.0](https://github.com/genesis-ai-dev/codex-editor/releases/tag/0.32.0).
+
+## Codex Translation Editor 0.31.0
+
+Published July 16, 2026.
+
+- **Cell Label Importer**: dialogue lists that use SMPTE timecode columns (`TC In` / `TC Out`) now import without spreadsheet preprocessing, and characters speaking at the same timestamp each keep their own label instead of overwriting one another. Rows that cannot be matched show as unmatched in the review table rather than replacing an earlier label.
+
+Full changelog: [codex-editor 0.31.0](https://github.com/genesis-ai-dev/codex-editor/releases/tag/0.31.0).
 
 ## Codex Desktop App 1.108.13184
 
@@ -62,6 +73,9 @@ Full changelog and downloads: [codex 1.108.13184](https://github.com/genesis-ai-
 
 ## Recent Features To Know
 
+- A built-in audio editor can trim, splice, and re-save cell recordings without external tools.
+- Milestones and subdivisions can be renamed, and milestone placement can be edited when the setting is turned on.
+- Project admins can hide cells that do not need translation; hidden cells skip AI translation and exports.
 - Media-heavy projects can choose **Auto Download Media**, **Stream & Save**, or **Stream Only**.
 - The video player can switch between audio language tracks when the video provides them.
 - Speech recognition supports language auto-detection and re-transcribing existing recordings.

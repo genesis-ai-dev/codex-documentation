@@ -27,16 +27,30 @@ Cell audio tools can include:
 
 - Play audio.
 - Record target audio.
-- Rerecord or remove audio.
+- Rerecord, edit, or remove audio.
 - Transcribe speech to text, with automatic language detection.
 - **Re-transcribe** an existing recording after changing transcription settings.
 - Copy timestamps from the matching source cell when source and target timing drift apart.
 - Validate audio.
 - Use a countdown before recording starts.
 
+If a recording runs past the cell's allotted time, the Audio Recording and Timestamps tabs show the extra time in brackets next to the allowed length, such as `30.0s [+5.000s]`. Recordings at or under the allowed time show no brackets.
+
 <Callout type="info">
 If Codex does not detect a microphone, the record button is disabled and a warning explains why. Check your input device and system permissions, then reopen the cell.
 </Callout>
+
+## Edit Recorded Audio
+
+The cell editor includes a built-in audio editor for cleaning up recordings without leaving Codex or installing FFmpeg:
+
+- Select a range on the waveform, then **delete** it or **keep** only that range.
+- **Insert** another audio file at a chosen point on the timeline.
+- Drag the Start, End, and Insert pointers directly on the waveform, or adjust them in 0.01-second steps.
+- Zoom the waveform with Ctrl + mouse wheel.
+- Undo delete, keep, and insert operations.
+
+Edits are non-destructive. The original recording is preserved, and choosing **Save as new version** writes the edited audio as a new WAV attachment.
 
 ## Video Audio Tracks
 
