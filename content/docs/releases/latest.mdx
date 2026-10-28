@@ -30,12 +30,6 @@ Published October 13, 2026.
 ### Improvements
 
 - **Line numbers restart at each milestone**: the number beside each cell now counts from the start of its chapter or section, so it matches the page range. Comments use the same numbering. See [Pagination and Subdivisions](/docs/translation/milestones-and-navigation#pagination-and-subdivisions).
-- **Biblica imports**: the Biblica importer now brings in book-name headings and headings inside the Bible text, such as Psalm titles, as translatable cells. Round-trip export of Biblica files also keeps verse breaks intact.
-- **Biblica migration commands**: projects imported with the old Biblica importer can move their translations into a fresh re-import that keeps styling. Run **Migrate Biblica Translations Into Re-imported Notebooks** from the Command Palette, then **Resolve HTML Structure Mismatches In All Notebooks** or **Force-Resolve Remaining HTML Structure Mismatches From Source**. Ask the Codex team before running these on a shared project.
-
-### Fixes
-
-- **Arabic spacing in Biblica notes**: fixed resolved cells that gained spaces before punctuation, split words in two, or ran words together. Cells that cannot be rebuilt without changing their text now keep their **Resolve** button instead. This fix does not repair cells already damaged; contact support if your project has them.
 
 Full changelog: [codex-editor 0.35.0](https://github.com/genesis-ai-dev/codex-editor/releases/tag/0.35.0).
 
