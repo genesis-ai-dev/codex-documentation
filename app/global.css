@@ -5,9 +5,10 @@
 /* Codex palette. fumadocs-ui 16.8+ reads --color-fd-* theme tokens holding
    full color values (the old bare-triplet --fd-* variables are ignored). */
 @theme {
-  /* Primary — Codex teal */
-  --color-fd-primary: hsl(168, 100%, 42%);
-  --color-fd-primary-foreground: hsl(240, 44%, 7%);
+  /* Primary — Codex teal, deepened and desaturated so link text reads at
+     5:1 on parchment (the full-saturation hsl(168, 100%, 42%) was 1.8:1) */
+  --color-fd-primary: hsl(170, 45%, 32%);
+  --color-fd-primary-foreground: hsl(0, 0%, 100%);
 
   /* Background — Codex parchment */
   --color-fd-background: hsl(60, 20%, 97%);
@@ -23,9 +24,9 @@
   /* Borders — warm neutral */
   --color-fd-border: hsl(37, 20%, 87%);
 
-  /* Hover / active — deeper teal */
-  --color-fd-accent: hsl(168, 100%, 36%);
-  --color-fd-accent-foreground: hsl(0, 0%, 100%);
+  /* Hover / active fill (sidebar, search, menus) — soft teal tint, ink text */
+  --color-fd-accent: hsl(168, 30%, 91%);
+  --color-fd-accent-foreground: hsl(240, 28%, 14%);
 
   /* Semantic (callouts) */
   --color-fd-error: hsl(358, 75%, 59%);
@@ -33,7 +34,8 @@
 }
 
 .dark {
-  --color-fd-primary: hsl(168, 100%, 42%);
+  /* Softer teal for dark backgrounds; still 8.5:1 on navy */
+  --color-fd-primary: hsl(168, 40%, 62%);
   --color-fd-primary-foreground: hsl(240, 44%, 7%);
 
   /* Background — Codex deep navy */
@@ -50,8 +52,8 @@
   /* Borders — subtle navy edges */
   --color-fd-border: hsl(240, 18%, 20%);
 
-  /* Hover — brighter teal for dark backgrounds */
-  --color-fd-accent: hsl(168, 100%, 46%);
+  /* Hover / active fill — muted teal-navy, off-white text */
+  --color-fd-accent: hsl(190, 22%, 24%);
   --color-fd-accent-foreground: hsl(36, 10%, 90%);
 
   --color-fd-error: hsl(358, 75%, 62%);
@@ -95,16 +97,17 @@ pre {
   background: color-mix(in srgb, var(--color-fd-primary) 8%, transparent) !important;
 }
 
-/* Prose links */
-.prose a:not([class]) {
+/* Prose links. Heading text is a bare self-anchor link (Fumadocs wraps it in
+   <a href="#id">), so exclude headings or every heading renders as a link. */
+.prose a:not([class]):not(:is(h1, h2, h3, h4, h5, h6) > a) {
   color: var(--color-fd-primary);
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
   transition: text-decoration-color 0.2s ease, color 0.2s ease;
 }
 
-.prose a:not([class]):hover {
-  color: var(--color-fd-accent);
+.prose a:not([class]):not(:is(h1, h2, h3, h4, h5, h6) > a):hover {
+  color: var(--color-fd-foreground);
 }
 
 /* Focus states */
