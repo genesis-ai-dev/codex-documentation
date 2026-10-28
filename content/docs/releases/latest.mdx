@@ -11,12 +11,27 @@ This page summarizes user-facing changes that matter when following the document
 
 | Component | Latest stable release reflected here |
 | --- | --- |
-| **Codex Translation Editor extension** | `0.34.0` |
+| **Codex Translation Editor extension** | `0.35.0` |
 | **Codex desktop app** | `1.108.13184` |
 
 <Callout type="info">
 If your installed version is older, update Codex before troubleshooting behavior that differs from these docs.
 </Callout>
+
+## Codex Translation Editor 0.35.0
+
+Published October 13, 2026.
+
+### New Features
+
+- **Re-import an updated file**: importing a file that is already in the project now opens an **Already imported** step. It previews new, changed, and removed cells, then lets you choose **Create new updated file**, **Rewrite the existing file**, or **Import as a new file**. Matching cells keep their translations, history, comments, and audio; changed cells are flagged with a yellow bar until you edit or validate them. See [Re-import an Updated File](/docs/project-management/importing-files#re-import-an-updated-file).
+- **Footnotes List**: a new Main Menu tool lists every footnote in the project, grouped by file and chapter. Click one to jump to its cell. See [Footnotes List](/docs/translation/translation-tools#footnotes-list).
+
+### Improvements
+
+- **Line numbers restart at each milestone**: the number beside each cell now counts from the start of its chapter or section, so it matches the page range. Comments use the same numbering. See [Pagination and Subdivisions](/docs/translation/milestones-and-navigation#pagination-and-subdivisions).
+
+Full changelog: [codex-editor 0.35.0](https://github.com/genesis-ai-dev/codex-editor/releases/tag/0.35.0).
 
 ## Codex Translation Editor 0.34.0
 
@@ -37,29 +52,9 @@ Full changelog: [codex-editor 0.34.0](https://github.com/genesis-ai-dev/codex-ed
 
 Published September 9, 2026.
 
-### Improvements
-
-- **Round-trip export now works under any media strategy**, including **Stream Only**. Codex downloads a needed original only when no usable local copy exists. See [Media and Storage](/docs/project-management/media-and-storage) and [Exporting Your Project](/docs/translation/exporting-project).
-- Export file names no longer include a timestamp, and use the actual target language code instead of a hardcoded English one.
-
-### Fixes
-
-- **Subtitle import data loss**: fixed a bug where importing a subtitle file as a target could let a later overlapping cue silently overwrite an earlier cell's text and timestamps.
-- **Round-trip DOCX mapping**: fixed cases where exported documents could keep the source-language text despite an existing translation, or duplicate text in headings and text boxes.
-- **Hidden cells**: navigation counts, milestone cell ranges, and file/chapter translation progress now update correctly after hiding or un-hiding cells in source editing mode. See [Hide Cells That Do Not Need Translation](/docs/translation/merging-editing-source-cells#hide-cells-that-do-not-need-translation).
-- The Sync button now disables immediately after being clicked, preventing duplicate sync requests while a sync is starting.
-- Sync no longer treats a diagnostic path Frontier omitted from its conflict list as a fabricated conflict, which could pull in and commit unrelated remote files.
-- Multi-segment cells imported from IDML now request a single structured translation instead of a follow-up repair request, reducing AI translation delays for those cells.
+- **Round-trip export works under any media strategy**, including **Stream Only**, alongside fixes for a subtitle-import data-loss bug, DOCX round-trip mapping, hidden-cell navigation counts, and duplicate sync requests. See [Media and Storage](/docs/project-management/media-and-storage) and [Exporting Your Project](/docs/translation/exporting-project).
 
 Full changelog: [codex-editor 0.33.0](https://github.com/genesis-ai-dev/codex-editor/releases/tag/0.33.0).
-
-## Codex Translation Editor 0.32.0
-
-Published August 19, 2026.
-
-- **Built-in audio editor**, **milestone editing**, and the ability to **hide cells that shouldn't be translated** all shipped in this release, alongside a sync fix that prevented translation files from being wiped or deleted during sync merges. See [Video and Audio Translation](/docs/translation/video-audio-translation), [Milestones and Navigation](/docs/translation/milestones-and-navigation), and [Merging and Editing Source Cells](/docs/translation/merging-editing-source-cells).
-
-Full changelog: [codex-editor 0.32.0](https://github.com/genesis-ai-dev/codex-editor/releases/tag/0.32.0).
 
 ## Codex Desktop App 1.108.13184
 
@@ -72,6 +67,8 @@ Full changelog and downloads: [codex 1.108.13184](https://github.com/genesis-ai-
 
 ## Recent Features To Know
 
+- Re-importing a file already in the project previews the changes and carries translations over to the updated cells.
+- The **Footnotes List** in the Main Menu shows every footnote in the project and jumps to its cell.
 - A built-in audio editor can trim, splice, and re-save cell recordings without external tools.
 - Milestones and subdivisions can be renamed, and milestone placement can be edited when the setting is turned on.
 - Project admins can hide cells that do not need translation; hidden cells skip AI translation and exports.
