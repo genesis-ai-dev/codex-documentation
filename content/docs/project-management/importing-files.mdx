@@ -90,7 +90,25 @@ Always review imported target content before continuing translation work.
 
 ## Re-import an Updated File
 
-If you import a Word document that matches one already in the project, Codex offers **Update Existing** instead of creating a duplicate pair. The source is rebuilt from the fresh file and existing translations are carried over. Use this when the original document was revised, or when a newer Codex release fixes an import problem in a file you imported earlier.
+Use a re-import when the original document was revised, or when a newer Codex release fixes an import problem in a file you imported earlier.
+
+Import the file as usual. If Codex recognizes it as a file already in the project (same file contents or same file name), the importer opens an **Already imported** step before writing anything. This works for importers that keep the original file, such as DOCX, Markdown, OBS, TMS, InDesign, Biblica, and USFM. Bible books that already exist under their standard book name still use the overwrite prompt instead.
+
+Under **What this import changes**, Codex lists:
+
+- **New cells**: cells added in place. Surrounding cells and their translations stay put.
+- **Changed cells needing review**: cells whose source changed, so the existing translation may no longer fit.
+- **Cells no longer in the document**: cells hidden from the editor and from exports. Their content and history stay in the file.
+
+Under **How should we import it?**, choose one:
+
+- **Create new updated file**: keeps the existing file untouched and adds a new copy that carries your translations and the changes. This is the safest option.
+- **Rewrite the existing file**: applies the changes to the existing file in place. Translations are kept, but the file's cells are rebuilt from the new import.
+- **Import as a new file**: ignores the existing file and imports a separate, untranslated document.
+
+Then select **Continue**.
+
+When cells still match, Codex keeps their translations, edit history, comments, and audio. Each changed cell gets a yellow bar on its left edge in the editor, and milestone navigation shows how many cells in each milestone need review. The flag clears when you edit or validate the translation. If a changed cell had been validated, Codex removes that validation so someone checks it again.
 
 ## Round-trip Workflows
 
