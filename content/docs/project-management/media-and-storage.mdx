@@ -15,10 +15,10 @@ Project cards can offer three media strategies:
 | --- | --- | --- |
 | **Auto Download Media** | Offline work and reliable export. | Uses the most disk space. |
 | **Stream & Save** | Teams with internet access who still want local caching. | First playback needs network; disk use grows as media is cached. |
-| **Stream Only** | Devices with limited storage. | Requires network for media playback and can limit round-trip export if original media is not local. |
+| **Stream Only** | Devices with limited storage. | Requires network for media playback; round-trip export downloads any needed original on demand. |
 
-<Callout type="warning">
-If you need to export deliverables that depend on original media, avoid **Stream Only** unless your coordinator confirms the export workflow does not need local media files.
+<Callout type="info">
+Round-trip export works in every media strategy, including **Stream Only**. Codex downloads a needed original only when no usable local copy already exists, then reuses it for the rest of that export.
 </Callout>
 
 ## Change Media Strategy

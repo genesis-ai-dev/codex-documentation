@@ -84,6 +84,8 @@ Audio export is available for projects with audio attachments or media workflows
 - **Consolidate by Character** for dialogue or dubbing workflows. This works in every media strategy, including **Stream & Save** and **Stream Only**.
 - Preview character-consolidated output before export.
 
+By default, character consolidation combines camera-angle variants of a label, such as `Alex (ON)` and `Alex (Off)`, into one track under `Alex`, keeping each recording at its original timeline position. Open **Character options…** to add or remove which trailing markers get ignored, or turn on **Separate by Camera Angles per Character** to export full labels as separate tracks instead.
+
 Exported audio file names include verse ranges, and files with no audio no longer produce empty folders in the output.
 
 For video and dubbing workflows, see [Video and Audio Translation](/docs/translation/video-audio-translation).
@@ -104,7 +106,7 @@ Check that the selected target cells contain content. If a recent release note m
 
 ### Round-trip export is unavailable
 
-Confirm the file was imported with a round-trip importer. If it was imported with a plain text or simplified importer, Codex may not have enough original structure to rebuild the source format.
+Confirm the file was imported with a round-trip importer. If it was imported with a plain text or simplified importer, Codex may not have enough original structure to rebuild the source format. Round-trip export works under any media strategy; if a needed original is not cached locally, Codex downloads it as part of the export.
 
 ### Audio export is missing files
 
